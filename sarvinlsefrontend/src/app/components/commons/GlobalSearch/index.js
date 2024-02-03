@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import LocationSearch from "../commons/LocationSearch";
-import SearchBar from "../commons/SearchBar";
+import LocationSearch from "../LocationSearch";
+import SearchBar from "../SearchBar";
 
 const GlobalSearch = () => {
   return (
