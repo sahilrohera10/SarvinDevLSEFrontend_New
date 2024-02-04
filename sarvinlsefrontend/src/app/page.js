@@ -1,11 +1,20 @@
-import ListCard from "./components/listView/ListCard";
-import CategoryIcon from "./components/categoryIcons/CategoryIcon";
+import ListCard from "./components/commons/listView/ListCard";
+import CategoryIcon from "./components/commons/categoryIcons/CategoryIcon";
+import Image from "next/image";
+import MapIntegration from "./components/commons/MapIntegration";
+import Filters from "./components/commons/Filters";
+import EmbedMap from "./components/commons/EmbedMap";
+import GlobalSearch from "./components/commons/GlobalSearch";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main>
+      {/* <MapIntegration /> */}
+      {/* <EmbedMap /> */}
+      <Filters />
       <ListCard />
       <CategoryIcon />
+      {/* <GlobalSearch /> */}
     </main>
   );
 }
