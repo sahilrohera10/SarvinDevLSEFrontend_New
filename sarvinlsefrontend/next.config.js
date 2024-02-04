@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['tse1.mm.bing.net'], // regarding Creater Card testing Image
-    },
-}
+  images: {
+    domains: [
+      "t4.ftcdn.net",
+      "media.istockphoto.com",
+      "img.freepik.com",
+      "t3.ftcdn.net",
+    ], // regarding Creater Card testing Image
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

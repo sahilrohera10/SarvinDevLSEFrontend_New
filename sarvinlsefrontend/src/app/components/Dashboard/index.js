@@ -8,6 +8,9 @@ import GlobalSearch from "../commons/GlobalSearch";
 import Chips from "../commons/Chips";
 import Collapse from "../commons/Collapse";
 import Categories from "./Categories";
+import RisingCreators from "./RisingCreators";
+import SuggestionCreators from "./SuggestionCreators";
+import Footer from "../commons/Footer";
 
 const Dashboard = () => {
   return (
@@ -62,6 +65,10 @@ const Dashboard = () => {
           <Categories />
         </Collapse>
       </div>
+      <RisingCreators />
+      <SuggestionCreators />
+      <br />
+      <Footer />
     </div>
   );
 };

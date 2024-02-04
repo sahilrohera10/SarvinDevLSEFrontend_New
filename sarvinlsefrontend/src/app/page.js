@@ -8,7 +8,7 @@ import NavBar from "./components/commons/Navbar";
 
 export default function Home() {
   return (
-    <main style={{ backgroundColor: "#f8f9ff", height: "100vh" }}>
+    <main style={{ backgroundColor: "#f8f9ff" }}>
       <Dashboard />
     </main>
   );

@@ -1,20 +1,19 @@
 import Image from "next/image";
 import { FaTwitter, FaInstagram, FaPinterestP } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
-export default function CreaterCard() {
+export default function CreaterCard({
+  name = "Naman Agarwal",
+  profession = "CEO and Founder",
+  img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
+}) {
   return (
-    <div className="max-w-sm bg-white relative group">
+    <div className="max-w-sm bg-black relative group">
       <a
         href="#"
-        className="relative block group-hover:opacity-90 transition-opacity duration-300"
+        className="relative block  group-hover:opacity-70 transition-opacity duration-300"
       >
         <div className="relative overflow-hidden">
-          <Image
-            alt="alt text."
-            src="https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300"
-            width={600}
-            height={400}
-          />
+          <Image alt="alt text." src={img} width={300} height={200} />
           <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
         </div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-90 transition-opacity duration-300">
@@ -34,9 +33,9 @@ export default function CreaterCard() {
           </div>
         </div>
       </a>
-      <div className="p-5">
-        <div className="text-black text-xl font-bold">Jenny Wilson</div>
-        <div className="text-gray-400 text-lg">Ceo & founder</div>
+      <div className="p-5 bg-white">
+        <div className="text-black text-xl font-bold">{name}</div>
+        <div className="text-gray-400 text-lg">{profession}</div>
       </div>
     </div>
   );
