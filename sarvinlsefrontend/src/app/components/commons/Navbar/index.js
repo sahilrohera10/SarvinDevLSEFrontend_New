@@ -9,7 +9,10 @@ function NavBar({ currentColor }) {
       <div className={styles.Layout_app__Yxg9h}>
         <header className={styles.Header_headerContainer__Ss95e}>
           <div className={styles.Header_header__Ncy19}>
-            <div className={styles.Header_container__3Xo0L}>
+            <div
+              className={styles.Header_container__3Xo0L}
+              style={{ display: "flex", justifyContent: "space-between" }}
+            >
               <a className={styles.Header_logo__cFwus} href="/">
                 <span
                   style={{
@@ -46,7 +49,7 @@ function NavBar({ currentColor }) {
                     <div
                       className={styles.Logo}
                       style={{
-                        color: currentColor,
+                        color: "#E65C55",
                         transition: "color 2s",
                       }}
                     >
@@ -686,83 +689,43 @@ function NavBar({ currentColor }) {
                 </li>
                 {/* Other Feature Links... */}
               </ul>
-              <div className={styles.Header_loginWrapper__9_1kE}>
-                <a
-                  className={styles.Header_client__RyL2j}
-                  href="https://klear.com/sign-in"
-                  target=""
-                  rel="noreferrer"
+
+              <div>
+                <Button
+                  style={{
+                    backgroundColor: currentColor,
+                    fontWeight: 600,
+
+                    fontSize: "16px",
+                    gap: "8px",
+                    lineHeight: "24px",
+                    transition: "background-color 2s",
+                  }}
                 >
                   <svg
-                    width="16"
-                    height="17"
-                    viewBox="0 0 16 17"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0_920_14251)">
+                    <g clip-path="url(#clip0_134_3477)">
                       <path
-                        d="M2.66602 15.1667C2.66602 13.7522 3.22792 12.3956 4.22811 11.3954C5.22831 10.3952 6.58486 9.83332 7.99935 9.83332C9.41384 9.83332 10.7704 10.3952 11.7706 11.3954C12.7708 12.3956 13.3327 13.7522 13.3327 15.1667H11.9993C11.9993 14.1058 11.5779 13.0884 10.8278 12.3382C10.0776 11.5881 9.06021 11.1667 7.99935 11.1667C6.93848 11.1667 5.92107 11.5881 5.17092 12.3382C4.42078 13.0884 3.99935 14.1058 3.99935 15.1667H2.66602ZM7.99935 9.16666C5.78935 9.16666 3.99935 7.37666 3.99935 5.16666C3.99935 2.95666 5.78935 1.16666 7.99935 1.16666C10.2093 1.16666 11.9993 2.95666 11.9993 5.16666C11.9993 7.37666 10.2093 9.16666 7.99935 9.16666ZM7.99935 7.83332C9.47268 7.83332 10.666 6.63999 10.666 5.16666C10.666 3.69332 9.47268 2.49999 7.99935 2.49999C6.52602 2.49999 5.33268 3.69332 5.33268 5.16666C5.33268 6.63999 6.52602 7.83332 7.99935 7.83332Z"
-                        fill="#4C4D4F"
-                      ></path>
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6247 12.759L13.2391 11.959L13.9799 8.2766L11.1607 10.759L9.7751 9.95899L15.6775 5.33661L14.6247 12.759ZM10.3999 12.3982C10.3999 11.7358 10.9375 11.1982 11.5999 11.1982C12.2623 11.1982 12.7999 11.7358 12.7999 12.3982C12.7999 13.0606 12.2623 13.5982 11.5999 13.5982C10.9375 13.5982 10.3999 13.0606 10.3999 12.3982ZM7.52311 19.4598L8.57511 12.0374L9.9607 12.8374L9.2199 16.5198L12.0391 14.0374L13.4247 14.8374L7.52311 19.4598ZM12.0047 0.0078125C5.37993 0.0078125 0.00952148 5.37902 0.00952148 12.003C0.00952148 18.6278 5.37993 23.9982 12.0047 23.9982C18.6295 23.9982 23.9999 18.6278 23.9999 12.003C23.9999 5.37902 18.6295 0.0078125 12.0047 0.0078125Z"
+                        fill="white"
+                      />
                     </g>
                     <defs>
-                      <clipPath id="clip0_920_14251">
-                        <rect
-                          width="16"
-                          height="16"
-                          fill="white"
-                          transform="translate(0 0.5)"
-                        ></rect>
+                      <clipPath id="clip0_134_3477">
+                        <rect width="24" height="24" fill="white" />
                       </clipPath>
                     </defs>
                   </svg>
-                  Sign in
-                </a>
-                <a
-                  className={styles.Header_creators__iHt70}
-                  href="https://klear.com/sign-in?creator=true"
-                  target=""
-                  rel="noreferrer"
-                >
-                  Creators Sign in
-                </a>{" "}
-                <div className={styles.Header_background__0TypS}></div>
+                  How to use it?
+                </Button>
               </div>
-              <Button
-                style={{
-                  backgroundColor: currentColor,
-                  fontWeight: 600,
-                  textAlign: "center",
-                  fontSize: "16px",
-                  gap: "8px",
-                  lineHeight: "24px",
-                  transition: "background-color 2s",
-                }}
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_134_3477)">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M14.6247 12.759L13.2391 11.959L13.9799 8.2766L11.1607 10.759L9.7751 9.95899L15.6775 5.33661L14.6247 12.759ZM10.3999 12.3982C10.3999 11.7358 10.9375 11.1982 11.5999 11.1982C12.2623 11.1982 12.7999 11.7358 12.7999 12.3982C12.7999 13.0606 12.2623 13.5982 11.5999 13.5982C10.9375 13.5982 10.3999 13.0606 10.3999 12.3982ZM7.52311 19.4598L8.57511 12.0374L9.9607 12.8374L9.2199 16.5198L12.0391 14.0374L13.4247 14.8374L7.52311 19.4598ZM12.0047 0.0078125C5.37993 0.0078125 0.00952148 5.37902 0.00952148 12.003C0.00952148 18.6278 5.37993 23.9982 12.0047 23.9982C18.6295 23.9982 23.9999 18.6278 23.9999 12.003C23.9999 5.37902 18.6295 0.0078125 12.0047 0.0078125Z"
-                      fill="white"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_134_3477">
-                      <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-                Get Started
-              </Button>
             </div>
           </div>
         </header>
