@@ -8,6 +8,14 @@ const nextConfig = {
       "t3.ftcdn.net",
     ], // regarding Creater Card testing Image
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };
 
 module.exports = nextConfig;
