@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import CategoryIcon from "../../commons/categoryIcons/CategoryIcon";
 import Home from "../../commons/icons/home";
-import Pencil from "../../commons/icons/Design.png";
-import RealEstate from "../../commons/icons/RealEstate.png";
+import Pencil from "../../commons/icons/artist.png";
+import RealEstate from "../../commons/icons/realstateagent.png";
 import Business from "../../commons/icons/Business.png";
 import FoodChain from "../../commons/icons/FoodChain.png";
 import Sweet from "../../commons/icons/Sweet.png";
@@ -32,7 +32,7 @@ import Insurance from "../../commons/icons/insurance.png";
 
 import Image from "next/image";
 
-const Categories = ({ text = null, children }) => {
+const Categories = () => {
   return (
     <div
       style={{
