@@ -7,6 +7,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import MapCards from "../MapCards/CreaterCard";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -14,8 +15,8 @@ const mapContainerStyle = {
   height: "40vh",
 };
 const center = {
-  lat: 18.5204, // default latitude
-  lng: 73.8567, // default longitude
+  lat: 18.5214,
+  lng: 73.8446, // default longitude
 };
 
 const MapIntegration = () => {
@@ -24,9 +25,56 @@ const MapIntegration = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState();
   const markers = [
-    { address: "Address1", lat: 18.5204, lng: 73.8567 },
-    { address: "Address2", lat: 18.5214, lng: 73.8446 },
-    { address: "Address3", lat: 18.5215, lng: 73.8569 },
+    {
+      address: (
+        <MapCards
+          name="Rohit Sharma"
+          img="https://media.istockphoto.com/id/529278045/photo/working-on-something-great.jpg?s=612x612&w=is&k=20&c=lfzJ5xpUSYkgNCsAK5UO6hcP0BDlAIJIXrDw-qlmktc="
+        />
+      ),
+      lat: 18.5204,
+      lng: 73.8467,
+    },
+    {
+      address: (
+        <MapCards
+          name="Prajakta Koli"
+          img="https://t3.ftcdn.net/jpg/03/18/04/12/360_F_318041202_dSFWSp38bnmiNxhLQnJDgnszmCoW7W0a.jpg"
+        />
+      ),
+      lat: 18.5214,
+      lng: 73.8446,
+    },
+    {
+      address: (
+        <MapCards
+          name="Osama-Bin-Laden"
+          img="https://media.istockphoto.com/id/1188563581/photo/head-shot-portrait-offended-upset-african-american-girl-feeling-bad.jpg?s=612x612&w=0&k=20&c=cY8vMx4MyrcaL0KfmFkHluHzx0ufQfh-XExtbMN1hm8="
+        />
+      ),
+      lat: 18.5215,
+      lng: 73.8469,
+    },
+    {
+      address: (
+        <MapCards
+          name="Lebron James"
+          img="https://media.istockphoto.com/id/1213961316/photo/thoughtful-puzzled-african-american-man-looking-aside-at-copy-space.jpg?s=612x612&w=0&k=20&c=Kj347KnMRdm9MXO7wOFWpmcARkL7XkcVBkJJiEnSuug="
+        />
+      ),
+      lat: 18.5216,
+      lng: 73.8447,
+    },
+    {
+      address: (
+        <MapCards
+          name="Naman Agarwal"
+          img="https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg"
+        />
+      ),
+      lat: 18.5215,
+      lng: 73.8471,
+    },
   ];
 
   const { isLoaded, loadError } = useLoadScript({
