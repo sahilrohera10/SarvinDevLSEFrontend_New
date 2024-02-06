@@ -11,6 +11,7 @@ import Categories from "./Categories";
 import RisingCreators from "./RisingCreators";
 import SuggestionCreators from "./SuggestionCreators";
 import Footer from "../commons/Footer";
+import { Button } from "../commons/button";
 
 const Dashboard = () => {
   return (
@@ -60,9 +61,23 @@ const Dashboard = () => {
           img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9iVHFERvJNWy35cSvxSyp79AIHYc08OaXrsaU2sfkE2THiuIKJOxEqxioeXtELpQqY-E&usqp=CAU"
         />
       </div>
-      <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
-        <Collapse text={<div style={{ color: "#008ecc" }}>Show More</div>}>
-          <Categories />
+      <div style={{ margin: 10, display: "flex", justifyContent: "flex-end" }}>
+        <Collapse
+          text={
+            <div
+              style={{
+                color: "#008ecc",
+                width: "100vw",
+                boxShadow: "none",
+              }}
+            >
+              Show More
+            </div>
+          }
+        >
+          <div>
+            <Categories />
+          </div>
         </Collapse>
       </div>
       <RisingCreators />
