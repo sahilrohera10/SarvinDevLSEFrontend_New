@@ -5,11 +5,13 @@ import EmbedMap from "./components/commons/EmbedMap";
 import GlobalSearch from "./components/commons/GlobalSearch";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./components/commons/Navbar";
+import SignIn from "./components/SignIn";
 
 export default function Home() {
   return (
     <main style={{ backgroundColor: "#f8f9ff", overflowX: "hidden" }}>
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <SignIn />
     </main>
   );
 }

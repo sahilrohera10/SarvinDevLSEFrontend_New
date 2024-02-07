@@ -1458,7 +1458,7 @@ ul.SubNavItems_items2__nuseJ li:nth-child(2) a {
 .Header_loginWrapper__9_1kE {
   margin-left: auto;
   margin-right: 28px;
-  z-index: 2;
+  z-index: 20;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1544,7 +1544,7 @@ ul.SubNavItems_items2__nuseJ li:nth-child(2) a {
   background-color: #fff;
   border-color: #fff;
   box-shadow: 0 0 40px #f86059;
-  opacity: 0.2;
+  opacity: 0.7;
   pointer-events: auto;
 }
 .Header_signLink__Kpozi {
