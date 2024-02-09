@@ -7,13 +7,21 @@ import Dashboard from "./components/Dashboard";
 import NavBar from "./components/commons/Navbar";
 import SignIn from "./components/SignIn";
 import Verification from "./components/Verification";
+import OTPScreens from "./components/OTPScreen";
 
 export default function Home() {
   return (
-    <main style={{ backgroundColor: "#f8f9ff", overflowX: "hidden" }}>
+    <main
+      style={{
+        backgroundColor: "#f8f9ff",
+        overflowX: "hidden",
+        scrollBehavior: "smooth",
+      }}
+    >
       {/* <Dashboard /> */}
       {/* <SignIn /> */}
-      <Verification />
+      {/* <Verification /> */}
+      <OTPScreens />
     </main>
   );
 }
