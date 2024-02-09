@@ -75,12 +75,10 @@ const OTPScreens = () => {
                 </div>
               </div>
             </div>
-            <div
-              style={{ borderWidth: "0px 0px 2px 0px", borderColor: "black" }}
-            ></div>
+            <div style={{ borderWidth: "0px 0px 2px 0px" }}></div>
             <div
               class="flex items-center justify-center text-sm"
-              style={{ fontWeight: 600, gap: 20 }}
+              style={{ fontWeight: 600, gap: 10, marginTop: 10 }}
             >
               www.instagram.com/Fjkjn2214444ioo <FaArrowUpRightFromSquare />
             </div>
@@ -92,10 +90,10 @@ const OTPScreens = () => {
                 I have left the comment. Continue
               </button>
             </div>
-            <div>
+            <div class="flex justify-center">
               <button
                 type="submit"
-                class="flex w-full justify-center rounded-sm bg-[#FF965E] px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="flex w-80 justify-center rounded-sm bg-[#FF965E] px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Verifying..
               </button>
