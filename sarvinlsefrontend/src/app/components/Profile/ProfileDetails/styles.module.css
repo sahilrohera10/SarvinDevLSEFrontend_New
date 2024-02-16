@@ -1,0 +1,128 @@
+.work_experience {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 6px;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-bottom: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  padding-right: 20px;
+  background-color: #fff;
+}
+
+.resume {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-bottom: 8px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  padding-right: 20px;
+  background-color: #fff;
+}
+.education {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-left: 24px;
+  background-color: #fff;
+
+  padding-bottom: 18px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  padding-right: 20px;
+  color: "#4b5563";
+}
+.portfolio {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-bottom: 26px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.skills {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-bottom: 8px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  color: "#4b5563";
+}
+.languages {
+  border-width: 1px;
+  border-color: #dfe0e0;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-left: 24px;
+  padding-bottom: 8px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  color: "#4b5563";
+}
+
+.work_experience_text {
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resume_text {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+}
+.no_experience_text {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.image {
+  width: 30px;
+  height: 30px;
+}
+
+.folder_image {
+  width: 50px;
+  height: 50px;
+}
+
+.linkedin_text {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.skills_text {
+  color: #fff;
+  background-color: #69bef1;
+  padding: 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.language_text {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
