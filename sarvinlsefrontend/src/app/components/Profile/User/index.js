@@ -10,13 +10,33 @@ function User() {
         <div
           style={{
             display: "flex",
+            justifyContent: "space-between",
+            padding: "20px 20px 10px 20px",
+          }}
+        >
+          <div></div>
+          <div
+            style={{
+              height: "14px",
+              width: "14px",
+            }}
+          >
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjBXKS4GpFLR-Xr105WY3um0ASsCdVf0XSA&usqp=CAU" />
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             flexDirection: "column",
           }}
         >
           <div className={styles.image}>
-            <img src="https://miro.medium.com/v2/resize:fit:1400/0*1WJiB8mUJKcylomi.jpg" />
+            <img
+              class="w-36 h-36  rounded-full"
+              src="https://play-lh.googleusercontent.com/DBlW7854rRNk-LPRu8jD25HRYaA0AFEvNLJvGtAUMSC-kJu1IfH7Wg4an_kMRA6VcPZ2=w526-h296-rw"
+              alt="Rounded avatar"
+            ></img>
           </div>
           <div className={styles.user_name}>Your Name</div>
           <div className={styles.university_name}>@Username</div>
