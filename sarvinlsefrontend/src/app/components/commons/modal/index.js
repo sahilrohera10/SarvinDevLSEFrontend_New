@@ -14,7 +14,12 @@ export default function Modals({
         dismissible
         popup
         onClose={() => setOpenModal(false)}
-        style={{ background: "rgb(0,0,0,0.4)", padding: 0 }}
+        style={{
+          background: "rgb(0,0,0,0.4)",
+          padding: 0,
+          width: "auto",
+          height: "auto",
+        }}
       >
         {children}
       </Modal>

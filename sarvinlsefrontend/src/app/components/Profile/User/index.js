@@ -1,9 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
-import avatar from "../../../../../public/Images/man1.jpg";
+import { FaPencil } from "react-icons/fa6";
+import Modals from "../../commons/modal";
+import ProfilePhotoForm from "../ProfilePhotoForm";
+import ContactDetailForm from "../ContactDetailForm";
+import SuccessModal from "../../SuccessModal";
 
 function User() {
+  const [openProfileModal, setOpenProfileModal] = useState(false);
+  const [openContactModal, setOpenContactModal] = useState(false);
+
+  console.log(openProfileModal);
   return (
     <div style={{ margin: "0px 20px" }}>
       <div className={styles.profile_pic} style={{ backgroundColor: "#fff" }}>
@@ -20,10 +28,14 @@ function User() {
               height: "14px",
               width: "14px",
             }}
+            onClick={() => {
+              setOpenProfileModal(!openProfileModal);
+            }}
           >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjBXKS4GpFLR-Xr105WY3um0ASsCdVf0XSA&usqp=CAU" />
+            <FaPencil />
           </div>
         </div>
+
         <div
           style={{
             display: "flex",
@@ -42,12 +54,24 @@ function User() {
           <div className={styles.university_name}>@Username</div>
         </div>
       </div>
+      {openProfileModal ? (
+        <Modals openModal={openProfileModal} setOpenModal={setOpenProfileModal}>
+          <ProfilePhotoForm />
+        </Modals>
+      ) : (
+        <></>
+      )}
       <div className={styles.contact}>
         <div className={styles.contact_text}>
           <div style={{ fontSize: "18px" }}>Contact</div>
 
-          <div style={{ height: "14px", width: "14px", marginRight: "26px" }}>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjBXKS4GpFLR-Xr105WY3um0ASsCdVf0XSA&usqp=CAU" />
+          <div
+            style={{ height: "14px", width: "14px", marginRight: "26px" }}
+            onClick={() => {
+              setOpenContactModal(!openContactModal);
+            }}
+          >
+            <FaPencil />{" "}
           </div>
         </div>
         <div
@@ -90,18 +114,15 @@ function User() {
           <div style={{ marginLeft: "6px" }}>Pithoragarh</div>
         </div>
       </div>
-      {/* <div className={styles.employment_container}>
-        <div>Equal Employment</div>
-        <div style={{ height: "14px", width: "14px", marginRight: "26px" }}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjBXKS4GpFLR-Xr105WY3um0ASsCdVf0XSA&usqp=CAU" />
-        </div>
-      </div>
-      <div className={styles.employment_container}>
-        <div>Job Preferences</div>
-        <div style={{ height: "14px", width: "14px", marginRight: "26px" }}>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPjBXKS4GpFLR-Xr105WY3um0ASsCdVf0XSA&usqp=CAU" />
-        </div>
-      </div> */}
+      {openContactModal ? (
+        <Modals openModal={openContactModal} setOpenModal={setOpenContactModal}>
+          <div>
+            <ContactDetailForm />
+          </div>
+        </Modals>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
