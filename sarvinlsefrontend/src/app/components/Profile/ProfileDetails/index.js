@@ -4,10 +4,16 @@ import styles from "./styles.module.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-// import Modals from "../../../../../commons/UIComponents/Components/Modal";
-// import ExperienceForm from "../ExperienceForm";
-// import EducationForm from "../EducationForm";
-// import ResumeUploads from "../ResumeUpload";
+import Modals from "../../commons/modal";
+import ExperienceForm from "../ExperienceForm";
+import ActivitySection from "../ActivityModal";
+import ResumeUploads from "../ResumeUpload";
+import Cards from "../../commons/cards";
+import MetricCard from "react-metric-card";
+import "react-metric-card/dist/index.css";
+import { FaChartLine } from "react-icons/fa";
+import { FaChartPie } from "react-icons/fa";
+
 // import SearchBar from "../../commons/SearchBar";
 
 function ProfileDetails() {
@@ -20,7 +26,7 @@ function ProfileDetails() {
       <div className={styles.work_experience}>
         <div>
           <div className={styles.work_experience_text}>
-            <div>Account Settings</div>
+            <div>Your Metrics</div>
             <div
               className={styles.image}
               onClick={() => {
@@ -31,24 +37,66 @@ function ProfileDetails() {
             </div>
           </div>
         </div>
-        <div className={styles.no_experience_text}>
-          Please complete your contact info, education, work experience, resume,
-          links, and equal employment info to finish your profile.
+        <div className={styles.no_experience_text} style={{ marginBottom: 10 }}>
+          Average values of core metrics for 30 days, Metrics updated 15 hours
+          ago.
+        </div>
+        <div class="flex gap-3">
+          <div style={{ flex: 2 }}>
+            <MetricCard
+              value={"1024"}
+              trend={{
+                slope: 1,
+                description: "Compared to last week",
+                value: "0.5%",
+              }}
+              title="Followers"
+              fetching={false}
+              error={null}
+              iconBgColor="#f27430"
+              iconBorderRadius="90%"
+            />
+          </div>
+          <div style={{ flex: 2 }}>
+            <MetricCard
+              value={"27.5%"}
+              trend={{
+                slope: -1,
+                description: "Compared to last week",
+                value: "0.5%",
+              }}
+              title="Engagement Rate"
+              fetching={false}
+              error={null}
+              icon={<FaChartLine />}
+            />
+          </div>
+          <div style={{ flex: 2 }}>
+            <MetricCard
+              value={"97"}
+              trend={{
+                slope: -1,
+                description: "Compared to last week",
+                value: "0.5%",
+              }}
+              title="Profile Quality Score"
+              fetching={false}
+              error={null}
+              iconBgColor="#f27430"
+              icon={<FaChartPie />}
+              iconBorderRadius="20%"
+            />
+          </div>
         </div>
         <div style={{ marginTop: "20px", color: "#4285F4", fontSize: 12 }}>
           Switch to Creator Account
         </div>
       </div>
-      {/* <Modals
-        show={openExperience}
-        onClose={() => {
-          setOpenExperience(false);
-        }}
-      >
+      <Modals openModal={openExperience} setOpenModal={setOpenExperience}>
         <div style={{ width: "95%" }}>
           <ExperienceForm />
         </div>
-      </Modals> */}
+      </Modals>
       <div className={styles.education}>
         <div className={styles.work_experience_text}>
           <div>Your Activity</div>
@@ -66,14 +114,9 @@ function ProfileDetails() {
           links, and equal employment info to finish your profile.
         </div>
       </div>
-      {/* <Modals
-        show={openEducation}
-        onClose={() => {
-          setOpenEducation(false);
-        }}
-      >
-        <EducationForm />
-      </Modals> */}
+      <Modals openModal={openEducation} setOpenModal={setOpenEducation}>
+        <ActivitySection />
+      </Modals>
       <div className={styles.resume}>
         <div className={styles.work_experience_text}>
           <div>Skills</div>
@@ -159,14 +202,9 @@ function ProfileDetails() {
         </div>
       </div>
 
-      {/* <Modals
-        show={openResume}
-        onClose={() => {
-          setOpenResume(false);
-        }}
-      >
+      <Modals openModal={openResume} setOpenModal={setOpenResume}>
         <ResumeUploads />
-      </Modals> */}
+      </Modals>
       <div className={styles.portfolio}>
         <div className={styles.work_experience_text}>
           <div>Social Profiles</div>

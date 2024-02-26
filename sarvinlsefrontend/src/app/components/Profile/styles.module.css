@@ -25,7 +25,8 @@
 }
 
 .complete_your_profile_text {
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .contact_info {
@@ -35,11 +36,14 @@
 }
 
 .status {
+  display: flex;
+  flex-direction: row-reverse;
+
   /* justify-content: flex-end; */
 }
 .status_text {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .user_details_container {

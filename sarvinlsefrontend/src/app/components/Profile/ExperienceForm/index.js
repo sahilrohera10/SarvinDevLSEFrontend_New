@@ -1,5 +1,5 @@
 import React from "react";
-import CheckBox from "../../commons/Checkbox";
+// import CheckBox from "../../commons/Checkbox";
 
 function ExperienceForm() {
   return (
@@ -313,7 +313,7 @@ function ExperienceForm() {
               </div>
               <div class="col-span-full">
                 {" "}
-                <CheckBox label="I currently work here" />
+                {/* <CheckBox label="I currently work here" /> */}
               </div>
 
               <div class="sm:col-span-12">
