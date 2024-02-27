@@ -5,14 +5,15 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Modals from "../../commons/modal";
-import ExperienceForm from "../ExperienceForm";
+import AccountStatModal from "../AccountStatModal";
 import ActivitySection from "../ActivityModal";
 import ResumeUploads from "../ResumeUpload";
-import Cards from "../../commons/cards";
-import MetricCard from "react-metric-card";
-import "react-metric-card/dist/index.css";
-import { FaChartLine } from "react-icons/fa";
-import { FaChartPie } from "react-icons/fa";
+
+import MetricCards from "../../commons/MetricCard";
+import Follower from "../../commons/icons/follower.png";
+import Engagement from "../../commons/icons/engagmentrate.png";
+import Score from "../../commons/icons/score.png";
+import Image from "next/image";
 
 // import SearchBar from "../../commons/SearchBar";
 
@@ -43,48 +44,39 @@ function ProfileDetails() {
         </div>
         <div class="flex gap-3">
           <div style={{ flex: 2 }}>
-            <MetricCard
-              value={"1024"}
+            <MetricCards
+              value={216}
+              title="Followers"
+              icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
+              trend={{
+                slope: -1,
+                description: "Compared to last week",
+                value: "0.5%",
+              }}
+            />
+          </div>
+          <div style={{ flex: 2 }}>
+            <MetricCards
+              value={"27.5%"}
+              title="Engagement Rate"
+              icon={<Image src={Engagement} width={48} height={0} alt="Icon" />}
+              trend={{
+                slope: -1,
+                description: "Compared to last week",
+                value: "0.5%",
+              }}
+            />
+          </div>
+          <div style={{ flex: 2 }}>
+            <MetricCards
+              value={"87"}
+              title="Account Quality Score"
+              icon={<Image src={Score} width={48} height={0} alt="Icon" />}
               trend={{
                 slope: 1,
                 description: "Compared to last week",
                 value: "0.5%",
               }}
-              title="Followers"
-              fetching={false}
-              error={null}
-              iconBgColor="#f27430"
-              iconBorderRadius="90%"
-            />
-          </div>
-          <div style={{ flex: 2 }}>
-            <MetricCard
-              value={"27.5%"}
-              trend={{
-                slope: -1,
-                description: "Compared to last week",
-                value: "0.5%",
-              }}
-              title="Engagement Rate"
-              fetching={false}
-              error={null}
-              icon={<FaChartLine />}
-            />
-          </div>
-          <div style={{ flex: 2 }}>
-            <MetricCard
-              value={"97"}
-              trend={{
-                slope: -1,
-                description: "Compared to last week",
-                value: "0.5%",
-              }}
-              title="Profile Quality Score"
-              fetching={false}
-              error={null}
-              iconBgColor="#f27430"
-              icon={<FaChartPie />}
-              iconBorderRadius="20%"
             />
           </div>
         </div>
@@ -94,7 +86,7 @@ function ProfileDetails() {
       </div>
       <Modals openModal={openExperience} setOpenModal={setOpenExperience}>
         <div style={{ width: "95%" }}>
-          <ExperienceForm />
+          <AccountStatModal />
         </div>
       </Modals>
       <div className={styles.education}>
