@@ -1,28 +1,37 @@
 "use client";
+import React, { useState } from "react";
+import "./Modale.css";
 
-import { Modal } from "flowbite-react";
-
-export default function Modals({
+const Modal = ({
   children,
   openModal = false,
   setOpenModal = () => {},
-}) {
+  animation = "one",
+}) => {
+  const [modalClass, setModalClass] = useState("");
+
+  const handleButtonClick = (buttonId) => {
+    setModalClass(buttonId);
+    setOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <div>
-      <Modal
-        show={openModal}
-        dismissible
-        popup
-        onClose={() => setOpenModal(false)}
-        style={{
-          background: "rgb(0,0,0,0.4)",
-          padding: 0,
-          width: "auto",
-          height: "auto",
-        }}
+      <div
+        id="modal-container"
+        className={openModal ? animation : ""}
+        onClick={() => closeModal()}
       >
-        {children}
-      </Modal>
+        <div className="modal-background">
+          <div className="modal">{children}</div>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Modal;
