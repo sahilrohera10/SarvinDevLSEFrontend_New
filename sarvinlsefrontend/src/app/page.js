@@ -23,7 +23,7 @@ export default function Home() {
       {/* <SignIn /> */}
       {/* <Verification /> */}
       {/* <OTPScreens /> */}
-      <Profile />
+      {/* <Profile /> */}
     </main>
   );
 }
