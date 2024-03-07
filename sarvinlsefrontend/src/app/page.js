@@ -9,6 +9,8 @@ import SignIn from "./components/SignIn";
 import Verification from "./components/Verification";
 import OTPScreens from "./components/OTPScreen";
 import Profile from "./components/Profile";
+import Pricing from "./components/Pricing";
+import InfluencerDashboard from "./components/InfluencerDashboard";
 
 export default function Home() {
   return (
@@ -23,7 +25,9 @@ export default function Home() {
       {/* <SignIn /> */}
       {/* <Verification /> */}
       {/* <OTPScreens /> */}
-      <Profile />
+      {/* <Profile /> */}
+      {/* <Pricing /> */}
+      <InfluencerDashboard />
     </main>
   );
 }

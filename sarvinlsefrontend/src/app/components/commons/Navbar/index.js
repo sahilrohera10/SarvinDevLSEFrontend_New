@@ -1,9 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Button } from "../button.tsx";
+import Modal from "../modal";
+import Pricing from "../../Pricing";
 
 function NavBar({ currentColor }) {
+  const [openPricingModal, setOpenPricingModal] = useState(false);
   return (
     <div className={styles.html}>
       <div className={styles.Layout_app__Yxg9h}>
@@ -499,19 +502,19 @@ function NavBar({ currentColor }) {
                           </a>
                         </li>
                         <li>
-                          <a
-                            className={styles.LinkItem_link__MszSS}
-                            href="/resources"
-                          >
+                          <a className={styles.LinkItem_link__MszSS}>
                             <div
                               className={styles.LinkItem_hoverContainer__wX9bI}
+                              onClick={() => {
+                                setOpenPricingModal(!openPricingModal);
+                              }}
                             >
                               <span className={styles.LinkItem_text__v5efp}>
                                 <img
                                   src="https://media.graphassets.com/i5ByYWdgR1CujiyMSaxK"
                                   alt="Reports &amp; Guides"
                                 />
-                                Reports &amp; Guides
+                                Pricing
                               </span>
                             </div>
                           </a>
@@ -767,6 +770,9 @@ function NavBar({ currentColor }) {
           </div>
         </header>
       </div>
+      <Modal openModal={openPricingModal} setOpenModal={setOpenPricingModal}>
+        <Pricing />
+      </Modal>
     </div>
   );
 }

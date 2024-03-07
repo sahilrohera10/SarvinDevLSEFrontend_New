@@ -1,7 +1,7 @@
-import { Quicksand } from "next/font/google";
+import { Nunito_Sans as Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Quicksand({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
