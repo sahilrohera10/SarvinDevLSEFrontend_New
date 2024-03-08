@@ -11,6 +11,7 @@ import Categories from "./Categories";
 import RisingCreators from "./RisingCreators";
 import SuggestionCreators from "./SuggestionCreators";
 import Footer from "../commons/Footer";
+import BrandCrousel from "./BrandCrousel";
 import { Button } from "../commons/button";
 
 const InfluencerDashboard = () => {
@@ -80,6 +81,7 @@ const InfluencerDashboard = () => {
           </div>
         </Collapse>
       </div>
+      <BrandCrousel />
       <RisingCreators />
       <SuggestionCreators />
       <br />
