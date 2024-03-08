@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ListCard() {
   return (
-    <div className="  w-[27vw] h-[6vh] px-[33px] py-[36px]  rounded-md flex border-[1px] border-[#E7E7E7] ">
+    <div className="  w-[27vw] h-[6vh] px-[33px] py-[36px]  rounded-md flex border-[1px] border-[#E7E7E7] bg-white ">
       <div className="flex items-center justify-between">
         <div className="flex-shrink-0  ">
           <Image

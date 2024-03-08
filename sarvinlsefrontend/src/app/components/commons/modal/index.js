@@ -27,7 +27,9 @@ const Modal = ({
         onClick={() => closeModal()}
       >
         <div className="modal-background">
-          <div className="modal">{children}</div>
+          <div className="modal" style={{ backgroundColor: "#f8f7ff" }}>
+            {children}
+          </div>
         </div>
       </div>
     </div>

@@ -20,12 +20,14 @@ export default function Home() {
         backgroundColor: "#f8f9ff",
         overflowX: "hidden",
         scrollBehavior: "smooth",
+        height: "100vh",
       }}
     >
       {/* <Dashboard /> */}
-      <SignIn />
+      {/* <SignIn /> */}
+      {/* <SignUp /> */}
       {/* <Verification /> */}
-      {/* <OTPScreens /> */}
+      <OTPScreens />
       {/* <Profile /> */}
       {/* <Pricing /> */}
       {/* <InfluencerDashboard /> */}
