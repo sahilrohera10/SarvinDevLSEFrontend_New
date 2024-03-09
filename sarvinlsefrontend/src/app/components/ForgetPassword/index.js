@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import NavBar from "../commons/Navbar";
 import Link from "next/link";
 
-const SignUp = () => {
+const ForgetPassword = () => {
   const [otpsent, setOtpSent] = useState(false);
   return (
     <>
@@ -73,27 +73,21 @@ const SignUp = () => {
         </a>
 
         <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
-          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="m-4 text-center text-2xl font-semibold  text-gray-900">
-              Create your free account
+          <div class="sm:mx-auto w-full ">
+            <h2 class="m-4 text-center text-2xl font-semibold  text-gray-900 ">
+              Do you Forgot Your Password?
             </h2>
-            <h3 class="text-center  text-gray-900">
-              More Discoverability, More Opportunities
-            </h3>
+            <h3 class="text-center  text-gray-900">No Worries !!</h3>
           </div>
 
           <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form
-              class="space-y-6"
-              action="/account-verification"
-              method="POST"
-            >
+            <form class="space-y-6" action="#" method="POST">
               <div>
                 <label
                   for="email"
                   class="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Email
+                  Existing Email
                 </label>
 
                 <div class="mt-2">
@@ -123,7 +117,7 @@ const SignUp = () => {
                     for="password"
                     class="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Password
+                    New Password
                   </label>
                   <div class="text-sm">
                     {/* <a
@@ -150,7 +144,7 @@ const SignUp = () => {
                   for="email"
                   class="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Full Name
+                  Confirm Password
                 </label>
                 <div class="mt-2">
                   <input
@@ -158,7 +152,7 @@ const SignUp = () => {
                     name="fullname"
                     type="text"
                     autocomplete="name"
-                    placeholder="Enter your name"
+                    placeholder="Re-Type your New Password"
                     required
                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                   />
@@ -213,4 +207,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ForgetPassword;

@@ -24,10 +24,10 @@ export default function Home() {
       }}
     >
       {/* <Dashboard /> */}
-      {/* <SignIn /> */}
+      <SignIn />
       {/* <SignUp /> */}
       {/* <Verification /> */}
-      <OTPScreens />
+      {/* <OTPScreens /> */}
       {/* <Profile /> */}
       {/* <Pricing /> */}
       {/* <InfluencerDashboard /> */}
