@@ -103,7 +103,7 @@ const SignIn = () => {
                   display: "inline-block",
                   overflow: "hidden",
                   width: "initial",
-
+                  height: "initial",
                   background: "none",
                   opacity: 1,
                   border: 0,
@@ -121,11 +121,11 @@ const SignIn = () => {
                     display: "block",
                     overflow: "hidden",
                     width: "initial",
-
+                    height: "initial",
                     background: "transparent",
                     opacity: 1,
                     border: 0,
-                    margin: "34px 34px -8px 34px",
+                    margin: "34px 34px 2px 34px",
                     padding: 0,
                     position: "relative",
                     maxWidth: "100%",
