@@ -2,7 +2,7 @@
 
 import React from "react";
 import MapIntegration from "../commons/MapIntegration";
-import NavBar from "../commons/Navbar";
+import NavBar from "./Navbar";
 import LocationSearch from "../commons/LocationSearch";
 import GlobalSearch from "../commons/GlobalSearch";
 import Chips from "../commons/Chips";
@@ -12,6 +12,7 @@ import RisingCreators from "./RisingCreators";
 import SuggestionCreators from "./SuggestionCreators";
 import Footer from "../commons/Footer";
 import BrandCrousel from "./BrandCrousel";
+import StatsCards from "./StatsCards";
 import { Button } from "../commons/button";
 
 const InfluencerDashboard = () => {
@@ -81,8 +82,10 @@ const InfluencerDashboard = () => {
           </div>
         </Collapse>
       </div>
-      <BrandCrousel />
+
       <RisingCreators />
+      <StatsCards />
+      <BrandCrousel />
       <SuggestionCreators />
       <br />
       <Footer />

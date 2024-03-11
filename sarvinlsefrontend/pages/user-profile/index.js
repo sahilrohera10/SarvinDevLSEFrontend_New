@@ -1,6 +1,6 @@
 import { Nunito_Sans as Inter } from "next/font/google";
 
-import InfluencerDashboard from "../../src/app/components/InfluencerDashboard";
+import UserProfile from "../../src/app/components/Profile";
 import "../../src/app/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +14,7 @@ export default function AccountVerification() {
       }}
       className={inter.className}
     >
-      <InfluencerDashboard />
+      <UserProfile />
     </main>
   );
 }

@@ -1,3 +1,5 @@
+import { Nunito_Sans as Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 import SignIn from "../../src/app/components/SignIn";
 import "../../src/app/globals.css";
 
@@ -10,6 +12,7 @@ export default function signin() {
         scrollBehavior: "smooth",
         height: "100vh",
       }}
+      className={inter.className}
     >
       {" "}
       <SignIn />

@@ -1,12 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
-import CreaterCard from "../../commons/CreaterCard/CreaterCard";
+import Image from "next/image";
+import Podium from "../../commons/icons/podium.png";
+import CreaterCard from "../CreaterCard";
 const RisingCreators = ({ text = null, children }) => {
   return (
     <div style={{ margin: "0px 20px" }}>
-      <div style={{ fontSize: 30, fontWeight: 600, margin: 20 }}>
-        Rising Creators
+      <div
+        style={{
+          fontSize: 30,
+          fontWeight: 400,
+          margin: "0px 20px",
+          display: "flex",
+          gap: 10,
+          alignItems: "center",
+        }}
+      >
+        Rising Creators{" "}
+        <Image src={Podium} alt="podium" width={34} height={34} />
+      </div>
+      <div style={{ fontSize: 14, fontWeight: 200, margin: "0px 20px" }}>
+        Influencers Cracked Most Brand Deals in Last 30 Days{" "}
       </div>
       <div
         style={{
@@ -18,14 +33,17 @@ const RisingCreators = ({ text = null, children }) => {
         <CreaterCard
           name="Naman Agarwal"
           img="https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg"
+          tags={1}
         />
         <CreaterCard
           name="Mayank Gupta"
           img="https://media.istockphoto.com/id/1296158947/photo/portrait-of-creative-trendy-black-african-male-designer-laughing.jpg?s=612x612&w=0&k=20&c=1Ws_LSzWjYvegGxHYQkkgVytdpDcnmK0upJyGOzEPcg="
+          tags={2}
         />
         <CreaterCard
           name="Sahil Rohera"
           img="https://img.freepik.com/free-photo/close-up-portrait-curly-haired-young-woman-isolated_273609-48309.jpg"
+          tags={3}
         />
         <CreaterCard
           name="Sahil Arora"
