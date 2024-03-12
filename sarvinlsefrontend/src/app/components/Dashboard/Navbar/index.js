@@ -13,7 +13,7 @@ function NavBar({ currentColor }) {
         <header className={styles.Header_headerContainer__Ss95e}>
           <div className={styles.Header_header__Ncy19}>
             <div className={styles.Header_container__3Xo0L}>
-              <a className={styles.Header_logo__cFwus} href="/">
+              <a className={styles.Header_logo__cFwus} href="/dashboard">
                 <span
                   style={{
                     boxSizing: "border-box",
@@ -637,7 +637,7 @@ function NavBar({ currentColor }) {
                     <div className={styles.LinkItem_cursor__pE4De}>
                       <div className={styles.LinkItem_hoverContainer__wX9bI}>
                         <span className={styles.LinkItem_text__v5efp}>
-                          Company
+                          New @Sarvin? Join Now
                         </span>
                       </div>
                     </div>
@@ -650,17 +650,17 @@ function NavBar({ currentColor }) {
                         <li>
                           <a
                             className={styles.LinkItem_link__MszSS}
-                            href="/events"
+                            href="/sign-up-influencer"
                           >
                             <div
                               className={styles.LinkItem_hoverContainer__wX9bI}
                             >
                               <span className={styles.LinkItem_text__v5efp}>
                                 <img
-                                  src="https://media.graphassets.com/iZ4bXKu0SUC3Q6cjojJm"
-                                  alt="Events"
+                                  src="https://media.graphassets.com/EEtyMpmTDqBQWILkY4MQ"
+                                  alt="Case Studies"
                                 />
-                                Events
+                                Sign-up as Creator/Influencer
                               </span>
                             </div>
                           </a>
@@ -678,7 +678,7 @@ function NavBar({ currentColor }) {
                                   src="https://media.graphassets.com/EEtyMpmTDqBQWILkY4MQ"
                                   alt="Case Studies"
                                 />
-                                Case Studies
+                                Sign-Up as Business/Brand
                               </span>
                             </div>
                           </a>
@@ -692,7 +692,7 @@ function NavBar({ currentColor }) {
               <div className={styles.Header_loginWrapper__9_1kE}>
                 <a
                   className={styles.Header_client__RyL2j}
-                  href="/signin"
+                  href="/sign-in"
                   target=""
                   rel="noreferrer"
                 >
@@ -720,14 +720,14 @@ function NavBar({ currentColor }) {
                       </clipPath>
                     </defs>
                   </svg>
-                  Hi Naman
+                  SignIn
                 </a>
 
                 <div className={styles.Header_background__0TypS}></div>
               </div>
               <Button
                 style={{
-                  backgroundColor: currentColor,
+                  backgroundColor: "#e65c55",
                   fontWeight: 600,
                   textAlign: "center",
                   fontSize: "16px",
@@ -757,7 +757,7 @@ function NavBar({ currentColor }) {
                     </clipPath>
                   </defs>
                 </svg>
-                Edit Profile
+                Get Demo
               </Button>
             </div>
           </div>

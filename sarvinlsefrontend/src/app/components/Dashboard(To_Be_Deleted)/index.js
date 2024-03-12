@@ -2,7 +2,7 @@
 
 import React from "react";
 import MapIntegration from "../commons/MapIntegration";
-import NavBar from "./Navbar";
+import NavBar from "../commons/Navbar";
 import LocationSearch from "../commons/LocationSearch";
 import GlobalSearch from "../commons/GlobalSearch";
 import Chips from "../commons/Chips";
@@ -11,8 +11,6 @@ import Categories from "./Categories";
 import RisingCreators from "./RisingCreators";
 import SuggestionCreators from "./SuggestionCreators";
 import Footer from "../commons/Footer";
-import BrandCrousel from "./BrandCrousel";
-import StatsCards from "./StatsCards";
 import { Button } from "../commons/button";
 
 const Dashboard = () => {
@@ -29,7 +27,7 @@ const Dashboard = () => {
         }}
       >
         <div style={{ width: "35vw", justifyContent: "center", margin: 10 }}>
-          <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
+          <GlobalSearch />
         </div>
 
         <div style={{ width: "10vw", margin: 10 }}>
@@ -82,10 +80,7 @@ const Dashboard = () => {
           </div>
         </Collapse>
       </div>
-
       <RisingCreators />
-      <StatsCards />
-      <BrandCrousel />
       <SuggestionCreators />
       <br />
       <Footer />
