@@ -1,29 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./Navbar";
 import LocationSearch from "../commons/LocationSearch";
 import GlobalSearch from "../commons/GlobalSearch";
-import Chips from "../commons/Chips";
-import Collapse from "../commons/Collapse";
-import Categories from "./Categories";
-import RisingCreators from "./RisingCreators";
-import SuggestionCreators from "./SuggestionCreators";
+
+import Dropdown from "../commons/Dropdown";
+
 import Footer from "../commons/Footer";
-import BrandCrousel from "./BrandCrousel";
-import StatsCards from "./StatsCards";
-import { Button } from "../commons/button";
+
 import styles from "./styles.module.css";
 import Lottie from "react-lottie-player";
 import Handwave from "../commons/icons/handwave.json";
-import { CircularProgressbar } from "react-circular-progressbar";
+
 import MetricCards from "../commons/MetricCard";
 import Follower from "../commons/icons/follower.png";
 import Engagement from "../commons/icons/engagmentrate.png";
 import Score from "../commons/icons/score.png";
 import Image from "next/image";
+import BottomNavbar from "./BottomNavbar";
+
+const DASHBOARD_CONTENT = {
+  Brand_Search: <BrandSearch />,
+};
 
 const InfluencerDashboard = () => {
+  const [selectedContent, setSelectedContent] = useState("Brand_Search");
   return (
     <div>
       <NavBar />
@@ -31,7 +33,7 @@ const InfluencerDashboard = () => {
         <div style={{ flex: 0.5, marginLeft: 10 }}>
           <img
             class="w-20 h-20  rounded-full"
-            src="https://static.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest/scale-to-width/360?cb=20130612174003"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt="Rounded avatar"
           ></img>
         </div>
@@ -112,12 +114,17 @@ const InfluencerDashboard = () => {
           </div>
         </div> */}
       </div>
-      <div
+      <BottomNavbar
+        selectedContent={selectedContent}
+        setSelectedContent={setSelectedContent}
+      />
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
         }}
       >
+        <Dropdown />
         <div style={{ width: "35vw", justifyContent: "center", margin: 10 }}>
           <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
         </div>
@@ -125,8 +132,8 @@ const InfluencerDashboard = () => {
         <div style={{ width: "10vw", margin: 10 }}>
           <LocationSearch />
         </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      </div> */}
+      {/* <div style={{ display: "flex", justifyContent: "center" }}>
         {" "}
         <Chips
           text={"Actors"}
@@ -171,13 +178,8 @@ const InfluencerDashboard = () => {
             <Categories />
           </div>
         </Collapse>
-      </div>
+      </div> */}
 
-      <RisingCreators />
-      <StatsCards />
-      <BrandCrousel />
-      <SuggestionCreators />
-      <br />
       <Footer />
     </div>
   );
