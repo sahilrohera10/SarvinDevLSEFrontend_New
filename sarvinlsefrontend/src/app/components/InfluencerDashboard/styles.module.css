@@ -24,12 +24,13 @@
 }
 
 .complete_your_profile_text {
-  font-size: 22px;
+  font-size: 18;
   font-weight: 600;
 }
 
 .contact_info {
-  font-weight: 400;
+  font-size: 12;
+  font-weight: 200;
   color: #5a6471;
 }
 
@@ -40,7 +41,7 @@
   /* justify-content: flex-end; */
 }
 .status_text {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
 }
 

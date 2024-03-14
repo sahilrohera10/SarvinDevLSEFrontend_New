@@ -2,6 +2,6 @@
 import React from "react";
 
 const EventDeals = () => {
-  return <>Brand Search</>;
+  return <>Event Deals</>;
 };
 export default EventDeals;

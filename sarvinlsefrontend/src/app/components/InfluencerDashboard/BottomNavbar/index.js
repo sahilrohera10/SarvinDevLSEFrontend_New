@@ -45,22 +45,22 @@ const BottomNavbar = ({
                 </div>
                 <div
                   class={
-                    selectedContent == "Bid_for_Deals"
+                    selectedContent == "Bid_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
-                  onClick={() => setSelectedContent("Bid_for_Deals")}
+                  onClick={() => setSelectedContent("Bid_Deals")}
                 >
                   <FaGavel style={{ marginTop: 2 }} />
                   Bid for Deals
                 </div>
                 <div
                   class={
-                    selectedContent == "Events_Deals"
+                    selectedContent == "Event_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
-                  onClick={() => setSelectedContent("Events_Deals")}
+                  onClick={() => setSelectedContent("Event_Deals")}
                 >
                   <FaCalendarDay style={{ marginTop: 2 }} /> Events Deals
                 </div>

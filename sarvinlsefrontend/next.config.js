@@ -6,6 +6,10 @@ const nextConfig = {
       "media.istockphoto.com",
       "img.freepik.com",
       "t3.ftcdn.net",
+      "webneel.com",
+      "assets-global.website-files.com",
+      "image.adsoftheworld.com",
+      "i.pinimg.com",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {

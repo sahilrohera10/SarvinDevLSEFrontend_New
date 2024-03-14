@@ -1,17 +1,29 @@
-"use client";
+import React, { useState } from "react";
+import Select from "react-select";
+import "./Dropdown.css"; // Import your CSS file
 
-import React from "react";
-import { Dropdown } from "flowbite-react";
+const Dropdown = ({ text = "Title", options }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Dropdowns = ({}) => {
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Dropdown label="Dropdown button">
-      <Dropdown.Item>Dashboard</Dropdown.Item>
-      <Dropdown.Item>Settings</Dropdown.Item>
-      <Dropdown.Item>Earnings</Dropdown.Item>
-      <Dropdown.Divider />
-      <Dropdown.Item>Separated link</Dropdown.Item>
-    </Dropdown>
+    <div className="dropdown-wrapper">
+      <button
+        className=" flex dropdown-btn text-center justify-center"
+        onClick={toggleDropdown}
+      >
+        {text}
+      </button>
+      <ul className={`dropdown-content ${isOpen ? "open" : ""}`}>
+        <li key="1" onClick={() => console.log(option)}>
+          vfvf
+        </li>
+      </ul>
+    </div>
   );
 };
-export default Dropdowns;
+
+export default Dropdown;

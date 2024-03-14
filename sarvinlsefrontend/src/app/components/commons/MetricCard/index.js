@@ -3,9 +3,10 @@ import Increase from "../icons/increase.png";
 import Decrease from "../icons/decrease.png";
 export default function MetricCard({
   value = 0,
+  valueStyle = "",
   title = "New Title",
   icon = null,
-  trend = {},
+  trend = null,
 }) {
   return (
     <div>
@@ -20,23 +21,30 @@ export default function MetricCard({
           <div>{icon}</div>
         </div>
         <div>
-          <p class="font-semibold mb-2 font-sans text-2xl text-gray-700 dark:text-gray-400">
+          <p
+            class={
+              valueStyle ||
+              "font-semibold mb-2 font-sans text-2xl text-gray-700 dark:text-gray-400"
+            }
+          >
             {value}
           </p>
         </div>
-        <div class="flex gap-2">
-          {trend?.slope > 0 ? (
-            <Image src={Increase} width={20} />
-          ) : (
-            <Image src={Decrease} width={20} />
-          )}
-          <div class="text-xs text-gray-700 dark:text-gray-400">
-            {trend?.value}
+        {trend && (
+          <div class="flex gap-2">
+            {trend?.slope > 0 ? (
+              <Image src={Increase} width={20} />
+            ) : (
+              <Image src={Decrease} width={20} />
+            )}
+            <div class="text-xs text-gray-700 dark:text-gray-400">
+              {trend?.value}
+            </div>
+            <div class="text-xs font-light text-gray-700 dark:text-gray-400">
+              {trend?.description}
+            </div>
           </div>
-          <div class="text-xs font-light text-gray-700 dark:text-gray-400">
-            {trend?.description}
-          </div>
-        </div>
+        )}
       </a>
     </div>
   );

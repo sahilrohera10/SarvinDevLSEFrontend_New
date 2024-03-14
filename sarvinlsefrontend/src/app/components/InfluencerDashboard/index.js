@@ -19,9 +19,26 @@ import Engagement from "../commons/icons/engagmentrate.png";
 import Score from "../commons/icons/score.png";
 import Image from "next/image";
 import BottomNavbar from "./BottomNavbar";
+import BrandSearch from "./BrandSearch";
+import Analytics from "./Analytics";
+import BidDeals from "./BidDeals";
+import BrandDeals from "./BrandDeals";
+import DealMatch from "./DealMatch";
+import EventDeals from "./EventDeals";
+import GlobalStatistics from "./GlobalStatistics";
+import SavedDeals from "./SavedDeals";
+import YourContent from "./YourContent";
 
 const DASHBOARD_CONTENT = {
-  Brand_Search: <BrandSearch />,
+  Brand_Search: <BrandDeals />,
+  Analytics: <Analytics />,
+  Your_Content: <YourContent />,
+  Bid_Deals: <BidDeals />,
+  Brand_Deals: <BrandDeals />,
+  Deal_Match: <DealMatch />,
+  Event_Deals: <EventDeals />,
+  Global_Statistics: <GlobalStatistics />,
+  Saved_Deals: <SavedDeals />,
 };
 
 const InfluencerDashboard = () => {
@@ -65,39 +82,27 @@ const InfluencerDashboard = () => {
             <div style={{ flex: 2 }}>
               <MetricCards
                 value={216}
+                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                 title="Followers"
                 icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
-                trend={{
-                  slope: -1,
-                  description: "Compared to last week",
-                  value: "0.5%",
-                }}
               />
             </div>
             <div style={{ flex: 2 }}>
               <MetricCards
-                value={"27.5%"}
-                title="Engagement Rate"
+                value={"27.5"}
+                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                title="Quality Score"
                 icon={
                   <Image src={Engagement} width={48} height={0} alt="Icon" />
                 }
-                trend={{
-                  slope: -1,
-                  description: "Compared to last week",
-                  value: "0.5%",
-                }}
               />
             </div>
             <div style={{ flex: 2 }}>
               <MetricCards
                 value={"87"}
-                title="Account Quality Score"
+                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                title="Sarvin Credits"
                 icon={<Image src={Score} width={48} height={0} alt="Icon" />}
-                trend={{
-                  slope: 1,
-                  description: "Compared to last week",
-                  value: "0.5%",
-                }}
               />
             </div>
           </div>
@@ -118,67 +123,8 @@ const InfluencerDashboard = () => {
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
       />
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Dropdown />
-        <div style={{ width: "35vw", justifyContent: "center", margin: 10 }}>
-          <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
-        </div>
 
-        <div style={{ width: "10vw", margin: 10 }}>
-          <LocationSearch />
-        </div>
-      </div> */}
-      {/* <div style={{ display: "flex", justifyContent: "center" }}>
-        {" "}
-        <Chips
-          text={"Actors"}
-          img="https://tecdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-        />
-        <Chips
-          text={"Artist"}
-          img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRQdb3b5E6XD4t2GeELeZgts9AvuTKtYK23g&usqp=CAU"
-        />
-        <Chips
-          text={"Musicians"}
-          img="https://st4.depositphotos.com/1077687/29907/v/450/depositphotos_299073292-stock-illustration-men-with-musicals-instruments-on.jpg"
-        />
-        <Chips
-          text={"Singer"}
-          img="https://w7.pngwing.com/pngs/305/570/png-transparent-singer-singing-free-singing-s-microphone-fictional-character-cartoon.png"
-        />
-        <Chips
-          text={"Designer"}
-          img="https://img.freepik.com/premium-photo/creative-colorful-abstract-human-brain-dark-background-knowledge-concept-generative-ai_58409-32417.jpg"
-        />
-        <Chips
-          text={"Coders"}
-          img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9iVHFERvJNWy35cSvxSyp79AIHYc08OaXrsaU2sfkE2THiuIKJOxEqxioeXtELpQqY-E&usqp=CAU"
-        />
-      </div>
-      <div style={{ margin: 10, display: "flex", justifyContent: "flex-end" }}>
-        <Collapse
-          text={
-            <div
-              style={{
-                color: "#008ecc",
-                width: "100vw",
-                boxShadow: "none",
-              }}
-            >
-              Show More
-            </div>
-          }
-        >
-          <div>
-            <Categories />
-          </div>
-        </Collapse>
-      </div> */}
+      {DASHBOARD_CONTENT[selectedContent]}
 
       <Footer />
     </div>
