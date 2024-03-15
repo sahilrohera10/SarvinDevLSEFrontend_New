@@ -3,7 +3,7 @@ import MapIntegration from "./components/commons/MapIntegration";
 import Filters from "./components/commons/Filters";
 import EmbedMap from "./components/commons/EmbedMap";
 import GlobalSearch from "./components/commons/GlobalSearch";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard(To_Be_Deleted)";
 import NavBar from "./components/commons/Navbar";
 import SignUp from "./components/SignUpInfluencers";
 import SignIn from "./components/SignIn";
@@ -12,6 +12,7 @@ import OTPScreens from "./components/OTPScreen";
 import Profile from "./components/Profile";
 import Pricing from "./components/Pricing";
 import InfluencerDashboard from "./components/InfluencerDashboard";
+import IntroductoryPage from "./components/IntroductoryPage";
 
 export default function Home() {
   return (
@@ -23,8 +24,9 @@ export default function Home() {
         height: "100vh",
       }}
     >
+      <IntroductoryPage />
       {/* <Dashboard /> */}
-      <SignIn />
+      {/* <SignIn /> */}
       {/* <SignUp /> */}
       {/* <Verification /> */}
       {/* <OTPScreens /> */}
