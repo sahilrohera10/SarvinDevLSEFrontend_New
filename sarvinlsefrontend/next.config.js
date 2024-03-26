@@ -10,6 +10,12 @@ const nextConfig = {
       "assets-global.website-files.com",
       "image.adsoftheworld.com",
       "i.pinimg.com",
+      "thumbs.dreamstime.com",
+      "cdn.logojoy.com",
+      "www.kindpng.com",
+      "images.meesho.com",
+      "1000logos.net",
+      "prod-assets-s3.faze.app",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {

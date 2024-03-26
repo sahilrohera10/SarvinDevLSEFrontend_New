@@ -163,7 +163,10 @@ const OTPScreens = () => {
                 </button>
               </div>
             </form>
-            <SuccessModal openModal={openModal} setOpenModal={setOpenModal} />
+            <LocationInputModal
+              openModal={openModal}
+              setOpenModal={setOpenModal}
+            />
           </div>
         </div>
       </div>

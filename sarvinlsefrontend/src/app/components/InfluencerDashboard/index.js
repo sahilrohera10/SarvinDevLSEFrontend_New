@@ -30,7 +30,7 @@ import SavedDeals from "./SavedDeals";
 import YourContent from "./YourContent";
 
 const DASHBOARD_CONTENT = {
-  Brand_Search: <BrandDeals />,
+  Brand_Search: <BrandSearch />,
   Analytics: <Analytics />,
   Your_Content: <YourContent />,
   Bid_Deals: <BidDeals />,
@@ -85,6 +85,11 @@ const InfluencerDashboard = () => {
                 valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                 title="Followers"
                 icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
+                trend={{
+                  slope: -1,
+                  description: "Compared to last week",
+                  value: "0.5%",
+                }}
               />
             </div>
             <div style={{ flex: 2 }}>
@@ -95,6 +100,11 @@ const InfluencerDashboard = () => {
                 icon={
                   <Image src={Engagement} width={48} height={0} alt="Icon" />
                 }
+                trend={{
+                  slope: 1,
+                  description: "Compared to last week",
+                  value: "5%",
+                }}
               />
             </div>
             <div style={{ flex: 2 }}>
@@ -103,6 +113,11 @@ const InfluencerDashboard = () => {
                 valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                 title="Sarvin Credits"
                 icon={<Image src={Score} width={48} height={0} alt="Icon" />}
+                trend={{
+                  slope: -1,
+                  description: "Compared to last week",
+                  value: "1.5%",
+                }}
               />
             </div>
           </div>
