@@ -9,7 +9,6 @@ import Chips from "../../../commons/Chips";
 import Modal from "../../../commons/modal";
 import { useState } from "react";
 import BrandDetail from "../BrandDetail";
-import Link from "next/link";
 
 const Tags = {
   1: FirstPlace,
@@ -159,17 +158,14 @@ export default function BrandCard({
                 No.Of Deals = 1432
               </span>
             </div>
-            <Link
-              className="text-gray-400 text-md mt-2 mr-2"
-              href="/brand-dashboard"
-            >
+            <div className="text-gray-400 text-md mt-2 mr-2">
               <button
                 type="submit"
                 class="flex w-full justify-center rounded-md bg-[#F27430] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 View Details
               </button>
-            </Link>
+            </div>
           </div>
         </div>
       )}
