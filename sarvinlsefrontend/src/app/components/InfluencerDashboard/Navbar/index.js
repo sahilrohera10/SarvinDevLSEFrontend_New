@@ -4,8 +4,10 @@ import styles from "./styles.module.css";
 import { Button } from "../../commons/button.tsx";
 import Modal from "../../commons/modal";
 import Pricing from "../../Pricing";
+import { useRouter } from "next/router";
 
 function NavBar({ currentColor }) {
+  const router = useRouter();
   const [openPricingModal, setOpenPricingModal] = useState(false);
   return (
     <div className={styles.html}>

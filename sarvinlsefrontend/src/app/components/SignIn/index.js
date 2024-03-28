@@ -7,8 +7,10 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Toast from "../commons/toast";
 import { useRouter } from "next/router";
+import jwt from "jsonwebtoken";
 
 const SignIn = () => {
+  const router = useRouter();
   const [show, setShow] = useState(true);
   const [credentials, setCredentials] = useState({
     email: "",
@@ -60,6 +62,17 @@ const SignIn = () => {
       // router.push("/dashboard/[]");
       const responseData = await response.json();
       console.log(responseData);
+      if (!responseData?.user?.is_insta_verify) {
+        router.push("/account-verification");
+      }
+      if (responseData?.user?.is_insta_verify) {
+        router.push("/influencer-dashboard");
+      }
+
+      const decodedToken = jwt.decode(responseData.jwt);
+
+      console.log(decodedToken);
+      localStorage.setItem("token", responseData.jwt);
 
       // Redirect user to dashboard or perform any other action
     } catch (error) {
@@ -321,8 +334,8 @@ const SignIn = () => {
                       )}
                     </button>
                     {loginStatus.error && (
-                      <div className="error">
-                        <Toast text={loginStatus.error} type={2} />
+                      <div className="w-full">
+                        <Toast text="Invalid Credentials" type={2} />
                       </div>
                     )}
                     <div class="text-gray-300 flex justify-center">--or--</div>

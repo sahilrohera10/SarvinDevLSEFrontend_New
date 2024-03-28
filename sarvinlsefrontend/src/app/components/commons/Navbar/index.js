@@ -732,7 +732,7 @@ function NavBar({ currentColor }) {
                 </a>{" "}
                 <div className={styles.Header_background__0TypS}></div>
               </div>
-              <Button
+              <a
                 style={{
                   backgroundColor: currentColor,
                   fontWeight: 600,
@@ -742,6 +742,7 @@ function NavBar({ currentColor }) {
                   lineHeight: "24px",
                   transition: "background-color 2s",
                 }}
+                href="/user-profile"
               >
                 <svg
                   width="24"
@@ -765,7 +766,7 @@ function NavBar({ currentColor }) {
                   </defs>
                 </svg>
                 Get Started
-              </Button>
+              </a>
             </div>
           </div>
         </header>

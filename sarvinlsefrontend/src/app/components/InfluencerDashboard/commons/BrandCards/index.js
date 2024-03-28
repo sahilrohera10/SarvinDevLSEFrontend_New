@@ -6,6 +6,9 @@ import SecondPlace from "../../../commons/icons/SecondPlace.png";
 import ThirdPlace from "../../../commons/icons/ThirdPlace.png";
 import { FaGift } from "react-icons/fa";
 import Chips from "../../../commons/Chips";
+import Modal from "../../../commons/modal";
+import { useState } from "react";
+import BrandDetail from "../BrandDetail";
 
 const Tags = {
   1: FirstPlace,
@@ -19,6 +22,7 @@ export default function BrandCard({
   tags = 0,
   cardType = "Deals",
 }) {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       {" "}
@@ -46,23 +50,14 @@ export default function BrandCard({
                 <Image alt="alt text." src={img} width={300} height={50} />
               </div>
 
-              <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+              <div
+                className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"
+                onClick={() => setOpenModal(!openModal)}
+              ></div>
             </div>
 
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-90 transition-opacity duration-300">
               <div className="flex items-center space-x-3">
-                {/* <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaFacebookF className="text-white text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaTwitter className="text-white text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaPinterestP className="text-white text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaInstagram className="text-white text-xl opacity-80 group-hover:opacity-100" />
-            </div> */}
                 <div class="text-white text-xl text-semibold opacity-100 group-hover:opacity-100">
                   View Deal
                 </div>
@@ -89,10 +84,18 @@ export default function BrandCard({
               <button
                 type="submit"
                 class="flex w-full justify-center rounded-md bg-[#F27430] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => setOpenModal(!openModal)}
               >
                 View Deal
               </button>
             </div>
+            <Modal openModal={openModal} setOpenModal={setOpenModal}>
+              <BrandDetail
+                heading={heading}
+                subheading={subheading}
+                img={img}
+              />
+            </Modal>
           </div>
         </div>
       ) : (

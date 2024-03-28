@@ -16,6 +16,7 @@ const nextConfig = {
       "images.meesho.com",
       "1000logos.net",
       "prod-assets-s3.faze.app",
+      "tse1.mm.bing.net",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {
