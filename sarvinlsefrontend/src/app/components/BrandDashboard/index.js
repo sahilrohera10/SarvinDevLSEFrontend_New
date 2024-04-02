@@ -15,14 +15,14 @@ import Engagement from "../commons/icons/engagmentrate.png";
 import Score from "../commons/icons/score.png";
 import Image from "next/image";
 import BottomNavbar from "./BottomNavbar";
-import Analytics from "./Analytics";
+// import Analytics from "./Analytics";
 import BidDeals from "./BidDeals";
 import BrandDeals from "./BrandDeals";
 import EventDeals from "./EventDeals";
 import Overview from "./Overview";
 
 const DASHBOARD_CONTENT = {
-  Analytics: <Analytics />,
+  // Analytics: <Analytics />,
   Overview: <Overview />,
   Bid_Deals: <BidDeals />,
   Brand_Deals: <BrandDeals />,
