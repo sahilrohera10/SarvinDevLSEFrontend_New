@@ -106,25 +106,25 @@ const BrandsDealCards = ({ text = null, children }) => {
           <BrandCard
             heading="Webneel.com"
             subheading="Food Court and Cuisines"
-            img="https://webneel.com/daily/sites/default/files/images/daily/07-2014/5-best-ads-agasalho-hamburguer.jpg"
+            img="https://i.pinimg.com/474x/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
             cardType="Bid"
           />
           <BrandCard
             heading="Juicy Juice"
             subheading="Herbal Juice with ayurveda"
-            img="https://i.pinimg.com/736x/82/e6/0d/82e60d46a8bfb3917b32ab7caa8cab4d.jpg"
+            img="https://image.adsoftheworld.com/03qu7s1cl1ie8d2t4uqxmtrlocld"
             cardType="Bid"
           />
           <BrandCard
             heading="Fortis Hospital"
             subheading="WHO Drive in clinic"
-            img="https://image.adsoftheworld.com/qbb857lhl8438y7np5x4ws4nos3e"
+            img="https://image.adsoftheworld.com/65bfpiteroq1oo5ueeg9h3o1bw5y"
             cardType="Bid"
           />
           <BrandCard
             heading="Pepsico Pvt.Ltd"
             subheading="ColdDrink and Beverages"
-            img="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/651bcacd14d630b76b96cc73_8ucqCdESTiu3lL3oK2V5.jpeg"
+            img="https://image.adsoftheworld.com/klaa04bpgu4h2sjj6mxy95uzbw9b"
             cardType="Bid"
           />
           <BrandCard

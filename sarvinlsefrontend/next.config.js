@@ -19,6 +19,8 @@ const nextConfig = {
       "tse1.mm.bing.net",
       "cdn3.vectorstock.com",
       "www.aacpl.net",
+      "ksbrickey.files.wordpress.com",
+      "www.bizadmark.com",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {

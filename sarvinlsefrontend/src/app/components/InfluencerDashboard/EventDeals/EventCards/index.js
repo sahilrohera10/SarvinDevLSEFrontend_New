@@ -40,16 +40,16 @@ const EventCards = ({ text = null, children }) => {
         }}
       >
         <BrandListCard
-          heading="Open Mic in Bareilly"
-          subheading="Cafe Coffee Day"
-          img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
-          cardType="Deals"
-        />
-        <BrandListCard
           heading="Comedy Night"
           subheading="Creme's Castle"
           img="https://cdn3.vectorstock.com/i/1000x1000/02/47/stand-up-comedy-open-mic-vector-20050247.jpg"
-          cardType="Deals"
+          cardType="Event"
+        />
+        <BrandListCard
+          heading="Open Mic in Bareilly"
+          subheading="Cafe Coffee Day"
+          img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
+          cardType="Event"
         />
       </div>
     </div>
