@@ -40,51 +40,15 @@ const EventCards = ({ text = null, children }) => {
         }}
       >
         <BrandListCard
-          heading="Webneel.com"
-          subheading="Food Court and Cuisines"
-          img="https://webneel.com/daily/sites/default/files/images/daily/07-2014/5-best-ads-agasalho-hamburguer.jpg"
+          heading="Open Mic in Bareilly"
+          subheading="Cafe Coffee Day"
+          img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
           cardType="Deals"
         />
         <BrandListCard
-          heading="Juicy Juice"
-          subheading="Herbal Juice with ayurveda"
-          img="https://i.pinimg.com/736x/82/e6/0d/82e60d46a8bfb3917b32ab7caa8cab4d.jpg"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Fortis Hospital"
-          subheading="WHO Drive in clinic"
-          img="https://image.adsoftheworld.com/qbb857lhl8438y7np5x4ws4nos3e"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Pepsico Pvt.Ltd"
-          subheading="ColdDrink and Beverages"
-          img="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/651bcacd14d630b76b96cc73_8ucqCdESTiu3lL3oK2V5.jpeg"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Webneel.com"
-          subheading="Food Court and Cuisines"
-          img="https://webneel.com/daily/sites/default/files/images/daily/07-2014/5-best-ads-agasalho-hamburguer.jpg"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Juicy Juice"
-          subheading="Herbal Juice with ayurveda"
-          img="https://i.pinimg.com/736x/82/e6/0d/82e60d46a8bfb3917b32ab7caa8cab4d.jpg"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Fortis Hospital"
-          subheading="WHO Drive in clinic"
-          img="https://image.adsoftheworld.com/qbb857lhl8438y7np5x4ws4nos3e"
-          cardType="Deals"
-        />
-        <BrandListCard
-          heading="Pepsico Pvt.Ltd"
-          subheading="ColdDrink and Beverages"
-          img="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/651bcacd14d630b76b96cc73_8ucqCdESTiu3lL3oK2V5.jpeg"
+          heading="Comedy Night"
+          subheading="Creme's Castle"
+          img="https://cdn3.vectorstock.com/i/1000x1000/02/47/stand-up-comedy-open-mic-vector-20050247.jpg"
           cardType="Deals"
         />
       </div>

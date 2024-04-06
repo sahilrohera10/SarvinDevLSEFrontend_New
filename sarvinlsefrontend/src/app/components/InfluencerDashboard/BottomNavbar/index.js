@@ -26,7 +26,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Brand_Search"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Brand_Search")}
                 >
@@ -37,7 +37,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Brand_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Brand_Deals")}
                 >
@@ -47,7 +47,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Bid_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Bid_Deals")}
                 >
@@ -58,7 +58,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Event_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Event_Deals")}
                 >
@@ -68,7 +68,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Deal_Match"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Deal_Match")}
                 >
@@ -79,7 +79,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Your_Content"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Your_Content")}
                 >
@@ -90,7 +90,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Saved_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Saved_Deals")}
                 >
@@ -101,7 +101,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Analytics"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Analytics")}
                 >
@@ -112,7 +112,7 @@ const BottomNavbar = ({
                   class={
                     selectedContent == "Global_Statistics"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Global_Statistics")}
                 >

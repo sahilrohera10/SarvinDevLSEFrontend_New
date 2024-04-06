@@ -17,6 +17,8 @@ const nextConfig = {
       "1000logos.net",
       "prod-assets-s3.faze.app",
       "tse1.mm.bing.net",
+      "cdn3.vectorstock.com",
+      "www.aacpl.net",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {
