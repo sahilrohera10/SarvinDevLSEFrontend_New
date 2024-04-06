@@ -7,7 +7,7 @@ import ThirdPlace from "../../../commons/icons/ThirdPlace.png";
 import { FaGift } from "react-icons/fa";
 import Chips from "../../../commons/Chips";
 import Modal from "../../../commons/modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BrandDetail from "../DealDetailModal";
 import Link from "next/link";
 
@@ -25,6 +25,14 @@ export default function BrandCard({
   cardType = "Deals",
 }) {
   const [openModal, setOpenModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible((prev) => !prev); // Toggle visibility
+    }, 1000); // Change the interval duration as needed
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
 
   if (cardType == "Deals") {
     return (
@@ -197,6 +205,36 @@ export default function BrandCard({
                 <Image alt="Badge" src={Tags[tags]} width={36} height={36} />
               </div>
             )}
+            <div
+              style={{
+                position: "absolute",
+                display: "flex",
+                flexDirection: "row",
+                border: 1,
+                borderRadius: 6,
+                margin: 4,
+                color: "red",
+                fontWeight: 700,
+                alignItems: "center",
+                gap: 3,
+                backgroundColor: "#FFF",
+                paddingRight: 6,
+                paddingLeft: 6,
+              }}
+            >
+              {" "}
+              <div
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "red",
+                  borderRadius: 50,
+                  opacity: isVisible ? 1 : 0 /* Initially transparent */,
+                  transition: "opacity 0.5s ease",
+                }}
+              ></div>
+              <div>Live</div>
+            </div>
             <div style={{ width: 300, height: 270 }}>
               <Image alt="alt text." src={img} width={300} height={50} />
             </div>

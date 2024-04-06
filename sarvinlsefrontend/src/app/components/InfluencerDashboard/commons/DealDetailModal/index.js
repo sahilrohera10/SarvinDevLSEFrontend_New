@@ -342,6 +342,38 @@ const BrandDetail = ({
                 <FaSave className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
               </div>
             </div>
+            <div className="flex items-center space-x-3 mt-4 gap-2 align-middle justify-end text-red-500 font-semibold">
+              <div
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "red",
+                  borderRadius: 50,
+                  opacity: 1 /* Initially transparent */,
+                  transition: "opacity 0.5s ease",
+                }}
+              ></div>
+              Deal is Live Right Now
+            </div>
+            <div className="flex items-center space-x-3 mt-4 align-middle justify-end text-red">
+              <div class="block p-2 w-64 bg-[#f8f9ff] border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+                  Enter Your Bid Price
+                </h5>
+                <input
+                  type="number"
+                  name="bid_amount"
+                  id="bid_amount"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  placeholder="Min 1000 -- Max 5000"
+                  required
+                />
+                <div class="font-thin mt-4 text-xs text-gray-700 dark:text-gray-400">
+                  Lesser you bid for prize money more the brand is attract to
+                  fix a deal with you
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
