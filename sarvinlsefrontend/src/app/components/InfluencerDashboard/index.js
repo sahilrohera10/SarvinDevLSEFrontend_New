@@ -25,7 +25,7 @@ import BidDeals from "./BidDeals";
 import BrandDeals from "./BrandDeals";
 import DealMatch from "./DealMatch";
 import EventDeals from "./EventDeals";
-import GlobalStatistics from "./GlobalStatistics";
+import CrackedDeals from "./Cracked Deals";
 import SavedDeals from "./SavedDeals";
 import YourContent from "./YourContent";
 
@@ -37,7 +37,7 @@ const DASHBOARD_CONTENT = {
   Brand_Deals: <BrandDeals />,
   Deal_Match: <DealMatch />,
   Event_Deals: <EventDeals />,
-  Global_Statistics: <GlobalStatistics />,
+  Cracked_Deals: <CrackedDeals />,
   Saved_Deals: <SavedDeals />,
 };
 

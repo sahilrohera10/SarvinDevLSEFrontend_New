@@ -84,7 +84,7 @@ const BottomNavbar = ({
                   onClick={() => setSelectedContent("Your_Content")}
                 >
                   <FaThumbsUp style={{ marginTop: 2 }} />
-                  Your Content
+                  My Content
                 </div>
                 <div
                   class={
@@ -110,14 +110,14 @@ const BottomNavbar = ({
                 </div>
                 <div
                   class={
-                    selectedContent == "Global_Statistics"
+                    selectedContent == "Cracked_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
-                  onClick={() => setSelectedContent("Global_Statistics")}
+                  onClick={() => setSelectedContent("Cracked_Deals")}
                 >
                   <FaGlobe style={{ marginTop: 2 }} />
-                  Global Statistics
+                  Cracked Deals
                 </div>
               </div>
             </div>
