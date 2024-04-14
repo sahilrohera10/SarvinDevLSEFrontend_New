@@ -7,7 +7,7 @@ import Image from "next/image";
 import Confetti from "react-confetti";
 import Lottie from "react-lottie-player";
 
-const SuccessModal = ({ openModal = False, setOpenModal = () => {} }) => {
+const SuccessModal = ({ openModal = false, setOpenModal = () => {} }) => {
   return (
     <>
       <div style={{ zIndex: 1000 }}>

@@ -7,6 +7,7 @@ const Modal = ({
   openModal = false,
   setOpenModal = () => {},
   animation = "one",
+  closeOutside = true,
 }) => {
   const [modalClass, setModalClass] = useState("");
 
@@ -21,17 +22,27 @@ const Modal = ({
 
   return (
     <div>
-      <div
-        id="modal-container"
-        className={openModal ? animation : ""}
-        onClick={() => closeModal()}
-      >
-        <div className="modal-background">
-          <div className="modal" style={{ backgroundColor: "#f8f7ff" }}>
-            {children}
+      {closeOutside ? (
+        <div
+          id="modal-container"
+          className={openModal ? animation : ""}
+          onClick={() => closeModal()}
+        >
+          <div className="modal-background">
+            <div className="modal" style={{ backgroundColor: "#f8f7ff" }}>
+              {children}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div id="modal-container" className={openModal ? animation : ""}>
+          <div className="modal-background">
+            <div className="modal" style={{ backgroundColor: "#f8f7ff" }}>
+              {children}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

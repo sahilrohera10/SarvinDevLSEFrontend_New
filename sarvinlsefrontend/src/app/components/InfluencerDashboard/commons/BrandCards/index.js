@@ -98,12 +98,18 @@ export default function BrandCard({
               View Deal
             </button>
           </div>
-          <Modal openModal={openModal} setOpenModal={setOpenModal}>
+          <Modal
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            closeOutside={false}
+          >
             <BrandDetail
               heading={heading}
               subheading={subheading}
               img={img}
               cardType="Deals"
+              openModal={openModal}
+              setOpenModal={setOpenModal}
             />
           </Modal>
         </div>
