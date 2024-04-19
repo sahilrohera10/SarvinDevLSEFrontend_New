@@ -20,6 +20,9 @@ import BidDeals from "./BidDeals";
 import BrandDeals from "./BrandDeals";
 import EventDeals from "./EventDeals";
 import Overview from "./Overview";
+import { useRouter } from "next/router";
+import SearchInfluencers from "./SearchInfluencers";
+import Analytics from "./Analytics";
 
 const DASHBOARD_CONTENT = {
   // Analytics: <Analytics />,
@@ -27,9 +30,14 @@ const DASHBOARD_CONTENT = {
   Bid_Deals: <BidDeals />,
   Brand_Deals: <BrandDeals />,
   Event_Deals: <EventDeals />,
+  Search_Influencers: <SearchInfluencers />,
+  Analytics: <Analytics />,
 };
 
 const BrandDashboard = () => {
+  const router = useRouter();
+  const { influencerView, id } = router.query;
+  console.log(influencerView, id);
   const [selectedContent, setSelectedContent] = useState("Brand_Search");
   return (
     <div>
@@ -125,6 +133,7 @@ const BrandDashboard = () => {
       <BottomNavbar
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
+        influencerView={influencerView == "True"}
       />
 
       {DASHBOARD_CONTENT[selectedContent]}

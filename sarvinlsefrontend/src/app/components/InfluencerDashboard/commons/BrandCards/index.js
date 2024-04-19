@@ -178,7 +178,9 @@ export default function BrandCard({
           </div>
           <Link
             className="text-gray-400 text-md mt-2 mr-2"
-            href="/brand-dashboard"
+            href={
+              "/brand-dashboard?influencerView=True&id=dwdwsdsxwfwfssxscxwdwf"
+            }
           >
             <button
               type="submit"

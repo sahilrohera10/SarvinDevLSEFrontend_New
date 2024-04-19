@@ -6,34 +6,29 @@ import LocationSearch from "../../commons/LocationSearch";
 import Collapse from "../../commons/Collapse";
 import Select from "react-select";
 import Dropdown from "../../commons/Dropdown";
-import BrandsDealCards from "../commons/BidCards";
-import BrandDealsFilters from "./BidDealsFilters";
+import InfluencersearchCards from "./InfluencersearchCards";
+import SearchInfluencerFilters from "./SearchInfluencerFilters";
 import Modal from "../../commons/modal";
 
-const customStyles = {
-  control: (provided) => ({
-    ...provided,
-    backgroundColor: "aqua", // Set background color to aqua
-  }),
-};
-
-const BidDeals = () => {
+const SearchInfluencers = () => {
   return (
-    <div class="mx-4">
+    <>
       {" "}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
-        <div class="flex justify-between gap-2 m-5 ">
-          {/* <Dropdown text="Audience Size" />
+      <div class="mx-4">
+        {" "}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <div class="flex justify-between gap-2 m-5 ">
+            {/* <Dropdown text="Audience Size" />
           <Dropdown text="Audience Gender" />
           <Dropdown text="Audience Age" /> */}
-        </div>
+          </div>
 
-        {/* <div class="flex gap-2 align-center">
+          {/* <div class="flex gap-2 align-center">
           {" "}
           <Select
             styles={customStyles}
@@ -62,26 +57,27 @@ const BidDeals = () => {
             ]}
           />
         </div> */}
-        <div>
-          <div class="flex justify-center">
-            <div style={{ width: "35vw", margin: 30 }}>
-              <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
-            </div>
+          <div>
+            <div class="flex justify-center">
+              <div style={{ width: "35vw", margin: 30 }}>
+                <GlobalSearch placeholder="Search for Influencers" />
+              </div>
 
-            <div style={{ width: "10vw", margin: 30 }}>
-              <LocationSearch />
-            </div>
-          </div>{" "}
-        </div>
+              <div style={{ width: "10vw", margin: 30 }}>
+                <LocationSearch />
+              </div>
+            </div>{" "}
+          </div>
 
-        <div class="flex justify-between m-11 gap-2">
-          <Dropdown text="All Filters" modalView>
-            <BrandDealsFilters />
-          </Dropdown>
+          <div class="flex justify-between m-11 gap-2">
+            <Dropdown text="All Filters" modalView>
+              <SearchInfluencerFilters />
+            </Dropdown>
+          </div>
         </div>
+        <InfluencersearchCards />
       </div>
-      <BrandsDealCards />
-    </div>
+    </>
   );
 };
-export default BidDeals;
+export default SearchInfluencers;
