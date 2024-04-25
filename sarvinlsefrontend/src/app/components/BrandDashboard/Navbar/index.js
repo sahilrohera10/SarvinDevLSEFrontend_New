@@ -5,6 +5,7 @@ import { Button } from "../../commons/button.tsx";
 import Modal from "../../commons/modal/index.js";
 import Pricing from "../../Pricing/index.js";
 import { useRouter } from "next/router";
+import { FaPlus } from "react-icons/fa";
 
 function NavBar({ currentColor }) {
   const router = useRouter();
@@ -691,41 +692,17 @@ function NavBar({ currentColor }) {
                 </li>
                 {/* Other Feature Links... */}
               </ul>
-              <div className={styles.Header_loginWrapper__9_1kE}>
-                <a
-                  className={styles.Header_client__RyL2j}
-                  href="/signin"
-                  target=""
-                  rel="noreferrer"
+              <div
+                className={styles.Header_loginWrapper__9_1kE}
+                class="flex gap-2"
+              >
+                <button
+                  type="button"
+                  class="text-white flex align-middle gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
-                  <svg
-                    width="16"
-                    height="17"
-                    viewBox="0 0 16 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_920_14251)">
-                      <path
-                        d="M2.66602 15.1667C2.66602 13.7522 3.22792 12.3956 4.22811 11.3954C5.22831 10.3952 6.58486 9.83332 7.99935 9.83332C9.41384 9.83332 10.7704 10.3952 11.7706 11.3954C12.7708 12.3956 13.3327 13.7522 13.3327 15.1667H11.9993C11.9993 14.1058 11.5779 13.0884 10.8278 12.3382C10.0776 11.5881 9.06021 11.1667 7.99935 11.1667C6.93848 11.1667 5.92107 11.5881 5.17092 12.3382C4.42078 13.0884 3.99935 14.1058 3.99935 15.1667H2.66602ZM7.99935 9.16666C5.78935 9.16666 3.99935 7.37666 3.99935 5.16666C3.99935 2.95666 5.78935 1.16666 7.99935 1.16666C10.2093 1.16666 11.9993 2.95666 11.9993 5.16666C11.9993 7.37666 10.2093 9.16666 7.99935 9.16666ZM7.99935 7.83332C9.47268 7.83332 10.666 6.63999 10.666 5.16666C10.666 3.69332 9.47268 2.49999 7.99935 2.49999C6.52602 2.49999 5.33268 3.69332 5.33268 5.16666C5.33268 6.63999 6.52602 7.83332 7.99935 7.83332Z"
-                        fill="#4C4D4F"
-                      ></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_920_14251">
-                        <rect
-                          width="16"
-                          height="16"
-                          fill="white"
-                          transform="translate(0 0.5)"
-                        ></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  Hi Naman
-                </a>
-
-                <div className={styles.Header_background__0TypS}></div>
+                  <FaPlus />
+                  Add Deals
+                </button>
               </div>
               <Button
                 style={{

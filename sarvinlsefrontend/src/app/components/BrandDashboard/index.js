@@ -23,6 +23,7 @@ import Overview from "./Overview";
 import { useRouter } from "next/router";
 import SearchInfluencers from "./SearchInfluencers";
 import Analytics from "./Analytics";
+import Cracked_Deals from "./Cracked Deals";
 
 const DASHBOARD_CONTENT = {
   // Analytics: <Analytics />,
@@ -32,6 +33,7 @@ const DASHBOARD_CONTENT = {
   Event_Deals: <EventDeals />,
   Search_Influencers: <SearchInfluencers />,
   Analytics: <Analytics />,
+  Cracked_Deals: <Cracked_Deals />,
 };
 
 const BrandDashboard = () => {
