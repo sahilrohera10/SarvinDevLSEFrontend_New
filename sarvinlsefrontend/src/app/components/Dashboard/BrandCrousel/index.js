@@ -1,6 +1,22 @@
 import React from "react";
 
 import AliceCarousel from "react-alice-carousel";
+import Airbnb from "../../../components/commons/assets/airbnb.png";
+import Google from "../../../components/commons/assets/Google.webp";
+import Youtube from "../../../components/commons/assets/Youtube.png";
+import Nike from "../../../components/commons/assets/Nike.png";
+import Lamborghini from "../../../components/commons/assets/Lamborghini.png";
+import Hm from "../../../components/commons/assets/hm-.png";
+import Globe from "../../../components/commons/assets/globe.png";
+import Tibco from "../../../components/commons/assets/Tibco.png";
+import BigYellow from "../../../components/commons/assets/BigYellow.png";
+import WaltDisney from "../../../components/commons/assets/waltdisney.png";
+import BigBazaar from "../../../components/commons/assets/BigBazaar.png";
+import Cococola from "../../../components/commons/assets/Cococola.png";
+import FedEx from "../../../components/commons/assets/FedEx.webp";
+import Vale from "../../../components/commons/assets/Vale.png";
+import Macy from "../../../components/commons/assets/Macy.png";
+
 import "react-alice-carousel/lib/alice-carousel.css";
 
 function BrandCrousel() {
@@ -19,7 +35,7 @@ function BrandCrousel() {
       }}
     >
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/airbnb-logo.png?strip=all&lossy=1&ssl=1"
+        src={Airbnb}
         onDragStart={handleDragStart}
         role="presentation"
         alt="fvf"
@@ -27,7 +43,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/google-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Google}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
@@ -35,7 +51,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2017/01/active-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Youtube}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -43,7 +59,7 @@ function BrandCrousel() {
         width={200}
       />{" "}
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/spotifiy-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Nike}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -51,7 +67,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/qatar_airways_logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Lamborghini}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -71,7 +87,7 @@ function BrandCrousel() {
       }}
     >
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2017/01/angry-birds-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Hm}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
@@ -79,7 +95,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/03/roblox-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Globe}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -87,7 +103,7 @@ function BrandCrousel() {
         width={200}
       />{" "}
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/microsoft-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Tibco}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -95,7 +111,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/twitch-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={BigBazaar}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -103,7 +119,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/jetblue_logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={BigYellow}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -123,7 +139,7 @@ function BrandCrousel() {
       }}
     >
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/altex-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={WaltDisney}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
@@ -131,7 +147,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2017/04/bezmialem-vakif-university-logo.png?strip=all&lossy=1&ssl=1"
+        src={FedEx}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -139,7 +155,7 @@ function BrandCrousel() {
         width={200}
       />{" "}
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/samsung-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Cococola}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -147,7 +163,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/amazon-logo.png?strip=all&lossy=1&w=1280&ssl=1"
+        src={Vale}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -155,7 +171,7 @@ function BrandCrousel() {
         width={200}
       />
       <img
-        src="https://ww1.logoeps.net/wp-content/uploads/2016/12/audi-logo.png?strip=all&lossy=1&resize=400%2C160"
+        src={Macy}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
@@ -170,24 +186,48 @@ function BrandCrousel() {
         style={{
           display: "flex",
           justifyContent: "center",
-          color: "#2D2D2D",
-          fontSize: 20,
-          fontWeight: 600,
+          textAlign: "center",
+          color: "#be4b47",
+          fontSize: "38px",
+          fontWeight: 400,
+          marginTop: "120px",
         }}
       >
-        Supported By Global Brands
+        Our Favourite Brands
       </div>
       <div>
         <AliceCarousel
-          mouseTracking
+          mouseTracking={false}
           items={items}
           disableButtonsControls
           infinite
           disableDotsControls
-          autoPlayInterval={5000}
+          autoPlayInterval={800}
           autoPlay
         />
       </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+          color: "#be4b47",
+          fontSize: "38px",
+          fontWeight: 400,
+          marginTop: "80px",
+        }}
+      >
+        Trusted By Some Top Notch Stars
+      </div>
+      <AliceCarousel
+        mouseTracking
+        items={items}
+        autoPlay
+        infinite
+        disableButtonsControls
+        disableDotsControls
+        autoPlayInterval={1200}
+      />
     </div>
   );
 }

@@ -7,7 +7,7 @@ const Modal = ({
   openModal = false,
   setOpenModal = () => {},
   animation = "one",
-  closeOutside = true,
+  closeOutside = false,
 }) => {
   const [modalClass, setModalClass] = useState("");
 

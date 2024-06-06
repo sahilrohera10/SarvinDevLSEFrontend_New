@@ -127,11 +127,14 @@ const MapIntegration = () => {
           >
             {isOpen && infoWindowData?.id === ind && (
               <InfoWindow
+                headerContent={<h3>InfoWindow Header Content</h3>}
                 onCloseClick={() => {
                   setIsOpen(false);
                 }}
+                disableAutoPan
+                minWidth={2000}
               >
-                <h3>{infoWindowData.address}</h3>
+                <h2>{infoWindowData.address}</h2>
               </InfoWindow>
             )}
           </Marker>

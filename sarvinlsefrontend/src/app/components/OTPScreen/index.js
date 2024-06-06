@@ -12,6 +12,7 @@ import LocationInputModal from "../LocationInputModal";
 
 const OTPScreens = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
   return (
     <>
       <div
@@ -147,26 +148,20 @@ const OTPScreens = () => {
               </div>
               <div>
                 <button
-                  type="submit"
+                  type="button"
                   class="flex w-full justify-center rounded-sm bg-[#F27430] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={() => setOpenModal(!openModal)}
                 >
                   I have left the comment. Continue
                 </button>
               </div>
-              <div class="flex justify-center">
-                <button
-                  type="button"
-                  class="flex w-80 justify-center rounded-sm bg-[#FF965E] px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  onClick={() => setOpenModal(!openModal)}
-                >
-                  Verifying..
-                </button>
-              </div>
             </form>
-            <LocationInputModal
-              openModal={openModal}
-              setOpenModal={setOpenModal}
-            />
+            {openModal && (
+              <LocationInputModal
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+              />
+            )}
           </div>
         </div>
       </div>

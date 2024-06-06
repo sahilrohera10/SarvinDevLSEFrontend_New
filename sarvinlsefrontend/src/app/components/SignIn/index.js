@@ -12,6 +12,7 @@ import jwt from "jsonwebtoken";
 const SignIn = () => {
   const router = useRouter();
   const [show, setShow] = useState(true);
+  const [showToast, setShowToast] = useState(false);
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -31,7 +32,7 @@ const SignIn = () => {
       [name]: value,
     }));
   };
-
+  console.log(showToast);
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +53,7 @@ const SignIn = () => {
       );
 
       if (!response.ok) {
+        setShowToast(true);
         // If response is not OK, throw an error
         throw new Error("Login failed");
       }
@@ -333,9 +335,14 @@ const SignIn = () => {
                         "Continue"
                       )}
                     </button>
-                    {loginStatus.error && (
+                    {showToast && (
                       <div className="w-full">
-                        <Toast text="Invalid Credentials" type={2} />
+                        <Toast
+                          text="Invalid Credentials"
+                          type={2}
+                          showToast={showToast}
+                          setShowToast={setShowToast}
+                        />
                       </div>
                     )}
                     <div class="text-gray-300 flex justify-center">--or--</div>

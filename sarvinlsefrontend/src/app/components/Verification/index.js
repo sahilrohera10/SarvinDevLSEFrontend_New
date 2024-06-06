@@ -1,12 +1,20 @@
 "use client";
 
-import React from "react";
-import NavBar from "../commons/Navbar";
+import React, { useState } from "react";
 import Instagram from "../commons/icons/instagram.png";
 import Image from "next/image";
 import ListCard from "../commons/Profilecard/ListCard";
+import { useRouter } from "next/router";
 
 const Verification = () => {
+  const router = useRouter();
+
+  // Access the current URL
+  const appendText = (e) => {
+    e.preventDefault();
+    // Modify the appended text as needed
+    router.push("/account-verification-otp");
+  };
   return (
     <>
       <div
@@ -79,7 +87,7 @@ const Verification = () => {
           </div>
 
           <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" onSubmit={appendText} method="POST">
               <div class="flex justify-between ">
                 <span class="text-base font-medium text-blue-700 dark:text-white"></span>
                 <span class="text-sm font-semibold text-[#E86C2F] dark:text-white">
