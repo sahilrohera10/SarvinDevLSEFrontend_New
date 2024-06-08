@@ -6,9 +6,21 @@ import BrandCard from "../BrandCards";
 import Podium from "../../../commons/icons/podium.png";
 import ViewSwitcher from "../../../commons/GridListToggle";
 import BrandListCard from "../BrandListCards";
+import axios from "axios";
 
 const BrandsDealCards = ({ text = null, children }) => {
   const [isListView, setIsListView] = useState(false);
+  useEffect(() => {
+    axios
+      .get("https://sarvindevbackend.onrender.com/api/brand/deal")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        // Set loading to false in case of error
+      });
+  }, []);
 
   return (
     <div style={{ margin: "0px 20px" }}>

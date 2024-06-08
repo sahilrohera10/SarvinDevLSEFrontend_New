@@ -1,14 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import BrandCard from "../BrandCards";
 import Podium from "../../../commons/icons/Business.png";
 import ViewSwitcher from "../../../commons/GridListToggle";
 import BrandListCard from "../BrandListCards";
+import axios from "axios";
 
 const BrandsDealCards = ({ text = null, children }) => {
   const [isListView, setIsListView] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://sarvindevbackend.onrender.com/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5"
+      )
+      .then((response) => {
+        console.log(response);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+        // Set loading to false in case of error
+      });
+  }, []);
+
   return (
     <div style={{ margin: "0px 20px" }}>
       <div
