@@ -11,7 +11,7 @@ const SuggestionCreators = ({ isTabletOrMobile }) => {
     <div style={{ margin: "0px 20px" }}>
       <div
         style={{
-          fontSize: 30,
+          fontSize: isTabletOrMobile ? 24 : 30,
           fontWeight: 400,
           margin: "0px 20px",
           display: "flex",
@@ -25,9 +25,10 @@ const SuggestionCreators = ({ isTabletOrMobile }) => {
       </div>
       <div
         style={{
-          fontSize: 14,
+          fontSize: isTabletOrMobile ? 12 : 14,
           fontWeight: 200,
           margin: "0px 20px",
+          display: "flex",
           justifyContent: isTabletOrMobile && "center",
         }}
       >

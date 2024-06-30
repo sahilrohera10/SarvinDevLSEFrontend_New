@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import AliceCarousel from "react-alice-carousel";
 import Airbnb from "../../../components/commons/assets/airbnb.png";
@@ -19,7 +20,7 @@ import Macy from "../../../components/commons/assets/Macy.png";
 
 import "react-alice-carousel/lib/alice-carousel.css";
 
-function BrandCrousel() {
+function BrandCrousel({ isTabletOrMobile }) {
   const handleDragStart = (e) => e.preventDefault();
 
   const items = [
@@ -34,45 +35,45 @@ function BrandCrousel() {
         paddingLeft: 20,
       }}
     >
-      <img
+      <Image
         src={Airbnb}
         onDragStart={handleDragStart}
         role="presentation"
         alt="fvf"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Google}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Youtube}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />{" "}
-      <img
+      <Image
         src={Nike}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Lamborghini}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
     </div>,
     <div
@@ -86,45 +87,45 @@ function BrandCrousel() {
         paddingLeft: 20,
       }}
     >
-      <img
+      <Image
         src={Hm}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Globe}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />{" "}
-      <img
+      <Image
         src={Tibco}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={BigBazaar}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={BigYellow}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
     </div>,
     <div
@@ -138,45 +139,45 @@ function BrandCrousel() {
         paddingLeft: 20,
       }}
     >
-      <img
+      <Image
         src={WaltDisney}
         onDragStart={handleDragStart}
         role="presentation"
         alt="tret"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={FedEx}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />{" "}
-      <img
+      <Image
         src={Cococola}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Vale}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
-      <img
+      <Image
         src={Macy}
         onDragStart={handleDragStart}
         role="presentation"
         alt="dvd"
-        height={200}
-        width={200}
+        height={isTabletOrMobile ? 55 : 200}
+        width={isTabletOrMobile ? 55 : 200}
       />
     </div>,
   ];

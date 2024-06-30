@@ -17,7 +17,7 @@ export default function CreaterCard({
   tags = 0,
 }) {
   return (
-    <div className="max-w-sm bg-black relative group border shadow-lg rounded-lg mb-10">
+    <div className="max-w-sm bg-white relative group border shadow-lg rounded-lg mb-10">
       <a
         href="#"
         className="relative block  group-hover:opacity-70 transition-opacity duration-300"

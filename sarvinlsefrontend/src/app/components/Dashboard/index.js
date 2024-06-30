@@ -125,8 +125,8 @@ const Dashboard = () => {
       </div>
 
       <RisingCreators isTabletOrMobile={isTabletOrMobile} />
-      <StatsCards />
-      <BrandCrousel />
+      <StatsCards isTabletOrMobile={isTabletOrMobile} />
+      <BrandCrousel isTabletOrMobile={isTabletOrMobile} />
       <SuggestionCreators isTabletOrMobile={isTabletOrMobile} />
       <br />
       <Footer />
