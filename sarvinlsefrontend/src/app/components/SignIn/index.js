@@ -8,8 +8,10 @@ import { FaEyeSlash } from "react-icons/fa";
 import Toast from "../commons/toast";
 import { useRouter } from "next/router";
 import jwt from "jsonwebtoken";
+import { useMediaQuery } from "react-responsive";
 
 const SignIn = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const router = useRouter();
   const [show, setShow] = useState(true);
   const [showToast, setShowToast] = useState(false);
@@ -32,7 +34,6 @@ const SignIn = () => {
       [name]: value,
     }));
   };
-  console.log(showToast);
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,7 +64,6 @@ const SignIn = () => {
       setLoginStatus({ loading: false, error: "" });
       // router.push("/dashboard/[]");
       const responseData = await response.json();
-      console.log(responseData);
       if (!responseData?.user?.is_insta_verify) {
         router.push("/account-verification");
       }
@@ -89,7 +89,7 @@ const SignIn = () => {
         <div
           style={{
             height: "100vh",
-            width: "50vw",
+            width: isTabletOrMobile ? "100vw" : "50vw",
             overflow: "hidden",
             background: `url(
           "https://hips.hearstapps.com/hmg-prod/images/hbz-black-creators-influencers-index-1591119518.jpg"
@@ -109,58 +109,60 @@ const SignIn = () => {
           flex: 1,
         }}
       >
-        <div>
-          <a href="/">
-            <span
-              style={{
-                boxSizing: "border-box",
-                display: "inline-block",
-                overflow: "hidden",
-                width: "initial",
-                height: "initial",
-                position: "relative",
-                maxWidth: "100%",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
+        {!isTabletOrMobile && (
+          <div>
+            <a href="/">
               <span
                 style={{
                   boxSizing: "border-box",
-                  display: "block",
+                  display: "inline-block",
                   overflow: "hidden",
                   width: "initial",
                   height: "initial",
-                  background: "transparent",
-                  opacity: 1,
-                  border: 0,
-
-                  padding: 0,
                   position: "relative",
                   maxWidth: "100%",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                <div
+                <span
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 4,
+                    boxSizing: "border-box",
+                    display: "block",
+                    overflow: "hidden",
+                    width: "initial",
+                    height: "initial",
+                    background: "transparent",
+                    opacity: 1,
+                    border: 0,
+
+                    padding: 0,
+                    position: "relative",
+                    maxWidth: "100%",
                   }}
                 >
                   <div
                     style={{
-                      color: "#E65C55",
-                      fontSize: 100,
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: 4,
                     }}
                   >
-                    SARVIN
+                    <div
+                      style={{
+                        color: "#E65C55",
+                        fontSize: 100,
+                      }}
+                    >
+                      SARVIN
+                    </div>
                   </div>
-                </div>
+                </span>
               </span>
-            </span>
-            {/* Your logo */}
-          </a>
-        </div>
+              {/* Your logo */}
+            </a>
+          </div>
+        )}
         <div
           style={{
             overflow: "hidden",
@@ -219,7 +221,7 @@ const SignIn = () => {
                     <div
                       style={{
                         color: "#E65C55",
-
+                        fontWeight: 200,
                         fontSize: 30,
                       }}
                     >

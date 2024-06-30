@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import NavBar from "../commons/Navbar";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
 
 const SignUp = () => {
   const [otpsent, setOtpSent] = useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   return (
     <>
       <div
@@ -22,40 +25,71 @@ const SignUp = () => {
         }}
       ></div>
       <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
-        <a href="/">
-          <span
-            style={{
-              boxSizing: "border-box",
-              display: "inline-block",
-              overflow: "hidden",
-              width: "initial",
-              height: "initial",
-              background: "none",
-              opacity: 1,
-              border: 0,
-              margin: 0,
-              padding: 0,
-              position: "relative",
-              maxWidth: "100%",
-            }}
-          >
+        {!isTabletOrMobile && (
+          <a href="/">
             <span
               style={{
                 boxSizing: "border-box",
-                display: "block",
+                display: "inline-block",
                 overflow: "hidden",
                 width: "initial",
                 height: "initial",
-                background: "transparent",
+                background: "none",
                 opacity: 1,
                 border: 0,
-                margin: "34px 34px 2px 34px",
+                margin: 0,
                 padding: 0,
                 position: "relative",
                 maxWidth: "100%",
               }}
             >
-              <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+              <span
+                style={{
+                  boxSizing: "border-box",
+                  display: "block",
+                  overflow: "hidden",
+                  width: "initial",
+                  height: "initial",
+                  background: "transparent",
+                  opacity: 1,
+                  border: 0,
+                  margin: "34px 34px 2px 34px",
+                  padding: 0,
+                  position: "relative",
+                  maxWidth: "100%",
+                }}
+              >
+                <div
+                  style={{ display: "flex", alignItems: "baseline", gap: 4 }}
+                >
+                  <div
+                    style={{
+                      color: "#E65C55",
+
+                      fontSize: 30,
+                    }}
+                  >
+                    SARVIN
+                  </div>
+                  <i style={{ fontSize: 14 }}>For Influencers</i>
+                </div>
+              </span>
+            </span>
+            {/* Your logo */}
+          </a>
+        )}
+
+        <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
+          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            {isTabletOrMobile && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "center",
+                  gap: 4,
+                }}
+              >
                 <div
                   style={{
                     color: "#E65C55",
@@ -67,13 +101,7 @@ const SignUp = () => {
                 </div>
                 <i style={{ fontSize: 14 }}>For Influencers</i>
               </div>
-            </span>
-          </span>
-          {/* Your logo */}
-        </a>
-
-        <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
-          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            )}
             <h2 class="m-4 text-center text-2xl font-semibold  text-gray-900">
               Create your free account
             </h2>
