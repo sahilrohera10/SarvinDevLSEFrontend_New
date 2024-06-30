@@ -21,7 +21,14 @@ const RisingCreators = ({ isTabletOrMobile }) => {
         Rising Creators{" "}
         <Image src={Podium} alt="podium" width={34} height={34} />
       </div>
-      <div style={{ fontSize: 14, fontWeight: 200, margin: "0px 20px" }}>
+      <div
+        style={{
+          fontSize: 14,
+          fontWeight: 200,
+          margin: "0px 20px",
+          justifyContent: isTabletOrMobile && "center",
+        }}
+      >
         Influencers Cracked Most Brand Deals in Last 30 Days{" "}
       </div>
       {!isTabletOrMobile ? (

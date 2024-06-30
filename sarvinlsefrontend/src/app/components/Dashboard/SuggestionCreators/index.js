@@ -1,12 +1,37 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+
+import Podium from "../../commons/icons/podium.png";
+
 import CreaterCard from "../../commons/CreaterCard/CreaterCard";
 const SuggestionCreators = ({ isTabletOrMobile }) => {
   return (
     <div style={{ margin: "0px 20px" }}>
-      <div style={{ fontSize: 30, fontWeight: 600, margin: 20 }}>
-        Related Suggestions
+      <div
+        style={{
+          fontSize: 30,
+          fontWeight: 400,
+          margin: "0px 20px",
+          display: "flex",
+          justifyContent: isTabletOrMobile && "center",
+          gap: 10,
+          alignItems: "center",
+        }}
+      >
+        Suggested Creators{" "}
+        <Image src={Podium} alt="podium" width={34} height={34} />
+      </div>
+      <div
+        style={{
+          fontSize: 14,
+          fontWeight: 200,
+          margin: "0px 20px",
+          justifyContent: isTabletOrMobile && "center",
+        }}
+      >
+        Influencers Cracked Most Brand Deals in Last 30 Days{" "}
       </div>
       {!isTabletOrMobile ? (
         <div
