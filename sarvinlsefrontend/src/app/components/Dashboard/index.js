@@ -104,7 +104,13 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-      <div style={{ margin: 10, display: "flex", justifyContent: "flex-end" }}>
+      <div
+        style={{
+          margin: 10,
+          display: "flex",
+          justifyContent: isTabletOrMobile ? "center" : "flex-end",
+        }}
+      >
         <Collapse
           text={
             <div
