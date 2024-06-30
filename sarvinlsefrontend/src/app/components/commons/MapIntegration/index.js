@@ -10,20 +10,21 @@ import {
 import MapCards from "../MapCards/CreaterCard";
 
 const libraries = ["places"];
-const mapContainerStyle = {
-  width: "100vw",
-  height: "40vh",
-};
+
 const center = {
   lat: 18.5214,
   lng: 73.8446, // default longitude
 };
 
-const MapIntegration = () => {
+const MapIntegration = ({ isTabletOrMobile }) => {
   const [map, setMap] = useState(null);
   const [mapRef, setMapRef] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState();
+  const mapContainerStyle = {
+    width: "100vw",
+    height: isTabletOrMobile ? "80vh" : "40vh",
+  };
   const markers = [
     {
       address: (
@@ -112,7 +113,7 @@ const MapIntegration = () => {
     <div>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={15.8}
+        zoom={10.8}
         center={center}
         onLoad={onLoad}
         onUnmount={onUnmount}
