@@ -30,22 +30,20 @@ import SavedDeals from "./SavedDeals";
 import YourContent from "./YourContent";
 import { useMediaQuery } from "react-responsive";
 
-const DASHBOARD_CONTENT = {
-  Brand_Search: <BrandSearch />,
-  Analytics: <Analytics />,
-  Your_Content: <YourContent />,
-  Bid_Deals: <BidDeals />,
-  Brand_Deals: <BrandDeals />,
-  Deal_Match: <DealMatch />,
-  Event_Deals: <EventDeals />,
-  Cracked_Deals: <CrackedDeals />,
-  Saved_Deals: <SavedDeals />,
-};
-
 const InfluencerDashboard = () => {
   const [selectedContent, setSelectedContent] = useState("Brand_Search");
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
-
+  const DASHBOARD_CONTENT = {
+    Brand_Search: <BrandSearch isTabletOrMobile={isTabletOrMobile} />,
+    Analytics: <Analytics />,
+    Your_Content: <YourContent />,
+    Bid_Deals: <BidDeals />,
+    Brand_Deals: <BrandDeals />,
+    Deal_Match: <DealMatch />,
+    Event_Deals: <EventDeals />,
+    Cracked_Deals: <CrackedDeals />,
+    Saved_Deals: <SavedDeals />,
+  };
   return (
     <div>
       <NavBar isTabletOrMobile={isTabletOrMobile} />
