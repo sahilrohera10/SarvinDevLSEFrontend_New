@@ -9,8 +9,10 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import ListCard from "../commons/Profilecard/ListCard";
 import SuccessModal from "../SuccessModal";
 import LocationInputModal from "../LocationInputModal";
+import { useMediaQuery } from "react-responsive";
 
 const OTPScreens = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const [openModal, setOpenModal] = useState(false);
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   return (
@@ -29,40 +31,72 @@ const OTPScreens = () => {
         }}
       ></div>
       <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
-        <a href="/">
-          <span
-            style={{
-              boxSizing: "border-box",
-              display: "inline-block",
-              overflow: "hidden",
-              width: "initial",
-              height: "initial",
-              background: "none",
-              opacity: 1,
-              border: 0,
-              margin: 0,
-              padding: 0,
-              position: "relative",
-              maxWidth: "100%",
-            }}
-          >
-            <span
-              style={{
-                boxSizing: "border-box",
-                display: "block",
-                overflow: "hidden",
-                width: "initial",
-                height: "initial",
-                background: "transparent",
-                opacity: 1,
-                border: 0,
-                margin: "34px 34px 2px 34px",
-                padding: 0,
-                position: "relative",
-                maxWidth: "100%",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+        {!isTabletOrMobile && (
+          <div>
+            <a href="/">
+              <span
+                style={{
+                  boxSizing: "border-box",
+                  display: "inline-block",
+                  overflow: "hidden",
+                  width: "initial",
+                  height: "initial",
+                  background: "none",
+                  opacity: 1,
+                  border: 0,
+                  margin: 0,
+                  padding: 0,
+                  position: "relative",
+                  maxWidth: "100%",
+                }}
+              >
+                <span
+                  style={{
+                    boxSizing: "border-box",
+                    display: "block",
+                    overflow: "hidden",
+                    width: "initial",
+                    height: "initial",
+                    background: "transparent",
+                    opacity: 1,
+                    border: 0,
+                    margin: "34px 34px 2px 34px",
+                    padding: 0,
+                    position: "relative",
+                    maxWidth: "100%",
+                  }}
+                >
+                  <div
+                    style={{ display: "flex", alignItems: "baseline", gap: 4 }}
+                  >
+                    <div
+                      style={{
+                        color: "#E65C55",
+
+                        fontSize: 30,
+                      }}
+                    >
+                      SARVIN
+                    </div>
+                    <i style={{ fontSize: 14 }}>For Influencers</i>
+                  </div>
+                </span>
+              </span>
+              {/* Your logo */}
+            </a>
+          </div>
+        )}
+        <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
+          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            {isTabletOrMobile && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "center",
+                  gap: 4,
+                }}
+              >
                 <div
                   style={{
                     color: "#E65C55",
@@ -74,12 +108,7 @@ const OTPScreens = () => {
                 </div>
                 <i style={{ fontSize: 14 }}>For Influencers</i>
               </div>
-            </span>
-          </span>
-          {/* Your logo */}
-        </a>
-        <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
-          <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            )}
             <h2 class="m-4 w-100 text-center text-2xl font-semibold  text-gray-900">
               Verify your creator account
             </h2>
