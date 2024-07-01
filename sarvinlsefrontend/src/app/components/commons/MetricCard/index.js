@@ -7,6 +7,7 @@ export default function MetricCard({
   title = "New Title",
   icon = null,
   trend = null,
+  isTabletOrMobile = false,
 }) {
   return (
     <div>
@@ -15,12 +16,18 @@ export default function MetricCard({
         class="block p-2 px-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
         <div class="flex justify-between flex-row w-full">
-          <div class=" flex font-semibold flex-col text-sm text-gray-900 dark:text-white justify-center ">
+          <div
+            class={
+              isTabletOrMobile
+                ? "flex font-semibold flex-col text-xs text-gray-900 dark:text-white justify-center "
+                : " flex font-semibold flex-col text-sm text-gray-900 dark:text-white justify-center "
+            }
+          >
             {title}
           </div>
-          <div>{icon}</div>
+          {!isTabletOrMobile && <div>{icon}</div>}
         </div>
-        <div>
+        <div class={isTabletOrMobile && "flex justify-between"}>
           <p
             class={
               valueStyle ||
@@ -29,6 +36,7 @@ export default function MetricCard({
           >
             {value}
           </p>
+          {isTabletOrMobile && <div>{icon}</div>}
         </div>
         {trend && (
           <div class="flex gap-2">

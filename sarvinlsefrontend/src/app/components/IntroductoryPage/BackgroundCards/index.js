@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function BackgroundCards({ children, styles }) {
   return (
@@ -8,7 +8,9 @@ function BackgroundCards({ children, styles }) {
         class="opacity-200 bg-gray block max-w-sm rounded-lg border border-gray-200 p-6 shadow"
         style={styles}
       >
-        <p class="font-normal text-gray-700 dark:text-gray-400">{children}</p>
+        <div class="font-normal text-gray-700 dark:text-gray-400">
+          {children}
+        </div>
       </a>
     </>
   );

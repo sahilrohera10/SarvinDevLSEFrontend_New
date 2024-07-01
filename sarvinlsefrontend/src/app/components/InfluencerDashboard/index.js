@@ -28,6 +28,7 @@ import EventDeals from "./EventDeals";
 import CrackedDeals from "./Cracked Deals";
 import SavedDeals from "./SavedDeals";
 import YourContent from "./YourContent";
+import { useMediaQuery } from "react-responsive";
 
 const DASHBOARD_CONTENT = {
   Brand_Search: <BrandSearch />,
@@ -43,86 +44,91 @@ const DASHBOARD_CONTENT = {
 
 const InfluencerDashboard = () => {
   const [selectedContent, setSelectedContent] = useState("Brand_Search");
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   return (
     <div>
-      <NavBar />
-      <div className={styles.profile_container}>
-        <div style={{ flex: 0.5, marginLeft: 10 }}>
-          <img
-            class="w-20 h-20  rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt="Rounded avatar"
-          ></img>
-        </div>
-        <div style={{ flex: 2 }}>
-          <div
-            className={styles.complete_your_profile_text}
-            style={{ display: "flex" }}
-          >
-            Hi! Naman Agarwal{" "}
-            <Lottie
-              loop
-              animationData={Handwave}
-              play
-              style={{
-                width: "7%",
-                height: "7%",
-                marginLeft: 4,
-                marginTop: 4,
-                transform: "rotate(30deg)",
-              }}
-            />
+      <NavBar isTabletOrMobile={isTabletOrMobile} />
+      {!isTabletOrMobile ? (
+        <div className={styles.profile_container}>
+          <div style={{ flex: 0.5, marginLeft: 10 }}>
+            <img
+              class="w-20 h-20  rounded-full"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt="Rounded avatar"
+            ></img>
           </div>
-          <div className={styles.contact_info}>
-            Software Engineer,Akamai Technologies
-          </div>
-        </div>
-        <div style={{ flex: 5 }}>
-          <div class="flex gap-3">
-            <div style={{ flex: 2 }}>
-              <MetricCards
-                value={216}
-                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                title="Followers"
-                icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
-                trend={{
-                  slope: -1,
-                  description: "Compared to last week",
-                  value: "0.5%",
+          <div style={{ flex: 2 }}>
+            <div
+              className={styles.complete_your_profile_text}
+              style={{ display: "flex" }}
+            >
+              Hi! Naman Agarwal{" "}
+              <Lottie
+                loop
+                animationData={Handwave}
+                play
+                style={{
+                  width: "7%",
+                  height: "7%",
+                  marginLeft: 4,
+                  marginTop: 4,
+                  transform: "rotate(30deg)",
                 }}
               />
             </div>
-            <div style={{ flex: 2 }}>
-              <MetricCards
-                value={"27.5"}
-                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                title="Quality Score"
-                icon={
-                  <Image src={Engagement} width={48} height={0} alt="Icon" />
-                }
-                trend={{
-                  slope: 1,
-                  description: "Compared to last week",
-                  value: "5%",
-                }}
-              />
-            </div>
-            <div style={{ flex: 2 }}>
-              <MetricCards
-                value={"87"}
-                valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                title="Sarvin Credits"
-                icon={<Image src={Score} width={48} height={0} alt="Icon" />}
-                trend={{
-                  slope: -1,
-                  description: "Compared to last week",
-                  value: "1.5%",
-                }}
-              />
+            <div className={styles.contact_info}>
+              Software Engineer,Akamai Technologies
             </div>
           </div>
-        </div>
-        {/* <div className={styles.status}>
+          <div style={{ flex: 5 }}>
+            <div class="flex gap-3">
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={216}
+                  valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                  title="Followers"
+                  icon={
+                    <Image src={Follower} width={48} height={0} alt="Icon" />
+                  }
+                  trend={{
+                    slope: -1,
+                    description: "Compared to last week",
+                    value: "0.5%",
+                  }}
+                />
+              </div>
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={"27.5"}
+                  valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                  title="Quality Score"
+                  icon={
+                    <Image src={Engagement} width={48} height={0} alt="Icon" />
+                  }
+                  trend={{
+                    slope: 1,
+                    description: "Compared to last week",
+                    value: "5%",
+                  }}
+                />
+              </div>
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={"87"}
+                  valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                  title="Sarvin Credits"
+                  icon={<Image src={Score} width={48} height={0} alt="Icon" />}
+                  trend={{
+                    slope: -1,
+                    description: "Compared to last week",
+                    value: "1.5%",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+          {/* <div className={styles.status}>
           <div style={{ width: "40%" }}>
             <div style={{ padding: "0px 28px" }}>
               {" "}
@@ -133,10 +139,91 @@ const InfluencerDashboard = () => {
             </div>
           </div>
         </div> */}
-      </div>
+        </div>
+      ) : (
+        <div>
+          <div class="mt-16">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                class="w-20 h-20  rounded-full"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="Rounded avatar"
+              ></img>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                className={styles.complete_your_profile_text}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                Hi! Naman Agarwal{" "}
+              </div>
+              <div className={styles.contact_info}>
+                Software Engineer,Akamai Technologies
+              </div>
+            </div>
+            <div class="flex gap-2 justify-center mx-2">
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={216}
+                  valueStyle="font-light mb-2 font-sans text-md text-gray-700 dark:text-gray-400"
+                  title="Followers"
+                  icon={
+                    <Image src={Follower} width={30} height={0} alt="Icon" />
+                  }
+                  isTabletOrMobile={isTabletOrMobile}
+                />
+              </div>
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={"27.5"}
+                  valueStyle="font-light mb-2 font-sans text-md text-gray-700 dark:text-gray-400"
+                  title="Quality Score"
+                  icon={
+                    <Image src={Engagement} width={30} height={0} alt="Icon" />
+                  }
+                  isTabletOrMobile={isTabletOrMobile}
+                />
+              </div>
+              <div style={{ flex: 2 }}>
+                <MetricCards
+                  value={"87"}
+                  valueStyle="font-light mb-2 font-sans text-md text-gray-700 dark:text-gray-400"
+                  title="Sarvin Credits"
+                  icon={<Image src={Score} width={30} height={0} alt="Icon" />}
+                  isTabletOrMobile={isTabletOrMobile}
+                />
+              </div>
+            </div>
+            {/* <div className={styles.status}>
+          <div style={{ width: "40%" }}>
+            <div style={{ padding: "0px 28px" }}>
+              {" "}
+              <CircularProgressbar value={66} text="66%" />
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 700 }}>
+              Profile Complete
+            </div>
+          </div>
+        </div> */}
+          </div>
+        </div>
+      )}
       <BottomNavbar
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
+        isTabletOrMobile={isTabletOrMobile}
       />
 
       {DASHBOARD_CONTENT[selectedContent]}
