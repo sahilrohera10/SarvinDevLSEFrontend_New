@@ -8,21 +8,21 @@ import Dropdown from "../../commons/Dropdown";
 import BrandDealsFilters from "../BrandSearch/BrandSearchFilters";
 import EventCards from "./EventCards";
 
-const EventDeals = () => {
+const EventDeals = ({ isTabletOrMobile }) => {
   return (
     <div class="mx-4">
       {" "}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "center",
         }}
       >
-        <div class="flex justify-between gap-2 m-5 ">
-          {/* <Dropdown text="Audience Size" />
+        {/* <div class="flex justify-between gap-2 m-5 ">
+          <Dropdown text="Audience Size" />
           <Dropdown text="Audience Gender" />
-          <Dropdown text="Audience Age" /> */}
-        </div>
+          <Dropdown text="Audience Age" />
+        </div> */}
 
         {/* <div class="flex gap-2 align-center">
           {" "}
@@ -55,23 +55,47 @@ const EventDeals = () => {
         </div> */}
         <div>
           <div class="flex justify-center">
-            <div style={{ width: "35vw", margin: 30 }}>
+            <div
+              style={{
+                width: isTabletOrMobile ? "60vw" : "35vw",
+                marginRight: isTabletOrMobile ? 5 : 30,
+                marginLeft: isTabletOrMobile ? -40 : 30,
+                marginTop: isTabletOrMobile ? 10 : 30,
+                marginBottom: isTabletOrMobile ? 10 : 30,
+              }}
+            >
               <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
             </div>
 
-            <div style={{ width: "10vw", margin: 30 }}>
+            <div
+              style={{
+                width: isTabletOrMobile ? "30vw" : "10vw",
+                marginRight: isTabletOrMobile ? -30 : 30,
+                marginLeft: isTabletOrMobile ? 5 : 30,
+                marginTop: isTabletOrMobile ? 10 : 30,
+                marginBottom: isTabletOrMobile ? 10 : 30,
+              }}
+            >
               <LocationSearch />
             </div>
           </div>{" "}
         </div>
 
-        <div class="flex justify-between m-11 gap-2">
-          <Dropdown text="All Filters" modalView>
-            <BrandDealsFilters />
-          </Dropdown>
-        </div>
+        {!isTabletOrMobile && (
+          <div
+            class={
+              isTabletOrMobile
+                ? "flex justify-center w-full gap-2"
+                : "flex justify-between m-11 gap-2"
+            }
+          >
+            <Dropdown text="All Filters" modalView>
+              <BrandDealsFilters />
+            </Dropdown>
+          </div>
+        )}
       </div>
-      <EventCards />
+      <EventCards isTabletOrMobile={isTabletOrMobile} />
     </div>
   );
 };

@@ -36,13 +36,13 @@ const InfluencerDashboard = () => {
   const DASHBOARD_CONTENT = {
     Brand_Search: <BrandSearch isTabletOrMobile={isTabletOrMobile} />,
     Analytics: <Analytics />,
-    Your_Content: <YourContent />,
-    Bid_Deals: <BidDeals />,
+    Your_Content: <YourContent isTabletOrMobile={isTabletOrMobile} />,
+    Bid_Deals: <BidDeals isTabletOrMobile={isTabletOrMobile} />,
     Brand_Deals: <BrandDeals />,
     Deal_Match: <DealMatch />,
-    Event_Deals: <EventDeals />,
-    Cracked_Deals: <CrackedDeals />,
-    Saved_Deals: <SavedDeals />,
+    Event_Deals: <EventDeals isTabletOrMobile={isTabletOrMobile} />,
+    Cracked_Deals: <CrackedDeals isTabletOrMobile={isTabletOrMobile} />,
+    Saved_Deals: <SavedDeals isTabletOrMobile={isTabletOrMobile} />,
   };
   return (
     <div>

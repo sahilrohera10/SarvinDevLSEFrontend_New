@@ -11,12 +11,12 @@ import {
 import Podium from "../../commons/icons/Business.png";
 import Image from "next/image";
 
-const YourContent = () => {
+const YourContent = ({ isTabletOrMobile = false }) => {
   return (
     <div>
       <div
         style={{
-          fontSize: 30,
+          fontSize: isTabletOrMobile ? 20 : 30,
           fontWeight: 400,
           margin: "20px 30px 0 ",
           display: "flex",
@@ -26,7 +26,13 @@ const YourContent = () => {
         }}
       >
         <div
-          style={{ display: "flex", gap: 10, alignItems: "center" }}
+          style={{
+            display: "flex",
+            width: "100vw",
+            gap: 10,
+            alignItems: "center",
+            justifyContent: isTabletOrMobile && "center",
+          }}
           class="mx-6"
         >
           <div>My Content</div>
@@ -36,7 +42,13 @@ const YourContent = () => {
       <div style={{ fontSize: 14, fontWeight: 200, marginLeft: "54px" }}>
         Show Your Product Which Make Brands Attract Toward You
       </div>
-      <div class="flex mx-12 mt-4 gap-4 w-full flex-wrap">
+      <div
+        class={
+          isTabletOrMobile
+            ? "flex flex-col justify-center align-middle mx-8 mt-4 gap-4 w-full "
+            : "flex mx-12 mt-4 gap-4 w-full flex-wrap"
+        }
+      >
         <InstagramEmbed
           url="https://www.instagram.com/p/CUbHfhpswxt/"
           width={328}

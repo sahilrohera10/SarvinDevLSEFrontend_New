@@ -24,7 +24,7 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
       <div
         style={{
           display: !isTabletOrMobile && "flex",
-          justifyContent: !isTabletOrMobile && "space-around",
+          justifyContent: !isTabletOrMobile && "center",
         }}
       >
         {/* <div class="flex justify-between gap-2 m-5 ">

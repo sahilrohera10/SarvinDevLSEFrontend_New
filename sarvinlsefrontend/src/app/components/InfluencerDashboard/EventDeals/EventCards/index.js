@@ -5,12 +5,12 @@ import Image from "next/image";
 import Podium from "../../../commons/icons/podium.png";
 import BrandListCard from "../../commons/BrandListCards";
 
-const EventCards = ({ text = null, children }) => {
+const EventCards = ({ text = null, children, isTabletOrMobile = false }) => {
   return (
     <div style={{ margin: "0px 20px" }}>
       <div
         style={{
-          fontSize: 30,
+          fontSize: isTabletOrMobile ? 20 : 30,
           fontWeight: 400,
           margin: "0px 20px",
           display: "flex",
@@ -19,7 +19,16 @@ const EventCards = ({ text = null, children }) => {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 10,
+            width: "100vw",
+            alignItems: "center",
+            gap: isTabletOrMobile ? 2 : 10,
+            justifyContent: isTabletOrMobile && "center",
+          }}
+        >
           <div>Event Deals </div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
@@ -44,12 +53,14 @@ const EventCards = ({ text = null, children }) => {
           subheading="Creme's Castle"
           img="https://cdn3.vectorstock.com/i/1000x1000/02/47/stand-up-comedy-open-mic-vector-20050247.jpg"
           cardType="Event"
+          isTabletOrMobile={isTabletOrMobile}
         />
         <BrandListCard
           heading="Open Mic in Bareilly"
           subheading="Cafe Coffee Day"
           img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
           cardType="Event"
+          isTabletOrMobile={isTabletOrMobile}
         />
       </div>
     </div>

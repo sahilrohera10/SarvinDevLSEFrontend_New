@@ -3,12 +3,12 @@ import React from "react";
 
 const DealMatch = () => {
   return (
-    <div class="flex w-full justify-center m-6">
+    <div class="flex w-full mx-4 justify-center m-6">
       <div class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div class="p-5 bg-slate-200 rounded-md">
           <img
             class="p-4 rounded-lg "
-            src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/330801066/original/cc6bb227a37e0989f38e72cd72a1e9424016bb7e/design-an-attractive-dating-app-ui-ux-like-tinder.png"
+            src="https://matchpress.me/wp-content/uploads/2021/07/section-swipe-1-1024x767.png"
             alt="product image"
           />
         </div>

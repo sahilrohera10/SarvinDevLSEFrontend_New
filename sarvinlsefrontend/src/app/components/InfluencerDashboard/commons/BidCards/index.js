@@ -7,14 +7,18 @@ import Podium from "../../../commons/icons/podium.png";
 import ViewSwitcher from "../../../commons/GridListToggle";
 import BrandListCard from "../BrandListCards";
 
-const BrandsDealCards = ({ text = null, children }) => {
+const BrandsDealCards = ({
+  text = null,
+  children,
+  isTabletOrMobile = false,
+}) => {
   const [isListView, setIsListView] = useState(false);
 
   return (
     <div style={{ margin: "0px 20px" }}>
       <div
         style={{
-          fontSize: 30,
+          fontSize: isTabletOrMobile ? 20 : 30,
           fontWeight: 400,
           margin: "0px 20px",
           display: "flex",
@@ -23,16 +27,42 @@ const BrandsDealCards = ({ text = null, children }) => {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 10,
+            width: "100vw",
+            alignItems: "center",
+            gap: isTabletOrMobile ? 2 : 10,
+            justifyContent: isTabletOrMobile && "center",
+          }}
+        >
           <div>Bid for Deals </div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
         <div>
-          <ViewSwitcher isListView={isListView} setIsListView={setIsListView} />
+          {!isTabletOrMobile && (
+            <div>
+              <ViewSwitcher
+                isListView={isListView}
+                setIsListView={setIsListView}
+              />
+            </div>
+          )}
         </div>
       </div>
 
-      <div style={{ fontSize: 14, fontWeight: 200, margin: "0px 20px" }}>
+      <div
+        style={{
+          fontSize: isTabletOrMobile ? 12 : 14,
+          fontWeight: 200,
+          margin: "0px 20px",
+          display: "flex",
+          gap: isTabletOrMobile ? 2 : 10,
+          justifyContent: isTabletOrMobile && "center",
+          flexWrap: "wrap",
+        }}
+      >
         Lets Start Earning By Cracking The Best Suitable Deals For You{" "}
       </div>
 

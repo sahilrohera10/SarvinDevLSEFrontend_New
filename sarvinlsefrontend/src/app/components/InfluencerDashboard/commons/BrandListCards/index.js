@@ -21,11 +21,18 @@ export default function BrandListCard({
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
   cardType = "Deals",
+  isTabletOrMobile = false,
 }) {
   const [openModal, setOpenModal] = useState(false);
   if (cardType == "Event") {
     return (
-      <div className="w-full flex bg-black relative group border shadow-lg rounded-lg mb-10">
+      <div
+        className={
+          isTabletOrMobile
+            ? "w-full bg-black relative group border shadow-lg rounded-lg mb-10"
+            : "w-full flex bg-black relative group border shadow-lg rounded-lg mb-10"
+        }
+      >
         <div className="relative overflow-hidden">
           {tags > 0 && tags < 4 && (
             <div
@@ -138,7 +145,13 @@ export default function BrandListCard({
     );
   } else if (cardType == "Cracked") {
     return (
-      <div className="w-full flex bg-black relative group border shadow-lg rounded-lg mb-10">
+      <div
+        className={
+          isTabletOrMobile
+            ? "w-full bg-black relative group border shadow-lg rounded-lg mb-10"
+            : "w-full flex bg-black relative group border shadow-lg rounded-lg mb-10"
+        }
+      >
         <div className="relative overflow-hidden">
           {tags > 0 && tags < 4 && (
             <div
