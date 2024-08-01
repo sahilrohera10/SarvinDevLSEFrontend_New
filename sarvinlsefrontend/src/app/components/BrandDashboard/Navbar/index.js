@@ -66,11 +66,11 @@ function NavBar({ currentColor }) {
                 <li className={styles.Level1Link_li__fXfs3}>
                   <div className={styles.LinkItem_link__MszSS}>
                     <div className={styles.LinkItem_cursor__pE4De}>
-                      <div className={styles.LinkItem_hoverContainer__wX9bI}>
+                      <di className={styles.LinkItem_hoverContainer__wX9bI}>
                         <span className={styles.LinkItem_text__v5efp}>
                           Products
                         </span>
-                      </div>
+                      </di
                     </div>
                   </div>
 
@@ -706,7 +706,7 @@ function NavBar({ currentColor }) {
               </div>
               <Button
                 style={{
-                  backgroundColor: currentColor,
+                  backgroundColor: '#e65c55',
                   fontWeight: 600,
                   textAlign: "center",
                   fontSize: "16px",
