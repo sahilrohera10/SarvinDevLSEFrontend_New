@@ -4,12 +4,14 @@ import styles from "./styles.module.css";
 import { Button } from "../../commons/button.tsx";
 import Modal from "../../commons/modal/index.js";
 import Pricing from "../../Pricing/index.js";
+import AddDeals from "../AddDeals/index.js";
 import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa";
 
 function NavBar({ currentColor }) {
   const router = useRouter();
   const [openPricingModal, setOpenPricingModal] = useState(false);
+  const [openAddDealsModal, setOpenAddDealsModal] = useState(false);
   return (
     <div className={styles.html}>
       <div className={styles.Layout_app__Yxg9h}>
@@ -697,6 +699,7 @@ function NavBar({ currentColor }) {
                 class="flex gap-2"
               >
                 <button
+                onClick={() => setOpenAddDealsModal(!openAddDealsModal)}
                   type="button"
                   class="text-white flex align-middle gap-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
@@ -744,6 +747,9 @@ function NavBar({ currentColor }) {
       </div>
       <Modal openModal={openPricingModal} setOpenModal={setOpenPricingModal}>
         <Pricing />
+      </Modal>
+      <Modal animation="one" openModal={openAddDealsModal} setOpenModal={setOpenAddDealsModal}>
+        <AddDeals />
       </Modal>
     </div>
   );
