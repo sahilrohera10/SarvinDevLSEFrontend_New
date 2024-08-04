@@ -40,7 +40,7 @@ const BrandDashboard = () => {
   const router = useRouter();
   const { influencerView, id } = router.query;
   console.log(influencerView, id);
-  const [selectedContent, setSelectedContent] = useState("Brand_Search");
+  const [selectedContent, setSelectedContent] = useState("Overview");
   return (
     <div>
       <NavBar />
