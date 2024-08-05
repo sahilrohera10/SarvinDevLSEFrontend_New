@@ -176,7 +176,7 @@ const BrandDetail = ({
         <button
           type="submit"
           class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 text-sm font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={setOpenModal(false)}
+          onClick={() => setOpenModal(false)}
         >
           Not Interested
         </button>

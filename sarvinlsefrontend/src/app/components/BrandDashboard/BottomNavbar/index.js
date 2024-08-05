@@ -25,7 +25,7 @@ const BottomNavbar = ({
               <div class="flex space-x-4 px-8 justify-between">
                 <div
                   class={
-                    selectedContent == "Brand_Search"
+                    selectedContent == "Overview"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
@@ -78,6 +78,17 @@ const BottomNavbar = ({
                 </div>
                 <div
                   class={
+                    selectedContent == "Brand_Content"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer w-32 justify-center"
+                  }
+                  onClick={() => setSelectedContent("Brand_Content")}
+                >
+                  <FaThumbsUp style={{ marginTop: 2 }} />
+                  Past Content
+                </div>
+                <div
+                  class={
                     selectedContent == "Cracked_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
@@ -85,7 +96,7 @@ const BottomNavbar = ({
                   onClick={() => setSelectedContent("Cracked_Deals")}
                 >
                   <FaChartLine style={{ marginTop: 2 }} />
-                  Your Cracked Deals
+                  Matched Deals
                 </div>
               </div>
             </div>
@@ -257,6 +268,17 @@ const BottomNavbar = ({
                 >
                   <FaChartLine style={{ marginTop: 2 }} />
                   Your Analytics
+                </div>
+                <div
+                  class={
+                    selectedContent == "Brand_Content"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer w-32 justify-center"
+                  }
+                  onClick={() => setSelectedContent("Brand_Content")}
+                >
+                  <FaThumbsUp style={{ marginTop: 2 }} />
+                  Brand's Content
                 </div>
                 <div
                   class={

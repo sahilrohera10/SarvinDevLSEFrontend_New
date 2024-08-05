@@ -24,6 +24,7 @@ import { useRouter } from "next/router";
 import SearchInfluencers from "./SearchInfluencers";
 import Analytics from "./Analytics";
 import Cracked_Deals from "./Cracked Deals";
+import BrandContent from "./BrandContent";
 
 const DASHBOARD_CONTENT = {
   // Analytics: <Analytics />,
@@ -34,12 +35,13 @@ const DASHBOARD_CONTENT = {
   Search_Influencers: <SearchInfluencers />,
   Analytics: <Analytics />,
   Cracked_Deals: <Cracked_Deals />,
+  Brand_Content: <BrandContent />,
 };
 
 const BrandDashboard = () => {
   const router = useRouter();
   const { influencerView, id } = router.query;
-  console.log(influencerView, id);
+
   const [selectedContent, setSelectedContent] = useState("Overview");
   return (
     <div>

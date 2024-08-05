@@ -699,9 +699,9 @@ function NavBar({ currentColor }) {
                 class="flex gap-2"
               >
                 <button
-                onClick={() => setOpenAddDealsModal(!openAddDealsModal)}
+                  onClick={() => setOpenAddDealsModal(!openAddDealsModal)}
                   type="button"
-                  class="text-white flex align-middle gap-2 bg-red-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  class="text-white flex align-middle gap-2 bg-red-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none"
                 >
                   <FaPlus />
                   Add Deals
@@ -714,8 +714,15 @@ function NavBar({ currentColor }) {
       <Modal openModal={openPricingModal} setOpenModal={setOpenPricingModal}>
         <Pricing />
       </Modal>
-      <Modal animation="one" openModal={openAddDealsModal} setOpenModal={setOpenAddDealsModal}>
-        <AddDeals openAddDealsModal={openAddDealsModal} setOpenAddDealsModal={setOpenAddDealsModal}/>
+      <Modal
+        animation="one"
+        openModal={openAddDealsModal}
+        setOpenModal={setOpenAddDealsModal}
+      >
+        <AddDeals
+          openAddDealsModal={openAddDealsModal}
+          setOpenAddDealsModal={setOpenAddDealsModal}
+        />
       </Modal>
     </div>
   );

@@ -94,6 +94,8 @@ export default function BrandCard({
                 heading={heading}
                 subheading={subheading}
                 img={img}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
               />
             </Modal>
           </div>

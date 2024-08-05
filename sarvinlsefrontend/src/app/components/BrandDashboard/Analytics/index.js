@@ -29,7 +29,7 @@ function Example() {
       options: {
         title: {
           display: true,
-          text: "World Wide Wine Production 2018",
+          text: "Brands Marketting Campaign of Same Location",
         },
       },
     });
@@ -47,7 +47,7 @@ function Example() {
       options: {
         title: {
           display: true,
-          text: "World Wide Wine Production 2018",
+          text: "Brands Marketting Campaign of Same Category in Same",
         },
       },
     });

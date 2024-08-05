@@ -7,7 +7,7 @@ import Coaching from "../../commons/icons/coaching.png";
 import Podium from "../../commons/icons/podium.png";
 import Image from "next/image";
 function Example() {
-  var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+  var xValues = ["McDonalds", "KFC", "MFC", "Santa Banta", "KKSnacks"];
   var yValues = [55, 49, 44, 24, 15];
   var barColors = ["#ff9f3f", "#4bc0c0", "#a0d0f5", "#e8c3b9", "#ffb2c2"];
 
@@ -29,7 +29,7 @@ function Example() {
       options: {
         title: {
           display: true,
-          text: "World Wide Wine Production 2018",
+          text: "Brands Marketting Campaign of Same Location",
         },
       },
     });
@@ -47,7 +47,7 @@ function Example() {
       options: {
         title: {
           display: true,
-          text: "World Wide Wine Production 2018",
+          text: "Brands Marketting Campaign of Same Category in Same",
         },
       },
     });
@@ -131,7 +131,7 @@ function Example() {
         />
         <MetricCards
           value={"2nd"}
-          title="Likes Count"
+          title="Location Rank"
           icon={<Image src={Engagement} width={48} height={0} alt="Icon" />}
           trend={{
             slope: -1,
@@ -140,11 +140,11 @@ function Example() {
           }}
         />
       </div>
-      <div className="flex gap-2 mx-10 h-1/4">
-        <div className="border border-gray-400 pt-0 w-3/5  h-1/3 rounded-xl shadow-xl">
+      <div className="flex gap-2 mx-10">
+        <div className="border border-gray-400 pt-0 w-2/3  h-1/2 rounded-xl shadow-xl">
           <canvas id="myChart"></canvas>
         </div>
-        <div className="border border-gray-400 pt-0 w-1/3  h-1/3 rounded-xl shadow-xl p-6">
+        <div className="border border-gray-400 pt-0 w-1/3  h-1/2 rounded-xl shadow-xl p-6">
           <canvas id="config"></canvas>
           <br />
           <canvas id="doughnut"></canvas>
