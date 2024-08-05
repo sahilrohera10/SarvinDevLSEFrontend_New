@@ -6,7 +6,7 @@ const index = () => {
         width: "100%",
         overflow: "hidden",
         background: `url(
-          "https://www.shape.com/thmb/wOxuLyW367JXtBvr62qYth23Uc4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Best-Black-Natural-Hair-Influencers-1-1e01e7bfefb84010b3d599151d806166.png"
+          "https://thesulfurgroup.com/wp-content/uploads/2017/12/collage-std.png"
         )`,
         opacity: 0.08,
         position: "absolute",

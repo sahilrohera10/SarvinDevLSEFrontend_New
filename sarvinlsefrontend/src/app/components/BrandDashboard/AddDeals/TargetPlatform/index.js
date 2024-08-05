@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import BackGroundImage from "../BackGroundImage/index";
-import Toast from "../Toast"
+import Toast from "../Toast";
 
 const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
   const [youtube, setYoutube] = useState(false);
@@ -36,11 +36,13 @@ const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
       <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
         <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
           <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
-            <div className="w-1/2">
-              <h1 className="my-4 text-start text-5xl font-sans font-extrabold text-gray-900">Target Platform</h1>
+            <div className="w-full">
+              <div className="my-4 text-center text-6xl text-gray-900">
+                Target Platform
+              </div>
               <div className="mt-10">
-                <div className="mt-2">
-                  <div className="flex items-center mb-4 ml-2">
+                <div className="flex justify-center mt-2">
+                  <div className="flex justify-center items-center mb-4 ml-2">
                     <input
                       id="youtube"
                       type="checkbox"
@@ -48,11 +50,14 @@ const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
                       onChange={() => setYoutube((prev) => !prev)}
                       className="w-4 h-4 bg-white border border-gray-300 rounded focus:ring-blue-500 shadow-lg"
                     />
-                    <label htmlFor="youtube" className="ml-2 text-base font-normal text-gray-900">
+                    <label
+                      htmlFor="youtube"
+                      className="ml-2 text-base font-normal text-gray-900"
+                    >
                       Youtube
                     </label>
                   </div>
-                  <div className="flex items-center mb-4 ml-2">
+                  <div className="flex justify-center mb-4 ml-2">
                     <input
                       id="instagram"
                       type="checkbox"
@@ -60,7 +65,10 @@ const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
                       onChange={() => setInstagram((prev) => !prev)}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 shadow-lg"
                     />
-                    <label htmlFor="instagram" className="ml-2 text-base font-normal text-gray-900">
+                    <label
+                      htmlFor="instagram"
+                      className="ml-2 text-base font-normal text-gray-900"
+                    >
                       Instagram
                     </label>
                   </div>
@@ -87,7 +95,10 @@ const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
         </div>
       </div>
       {error && (
-        <Toast handleCloseError={handleCloseError} message="Select at least one platform" />
+        <Toast
+          handleCloseError={handleCloseError}
+          message="Select at least one platform"
+        />
       )}
     </>
   );

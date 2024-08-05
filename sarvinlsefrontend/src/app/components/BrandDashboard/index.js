@@ -26,23 +26,24 @@ import Analytics from "./Analytics";
 import Cracked_Deals from "./Cracked Deals";
 import BrandContent from "./BrandContent";
 
-const DASHBOARD_CONTENT = {
-  // Analytics: <Analytics />,
-  Overview: <Overview />,
-  Bid_Deals: <BidDeals />,
-  Brand_Deals: <BrandDeals />,
-  Event_Deals: <EventDeals />,
-  Search_Influencers: <SearchInfluencers />,
-  Analytics: <Analytics />,
-  Cracked_Deals: <Cracked_Deals />,
-  Brand_Content: <BrandContent />,
-};
-
 const BrandDashboard = () => {
   const router = useRouter();
-  const { influencerView, id } = router.query;
+  const { influencerView = false, id } = router.query;
 
-  const [selectedContent, setSelectedContent] = useState("Overview");
+  const [selectedContent, setSelectedContent] = useState(
+    influencerView ? "Overview" : "Search_Influencers"
+  );
+  const DASHBOARD_CONTENT = {
+    // Analytics: <Analytics />,
+    Overview: <Overview />,
+    Bid_Deals: <BidDeals />,
+    Brand_Deals: <BrandDeals influencerView={influencerView} />,
+    Event_Deals: <EventDeals />,
+    Search_Influencers: <SearchInfluencers />,
+    Analytics: <Analytics />,
+    Cracked_Deals: <Cracked_Deals />,
+    Brand_Content: <BrandContent />,
+  };
   return (
     <div>
       <NavBar />

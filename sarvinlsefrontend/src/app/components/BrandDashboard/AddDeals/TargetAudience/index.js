@@ -48,10 +48,14 @@ const TargetAudience = ({
       <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
         <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
           <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
-            <div className="w-2/3">
-              <h1 className="my-4 text-start text-5xl font-sans font-bold text-gray-900">Target Audience</h1>
+            <div className="w-full">
+              <div className="my-4 text-center text-6xl text-gray-900">
+                Target Audience
+              </div>
               <div className="mt-10">
-                <h3 className="text-start font-normal text-gray-900">Enter the following details</h3>
+                <h3 className="text-start text-gray-900">
+                  Enter the following details
+                </h3>
                 <div className="mt-2">
                   <select
                     id="location"

@@ -4,7 +4,12 @@ import React, { useState } from "react";
 import BackGroundImage from "../BackGroundImage/index";
 import Toast from "../Toast"; // Ensure you have a Toast component for notifications
 
-const TaskDescription = ({ taskDescription, setTaskDescription, handleNext, handlePrevious }) => {
+const TaskDescription = ({
+  taskDescription,
+  setTaskDescription,
+  handleNext,
+  handlePrevious,
+}) => {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -31,10 +36,14 @@ const TaskDescription = ({ taskDescription, setTaskDescription, handleNext, hand
       <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
         <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
           <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
-            <div className="w-2/3">
-              <h1 className="my-4 text-start text-5xl font-sans font-bold text-gray-900">Task Description</h1>
+            <div className="w-full">
+              <div className="my-4 text-center flex justify-center text-6xl text-gray-900">
+                Task Description
+              </div>
               <div className="mt-10">
-                <h3 className="text-start font-normal text-gray-900">Write a description for your task</h3>
+                <h3 className="text-start text-gray-900">
+                  Write a description for your task
+                </h3>
                 <div className="mt-2">
                   <textarea
                     id="task-description"

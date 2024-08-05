@@ -49,11 +49,13 @@ const InfluencerRequirement = ({
         <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
           <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
             <div className="w-full">
-              <h1 className="my-4 w-full text-center text-5xl font-sans font-bold text-gray-900">
+              <div className="my-4 text-center  text-6xl text-gray-900">
                 Influencer Requirement
-              </h1>
+              </div>
               <div className="mt-10 w-2/3 mx-auto">
-                <h3 className="text-start font-normal text-gray-900">Enter the following details</h3>
+                <h3 className="text-start text-gray-900">
+                  Enter the following details
+                </h3>
                 <div className="mt-2">
                   <select
                     id="influencer-size"
@@ -66,8 +68,12 @@ const InfluencerRequirement = ({
                     <option className="text-black" value="" disabled>
                       Influencer Size
                     </option>
-                    <option className="text-black" value="size1">Size 1</option>
-                    <option className="text-black" value="size2">Size 2</option>
+                    <option className="text-black" value="size1">
+                      Size 1
+                    </option>
+                    <option className="text-black" value="size2">
+                      Size 2
+                    </option>
                   </select>
                 </div>
                 <div className="mt-2">
@@ -82,8 +88,12 @@ const InfluencerRequirement = ({
                     <option className="text-black" value="" disabled>
                       Category
                     </option>
-                    <option className="text-black" value="category1">Category 1</option>
-                    <option className="text-black" value="category2">Category 2</option>
+                    <option className="text-black" value="category1">
+                      Category 1
+                    </option>
+                    <option className="text-black" value="category2">
+                      Category 2
+                    </option>
                   </select>
                 </div>
                 <div className="mt-2">
@@ -98,8 +108,12 @@ const InfluencerRequirement = ({
                     <option className="text-black" value="" disabled>
                       Age
                     </option>
-                    <option className="text-black" value="age1">Age 1</option>
-                    <option className="text-black" value="age2">Age 2</option>
+                    <option className="text-black" value="age1">
+                      Age 1
+                    </option>
+                    <option className="text-black" value="age2">
+                      Age 2
+                    </option>
                   </select>
                 </div>
                 <div className="mt-2">
@@ -114,8 +128,12 @@ const InfluencerRequirement = ({
                     <option className="text-black" value="" disabled>
                       Location
                     </option>
-                    <option className="text-black" value="location1">Location 1</option>
-                    <option className="text-black" value="location2">Location 2</option>
+                    <option className="text-black" value="location1">
+                      Location 1
+                    </option>
+                    <option className="text-black" value="location2">
+                      Location 2
+                    </option>
                   </select>
                 </div>
               </div>

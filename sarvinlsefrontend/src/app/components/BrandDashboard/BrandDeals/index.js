@@ -17,7 +17,7 @@ const customStyles = {
   }),
 };
 
-const BrandDeals = () => {
+const BrandDeals = ({ influencerView = true }) => {
   return (
     <div class="mx-4">
       {" "}
@@ -80,7 +80,7 @@ const BrandDeals = () => {
           </Dropdown>
         </div>
       </div>
-      <BrandsDealCards />
+      <BrandsDealCards influencerView={influencerView} />
     </div>
   );
 };

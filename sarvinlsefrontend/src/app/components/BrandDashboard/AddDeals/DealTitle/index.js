@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import Navbar from "../Navbar/index";
 import BackGroundImage from "../BackGroundImage/index";
-import Toast from "../Toast"
+import Toast from "../Toast";
 
 const DealTitle = ({ handleNext, dealTitle, setDealTitle }) => {
   const inputRef = useRef();
@@ -29,10 +29,14 @@ const DealTitle = ({ handleNext, dealTitle, setDealTitle }) => {
         <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
           <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
             <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
-              <div className="w-2/3">
-                <h1 className="my-4 text-start text-6xl font-bold font-sans text-gray-900">Deal Title</h1>
+              <div className="w-full">
+                <div className="my-4 text-center text-6xl text-gray-900">
+                  Deal Title
+                </div>
                 <div className="mt-10">
-                  <h3 className="text-start font-sans text-gray-900 font-normal">Write a title for your deal</h3>
+                  <h3 className="text-start text-gray-900 ">
+                    Write a title for your deal
+                  </h3>
                   <div className="mt-2">
                     <input
                       ref={inputRef}
@@ -63,7 +67,10 @@ const DealTitle = ({ handleNext, dealTitle, setDealTitle }) => {
         </div>
       </div>
       {error && (
-        <Toast handleCloseError={handleCloseError} message="Enter your Deal Title" />
+        <Toast
+          handleCloseError={handleCloseError}
+          message="Enter your Deal Title"
+        />
       )}
     </>
   );

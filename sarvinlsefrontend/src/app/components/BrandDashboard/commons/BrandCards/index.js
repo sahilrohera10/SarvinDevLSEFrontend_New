@@ -20,6 +20,7 @@ export default function BrandCard({
   subheading = "CEO and Founder",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
+  influencerView = true,
   cardType = "Deals",
 }) {
   const [openModal, setOpenModal] = useState(false);

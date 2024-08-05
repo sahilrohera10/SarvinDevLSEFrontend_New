@@ -278,7 +278,7 @@ const BottomNavbar = ({
                   onClick={() => setSelectedContent("Brand_Content")}
                 >
                   <FaThumbsUp style={{ marginTop: 2 }} />
-                  Brand's Content
+                  Past Content
                 </div>
                 <div
                   class={

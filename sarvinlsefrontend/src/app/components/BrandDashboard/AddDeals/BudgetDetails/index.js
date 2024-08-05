@@ -31,7 +31,10 @@ const BudgetDetails = ({
   };
 
   const handleSubmitClick = () => {
-    if (bidding && (biddingFrom <= 0 || biddingTo <= 0 || biddingFrom >= biddingTo)) {
+    if (
+      bidding &&
+      (biddingFrom <= 0 || biddingTo <= 0 || biddingFrom >= biddingTo)
+    ) {
       setMessage("Please enter valid bidding amounts.");
       setError(true);
     } else if (fixedPrice && fixedPriceValue <= 0) {
@@ -54,7 +57,7 @@ const BudgetDetails = ({
         <div className="w-full sm:h-[70vh] flex flex-col justify-center items-center px-6 py-12 lg:px-8">
           <div className="w-2/3 h-full px-10 flex flex-col items-center justify-between">
             <div className="w-2/3">
-              <h1 className="my-4 text-center text-5xl font-bold font-sans text-gray-900">
+              <h1 className="my-4 text-center text-6xl text-gray-900">
                 Budget Details
               </h1>
               <div className="mt-10 flex justify-evenly items-center">
@@ -81,7 +84,9 @@ const BudgetDetails = ({
                     <button
                       onClick={handleFixedClick}
                       className={`bg-white px-10 py-4 rounded-3xl border-2 ${
-                        fixedPrice ? "border-blue-500 border-4" : "border-gray-300"
+                        fixedPrice
+                          ? "border-blue-500 border-4"
+                          : "border-gray-300"
                       }`}
                     >
                       <span className="relative">
