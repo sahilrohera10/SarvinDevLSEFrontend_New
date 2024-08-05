@@ -749,7 +749,7 @@ function NavBar({ currentColor }) {
         <Pricing />
       </Modal>
       <Modal animation="one" openModal={openAddDealsModal} setOpenModal={setOpenAddDealsModal}>
-        <AddDeals />
+        <AddDeals openAddDealsModal={openAddDealsModal} setOpenAddDealsModal={setOpenAddDealsModal}/>
       </Modal>
     </div>
   );
