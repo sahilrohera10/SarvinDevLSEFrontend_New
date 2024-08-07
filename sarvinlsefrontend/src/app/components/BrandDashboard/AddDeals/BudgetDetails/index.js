@@ -14,6 +14,7 @@ const BudgetDetails = ({
   setFixedPriceValue,
   handleSubmit,
   handlePrevious,
+  loginStatus
 }) => {
   const [bidding, setBidding] = useState(false);
   const [fixedPrice, setFixedPrice] = useState(false);
@@ -25,9 +26,21 @@ const BudgetDetails = ({
     setBidding(!bidding);
   };
 
-  const handleFixedClick = () => {
-    setFixedPrice(!fixedPrice);
+  const handleFixedPriceClick = () => {
     setBidding(false);
+    setFixedPrice(!fixedPrice);
+  };
+
+  const handleBiddingFromChange = (e) => {
+    setBiddingFrom(e.target.value);
+  };
+
+  const handleBiddingToChange = (e) => {
+    setBiddingTo(e.target.value);
+  };
+
+  const handleFixedPriceChange = (e) => {
+    setFixedPriceValue(e.target.value);
   };
 
   const handleSubmitClick = () => {
@@ -82,7 +95,7 @@ const BudgetDetails = ({
                 <div>
                   <div className="w-full flex justify-center items-center">
                     <button
-                      onClick={handleFixedClick}
+                      onClick={handleFixedPriceClick}
                       className={`bg-white px-10 py-4 rounded-3xl border-2 ${
                         fixedPrice
                           ? "border-blue-500 border-4"
@@ -119,7 +132,7 @@ const BudgetDetails = ({
                       value={biddingFrom}
                       placeholder="&#x20B9; 100"
                       className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                      onChange={(e) => setBiddingFrom(e.target.value)}
+                      onChange={handleBiddingFromChange}
                       required
                     />
                   </div>
@@ -137,7 +150,7 @@ const BudgetDetails = ({
                       placeholder="&#x20B9; 500"
                       value={biddingTo}
                       className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                      onChange={(e) => setBiddingTo(e.target.value)}
+                      onChange={handleBiddingToChange}
                       required
                     />
                   </div>
@@ -155,7 +168,7 @@ const BudgetDetails = ({
                       placeholder="&#x20B9; 50000"
                       value={fixedPriceValue}
                       className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
-                      onChange={(e) => setFixedPriceValue(e.target.value)}
+                      onChange={handleFixedPriceChange}
                       required
                     />
                   </div>
@@ -173,9 +186,10 @@ const BudgetDetails = ({
               <button
                 type="button"
                 onClick={handleSubmitClick}
-                className="flex justify-center rounded-md bg-[#4285F4] px-7 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+                className={`flex justify-center rounded-md bg-[#4285F4] px-7 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 ${loginStatus.loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={loginStatus.loading}
               >
-                Submit
+                {loginStatus.loading ? 'Submitting...' : 'Submit'}
               </button>
             </div>
           </div>
