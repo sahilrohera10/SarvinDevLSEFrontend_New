@@ -67,14 +67,14 @@ const BottomNavbar = ({
                 </div>
                 <div
                   class={
-                    selectedContent == "Analytics"
+                    selectedContent == "Cracked_Deals"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
-                  onClick={() => setSelectedContent("Analytics")}
+                  onClick={() => setSelectedContent("Cracked_Deals")}
                 >
                   <FaChartLine style={{ marginTop: 2 }} />
-                  Analytics
+                  Matched Deals
                 </div>
                 <div
                   class={
@@ -89,14 +89,13 @@ const BottomNavbar = ({
                 </div>
                 <div
                   class={
-                    selectedContent == "Cracked_Deals"
+                    selectedContent == "Brand_Content"
                       ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
                       : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
                   }
-                  onClick={() => setSelectedContent("Cracked_Deals")}
+                  onClick={() => setSelectedContent("Brand_Content")}
                 >
-                  <FaChartLine style={{ marginTop: 2 }} />
-                  Matched Deals
+                  <FaMoneyBillWave style={{ marginTop: 2 }} /> Reels Inspiration
                 </div>
               </div>
             </div>

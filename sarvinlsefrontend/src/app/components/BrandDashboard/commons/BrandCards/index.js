@@ -97,6 +97,7 @@ export default function BrandCard({
                 img={img}
                 openModal={openModal}
                 setOpenModal={setOpenModal}
+                influencerView={influencerView}
               />
             </Modal>
           </div>

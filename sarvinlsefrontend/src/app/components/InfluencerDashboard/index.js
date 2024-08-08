@@ -29,8 +29,12 @@ import CrackedDeals from "./Cracked Deals";
 import SavedDeals from "./SavedDeals";
 import YourContent from "./YourContent";
 import { useMediaQuery } from "react-responsive";
+import { useRouter } from "next/router";
+import Overview from "./Overview";
 
 const InfluencerDashboard = () => {
+  const router = useRouter();
+  const { brandView = false, id } = router.query;
   const [selectedContent, setSelectedContent] = useState("Brand_Search");
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const DASHBOARD_CONTENT = {
@@ -43,6 +47,7 @@ const InfluencerDashboard = () => {
     Event_Deals: <EventDeals isTabletOrMobile={isTabletOrMobile} />,
     Cracked_Deals: <CrackedDeals isTabletOrMobile={isTabletOrMobile} />,
     Saved_Deals: <SavedDeals isTabletOrMobile={isTabletOrMobile} />,
+    Overview: <Overview />,
   };
   return (
     <div>
@@ -112,17 +117,40 @@ const InfluencerDashboard = () => {
                 />
               </div>
               <div style={{ flex: 2 }}>
-                <MetricCards
-                  value={"87"}
-                  valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                  title="Sarvin Credits"
-                  icon={<Image src={Score} width={48} height={0} alt="Icon" />}
-                  trend={{
-                    slope: -1,
-                    description: "Compared to last week",
-                    value: "1.5%",
-                  }}
-                />
+                {brandView ? (
+                  <MetricCards
+                    valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                    value={"27.5%"}
+                    title="Engagement Rate"
+                    icon={
+                      <Image
+                        src={Engagement}
+                        width={48}
+                        height={0}
+                        alt="Icon"
+                      />
+                    }
+                    trend={{
+                      slope: -1,
+                      description: "Compared to last week",
+                      value: "0.5%",
+                    }}
+                  />
+                ) : (
+                  <MetricCards
+                    value={"87"}
+                    valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
+                    title="Sarvin Credits"
+                    icon={
+                      <Image src={Score} width={48} height={0} alt="Icon" />
+                    }
+                    trend={{
+                      slope: -1,
+                      description: "Compared to last week",
+                      value: "1.5%",
+                    }}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -222,6 +250,7 @@ const InfluencerDashboard = () => {
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
         isTabletOrMobile={isTabletOrMobile}
+        brandView={brandView}
       />
 
       {DASHBOARD_CONTENT[selectedContent]}

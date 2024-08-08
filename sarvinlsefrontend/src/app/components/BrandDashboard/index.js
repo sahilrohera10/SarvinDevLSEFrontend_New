@@ -31,7 +31,7 @@ const BrandDashboard = () => {
   const { influencerView = false, id } = router.query;
 
   const [selectedContent, setSelectedContent] = useState(
-    influencerView ? "Overview" : "Search_Influencers"
+    !influencerView ? "Search_Influencers" : "Overview"
   );
   const DASHBOARD_CONTENT = {
     // Analytics: <Analytics />,

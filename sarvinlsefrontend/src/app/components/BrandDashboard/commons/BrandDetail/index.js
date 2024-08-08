@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { FaTwitter, FaInstagram, FaPinterestP, FaSave } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
+import ListCard from "./Profilecard/ListCard";
+import Link from "next/link";
 
 const BrandDetail = ({
   heading = "Naman Agarwal",
@@ -11,6 +13,7 @@ const BrandDetail = ({
   last_update = "21st March 2024",
   tags = 0,
   cardType = "Deals",
+  influencerView = true,
   setOpenModal = () => {},
 }) => {
   return (
@@ -147,23 +150,97 @@ const BrandDetail = ({
               </span>
             </div>
           </div>
-          <div className="flex items-center space-x-3 mt-4 align-middle justify-end">
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaFacebookF className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+          {influencerView ? (
+            <div className="flex items-center space-x-3 mt-4 align-middle justify-end">
+              <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
+                <FaFacebookF className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+              </div>
+              <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
+                <FaTwitter className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+              </div>
+              <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
+                <FaPinterestP className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+              </div>
+              <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
+                <FaInstagram className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+              </div>
+              <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
+                <FaSave className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+              </div>
             </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaTwitter className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
+          ) : (
+            <div>
+              <div class="font-semibold">Applied Influencers</div>
+              <div className="  w-full h-[4vh] px-[10px] py-[6px] mx-2  rounded-md flex border-[1px] border-[#E7E7E7] bg-white ">
+                <div className="w-full flex items-center justify-between">
+                  <div className="text-sm w-1/4 text-[#2D4050] font-semibold dark:text-white ">
+                    Profile Pic
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Username
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Followers
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Sarvin Score
+                  </div>
+                </div>
+              </div>
+              <div class=" w-full h-96 mx-2 overflow-auto">
+                <Link href="/influencer-dashboard?brandView=True&id=cjndcdjcndjcndc">
+                  <ListCard
+                    img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
+                    username="@its_Sanphire"
+                    followers={342}
+                    sarvinscore={432}
+                  />
+                </Link>
+                <ListCard
+                  img="https://img.freepik.com/free-photo/abstract-glowing-flame-drops-electric-illumination-generative-ai_188544-8092.jpg"
+                  username="@namanaga"
+                  followers={3462}
+                  sarvinscore={492}
+                />
+                <ListCard
+                  img="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg"
+                  username="@dcdcfefce"
+                  followers={7463}
+                  sarvinscore={353}
+                />
+                <ListCard
+                  img="https://img.freepik.com/premium-photo/design-word-cloud-innovation-idea-creativity-design-concept_505353-280.jpg"
+                  username="@its_huilikhe"
+                  followers={39353}
+                  sarvinscore={433}
+                />
+                <ListCard
+                  img="https://img.freepik.com/free-photo/cute-little-girl-autumn-park_1157-22376.jpg"
+                  username="@kitskoml"
+                  followers={34422}
+                  sarvinscore={32}
+                />
+                <ListCard
+                  img="https://img.freepik.com/free-photo/cherful-positive-young-colleagues-using-laptop-computer_171337-753.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722988800&semt=sph"
+                  username="@mynk1907"
+                  followers={34002}
+                  sarvinscore={272}
+                />
+                <ListCard
+                  img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
+                  username="@hasranga"
+                  followers={342}
+                  sarvinscore={432}
+                />
+                <ListCard
+                  img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
+                  username="@shivamdube"
+                  followers={342}
+                  sarvinscore={432}
+                />
+              </div>
             </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaPinterestP className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaInstagram className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-            <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
-              <FaSave className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />
-            </div>
-          </div>
+          )}
         </div>
       </div>
       <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">

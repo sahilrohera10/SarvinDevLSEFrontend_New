@@ -15,74 +15,86 @@ const BottomNavbar = ({
   selectedContent = "",
   setSelectedContent = () => {},
   isTabletOrMobile = false,
+  brandView = false,
 }) => {
+  console.log(brandView);
   return (
     <nav
       class={
         isTabletOrMobile
           ? "bg-white mt-2 z-40 border-2 rounded shadow-sm overflow-x-scroll"
-          : "bg-white mx-10 mt-2 z-40 border-2 rounded shadow-sm "
+          : "bg-white flex justify-center mx-10 mt-2 z-40 border-2 rounded shadow-sm "
       }
     >
-      <div class="mx-0 max-w-full  px-1 sm:px-1   lg:px-1">
+      <div class="mx-0 w-full flex justify-center  px-1 sm:px-1   lg:px-1">
         <div class="relative flex h-12 items-center justify-between">
-          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
             <div class="sm:ml-6 sm:block">
               {!isTabletOrMobile ? (
                 <div class="flex space-x-4">
-                  <div
-                    class={
-                      selectedContent == "Brand_Search"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Brand_Search")}
-                  >
-                    <FaSearchengin style={{ marginTop: 2 }} />
-                    Brand Search
-                  </div>
-                  <div
-                    class={
-                      selectedContent == "Brand_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Brand_Deals")}
-                  >
-                    <FaMoneyBillWave style={{ marginTop: 2 }} /> Brand Deals
-                  </div>
-                  <div
-                    class={
-                      selectedContent == "Bid_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Bid_Deals")}
-                  >
-                    <FaGavel style={{ marginTop: 2 }} />
-                    Bid for Deals
-                  </div>
-                  <div
-                    class={
-                      selectedContent == "Event_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Event_Deals")}
-                  >
-                    <FaCalendarDay style={{ marginTop: 2 }} /> Events Deals
-                  </div>
-                  <div
-                    class={
-                      selectedContent == "Deal_Match"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Deal_Match")}
-                  >
-                    <FaMobile style={{ marginTop: 2 }} />
-                    Deal Match
-                  </div>
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Brand_Search"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Brand_Search")}
+                    >
+                      <FaSearchengin style={{ marginTop: 2 }} />
+                      Brand Search
+                    </div>
+                  )}
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Brand_Deals"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Brand_Deals")}
+                    >
+                      <FaMoneyBillWave style={{ marginTop: 2 }} /> Brand Deals
+                    </div>
+                  )}
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Bid_Deals"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Bid_Deals")}
+                    >
+                      <FaGavel style={{ marginTop: 2 }} />
+                      Bid for Deals
+                    </div>
+                  )}
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Event_Deals"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Event_Deals")}
+                    >
+                      <FaCalendarDay style={{ marginTop: 2 }} /> Events Deals
+                    </div>
+                  )}
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Deal_Match"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Deal_Match")}
+                    >
+                      <FaMobile style={{ marginTop: 2 }} />
+                      Deal Match
+                    </div>
+                  )}
                   <div
                     class={
                       selectedContent == "Your_Content"
@@ -94,17 +106,31 @@ const BottomNavbar = ({
                     <FaThumbsUp style={{ marginTop: 2 }} />
                     My Content
                   </div>
-                  <div
-                    class={
-                      selectedContent == "Saved_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
-                    }
-                    onClick={() => setSelectedContent("Saved_Deals")}
-                  >
-                    <FaCommentDollar style={{ marginTop: 2 }} />
-                    Saved Deals
-                  </div>
+                  {!brandView ? (
+                    <div
+                      class={
+                        selectedContent == "Saved_Deals"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Saved_Deals")}
+                    >
+                      <FaCommentDollar style={{ marginTop: 2 }} />
+                      Saved Deals
+                    </div>
+                  ) : (
+                    <div
+                      class={
+                        selectedContent == "Overview"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("Overview")}
+                    >
+                      <FaCommentDollar style={{ marginTop: 2 }} />
+                      Overview
+                    </div>
+                  )}
                   <div
                     class={
                       selectedContent == "Analytics"
@@ -130,17 +156,19 @@ const BottomNavbar = ({
                 </div>
               ) : (
                 <div class="flex">
-                  <div
-                    class={
-                      selectedContent == "Brand_Search"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer  w-32 justify-center"
-                    }
-                    onClick={() => setSelectedContent("Brand_Search")}
-                  >
-                    <FaSearchengin style={{ marginTop: 2 }} />
-                    Brand Search
-                  </div>
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "Brand_Search"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer  w-32 justify-center"
+                      }
+                      onClick={() => setSelectedContent("Brand_Search")}
+                    >
+                      <FaSearchengin style={{ marginTop: 2 }} />
+                      Brand Search
+                    </div>
+                  )}
                   <div
                     class={
                       selectedContent == "Brand_Deals"
@@ -194,17 +222,31 @@ const BottomNavbar = ({
                     <FaThumbsUp style={{ marginTop: 2 }} />
                     My Content
                   </div>
-                  <div
-                    class={
-                      selectedContent == "Saved_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
-                    }
-                    onClick={() => setSelectedContent("Saved_Deals")}
-                  >
-                    <FaCommentDollar style={{ marginTop: 2 }} />
-                    Saved Deals
-                  </div>
+                  {!brandView ? (
+                    <div
+                      class={
+                        selectedContent == "Saved_Deals"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                      }
+                      onClick={() => setSelectedContent("Saved_Deals")}
+                    >
+                      <FaCommentDollar style={{ marginTop: 2 }} />
+                      Saved Deals
+                    </div>
+                  ) : (
+                    <div
+                      class={
+                        selectedContent == "Overview"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                      }
+                      onClick={() => setSelectedContent("Overview")}
+                    >
+                      <FaCommentDollar style={{ marginTop: 2 }} />
+                      Overview
+                    </div>
+                  )}
                   <div
                     class={
                       selectedContent == "Analytics"
