@@ -1456,9 +1456,8 @@ ul.SubNavItems_items2__nuseJ li:nth-child(2) a {
   }
 }
 .Header_loginWrapper__9_1kE {
-  margin-left: auto;
-  margin-right: 28px;
-  margin-top: 16px;
+  margin-left: 10px;
+  margin-top: 12px;
   z-index: 20;
   position: relative;
   display: flex;
@@ -1475,10 +1474,10 @@ ul.SubNavItems_items2__nuseJ li:nth-child(2) a {
   position: relative;
   font-weight: 400;
   font-size: 15px;
-  line-height: 110%;
-  padding: 14px 0 13px;
+  line-height: 100%;
+  padding: 0px 0 13px;
   border-radius: 12px;
-  min-width: 124px;
+  min-width: 104px;
   color: #4c4d4f;
   background-color: transparent;
   text-decoration: none;

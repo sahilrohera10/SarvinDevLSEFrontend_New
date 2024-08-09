@@ -6,7 +6,9 @@ import Modal from "../../commons/modal";
 import Pricing from "../../Pricing";
 import { useRouter } from "next/router";
 import NavbarMobileView from "./NavbarMobileView";
-import Link from "next/link";
+import { FaCoins } from "react-icons/fa";
+import Coins from "../../commons/icons/coin.png";
+import Image from "next/image";
 
 function NavBar({ isTabletOrMobile, currentColor }) {
   const router = useRouter();
@@ -696,72 +698,12 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                         </span>
                       </span>
                     </li>
-                    <li className={styles.Level1Link_li__fXfs3}>
-                      <div className={styles.LinkItem_link__MszSS}>
-                        <div className={styles.LinkItem_cursor__pE4De}>
-                          <div
-                            className={styles.LinkItem_hoverContainer__wX9bI}
-                          >
-                            <span className={styles.LinkItem_text__v5efp}>
-                              Company
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <span>
-                        <span>
-                          {/* SubNavItems_subNavItems__rYvPL */}
-                          <ul className={styles.SubNavItems_subNavItems__rYvPL}>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/events"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/iZ4bXKu0SUC3Q6cjojJm"
-                                      alt="Events"
-                                    />
-                                    Events
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/case-studies"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/EEtyMpmTDqBQWILkY4MQ"
-                                      alt="Case Studies"
-                                    />
-                                    Case Studies
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                          </ul>
-                        </span>
-                      </span>
-                    </li>
                     {/* Other Feature Links... */}
                   </ul>
                   <div className={styles.Header_loginWrapper__9_1kE}>
                     <a
                       className={styles.Header_client__RyL2j}
+                      class="ml-12"
                       href="/signin"
                       target=""
                       rel="noreferrer"
@@ -790,9 +732,49 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                           </clipPath>
                         </defs>
                       </svg>
-                      Hi Naman
+                      Logout
                     </a>
                   </div>
+                  <div class="flex w-52">
+                    <Button
+                      style={{
+                        background: "transparent",
+                        fontWeight: 600,
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        fontSize: "12px",
+                        color: "red",
+                        minWidth: "45%",
+                      }}
+                    >
+                      Add Coins
+                    </Button>
+                    <div class="[word-wrap: break-word] px-4 flex cursor-pointer items-center justify-center rounded-[21px] bg-[transparent] py-0 font-semibold normal-case leading-loose border border-[#3b71ca] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]">
+                      <Image
+                        class="my-0 h-6 w-6 mr-[4px] font-semibold rounded-[100%]"
+                        src={Coins}
+                        alt="Contact Person"
+                      />
+                      87
+                    </div>
+
+                    {/* <div class="flex">
+                      <Button
+                        style={{
+                          backgroundColor: "#e65c55",
+                          fontWeight: 600,
+                          textAlign: "center",
+                          fontSize: "12px",
+                          width: "20%",
+                          gap: "8px",
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Coin Topup
+                      </Button>
+                    </div> */}
+                  </div>
+
                   <div className={styles.Header_loginWrapper__9_1kE}>
                     <a href="/user-profile">
                       <Button
@@ -800,7 +782,9 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                           backgroundColor: "#e65c55",
                           fontWeight: 600,
                           textAlign: "center",
-                          fontSize: "16px",
+                          fontSize: "14px",
+                          width: "120%",
+                          marginTop: "-14px",
                           gap: "8px",
                           lineHeight: "24px",
                           transition: "background-color 2s",

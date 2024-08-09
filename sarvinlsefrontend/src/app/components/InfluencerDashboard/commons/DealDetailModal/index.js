@@ -4,6 +4,8 @@ import Image from "next/image";
 import { FaTwitter, FaInstagram, FaPinterestP, FaSave } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
 import Modal from "../../../commons/modal";
+import { FaIndianRupeeSign } from "react-icons/fa6";
+import Coins from "../../../commons/icons/coin.png";
 import SuccessModal from "../../../SuccessModal";
 
 const BrandDetail = ({
@@ -254,9 +256,22 @@ const BrandDetail = ({
         <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
           <button
             type="submit"
-            class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0  py-1.5 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => setOpenSuccessModal(!openSuccessModal)}
           >
             Respond to Deal
+            <div
+              data-te-chip-init
+              data-te-ripple-init
+              class="[word-wrap: break-word] mr-4 flex -mt-0.5 cursor-pointer items-center justify-between rounded-[21px] bg-[transparent] px-[12px] py-0  font-normal normal-case leading-loose px-[12px] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]"
+            >
+              <Image
+                class="my-0 h-5 w-5 mr-[4px] rounded-[100%]"
+                src={Coins}
+                alt="Contact Person"
+              />
+              1
+            </div>
           </button>
           <button
             type="submit"
@@ -428,10 +443,22 @@ const BrandDetail = ({
         <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
           <button
             type="submit"
-            class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0  py-1.5 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={() => setOpenSuccessModal(!openSuccessModal)}
           >
             Respond to Deal
+            <div
+              data-te-chip-init
+              data-te-ripple-init
+              class="[word-wrap: break-word] mr-4 flex -mt-0.5 cursor-pointer items-center justify-between rounded-[21px] bg-[transparent] px-[12px] py-0  font-normal normal-case leading-loose px-[12px] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]"
+            >
+              <Image
+                class="my-0 h-5 w-5 mr-[4px] rounded-[100%]"
+                src={Coins}
+                alt="Contact Person"
+              />
+              1
+            </div>
           </button>
           <button
             type="submit"
@@ -444,6 +471,7 @@ const BrandDetail = ({
         <SuccessModal
           openModal={openSuccessModal}
           setOpenModal={setOpenSuccessModal}
+          role="Deals"
         />
       </>
     );
@@ -634,23 +662,56 @@ const BrandDetail = ({
                 </div>
               </div>
             </div>
+            <div className="flex items-center space-x-3 mt-4 align-middle justify-end text-red">
+              <div class="block p-2 w-64 bg-[#f8f9ff] border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+                  Current Bid
+                </h5>
+                <h2 class="flex w-full justify-center">
+                  <FaIndianRupeeSign />
+                  5000
+                </h2>
+                <div class="font-thin mt-4 text-xs text-gray-700 dark:text-gray-400">
+                  This is the current bid right now if you want to increase your
+                  probability to get deal you can raise a bid for 4500.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
           <button
             type="submit"
             class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0  py-1.5 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => setOpenSuccessModal(!openSuccessModal)}
           >
             Bid to Deal
+            <div
+              data-te-chip-init
+              data-te-ripple-init
+              class="[word-wrap: break-word] mr-4 flex -mt-0.5 cursor-pointer items-center justify-between rounded-[21px] bg-[transparent] px-[12px] py-0  font-normal normal-case leading-loose px-[12px] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]"
+            >
+              <Image
+                class="my-0 h-5 w-5 mr-[4px] rounded-[100%]"
+                src={Coins}
+                alt="Contact Person"
+              />
+              1
+            </div>
           </button>
           <button
             type="submit"
             class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 text-sm font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={setOpenModal(false)}
+            onClick={() => setOpenModal(!openModal)}
           >
             Not Interested
           </button>
         </div>
+        <SuccessModal
+          openModal={openSuccessModal}
+          setOpenModal={setOpenSuccessModal}
+          role="Deals"
+        />
       </>
     );
   } else {
@@ -809,14 +870,27 @@ const BrandDetail = ({
       <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
         <button
           type="submit"
-          class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0  py-1.5 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          onClick={() => setOpenSuccessModal(!openSuccessModal)}
         >
           Respond to Deal
+          <div
+            data-te-chip-init
+            data-te-ripple-init
+            class="[word-wrap: break-word] mr-4 flex -mt-0.5 cursor-pointer items-center justify-between rounded-[21px] bg-[transparent] px-[12px] py-0  font-normal normal-case leading-loose px-[12px] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]"
+          >
+            <Image
+              class="my-0 h-5 w-5 mr-[4px] rounded-[100%]"
+              src={Coins}
+              alt="Contact Person"
+            />
+            1
+          </div>
         </button>
         <button
           type="submit"
           class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 text-sm font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          onClick={setOpenModal(false)}
+          onClick={() => setOpenModal(!openModal)}
         >
           Not Interested
         </button>
