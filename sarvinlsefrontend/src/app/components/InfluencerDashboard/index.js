@@ -31,6 +31,7 @@ import YourContent from "./YourContent";
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
 import Overview from "./Overview";
+import ReelsInspiration from "./ReelsInspiration";
 
 const InfluencerDashboard = () => {
   const router = useRouter();
@@ -48,6 +49,7 @@ const InfluencerDashboard = () => {
     Cracked_Deals: <CrackedDeals isTabletOrMobile={isTabletOrMobile} />,
     Saved_Deals: <SavedDeals isTabletOrMobile={isTabletOrMobile} />,
     Overview: <Overview />,
+    ReelsInspiration: <ReelsInspiration />,
   };
   return (
     <div>

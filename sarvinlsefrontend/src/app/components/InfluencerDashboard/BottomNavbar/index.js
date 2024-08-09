@@ -26,9 +26,9 @@ const BottomNavbar = ({
           : "bg-white flex justify-center mx-10 mt-2 z-40 border-2 rounded shadow-sm "
       }
     >
-      <div class="mx-0 w-full flex justify-center  px-1 sm:px-1   lg:px-1">
+      <div class="mx-0 w-full flex justify-center ">
         <div class="relative flex h-12 items-center justify-between">
-          <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex items-center justify-center">
             <div class="sm:ml-6 sm:block">
               {!isTabletOrMobile ? (
                 <div class="flex space-x-4">
@@ -36,8 +36,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Brand_Search"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Brand_Search")}
                     >
@@ -49,8 +49,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Brand_Deals"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Brand_Deals")}
                     >
@@ -61,8 +61,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Bid_Deals"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Bid_Deals")}
                     >
@@ -74,8 +74,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Event_Deals"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Event_Deals")}
                     >
@@ -86,8 +86,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Deal_Match"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Deal_Match")}
                     >
@@ -98,20 +98,33 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Your_Content"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                     }
                     onClick={() => setSelectedContent("Your_Content")}
                   >
                     <FaThumbsUp style={{ marginTop: 2 }} />
                     My Content
                   </div>
+                  {!brandView && (
+                    <div
+                      class={
+                        selectedContent == "ReelsInspiration"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
+                      }
+                      onClick={() => setSelectedContent("ReelsInspiration")}
+                    >
+                      <FaCalendarDay style={{ marginTop: 2 }} />
+                      Reels Inspiration
+                    </div>
+                  )}
                   {!brandView ? (
                     <div
                       class={
                         selectedContent == "Saved_Deals"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Saved_Deals")}
                     >
@@ -122,8 +135,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Overview"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                       }
                       onClick={() => setSelectedContent("Overview")}
                     >
@@ -134,8 +147,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Analytics"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                     }
                     onClick={() => setSelectedContent("Analytics")}
                   >
@@ -145,8 +158,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Cracked_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-sm font-medium"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-sm font-medium cursor-pointer"
                     }
                     onClick={() => setSelectedContent("Cracked_Deals")}
                   >
@@ -160,8 +173,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Brand_Search"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer  w-32 justify-center"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer  w-32 justify-center"
                       }
                       onClick={() => setSelectedContent("Brand_Search")}
                     >
@@ -172,8 +185,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Brand_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Brand_Deals")}
                   >
@@ -182,8 +195,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Bid_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Bid_Deals")}
                   >
@@ -193,8 +206,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Event_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Event_Deals")}
                   >
@@ -203,8 +216,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Deal_Match"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Deal_Match")}
                   >
@@ -214,8 +227,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Your_Content"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Your_Content")}
                   >
@@ -226,8 +239,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Saved_Deals"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                       }
                       onClick={() => setSelectedContent("Saved_Deals")}
                     >
@@ -238,8 +251,8 @@ const BottomNavbar = ({
                     <div
                       class={
                         selectedContent == "Overview"
-                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                          ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                          : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                       }
                       onClick={() => setSelectedContent("Overview")}
                     >
@@ -250,8 +263,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Analytics"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Analytics")}
                   >
@@ -261,8 +274,8 @@ const BottomNavbar = ({
                   <div
                     class={
                       selectedContent == "Cracked_Deals"
-                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium w-32 justify-center"
-                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
+                        ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-1 py-1 text-xs font-medium w-32 justify-center"
+                        : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-1 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                     }
                     onClick={() => setSelectedContent("Cracked_Deals")}
                   >
