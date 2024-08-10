@@ -53,6 +53,7 @@ const CrackedCards = ({ text = null, children, isTabletOrMobile = false }) => {
           subheading="Creme's Castle"
           img="https://cdn3.vectorstock.com/i/1000x1000/02/47/stand-up-comedy-open-mic-vector-20050247.jpg"
           cardType="Cracked"
+          crackedSteps={0}
           isTabletOrMobile={isTabletOrMobile}
         />
         <BrandListCard
@@ -60,6 +61,7 @@ const CrackedCards = ({ text = null, children, isTabletOrMobile = false }) => {
           subheading="Cafe Coffee Day"
           img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
           cardType="Cracked"
+          crackedSteps={2}
           isTabletOrMobile={isTabletOrMobile}
         />
       </div>
