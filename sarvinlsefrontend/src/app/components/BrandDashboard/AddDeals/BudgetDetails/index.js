@@ -14,7 +14,8 @@ const BudgetDetails = ({
   setFixedPriceValue,
   handleSubmit,
   handlePrevious,
-  loginStatus
+  loginStatus,
+  setIsBidAvailable
 }) => {
   const [bidding, setBidding] = useState(false);
   const [fixedPrice, setFixedPrice] = useState(false);
@@ -23,11 +24,13 @@ const BudgetDetails = ({
 
   const handleBiddingClick = () => {
     setFixedPrice(false);
+    setIsBidAvailable(true);
     setBidding(!bidding);
   };
 
   const handleFixedPriceClick = () => {
     setBidding(false);
+    setIsBidAvailable(false);
     setFixedPrice(!fixedPrice);
   };
 

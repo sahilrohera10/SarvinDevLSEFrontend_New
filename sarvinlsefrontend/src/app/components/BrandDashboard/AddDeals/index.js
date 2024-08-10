@@ -32,6 +32,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
   const [category, setCategory] = useState([]);
   const [youtube, setYoutube] = useState(false);
   const [instagram, setInstagram] = useState(false);
+  const [isBidAvailable, setIsBidAvailable ] = useState(false);
   const [loginStatus, setLoginStatus] = useState({
     loading: false,
     error: "",
@@ -42,7 +43,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
     const addDealContent = {
       brand_id: null,
       product_name: dealTitle,
-      product_description: null,
+      product_description: "burger is good for health you should eat burger",
       product_photo: null,
       category: category.join(", "),
       promotion_type: null,
@@ -58,6 +59,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
       influencer_age: influencerAge,
       influencer_gender: audienceGender,
       sponsored_product: true,
+      isBidAvailable: isBidAvailable,
       ...(fixedPriceValue === ""
         ? { bidding_price_from: biddingFrom, bidding_price_to: biddingTo }
         : { fixed_price: fixedPriceValue }),
@@ -70,7 +72,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
 
     try {
       const response = await axios.post(
-        "/api/brand/deal",
+        "https://sarvindevbackend.onrender.com/api/brand/deal",
         addDealContent,
         {
           headers: {
@@ -78,10 +80,14 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
           }
         }
       );
+      
+      console.log(response.data.data.errors)
 
-      if (!response.ok) {
+      if (response.data.data.errors) {
         throw new Error("Upload failed");
       }
+
+      console.log(response.data.data)
 
       setLoginStatus({ loading: false, error: "" });
       // Reset the form and progress bar after submission
@@ -239,6 +245,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
           handleSubmit={handleSubmit}
           handlePrevious={handlePrevious}
           loginStatus={loginStatus}
+          setIsBidAvailable={setIsBidAvailable}
         />
       ),
       width: "95%",
