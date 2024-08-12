@@ -9,6 +9,7 @@ import Dropdown from "../../commons/Dropdown";
 import BrandsSearchCards from "../commons/BrandSearchCards";
 import BrandSearchFilters from "./BrandSearchFilters";
 import Modal from "../../commons/modal";
+import Filters from "../../commons/Filters";
 
 const customStyles = {
   control: (provided) => ({
@@ -99,7 +100,7 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <BrandSearchFilters />
+              <Filters />
             </Dropdown>
           </div>
         )}
