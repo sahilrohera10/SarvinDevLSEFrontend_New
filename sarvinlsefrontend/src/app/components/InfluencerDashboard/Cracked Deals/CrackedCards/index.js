@@ -53,7 +53,7 @@ const CrackedCards = ({ text = null, children, isTabletOrMobile = false }) => {
           subheading="Creme's Castle"
           img="https://cdn3.vectorstock.com/i/1000x1000/02/47/stand-up-comedy-open-mic-vector-20050247.jpg"
           cardType="Cracked"
-          crackedSteps={0}
+          crackedSteps={1}
           isTabletOrMobile={isTabletOrMobile}
         />
         <BrandListCard

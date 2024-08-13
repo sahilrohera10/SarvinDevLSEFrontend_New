@@ -10,6 +10,7 @@ import { FaGift } from "react-icons/fa";
 import Chips from "../../../commons/Chips";
 import { useState } from "react";
 import { FaHandPeace } from "react-icons/fa6";
+import ButtonStatement from "../../ButtonStatement";
 
 const Tags = {
   1: FirstPlace,
@@ -32,6 +33,9 @@ export default function BrandListCard({
   isTabletOrMobile = false,
 }) {
   const [openModal, setOpenModal] = useState(false);
+  const [openButtonStatementModal, setOpenButtonStatementModal] =
+    useState(false);
+
   if (cardType == "Event") {
     return (
       <div
@@ -422,8 +426,10 @@ export default function BrandListCard({
             </button>
             <button
               type="submit"
-              class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 mt-2 text-xs font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              onClick={() => setOpenModal(!openModal)}
+              class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 mt-2 text-xs font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 hover:text-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={() =>
+                setOpenButtonStatementModal(!openButtonStatementModal)
+              }
             >
               {BUTTONSTATEMENT[crackedSteps]}
             </button>
@@ -439,6 +445,17 @@ export default function BrandListCard({
             subheading={subheading}
             img={img}
             cardType={cardType}
+          />
+        </Modal>
+        <Modal
+          openModal={openButtonStatementModal}
+          setOpenModal={setOpenButtonStatementModal}
+          closeOutside={false}
+        >
+          <ButtonStatement
+            crackedSteps={crackedSteps}
+            openModal={openButtonStatementModal}
+            setOpenModal={setOpenButtonStatementModal}
           />
         </Modal>
       </div>
