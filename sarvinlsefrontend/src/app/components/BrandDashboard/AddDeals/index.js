@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DealTitle from "./DealTitle/index";
@@ -10,6 +8,7 @@ import InfluencerRequirement from "./InfluencerRequirement/index";
 import TargetAudience from "./TargetAudience/index";
 import TargetPlatform from "./TargetPlatform/index";
 import TaskDescription from "./TaskDescription/index";
+import StatusMessage from "./StatusMessage";
 
 export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -32,14 +31,16 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
   const [category, setCategory] = useState([]);
   const [youtube, setYoutube] = useState(false);
   const [instagram, setInstagram] = useState(false);
-  const [isBidAvailable, setIsBidAvailable ] = useState(false);
+  const [isBidAvailable, setIsBidAvailable] = useState(false);
   const [loginStatus, setLoginStatus] = useState({
     loading: false,
     error: "",
   });
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [message, setMessage] = useState("");
+  const [statusMessage, setStatusMessage] = useState(false);
 
   const handleSubmit = async (e) => {
-
     const addDealContent = {
       brand_id: null,
       product_name: dealTitle,
@@ -71,26 +72,21 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
     setLoginStatus({ loading: true, error: "" });
 
     try {
-      const response = await axios.post(
-        "https://sarvindevbackend.onrender.com/api/brand/deal",
-        addDealContent,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          }
-        }
-      );
-      
-      console.log(response.data.data.errors)
+      const response = await axios.post("https://sarvindevbackend.onrender.com/api/brand/deal", addDealContent, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response.data.data.errors);
 
       if (response.data.data.errors) {
         throw new Error("Upload failed");
       }
 
-      console.log(response.data.data)
+      console.log(response.data.data);
 
       setLoginStatus({ loading: false, error: "" });
-      // Reset the form and progress bar after submission
       setDealTitle("");
       setBiddingTo("");
       setBiddingFrom("");
@@ -108,11 +104,17 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
       setDeliveryLocation("");
       setDeliveryType("");
       setCategory([]);
-      setCurrentStep(0); 
+      setCurrentStep(0);
       setProgressBarWidth(steps[0].width);
-      setOpenAddDealsModal(!openAddDealsModal);
+      setIsSuccess(true);
+      setMessage("");
+      setStatusMessage(true);
     } catch (error) {
+      setIsSuccess(false);
+      setMessage(error.message);
+      setStatusMessage(true);
       setLoginStatus({ loading: false, error: error.message });
+      return;
     }
   };
 
@@ -265,7 +267,13 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
           aria-label="Close"
         >
           <span className="sr-only">Close</span>
-          <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <svg
+            className="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
             <path
               stroke="currentColor"
               stroke-linecap="round"
@@ -276,13 +284,23 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
           </svg>
         </button>
       </div>
-      <div className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700" style={{ marginTop: 10 }}>
-        <div
-          className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
-          style={{ width: progressBarWidth, height: "15px" }}
-        ></div>
-      </div>
-      {steps[currentStep].component}
+      {!statusMessage && (
+        <div className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700" style={{ marginTop: 10 }}>
+          <div
+            className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
+            style={{ width: progressBarWidth, height: "15px" }}
+          ></div>
+        </div>
+      )}
+      {!statusMessage && steps[currentStep].component}
+      {statusMessage && (
+        <StatusMessage
+          isSuccess={isSuccess}
+          message={message}
+          openAddDealsModal={openAddDealsModal}
+          setOpenAddDealsModal={setOpenAddDealsModal}
+        />
+      )}
     </div>
   );
 }
