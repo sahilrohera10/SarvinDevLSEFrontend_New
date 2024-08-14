@@ -64,6 +64,22 @@ const CrackedCards = ({ text = null, children, isTabletOrMobile = false }) => {
           crackedSteps={2}
           isTabletOrMobile={isTabletOrMobile}
         />
+        <BrandListCard
+          heading="Open Mic in Bareilly"
+          subheading="Cafe Coffee Day"
+          img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
+          cardType="Cracked"
+          crackedSteps={3}
+          isTabletOrMobile={isTabletOrMobile}
+        />
+        <BrandListCard
+          heading="Open Mic in Bareilly"
+          subheading="Cafe Coffee Day"
+          img="https://www.aacpl.net/sites/default/files/2023-11/180119-052021_open-mic.jpg"
+          cardType="Cracked"
+          crackedSteps={0}
+          isTabletOrMobile={isTabletOrMobile}
+        />
       </div>
     </div>
   );
