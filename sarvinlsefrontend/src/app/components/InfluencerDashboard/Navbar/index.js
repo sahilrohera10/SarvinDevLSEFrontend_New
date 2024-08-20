@@ -700,21 +700,26 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                     </li>
                     <li>
                       <div class="flex w-52">
-                        <Button
-                          style={{
-                            background: "transparent",
-                            fontWeight: 600,
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            fontSize: "12px",
-                            color: "red",
-                            minWidth: "45%",
-                            cursor: "pointer",
-                          }}
-                          onClick={() => setOpenPricingModal(!openPricingModal)}
-                        >
-                          Add Coins
-                        </Button>
+                        <div class="hover:bg-red-200 rounded-md animate-bounce">
+                          <Button
+                            style={{
+                              background: "transparent",
+                              fontWeight: 600,
+                              display: "flex",
+                              justifyContent: "flex-start",
+                              fontSize: "12px",
+                              color: "red",
+                              minWidth: "45%",
+
+                              cursor: "pointer",
+                            }}
+                            onClick={() =>
+                              setOpenPricingModal(!openPricingModal)
+                            }
+                          >
+                            Add Coins
+                          </Button>
+                        </div>
                         <div class="[word-wrap: break-word] px-4 flex cursor-pointer items-center justify-center rounded-[21px] bg-[transparent] py-0 font-semibold normal-case leading-loose border border-[#3b71ca] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]">
                           <Image
                             class="my-0 h-6 w-6 mr-[4px] font-semibold rounded-[100%]"
@@ -827,7 +832,10 @@ function NavBar({ isTabletOrMobile, currentColor }) {
             openModal={openPricingModal}
             setOpenModal={setOpenPricingModal}
           >
-            <AddCoins />
+            <AddCoins
+              setOpenModal={setOpenPricingModal}
+              openModal={openPricingModal}
+            />
           </Modal>
         </div>
       ) : (
