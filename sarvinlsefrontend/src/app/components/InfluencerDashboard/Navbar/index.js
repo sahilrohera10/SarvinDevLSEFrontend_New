@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Button } from "../../commons/button.tsx";
 import Modal from "../../commons/modal";
-import Pricing from "../../Pricing";
+import AddCoins from "../../AddCoins";
 import { useRouter } from "next/router";
 import NavbarMobileView from "./NavbarMobileView";
 import { FaCoins } from "react-icons/fa";
@@ -698,6 +698,49 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                         </span>
                       </span>
                     </li>
+                    <li>
+                      <div class="flex w-52">
+                        <Button
+                          style={{
+                            background: "transparent",
+                            fontWeight: 600,
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            fontSize: "12px",
+                            color: "red",
+                            minWidth: "45%",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => setOpenPricingModal(!openPricingModal)}
+                        >
+                          Add Coins
+                        </Button>
+                        <div class="[word-wrap: break-word] px-4 flex cursor-pointer items-center justify-center rounded-[21px] bg-[transparent] py-0 font-semibold normal-case leading-loose border border-[#3b71ca] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]">
+                          <Image
+                            class="my-0 h-6 w-6 mr-[4px] font-semibold rounded-[100%]"
+                            src={Coins}
+                            alt="Contact Person"
+                          />
+                          87
+                        </div>
+
+                        {/* <div class="flex">
+                      <Button
+                        style={{
+                          backgroundColor: "#e65c55",
+                          fontWeight: 600,
+                          textAlign: "center",
+                          fontSize: "12px",
+                          width: "20%",
+                          gap: "8px",
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Coin Topup
+                      </Button>
+                    </div> */}
+                      </div>
+                    </li>
                     {/* Other Feature Links... */}
                   </ul>
                   <div className={styles.Header_loginWrapper__9_1kE}>
@@ -735,45 +778,6 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                       Logout
                     </a>
                   </div>
-                  <div class="flex w-52">
-                    <Button
-                      style={{
-                        background: "transparent",
-                        fontWeight: 600,
-                        display: "flex",
-                        justifyContent: "flex-start",
-                        fontSize: "12px",
-                        color: "red",
-                        minWidth: "45%",
-                      }}
-                    >
-                      Add Coins
-                    </Button>
-                    <div class="[word-wrap: break-word] px-4 flex cursor-pointer items-center justify-center rounded-[21px] bg-[transparent] py-0 font-semibold normal-case leading-loose border border-[#3b71ca] py-0  transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-[#4185f4] dark:bg-[transparent] dark:text-[#4185f4]">
-                      <Image
-                        class="my-0 h-6 w-6 mr-[4px] font-semibold rounded-[100%]"
-                        src={Coins}
-                        alt="Contact Person"
-                      />
-                      87
-                    </div>
-
-                    {/* <div class="flex">
-                      <Button
-                        style={{
-                          backgroundColor: "#e65c55",
-                          fontWeight: 600,
-                          textAlign: "center",
-                          fontSize: "12px",
-                          width: "20%",
-                          gap: "8px",
-                          lineHeight: "24px",
-                        }}
-                      >
-                        Coin Topup
-                      </Button>
-                    </div> */}
-                  </div>
 
                   <div className={styles.Header_loginWrapper__9_1kE}>
                     <a href="/user-profile">
@@ -783,7 +787,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                           fontWeight: 600,
                           textAlign: "center",
                           fontSize: "14px",
-                          width: "120%",
+                          width: "100%",
                           marginTop: "-14px",
                           gap: "8px",
                           lineHeight: "24px",
@@ -823,7 +827,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
             openModal={openPricingModal}
             setOpenModal={setOpenPricingModal}
           >
-            <Pricing />
+            <AddCoins />
           </Modal>
         </div>
       ) : (
