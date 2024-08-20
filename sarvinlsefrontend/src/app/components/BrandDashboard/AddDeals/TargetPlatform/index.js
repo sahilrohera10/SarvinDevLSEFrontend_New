@@ -1,21 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BackGroundImage from "../BackGroundImage/index";
 import Toast from "../Toast";
 
-const TargetPlatform = ({ setCategory, handleNext, handlePrevious }) => {
-  const [youtube, setYoutube] = useState(false);
-  const [instagram, setInstagram] = useState(false);
+const TargetPlatform = ({ youtube, setYoutube, instagram, setInstagram, handleNext, handlePrevious }) => {
   const [error, setError] = useState(false);
-
-  // Update the category state whenever youtube or instagram changes
-  useEffect(() => {
-    const newCategories = [];
-    if (youtube) newCategories.push("Youtube");
-    if (instagram) newCategories.push("Instagram");
-    setCategory(newCategories);
-  }, [youtube, instagram, setCategory]);
 
   const handleCloseError = () => {
     setError(false);
