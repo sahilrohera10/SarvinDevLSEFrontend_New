@@ -22,7 +22,7 @@ const filters = [
 ];
 
 const Filters = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState({});
   const [isChecked, setChecked] = useState(false);
   const [sliderValue, setSliderValue] = useState([20, 80]);
   const [filterName, setFilterName] = useState("");
@@ -31,17 +31,31 @@ const Filters = () => {
     setFilterName(e.target.value);
   };
 
-  const handleCheckboxChange = () => {
-    setChecked(!isChecked);
+  const handleCheckboxChange = (e) => {
+    if (e.target.name in selectedOption) {
+      let value = selectedOption[e.target.name];
+      setSelectedOption({
+        ...selectedOption,
+        [e.target.name]: [...value, e.target.value],
+      });
+    } else {
+      setSelectedOption({
+        ...selectedOption,
+        [e.target.name]: [e.target.value],
+      });
+    }
+    console.log(selectedOption);
   };
 
   const handleSliderChange = (value) => {
     setSliderValue(value);
   };
 
-  const handleSelectChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
+  const handleSelectChange = (e) => {};
+  const closeModal = (e) => {
+    document.getElementsByClassName('modal').style.display = 'none';
+  }
+
 
   const handleApplyFilters = () => {
     // Add logic to apply filters based on selected options, checkboxes, sliders, etc.
@@ -52,6 +66,7 @@ const Filters = () => {
 
   return (
     <div
+    id="filter-container"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -67,35 +82,15 @@ const Filters = () => {
         }}
       >
         <h2>Filters</h2>
-        <button>Close</button>
+        <button id="closeButton" onClick={closeModal}>Close</button>
       </div>
-      {/* <Select
-        options={options}
-        value={selectedOption}
-        onChange={handleSelectChange}
-        isMulti
-        placeholder="Select Options"
-      />
-
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-          />
-          Check me
-        </label>
-      </div>
-
-      <div>
-        <Slider range defaultValue={[20, 80]} onChange={handleSliderChange} />
-      </div> */}
 
       <div style={{ display: "flex", gap: "24px" }}>
         <div
           style={{
-            backgroundColor: "grey",
+            boxShadow:
+              "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
+            borderRadius: "4px",
             padding: "16px 32px 16px 32px",
             display: "flex",
             flexDirection: "column",
@@ -115,7 +110,10 @@ const Filters = () => {
         </div>
         <div
           style={{
-            backgroundColor: "grey",
+            boxShadow:
+              "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
+
+            borderRadius: "4px",
             padding: "16px 32px 16px 32px",
             width: "70%",
             alignItems: "flex-start",
@@ -128,15 +126,18 @@ const Filters = () => {
               return filter.filterCategory == filterName;
             })
             .map((filter) => {
-              return filter.filterOptions.map((filter) => {
+              return filter.filterOptions.map((option) => {
                 return (
-                  <div key={filter} style={{ marginBottom: "16px" }}>
+                  <div key={option} style={{ marginBottom: "16px" }}>
                     {" "}
                     <input
+                      lable={filter.filterCategory}
                       type="checkbox"
-                      // onChange={handleCheckboxChange}
+                      name={filter.filterCategory}
+                      value={option}
+                      onChange={handleCheckboxChange}
                     />
-                    {filter}
+                    {option}
                   </div>
                 );
               });
@@ -144,7 +145,26 @@ const Filters = () => {
         </div>
       </div>
 
-      <button onClick={handleApplyFilters}>Apply Filters</button>
+      <button
+        style={{
+          alignSelf: "center",
+          textAlign: "center",
+          display: "inline-block",
+          position: "relative",
+          textDecoration: "none",
+          color: "white",
+          backgroundColor: "blue",
+          fontWeight: "medium",
+          fontSize: "16px",
+          padding: "16px 8px",
+          width: "150px",
+          borderRadius: "4px",
+          overflow: "hidden",
+        }}
+        onClick={handleApplyFilters}
+      >
+        Apply Filters
+      </button>
     </div>
   );
 };
