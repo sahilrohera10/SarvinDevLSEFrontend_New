@@ -23,6 +23,7 @@ export default function BrandCard({
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
   cardType = "Deals",
+  deal_count = 0,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -136,7 +137,7 @@ export default function BrandCard({
                 <Image alt="Badge" src={Tags[tags]} width={36} height={36} />
               </div>
             )}
-            <div style={{ width: 300, height: 270 }}>
+            <div style={{ width: 300, height: 270, display: "flex" }}>
               <Image alt="alt text." src={img} width={300} height={50} />
             </div>
 
@@ -173,7 +174,7 @@ export default function BrandCard({
               Average Cost- TBD
             </span>
             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-              No.Of Deals = 1432
+              No.Of Deals = {deal_count}
             </span>
           </div>
           <Link
@@ -280,7 +281,7 @@ export default function BrandCard({
               Latest Bid Price=5000
             </span>
             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-              No.Of Bids = 1432
+              No.Of Bids = deal_count
             </span>
           </div>
 
@@ -359,7 +360,7 @@ export default function BrandCard({
             Average Cost- TBD
           </span>
           <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-            No.Of Deals = 1432
+            No.Of Deals = deal_count
           </span>
         </div>
         <Link
