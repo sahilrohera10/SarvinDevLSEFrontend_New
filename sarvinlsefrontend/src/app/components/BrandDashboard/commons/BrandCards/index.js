@@ -16,12 +16,16 @@ const Tags = {
   3: ThirdPlace,
 };
 export default function BrandCard({
+  brandId = 0,
+  dealId = 0,
   heading = "Naman Agarwal",
   subheading = "CEO and Founder",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
-  influencerView = true,
   cardType = "Deals",
+  deal_count = 0,
+  fixed_price = 0,
+  influencerView = true,
 }) {
   const [openModal, setOpenModal] = useState(false);
   return (
@@ -75,7 +79,7 @@ export default function BrandCard({
             <div className="text-gray-400 text-sm">{subheading}</div>
             <div class="flex mt-1">
               <span class=" bg-[#ccdfff] text-[#3858f9] text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                Fixed Cost- TBD
+                Fixed Cost- {fixed_price}
               </span>
               <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
                 Sales Commission - 3%
@@ -90,11 +94,17 @@ export default function BrandCard({
                 View Deal
               </button>
             </div>
-            <Modal openModal={openModal} setOpenModal={setOpenModal}>
+            <Modal
+              openModal={openModal}
+              setOpenModal={setOpenModal}
+              closeOutside={false}
+            >
               <BrandDetail
+                id={dealId}
                 heading={heading}
                 subheading={subheading}
                 img={img}
+                cardType="Deals"
                 openModal={openModal}
                 setOpenModal={setOpenModal}
                 influencerView={influencerView}

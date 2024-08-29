@@ -116,8 +116,8 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
       </div>
 
       {loading ? (
-        <div>
-          <div role="status" class="flex justify-center mt-20 mb-20">
+        <div class="mt-20 mb-20">
+          <div role="status" class="flex justify-center mb-5">
             <svg
               aria-hidden="true"
               class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
@@ -134,7 +134,9 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="flex justify-center font-semibold">
+            Loading...Exciting Deals Are Ready to Come
           </div>
         </div>
       ) : isListView ? (
@@ -167,7 +169,7 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
         >
           {brands.map((brand) => (
             <BrandCard
-              key={brand._id} // Ensure the key is unique, adjust according to your data
+              brandId={brand._id} // Ensure the key is unique, adjust according to your data
               heading={brand.brand_name}
               subheading={brand.description}
               img={brand.image_link} // Ensure this field matches your API response

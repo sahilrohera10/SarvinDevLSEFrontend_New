@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./Navbar";
-
+import axios from "axios";
 import Footer from "../commons/Footer";
 
 import styles from "./styles.module.css";
@@ -28,7 +28,8 @@ import BrandContent from "./BrandContent";
 
 const BrandDashboard = () => {
   const router = useRouter();
-  const { influencerView = false, id } = router.query;
+  const { influencerView: isinfluencerView, id = "" } = router.query;
+  const influencerView = isinfluencerView === "True";
 
   const [selectedContent, setSelectedContent] = useState(
     !influencerView ? "Search_Influencers" : "Overview"
@@ -37,16 +38,17 @@ const BrandDashboard = () => {
     // Analytics: <Analytics />,
     Overview: <Overview />,
     Bid_Deals: <BidDeals />,
-    Brand_Deals: <BrandDeals influencerView={influencerView} />,
+    Brand_Deals: <BrandDeals influencerView={influencerView} id={id} />,
     Event_Deals: <EventDeals />,
     Search_Influencers: <SearchInfluencers />,
     Analytics: <Analytics />,
     Cracked_Deals: <Cracked_Deals />,
     Brand_Content: <BrandContent />,
   };
+
   return (
     <div>
-      <NavBar />
+      <NavBar id={id} />
       <div className={styles.profile_container}>
         <div style={{ flex: 0.5, marginLeft: 10 }}>
           <img
@@ -138,7 +140,7 @@ const BrandDashboard = () => {
       <BottomNavbar
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
-        influencerView={influencerView == "True"}
+        influencerView={influencerView}
       />
 
       {DASHBOARD_CONTENT[selectedContent]}

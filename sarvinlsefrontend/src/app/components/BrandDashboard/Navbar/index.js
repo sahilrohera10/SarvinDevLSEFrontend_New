@@ -8,7 +8,7 @@ import AddDeals from "../AddDeals/index.js";
 import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa";
 
-function NavBar({ currentColor }) {
+function NavBar({ currentColor, id = "" }) {
   const router = useRouter();
   const [openPricingModal, setOpenPricingModal] = useState(false);
   const [openAddDealsModal, setOpenAddDealsModal] = useState(false);
@@ -722,6 +722,7 @@ function NavBar({ currentColor }) {
         <AddDeals
           openAddDealsModal={openAddDealsModal}
           setOpenAddDealsModal={setOpenAddDealsModal}
+          id={id}
         />
       </Modal>
     </div>

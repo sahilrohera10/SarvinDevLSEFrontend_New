@@ -8,7 +8,7 @@ import { FaGift } from "react-icons/fa";
 import Chips from "../../../commons/Chips";
 import Modal from "../../../commons/modal";
 import { useState, useEffect } from "react";
-import BrandDetail from "../DealDetailModal";
+import DealDetailModal from "../DealDetailModal";
 import Link from "next/link";
 
 const Tags = {
@@ -18,22 +18,25 @@ const Tags = {
 };
 
 export default function BrandCard({
+  brandId = 0,
+  dealId = 0,
   heading = "Naman Agarwal",
   subheading = "CEO and Founder",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
   cardType = "Deals",
   deal_count = 0,
+  fixed_price = 0,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible((prev) => !prev); // Toggle visibility
-    }, 1000); // Change the interval duration as needed
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIsVisible((prev) => !prev); // Toggle visibility
+  //   }, 1000); // Change the interval duration as needed
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  //   return () => clearInterval(interval); // Cleanup on unmount
+  // }, []);
 
   if (cardType == "Deals") {
     return (
@@ -84,7 +87,7 @@ export default function BrandCard({
           <div className="text-gray-400 text-sm">{subheading}</div>
           <div class="flex mt-1">
             <span class=" bg-[#ccdfff] text-[#3858f9] text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-              Fixed Cost- TBD
+              Fixed Cost- {fixed_price}
             </span>
             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
               Sales Commission - 3%
@@ -99,12 +102,21 @@ export default function BrandCard({
               View Deal
             </button>
           </div>
+          <div className="text-gray-400 text-md mt-2 mr-2">
+            <button
+              type="submit"
+              class="flex w-full justify-center rounded-md bg-gray-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Save Deal
+            </button>
+          </div>
           <Modal
             openModal={openModal}
             setOpenModal={setOpenModal}
             closeOutside={false}
           >
-            <BrandDetail
+            <DealDetailModal
+              id={dealId}
               heading={heading}
               subheading={subheading}
               img={img}
@@ -179,9 +191,7 @@ export default function BrandCard({
           </div>
           <Link
             className="text-gray-400 text-md mt-2 mr-2"
-            href={
-              "/brand-dashboard?influencerView=True&id=dwdwsdsxwfwfssxscxwdwf"
-            }
+            href={`/brand-dashboard?influencerView=True&id=${brandId}`}
           >
             <button
               type="submit"
@@ -294,7 +304,7 @@ export default function BrandCard({
           </button>
         </div>
         <Modal openModal={openModal} setOpenModal={setOpenModal}>
-          <BrandDetail
+          <DealDetailModal
             heading={heading}
             subheading={subheading}
             img={img}

@@ -10,7 +10,7 @@ import TargetPlatform from "./TargetPlatform/index";
 import TaskDescription from "./TaskDescription/index";
 import StatusMessage from "./StatusMessage";
 
-export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
+export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [dealTitle, setDealTitle] = useState("");
   const [biddingTo, setBiddingTo] = useState("");
@@ -42,14 +42,15 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
 
   const handleSubmit = async (e) => {
     const addDealContent = {
-      brand_id: null,
+      brand_id: id,
       product_name: dealTitle,
       product_description: "burger is good for health you should eat burger",
-      product_photo: null,
+      product_photo:
+        "https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       category: category.join(", "),
-      promotion_type: null,
+      promotion_type: "DEMO",
       sales_compensation: 7,
-      created_by: null,
+      created_by: "657420767e396baaaa094c13",
       campaign_description: campaignDescription,
       task_description: taskDescription,
       audience_location: audienceLocation,
@@ -60,10 +61,12 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
       influencer_age: influencerAge,
       influencer_gender: audienceGender,
       sponsored_product: true,
-      isBidAvailable: isBidAvailable,
-      ...(fixedPriceValue === ""
-        ? { bidding_price_from: biddingFrom, bidding_price_to: biddingTo }
-        : { fixed_price: fixedPriceValue }),
+      fixed_price: fixedPriceValue,
+      // isBidAvailable: false,
+      // isBidAvailable: isBidAvailable,
+      // ...(fixedPriceValue === ""
+      //   ? { bidding_price_from: biddingFrom, bidding_price_to: biddingTo }
+      //   : {  }),
     };
 
     console.log(addDealContent);
@@ -72,11 +75,15 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
     setLoginStatus({ loading: true, error: "" });
 
     try {
-      const response = await axios.post("https://sarvindevbackend.onrender.com/api/brand/deal", addDealContent, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "https://sarvindevbackend.onrender.com/api/brand/deal",
+        addDealContent,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log(response.data.data.errors);
 
@@ -141,7 +148,14 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
 
   const steps = [
     {
-      component: <DealTitle key={0} dealTitle={dealTitle} setDealTitle={setDealTitle} handleNext={handleNext} />,
+      component: (
+        <DealTitle
+          key={0}
+          dealTitle={dealTitle}
+          setDealTitle={setDealTitle}
+          handleNext={handleNext}
+        />
+      ),
       width: "10%",
     },
     {
@@ -285,7 +299,10 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal }) {
         </button>
       </div>
       {!statusMessage && (
-        <div className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700" style={{ marginTop: 10 }}>
+        <div
+          className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700"
+          style={{ marginTop: 10 }}
+        >
           <div
             className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
             style={{ width: progressBarWidth, height: "15px" }}

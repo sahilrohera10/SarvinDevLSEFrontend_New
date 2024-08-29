@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import NavBar from "./Navbar";
 import LocationSearch from "../commons/LocationSearch";
 import GlobalSearch from "../commons/GlobalSearch";
@@ -51,6 +52,25 @@ const InfluencerDashboard = () => {
     Overview: <Overview />,
     ReelsInspiration: <ReelsInspiration />,
   };
+  const [branddeals, setBranddeals] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get(
+        `https://sarvindevbackend.onrender.com/api/brand/view_creator_info/66ceb2b009e22dba3e812970`
+      )
+      .then((response) => {
+        setBranddeals(response.data?.data);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+        // Set loading to false in case of error
+      });
+  }, [id]);
+  console.log(branddeals, "das");
   return (
     <div>
       <NavBar isTabletOrMobile={isTabletOrMobile} />
@@ -68,7 +88,7 @@ const InfluencerDashboard = () => {
               className={styles.complete_your_profile_text}
               style={{ display: "flex" }}
             >
-              Hi! Naman Agarwal{" "}
+              Hi! {branddeals.full_name}{" "}
               <Lottie
                 loop
                 animationData={Handwave}
