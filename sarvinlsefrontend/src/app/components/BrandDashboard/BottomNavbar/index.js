@@ -218,8 +218,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Search_Influencers"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Search_Influencers")}
                 >
@@ -229,8 +229,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Brand_Deals"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Brand_Deals")}
                 >
@@ -239,8 +239,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Bid_Deals"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Bid_Deals")}
                 >
@@ -250,8 +250,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Event_Deals"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Event_Deals")}
                 >
@@ -260,8 +260,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Analytics"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Analytics")}
                 >
@@ -271,8 +271,8 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Brand_Content"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-sm font-medium cursor-pointer w-32 justify-center"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#E65C55] rounded-md px-3 py-1 text-xs font-medium cursor-pointer w-32 justify-center"
                   }
                   onClick={() => setSelectedContent("Brand_Content")}
                 >
@@ -282,13 +282,24 @@ const BottomNavbar = ({
                 <div
                   class={
                     selectedContent == "Matched_Deals"
-                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-sm font-medium"
-                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-sm font-medium cursor-pointer"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
                   }
                   onClick={() => setSelectedContent("Matched_Deals")}
                 >
                   <FaChartLine style={{ marginTop: 2 }} />
-                  Matched Deals
+                  Matched Ongoing Deals
+                </div>
+                <div
+                  class={
+                    selectedContent == "Closed_Deals"
+                      ? "flex gap-1 bg-gray-400 text-gray-100 rounded-md px-3 py-1 text-xs font-medium"
+                      : "flex gap-1 text-gray-900 hover:bg-gray-100 hover:text-[#F27430] rounded-md px-3 py-1 text-xs font-medium cursor-pointer"
+                  }
+                  onClick={() => setSelectedContent("Closed_Deals")}
+                >
+                  <FaChartLine style={{ marginTop: 2 }} />
+                  Closed Deals
                 </div>
               </div>
             </div>
@@ -319,7 +330,7 @@ const BottomNavbar = ({
               <div>
                 <button
                   type="button"
-                  class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  class="relative flex rounded-full bg-gray-800 text-xs focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"

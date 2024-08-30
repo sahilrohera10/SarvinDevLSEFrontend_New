@@ -25,6 +25,7 @@ import SearchInfluencers from "./SearchInfluencers";
 import Analytics from "./Analytics";
 import Cracked_Deals from "./Cracked Deals";
 import BrandContent from "./BrandContent";
+import ClosedDeals from "./Closed Deals";
 
 const BrandDashboard = () => {
   const router = useRouter();
@@ -44,6 +45,7 @@ const BrandDashboard = () => {
     Analytics: <Analytics />,
     Cracked_Deals: <Cracked_Deals />,
     Brand_Content: <BrandContent />,
+    Closed_Deals: <ClosedDeals id={id} />,
   };
 
   return (
