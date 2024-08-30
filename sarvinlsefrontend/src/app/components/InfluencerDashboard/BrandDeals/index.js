@@ -9,6 +9,7 @@ import Dropdown from "../../commons/Dropdown";
 import BrandsDealCards from "../commons/BrandsDealCards";
 import BrandDealsFilters from "./BrandDealsFilters";
 import Modal from "../../commons/modal";
+import Filters from "../../commons/Filters";
 
 const customStyles = {
   control: (provided) => ({
@@ -76,7 +77,7 @@ const BrandDeals = () => {
 
         <div class="flex justify-between m-11 gap-2">
           <Dropdown text="All Filters" modalView>
-            <BrandDealsFilters />
+            <Filters />
           </Dropdown>
         </div>
       </div>

@@ -21,7 +21,7 @@ const filters = [
   },
 ];
 
-const Filters = () => {
+const Filters = ({ setOpenModal,openModal }) => {
   const [selectedOption, setSelectedOption] = useState({});
   const [isChecked, setChecked] = useState(false);
   const [sliderValue, setSliderValue] = useState([20, 80]);
@@ -53,9 +53,8 @@ const Filters = () => {
 
   const handleSelectChange = (e) => {};
   const closeModal = (e) => {
-    document.getElementsByClassName('modal').style.display = 'none';
-  }
-
+    setOpenModal(!openModal);
+  };
 
   const handleApplyFilters = () => {
     // Add logic to apply filters based on selected options, checkboxes, sliders, etc.
@@ -66,7 +65,7 @@ const Filters = () => {
 
   return (
     <div
-    id="filter-container"
+      id="filter-container"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -82,7 +81,9 @@ const Filters = () => {
         }}
       >
         <h2>Filters</h2>
-        <button id="closeButton" onClick={closeModal}>Close</button>
+        <button id="closeButton" onClick={closeModal}>
+          Close
+        </button>
       </div>
 
       <div style={{ display: "flex", gap: "24px" }}>

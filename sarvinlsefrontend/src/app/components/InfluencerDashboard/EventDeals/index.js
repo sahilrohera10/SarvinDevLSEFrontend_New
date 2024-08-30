@@ -7,6 +7,7 @@ import LocationSearch from "../../commons/LocationSearch";
 import Dropdown from "../../commons/Dropdown";
 import BrandDealsFilters from "../BrandSearch/BrandSearchFilters";
 import EventCards from "./EventCards";
+import Filters from "../../commons/Filters";
 
 const EventDeals = ({ isTabletOrMobile }) => {
   return (
@@ -90,7 +91,7 @@ const EventDeals = ({ isTabletOrMobile }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <BrandDealsFilters />
+              <Filters />
             </Dropdown>
           </div>
         )}

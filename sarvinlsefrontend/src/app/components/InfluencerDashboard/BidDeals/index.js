@@ -9,6 +9,7 @@ import Dropdown from "../../commons/Dropdown";
 import BrandsDealCards from "../commons/BidCards";
 import BrandDealsFilters from "./BidDealsFilters";
 import Modal from "../../commons/modal";
+import Filters from "../../commons/Filters";
 
 const customStyles = {
   control: (provided) => ({
@@ -99,7 +100,7 @@ const BidDeals = ({ isTabletOrMobile }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <BrandDealsFilters />
+              <Filters />
             </Dropdown>
           </div>
         )}
