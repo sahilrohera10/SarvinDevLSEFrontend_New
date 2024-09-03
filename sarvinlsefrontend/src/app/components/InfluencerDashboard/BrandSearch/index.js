@@ -19,6 +19,17 @@ const customStyles = {
 };
 
 const BrandSearch = ({ isTabletOrMobile = false }) => {
+  const data = [
+    {
+      filterCategory: "Audience Age",
+      filterOptions: ["18-24", "24-32", "33-40", "41-48"],
+    },
+    {
+      filterCategory: "Brand Category",
+      filterOptions: ["Clothing", "Luxary", "Electronics", "Lifestyle"],
+    },
+  ];
+  
   return (
     <div class="mx-4">
       {" "}
@@ -100,7 +111,7 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <Filters />
+              <Filters filters={data} />
             </Dropdown>
           </div>
         )}

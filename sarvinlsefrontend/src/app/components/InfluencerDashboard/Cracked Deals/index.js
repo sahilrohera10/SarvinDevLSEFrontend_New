@@ -7,8 +7,39 @@ import LocationSearch from "../../commons/LocationSearch";
 import Dropdown from "../../commons/Dropdown";
 import BrandDealsFilters from "../BrandSearch/BrandSearchFilters";
 import CrackedCards from "./CrackedCards";
+import Filters from "../../commons/Filters";
 
 const CrackedDeals = ({ isTabletOrMobile }) => {
+  const data = [
+    {
+      filterCategory: "Social Platforms",
+      filterOptions: ["Instagram", "Youtube", "Facebook", "Twitter"],
+    },
+    {
+      filterCategory: "Brand Category",
+      filterOptions: [
+        "Clothing",
+        "Luxary",
+        "Electronics",
+        "Lifestyle",
+        "Jwellery",
+        "Education",
+      ],
+    },
+    {
+      filterCategory: "Promotion Type",
+      filterOptions: ["Shout Out", "User Generated Content", "Product Gifting"],
+    },
+    {
+      filterCategory: "Compensation",
+      filterOptions: [
+        "Fee- Fixed per Content",
+        "Product Gifting",
+        "Sales Commission",
+      ],
+    },
+  ];
+
   return (
     <div class="mx-4">
       {" "}
@@ -90,7 +121,7 @@ const CrackedDeals = ({ isTabletOrMobile }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <BrandDealsFilters />
+              <Filters filters={data} />
             </Dropdown>
           </div>
         )}

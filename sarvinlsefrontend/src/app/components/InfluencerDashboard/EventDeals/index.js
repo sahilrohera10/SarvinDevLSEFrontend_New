@@ -10,6 +10,36 @@ import EventCards from "./EventCards";
 import Filters from "../../commons/Filters";
 
 const EventDeals = ({ isTabletOrMobile }) => {
+  const data = [
+    {
+      filterCategory: "Social Platforms",
+      filterOptions: ["Instagram", "Youtube", "Facebook", "Twitter"],
+    },
+    {
+      filterCategory: "Brand Category",
+      filterOptions: [
+        "Clothing",
+        "Luxary",
+        "Electronics",
+        "Lifestyle",
+        "Jwellery",
+        "Education",
+      ],
+    },
+    {
+      filterCategory: "Promotion Type",
+      filterOptions: ["Shout Out", "User Generated Content", "Product Gifting"],
+    },
+    {
+      filterCategory: "Compensation",
+      filterOptions: [
+        "Fee- Fixed per Content",
+        "Product Gifting",
+        "Sales Commission",
+      ],
+    },
+  ];
+
   return (
     <div class="mx-4">
       {" "}
@@ -91,7 +121,7 @@ const EventDeals = ({ isTabletOrMobile }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <Filters />
+              <Filters filters={data} />
             </Dropdown>
           </div>
         )}

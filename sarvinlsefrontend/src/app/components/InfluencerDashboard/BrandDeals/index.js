@@ -19,6 +19,36 @@ const customStyles = {
 };
 
 const BrandDeals = () => {
+  const data = [
+    {
+      filterCategory: "Social Platforms",
+      filterOptions: ["Instagram", "Youtube", "Facebook", "Twitter"],
+    },
+    {
+      filterCategory: "Brand Category",
+      filterOptions: [
+        "Clothing",
+        "Luxary",
+        "Electronics",
+        "Lifestyle",
+        "Jwellery",
+        "Education",
+      ],
+    },
+    {
+      filterCategory: "Promotion Type",
+      filterOptions: ["Shout Out", "User Generated Content", "Product Gifting"],
+    },
+    {
+      filterCategory: "Compensation",
+      filterOptions: [
+        "Fee- Fixed per Content",
+        "Product Gifting",
+        "Sales Commission",
+      ],
+    },
+  ];
+
   return (
     <div class="mx-4">
       {" "}
@@ -77,7 +107,7 @@ const BrandDeals = () => {
 
         <div class="flex justify-between m-11 gap-2">
           <Dropdown text="All Filters" modalView>
-            <Filters />
+            <Filters filters={data} />
           </Dropdown>
         </div>
       </div>

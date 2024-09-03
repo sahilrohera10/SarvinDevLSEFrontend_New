@@ -10,18 +10,18 @@ import "rc-slider/assets/index.css";
 //   { value: "option2", label: "Option 2" },
 //   { value: "option3", label: "Option 3" },
 // ];
-const filters = [
-  {
-    filterCategory: "Audience Age",
-    filterOptions: ["18-24", "24-32", "33-40", "41-48"],
-  },
-  {
-    filterCategory: "Brand Category",
-    filterOptions: ["Clothing", "Luxary", "Electronics", "Lifestyle"],
-  },
-];
+// const filters = [
+//   {
+//     filterCategory: "Audience Age",
+//     filterOptions: ["18-24", "24-32", "33-40", "41-48"],
+//   },
+//   {
+//     filterCategory: "Brand Category",
+//     filterOptions: ["Clothing", "Luxary", "Electronics", "Lifestyle"],
+//   },
+// ];
 
-const Filters = ({ setOpenModal,openModal }) => {
+const Filters = ({ setOpenModal, openModal, filters }) => {
   const [selectedOption, setSelectedOption] = useState({});
   const [isChecked, setChecked] = useState(false);
   const [sliderValue, setSliderValue] = useState([20, 80]);
@@ -57,6 +57,7 @@ const Filters = ({ setOpenModal,openModal }) => {
   };
 
   const handleApplyFilters = () => {
+    location.reload();
     // Add logic to apply filters based on selected options, checkboxes, sliders, etc.
     console.log("Selected Option:", selectedOption);
     console.log("Checkbox State:", isChecked);
@@ -71,6 +72,8 @@ const Filters = ({ setOpenModal,openModal }) => {
         flexDirection: "column",
         width: "786px",
         gap: "32px",
+        backgroundColor: "#F8F9FF",
+        borderRadius: "8px",
       }}
     >
       <div
@@ -80,7 +83,19 @@ const Filters = ({ setOpenModal,openModal }) => {
           alignItems: "center",
         }}
       >
-        <h2>Filters</h2>
+        <h2
+          style={{
+            fontFamily: "sans-serif",
+            fontStyle: "normal",
+            fontWeight: "600",
+            fontSize: "32px",
+            lineHeight: "20px",
+            letterSpacing: "-0.4px",
+            color: "#2D2D2D",
+          }}
+        >
+          Filters
+        </h2>
         <button id="closeButton" onClick={closeModal}>
           Close
         </button>
@@ -90,13 +105,14 @@ const Filters = ({ setOpenModal,openModal }) => {
         <div
           style={{
             boxShadow:
-              "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
+              "rgba(181, 181, 181, 0.2) 0px 0px 10px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px",
             borderRadius: "4px",
             padding: "16px 32px 16px 32px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             width: "30%",
+            backgroundColor: "#ffffff",
           }}
         >
           {filters.map((filter) => {
@@ -112,14 +128,14 @@ const Filters = ({ setOpenModal,openModal }) => {
         <div
           style={{
             boxShadow:
-              "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
-
+              "rgba(181, 181, 181, 0.2) 0px 0px 10px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px",
             borderRadius: "4px",
             padding: "16px 32px 16px 32px",
             width: "70%",
             alignItems: "flex-start",
             display: "flex",
             flexDirection: "column",
+            backgroundColor: "#ffffff",
           }}
         >
           {filters
@@ -132,6 +148,11 @@ const Filters = ({ setOpenModal,openModal }) => {
                   <div key={option} style={{ marginBottom: "16px" }}>
                     {" "}
                     <input
+                      style={{
+                        marginRight: "10px",
+                        fontFamily:"sans-serif"
+                        
+                      }}
                       lable={filter.filterCategory}
                       type="checkbox"
                       name={filter.filterCategory}
@@ -154,13 +175,14 @@ const Filters = ({ setOpenModal,openModal }) => {
           position: "relative",
           textDecoration: "none",
           color: "white",
-          backgroundColor: "blue",
+          backgroundColor: "#0360CE",
           fontWeight: "medium",
           fontSize: "16px",
           padding: "16px 8px",
           width: "150px",
           borderRadius: "4px",
           overflow: "hidden",
+          fontWeight: "bold",
         }}
         onClick={handleApplyFilters}
       >
