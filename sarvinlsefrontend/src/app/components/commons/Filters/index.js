@@ -2,37 +2,35 @@ import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import Podium from "../icons/score.png";
+import Select from "react-select";
 
 const FilterComponent = ({ setOpenModal, openModal, filters }) => {
   const [selectedOption, setSelectedOption] = useState({});
   const [filterName, setFilterName] = useState("");
-  // Assuming you have state for modal
 
   useEffect(() => {
     if (filters.length > 0) {
       const defaultFilter = filters[0].filterCategory;
       setFilterName(defaultFilter);
-      const defaultOptions =
-        filters.find((filter) => filter.filterCategory === defaultFilter)
-          ?.filterOptions || [];
-      setSelectedOption({ [defaultFilter]: defaultOptions });
+      setSelectedOption({ [defaultFilter]: [] });
     }
   }, [filters]);
 
   const filterHandler = (e) => {
     setFilterName(e.target.value);
+    // Clear options when filter changes
+    setSelectedOption({});
   };
 
-  const handleCheckboxChange = (e) => {
-    const { name, value } = e.target;
+  const handleOptionClick = (filterCategory, option) => {
     setSelectedOption((prevSelectedOption) => {
-      const currentOptions = prevSelectedOption[name] || [];
-      const isSelected = currentOptions.includes(value);
+      const currentOptions = prevSelectedOption[filterCategory] || [];
+      const isSelected = currentOptions.includes(option);
       const updatedOptions = isSelected
-        ? currentOptions.filter((option) => option !== value)
-        : [...currentOptions, value];
+        ? currentOptions.filter((opt) => opt !== option)
+        : [...currentOptions, option];
 
-      return { ...prevSelectedOption, [name]: updatedOptions };
+      return { ...prevSelectedOption, [filterCategory]: updatedOptions };
     });
   };
 
@@ -42,6 +40,90 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
 
   const closeModal = () => {
     setOpenModal(!openModal);
+  };
+
+  const getSelectOptions = (options) =>
+    options.map((option) => ({ value: option, label: option }));
+
+  const renderFilterOptions = (filter) => {
+    if (filter.filterCategory === "Brand Category") {
+      const options = getSelectOptions(filter.filterOptions);
+      return (
+        <Select
+          isMulti
+          styles={{
+            container: (provided) => ({
+              ...provided,
+              width: "100%", // Make select component full width
+            }),
+            control: (provided) => ({
+              ...provided,
+              width: "100%", // Ensure control element is full width
+              border: "1px solid #e1e1e1",
+              boxShadow: "none",
+              borderRadius: "8px",
+              "&:hover": {
+                border: "1px solid #e1e1e1",
+              },
+            }),
+            menu: (provided) => ({
+              ...provided,
+              zIndex: 9999, // Ensure dropdown is above other elements
+            }),
+          }}
+          value={selectedOption[filter.filterCategory]?.map((option) => ({
+            value: option,
+            label: option,
+          }))}
+          onChange={(selected) => {
+            const selectedValues = selected.map((option) => option.value);
+            setSelectedOption((prevSelectedOption) => ({
+              ...prevSelectedOption,
+              [filter.filterCategory]: selectedValues,
+            }));
+          }}
+          options={options}
+          placeholder="Select Categories Here..."
+        />
+      );
+    }
+    return filter.filterOptions.map((option) => (
+      <div
+        key={option}
+        style={{
+          marginBottom: "12px",
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <button
+          onClick={() => handleOptionClick(filter.filterCategory, option)}
+          style={{
+            backgroundColor: selectedOption[filter.filterCategory]?.includes(
+              option
+            )
+              ? "#f8d7da"
+              : "#f8f9ff",
+            color: selectedOption[filter.filterCategory]?.includes(option)
+              ? "#000"
+              : "#333333",
+            border: "1px solid #e1e1e1",
+            borderRadius: "8px",
+            padding: "8px 16px",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: selectedOption[filter.filterCategory]?.includes(option)
+              ? 500
+              : 600,
+            transition: "background-color 0.3s ease, color 0.3s ease",
+            width: "100%",
+          }}
+        >
+          {option}
+        </button>
+      </div>
+    ));
   };
 
   return (
@@ -55,7 +137,6 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
         backgroundColor: "#F8F9FF",
         borderRadius: "12px",
         overflow: "hidden",
-
         transition: "transform 0.3s ease, opacity 0.3s ease",
       }}
     >
@@ -71,7 +152,7 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
         }}
       >
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <div> Apply Filters Here</div>
+          <div>Apply Filters Here</div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
         <div>
@@ -120,7 +201,6 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
                   filterName === filter.filterCategory ? "#e65c55" : "#333333",
                 border: "1px solid #e1e1e1",
                 padding: "8px 16px",
-
                 borderRadius: "8px",
                 cursor: "pointer",
                 fontSize: "16px",
@@ -130,13 +210,21 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
               <button
                 onClick={filterHandler}
                 value={filter.filterCategory}
-                style={{}}
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  color: "inherit",
+                  cursor: "pointer",
+                  fontWeight: "inherit",
+                }}
               >
                 {filter.filterCategory}
               </button>
             </div>
           ))}
         </div>
+
         <div
           style={{
             borderRadius: "8px",
@@ -144,69 +232,15 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
             width: "70%",
             alignItems: "flex-start",
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
             backgroundColor: "#ffffff",
             transition: "box-shadow 0.3s ease",
           }}
         >
           {filters
             .filter((filter) => filter.filterCategory === filterName)
-            .flatMap((filter) =>
-              filter.filterOptions.map((option) => (
-                <div
-                  key={option}
-                  style={{
-                    marginBottom: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <input
-                    style={{
-                      marginRight: "12px",
-                      fontFamily: "sans-serif",
-                      cursor: "pointer",
-                      transition: "background-color 0.3s ease",
-                    }}
-                    type="checkbox"
-                    name={filter.filterCategory}
-                    value={option}
-                    checked={
-                      selectedOption[filter.filterCategory]?.includes(option) ||
-                      false
-                    }
-                    onChange={handleCheckboxChange}
-                  />
-                  <label
-                    style={{
-                      cursor: "pointer",
-                      backgroundColor: selectedOption[
-                        filter.filterCategory
-                      ]?.includes(option)
-                        ? "#f8d7da"
-                        : "transparent",
-                      color: selectedOption[filter.filterCategory]?.includes(
-                        option
-                      )
-                        ? "#e65c55"
-                        : "#333333",
-                      borderRadius: "8px",
-                      padding: "6px 12px",
-                      transition:
-                        "background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease",
-                      border: "1px dotted",
-                      fontWeight: selectedOption[
-                        filter.filterCategory
-                      ]?.includes(option)
-                        ? 500
-                        : 600,
-                    }}
-                  >
-                    {option}
-                  </label>
-                </div>
-              ))
-            )}
+            .flatMap((filter) => renderFilterOptions(filter))}
         </div>
       </div>
 
