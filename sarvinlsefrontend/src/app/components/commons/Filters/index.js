@@ -1,67 +1,47 @@
-"use client";
+import React, { useState, useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
+import Image from "next/image";
+import Podium from "../icons/score.png";
 
-import React, { useState } from "react";
-import Select from "react-select";
-import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
-
-// const options = [
-//   { value: "option1", label: "Option 1" },
-//   { value: "option2", label: "Option 2" },
-//   { value: "option3", label: "Option 3" },
-// ];
-// const filters = [
-//   {
-//     filterCategory: "Audience Age",
-//     filterOptions: ["18-24", "24-32", "33-40", "41-48"],
-//   },
-//   {
-//     filterCategory: "Brand Category",
-//     filterOptions: ["Clothing", "Luxary", "Electronics", "Lifestyle"],
-//   },
-// ];
-
-const Filters = ({ setOpenModal, openModal, filters }) => {
+const FilterComponent = ({ setOpenModal, openModal, filters }) => {
   const [selectedOption, setSelectedOption] = useState({});
-  const [isChecked, setChecked] = useState(false);
-  const [sliderValue, setSliderValue] = useState([20, 80]);
   const [filterName, setFilterName] = useState("");
+  // Assuming you have state for modal
+
+  useEffect(() => {
+    if (filters.length > 0) {
+      const defaultFilter = filters[0].filterCategory;
+      setFilterName(defaultFilter);
+      const defaultOptions =
+        filters.find((filter) => filter.filterCategory === defaultFilter)
+          ?.filterOptions || [];
+      setSelectedOption({ [defaultFilter]: defaultOptions });
+    }
+  }, [filters]);
 
   const filterHandler = (e) => {
     setFilterName(e.target.value);
   };
 
   const handleCheckboxChange = (e) => {
-    if (e.target.name in selectedOption) {
-      let value = selectedOption[e.target.name];
-      setSelectedOption({
-        ...selectedOption,
-        [e.target.name]: [...value, e.target.value],
-      });
-    } else {
-      setSelectedOption({
-        ...selectedOption,
-        [e.target.name]: [e.target.value],
-      });
-    }
-    console.log(selectedOption);
-  };
+    const { name, value } = e.target;
+    setSelectedOption((prevSelectedOption) => {
+      const currentOptions = prevSelectedOption[name] || [];
+      const isSelected = currentOptions.includes(value);
+      const updatedOptions = isSelected
+        ? currentOptions.filter((option) => option !== value)
+        : [...currentOptions, value];
 
-  const handleSliderChange = (value) => {
-    setSliderValue(value);
-  };
-
-  const handleSelectChange = (e) => {};
-  const closeModal = (e) => {
-    setOpenModal(!openModal);
+      return { ...prevSelectedOption, [name]: updatedOptions };
+    });
   };
 
   const handleApplyFilters = () => {
-    location.reload();
-    // Add logic to apply filters based on selected options, checkboxes, sliders, etc.
     console.log("Selected Option:", selectedOption);
-    console.log("Checkbox State:", isChecked);
-    console.log("Slider Value:", sliderValue);
+  };
+
+  const closeModal = () => {
+    setOpenModal(!openModal);
   };
 
   return (
@@ -73,97 +53,160 @@ const Filters = ({ setOpenModal, openModal, filters }) => {
         width: "786px",
         gap: "32px",
         backgroundColor: "#F8F9FF",
-        borderRadius: "8px",
+        borderRadius: "12px",
+        overflow: "hidden",
+
+        transition: "transform 0.3s ease, opacity 0.3s ease",
       }}
     >
       <div
         style={{
+          fontSize: 30,
+          fontWeight: 400,
+          margin: "0px 20px",
           display: "flex",
-          justifyContent: "space-between",
+          gap: 10,
           alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
-        <h2
-          style={{
-            fontFamily: "sans-serif",
-            fontStyle: "normal",
-            fontWeight: "600",
-            fontSize: "32px",
-            lineHeight: "20px",
-            letterSpacing: "-0.4px",
-            color: "#2D2D2D",
-          }}
-        >
-          Filters
-        </h2>
-        <button id="closeButton" onClick={closeModal}>
-          Close
-        </button>
+        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          <div> Apply Filters Here</div>
+          <Image src={Podium} alt="podium" width={34} height={34} />
+        </div>
+        <div>
+          <button
+            id="closeButton"
+            onClick={closeModal}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              transition: "color 0.3s ease",
+            }}
+          >
+            <FaTimes style={{ fontSize: "24px" }} />
+          </button>
+        </div>
       </div>
 
       <div style={{ display: "flex", gap: "24px" }}>
         <div
           style={{
             boxShadow:
-              "rgba(181, 181, 181, 0.2) 0px 0px 10px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px",
-            borderRadius: "4px",
-            padding: "16px 32px 16px 32px",
+              "0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+            borderRadius: "8px",
+            padding: "16px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             width: "30%",
             backgroundColor: "#ffffff",
+            transition: "box-shadow 0.3s ease",
           }}
         >
-          {filters.map((filter) => {
-            return (
-              <div style={{ marginBottom: "16px" }}>
-                <button onClick={filterHandler} value={filter.filterCategory}>
-                  {filter.filterCategory}
-                </button>
-              </div>
-            );
-          })}
+          {filters.map((filter) => (
+            <div
+              key={filter.filterCategory}
+              style={{
+                marginBottom: "16px",
+                fontWeight: 600,
+                width: "100%",
+                backgroundColor:
+                  filterName === filter.filterCategory
+                    ? "#f8d7da"
+                    : "transparent",
+                color:
+                  filterName === filter.filterCategory ? "#e65c55" : "#333333",
+                border: "1px solid #e1e1e1",
+                padding: "8px 16px",
+
+                borderRadius: "8px",
+                cursor: "pointer",
+                fontSize: "16px",
+                transition: "background-color 0.3s ease, color 0.3s ease",
+              }}
+            >
+              <button
+                onClick={filterHandler}
+                value={filter.filterCategory}
+                style={{}}
+              >
+                {filter.filterCategory}
+              </button>
+            </div>
+          ))}
         </div>
         <div
           style={{
-            boxShadow:
-              "rgba(181, 181, 181, 0.2) 0px 0px 10px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px",
-            borderRadius: "4px",
-            padding: "16px 32px 16px 32px",
+            borderRadius: "8px",
+            padding: "16px",
             width: "70%",
             alignItems: "flex-start",
             display: "flex",
             flexDirection: "column",
             backgroundColor: "#ffffff",
+            transition: "box-shadow 0.3s ease",
           }}
         >
           {filters
-            .filter((filter) => {
-              return filter.filterCategory == filterName;
-            })
-            .map((filter) => {
-              return filter.filterOptions.map((option) => {
-                return (
-                  <div key={option} style={{ marginBottom: "16px" }}>
-                    {" "}
-                    <input
-                      style={{
-                        marginRight: "10px",
-                        fontFamily:"sans-serif"
-                        
-                      }}
-                      lable={filter.filterCategory}
-                      type="checkbox"
-                      name={filter.filterCategory}
-                      value={option}
-                      onChange={handleCheckboxChange}
-                    />
+            .filter((filter) => filter.filterCategory === filterName)
+            .flatMap((filter) =>
+              filter.filterOptions.map((option) => (
+                <div
+                  key={option}
+                  style={{
+                    marginBottom: "12px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <input
+                    style={{
+                      marginRight: "12px",
+                      fontFamily: "sans-serif",
+                      cursor: "pointer",
+                      transition: "background-color 0.3s ease",
+                    }}
+                    type="checkbox"
+                    name={filter.filterCategory}
+                    value={option}
+                    checked={
+                      selectedOption[filter.filterCategory]?.includes(option) ||
+                      false
+                    }
+                    onChange={handleCheckboxChange}
+                  />
+                  <label
+                    style={{
+                      cursor: "pointer",
+                      backgroundColor: selectedOption[
+                        filter.filterCategory
+                      ]?.includes(option)
+                        ? "#f8d7da"
+                        : "transparent",
+                      color: selectedOption[filter.filterCategory]?.includes(
+                        option
+                      )
+                        ? "#e65c55"
+                        : "#333333",
+                      borderRadius: "8px",
+                      padding: "6px 12px",
+                      transition:
+                        "background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease",
+                      border: "1px dotted",
+                      fontWeight: selectedOption[
+                        filter.filterCategory
+                      ]?.includes(option)
+                        ? 500
+                        : 600,
+                    }}
+                  >
                     {option}
-                  </div>
-                );
-              });
-            })}
+                  </label>
+                </div>
+              ))
+            )}
         </div>
       </div>
 
@@ -176,13 +219,15 @@ const Filters = ({ setOpenModal, openModal, filters }) => {
           textDecoration: "none",
           color: "white",
           backgroundColor: "#0360CE",
-          fontWeight: "medium",
-          fontSize: "16px",
-          padding: "16px 8px",
-          width: "150px",
-          borderRadius: "4px",
-          overflow: "hidden",
           fontWeight: "bold",
+          fontSize: "16px",
+          padding: "12px 24px",
+          width: "150px",
+          borderRadius: "8px",
+          overflow: "hidden",
+          transition: "background-color 0.3s ease, transform 0.3s ease",
+          cursor: "pointer",
+          border: "none",
         }}
         onClick={handleApplyFilters}
       >
@@ -192,4 +237,4 @@ const Filters = ({ setOpenModal, openModal, filters }) => {
   );
 };
 
-export default Filters;
+export default FilterComponent;
