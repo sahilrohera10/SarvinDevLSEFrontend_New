@@ -31,10 +31,11 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddInput();
     if (disableAdd) {
+      setShowToast(true);
       return;
     }
+    console.log("started")
     const token = localStorage.getItem("token");
     const decodedToken = jwt.decode(token);
     const creator_id = decodedToken?.userId;
@@ -46,8 +47,8 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
       console.error("Links array is empty.");
       return;
     }
-    console.log(creator_id);
-    console.log(links);
+    // console.log(creator_id);
+    // console.log(links);
 
     const url = "https://sarvindevbackend.onrender.com/api/user/add_reel";
     const payload = {
@@ -55,8 +56,12 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
       links,
     };
 
-    axios
-      .post(url, payload)
+    await axios
+      .post(url, payload, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       .then((response) => {
         console.log("Reel links added successfully:", response.data);
         setOpenProductAndServices(false);
@@ -64,7 +69,7 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
       .catch((error) => {
         console.error("An error occurred while adding reel links:", error);
       });
-      console.log("ended")
+    console.log("ended");
   };
 
   const handleCancel = () => {
@@ -113,7 +118,7 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
                     className="mt-2 rounded-md bg-[#f27430] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500"
                     onClick={handleAddInput}
                   >
-                    Add
+                    Add More Links
                   </button>
                 </div>
               </div>
