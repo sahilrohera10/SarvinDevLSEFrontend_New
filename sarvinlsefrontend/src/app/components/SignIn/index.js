@@ -73,7 +73,8 @@ const SignIn = () => {
 
       const decodedToken = jwt.decode(responseData.jwt);
 
-      console.log(decodedToken);
+      // console.log(responseData);
+      // console.log(decodedToken);
       localStorage.setItem("token", responseData.jwt);
 
       // Redirect user to dashboard or perform any other action
