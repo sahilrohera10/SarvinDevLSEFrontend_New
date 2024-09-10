@@ -35,32 +35,22 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
       setShowToast(true);
       return;
     }
-    console.log("started")
     const token = localStorage.getItem("token");
-    const decodedToken = jwt.decode(token);
-    const creator_id = decodedToken?.userId;
-    if (!creator_id) {
-      console.error("Failed to retrieve creator_id from token.");
-      return;
-    }
     if (!Array.isArray(links) || links.length === 0) {
       console.error("Links array is empty.");
       return;
     }
-    // console.log(creator_id);
-    // console.log(links);
 
     const url = "https://sarvindevbackend.onrender.com/api/user/add_reel";
     const payload = {
-      creator_id,
       links,
     };
 
     await axios
       .post(url, payload, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((response) => {
         console.log("Reel links added successfully:", response.data);
@@ -69,7 +59,6 @@ function ProductAndServicesLinks({ setOpenProductAndServices }) {
       .catch((error) => {
         console.error("An error occurred while adding reel links:", error);
       });
-    console.log("ended");
   };
 
   const handleCancel = () => {
