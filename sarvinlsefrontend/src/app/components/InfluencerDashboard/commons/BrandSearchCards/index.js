@@ -16,9 +16,15 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
     axios
       .get(
-        "https://sarvindevbackend.onrender.com/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5"
+        "https://sarvindevbackend.onrender.com/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((response) => {
         setBrands(response.data?.brandData?.data); // Adjust according to your API response structure

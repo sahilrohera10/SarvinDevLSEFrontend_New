@@ -289,9 +289,15 @@ const BrandDetail = ({
     );
   } else if (cardType == "Deals") {
     useEffect(() => {
+      const token = localStorage.getItem("token");
       axios
         .get(
-          `https://sarvindevbackend.onrender.com/api/brand/single_deal/${id}`
+          `https://sarvindevbackend.onrender.com/api/brand/single_deal/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         )
         .then((response) => {
           setBranddealsdetails(response.data?.data);

@@ -54,10 +54,17 @@ const InfluencerDashboard = () => {
   };
   const [branddeals, setBranddeals] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    const token = localStorage.getItem("token");
     axios
       .get(
-        `https://sarvindevbackend.onrender.com/api/brand/view_creator_info/66ceb2b009e22dba3e812970`
+        `https://sarvindevbackend.onrender.com/api/brand/view_creator_info`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((response) => {
         setBranddeals(response.data?.data);

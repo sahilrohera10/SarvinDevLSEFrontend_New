@@ -13,8 +13,16 @@ const BrandsDealCards = ({ text = null, children }) => {
   const [branddeals, setBranddeals] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    const token = localStorage.getItem("token");
     axios
-      .get("https://sarvindevbackend.onrender.com/api/brand/deal")
+      .get(
+        "https://sarvindevbackend.onrender.com/api/brand/deal?lat=28.744612404406674&lon=77.19278941328129&radius=5",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         setBranddeals(response.data?.data);
 
