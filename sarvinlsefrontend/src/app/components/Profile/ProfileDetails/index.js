@@ -15,6 +15,7 @@ import Engagement from "../../commons/icons/engagmentrate.png";
 import Score from "../../commons/icons/score.png";
 import Image from "next/image";
 import ProductAndServicesLinks from "../ProductAndServicesLinks";
+import ContentVideos from "../../InfluencerDashboard/ContentVideos/index";
 
 // import SearchBar from "../../commons/SearchBar";
 
@@ -353,9 +354,12 @@ function ProfileDetails() {
           </div>
         </div>
         <div className={styles.no_experience_text}>Add your Product and Services</div>
+        <div className="flex mx-12 mt-4 gap-4 flex-wrap">
+          <ContentVideos />
+        </div>
       </div>
       <Modals openModal={openProductAndServices} setOpenModal={setOpenProductAndServices}>
-        <ProductAndServicesLinks setOpenProductAndServices={setOpenProductAndServices}/>
+        <ProductAndServicesLinks setOpenProductAndServices={setOpenProductAndServices} />
       </Modals>
     </div>
   );
