@@ -7,7 +7,7 @@ const Modal = ({
   openModal = false,
   setOpenModal = () => {},
   animation = "one",
-  closeOutside = false,
+  closeOutside = true,
 }) => {
   const [modalClass, setModalClass] = useState("");
 
@@ -26,11 +26,12 @@ const Modal = ({
         <div
           id="modal-container"
           className={openModal ? animation : ""}
-          onClick={() => closeModal()}
         >
           <div className="modal-background">
             <div className="modal" style={{ backgroundColor: "#f8f7ff" }}>
-              {children}
+              {React.Children.map(children, (child) =>
+                React.cloneElement(child, { setOpenModal, openModal })
+              )}{" "}
             </div>
           </div>
         </div>
