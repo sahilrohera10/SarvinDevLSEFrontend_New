@@ -6,6 +6,31 @@ import Podium from "../../../commons/icons/podium.png";
 import BrandListCard from "../../commons/BrandListCards";
 
 const CrackedCards = ({ text = null, children }) => {
+  const [branddeals, setBranddeals] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    axios
+      .get(
+        `https://sarvindevbackend.onrender.com/api/response/fetch/cracked_deals`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        setBranddeals(response.data?.data);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+        // Set loading to false in case of error
+      });
+  }, []);
   return (
     <div style={{ margin: "0px 20px" }}>
       <div

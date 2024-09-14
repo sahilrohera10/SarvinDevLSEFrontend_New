@@ -314,16 +314,21 @@ const BrandDetail = ({
     const handleRespondClick = () => {
       setLoading(true);
       const responsePayload = {
-        user_id: "65f72cd38cfe34c5f0c2648b",
         deal_id: "66479d4921dbbda6d02f7e86",
         brand_id: "657420767e396baaaa094c13",
         amount: 1000,
       };
 
+      const token = localStorage.getItem("token");
       axios
         .post(
           "https://sarvindevbackend.onrender.com/api/response",
-          responsePayload
+          responsePayload,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         )
         .then((response) => {
           setLoading(false);

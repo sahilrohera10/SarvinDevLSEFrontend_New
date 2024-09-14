@@ -17,9 +17,14 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
   }, [filters]);
 
   const filterHandler = (e) => {
-    setFilterName(e.target.value);
-    // Clear options when filter changes
-    setSelectedOption({});
+    const newFilterName = e.target.value;
+
+    // Reset the selectedOption when changing the filter
+    setSelectedOption((prevSelectedOption) => ({
+      [newFilterName]: prevSelectedOption[newFilterName] || [],
+    }));
+
+    setFilterName(newFilterName);
   };
 
   const handleOptionClick = (filterCategory, option) => {
@@ -44,7 +49,7 @@ const FilterComponent = ({ setOpenModal, openModal, filters }) => {
 
   const getSelectOptions = (options) =>
     options.map((option) => ({ value: option, label: option }));
-
+  console.log(selectedOption);
   const renderFilterOptions = (filter) => {
     if (filter.filterCategory === "Brand Category") {
       const options = getSelectOptions(filter.filterOptions);
