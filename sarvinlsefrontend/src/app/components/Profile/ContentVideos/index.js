@@ -31,15 +31,29 @@ const Index = ({ links, setLinks }) => {
 
   const renderEmbed = (link) => {
     if (link.includes("instagram")) {
-      return <InstagramEmbed url={link} width={328} height={500} className="mb-5" />;
+      return (
+        <InstagramEmbed url={link} width={228} height={400} className="mb-5" />
+      );
     } else if (link.includes("youtube")) {
-      return <YouTubeEmbed url={link} width={328} height={500} className="mb-5" />;
+      return (
+        <YouTubeEmbed url={link} width={228} height={400} className="mb-5" />
+      );
     } else if (link.includes("facebook")) {
-      return <FacebookEmbed url={link} width={328} height={"100%"} className="mb-5" />;
+      return (
+        <FacebookEmbed url={link} width={228} height={400} className="mb-5" />
+      );
     } else if (link.includes("linkedin")) {
-      return <LinkedInEmbed url={link} postUrl={link} width={328} height={500} className="mb-5" />;
+      return (
+        <LinkedInEmbed
+          url={link}
+          postUrl={link}
+          width={228}
+          height={400}
+          className="mb-5"
+        />
+      );
     } else if (link.includes("twitter") || link.includes("x.com")) {
-      return <XEmbed url={link} width={328} height={"100%"} className="mb-5" />;
+      return <XEmbed url={link} width={228} height={400} className="mb-5" />;
     } else {
       return <div>Unsupported link type: {link}</div>;
     }
@@ -59,11 +73,11 @@ const Index = ({ links, setLinks }) => {
       })
       .then((response) => {
         setLinks(response.data.data);
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error in deleting contents", error);
-        setLoading(false); 
+        setLoading(false);
       });
   };
 
@@ -74,11 +88,11 @@ const Index = ({ links, setLinks }) => {
           <div className="relative">
             <div className="relative">
               {renderEmbed(link)}
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
             </div>
           </div>
           <button
-            className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-red-600 text-white px-4 py-2 rounded hover:bg-red-800 z-30"
+            className="absolute flex align-middle top-40 right-20 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white px-4 py-2 rounded hover:bg-red-800 z-30"
             onClick={() => deleteLink(link)}
           >
             {loading ? (
@@ -99,7 +113,9 @@ const Index = ({ links, setLinks }) => {
                 />
               </svg>
             ) : (
-              <MdDelete />
+              <div class="flex-col align-middle h-5 w-5 text-xl justify-center">
+                <MdDelete />
+              </div>
             )}
           </button>
         </div>

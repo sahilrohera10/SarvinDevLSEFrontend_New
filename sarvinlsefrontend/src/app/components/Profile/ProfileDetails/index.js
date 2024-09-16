@@ -43,7 +43,8 @@ function ProfileDetails() {
           </div>
         </div>
         <div className={styles.no_experience_text} style={{ marginBottom: 10 }}>
-          Average values of core metrics for 30 days, Metrics updated 15 hours ago.
+          Average values of core metrics for 30 days, Metrics updated 15 hours
+          ago.
         </div>
         <div class="flex gap-3">
           <div style={{ flex: 2 }}>
@@ -83,7 +84,9 @@ function ProfileDetails() {
             />
           </div>
         </div>
-        <div style={{ marginTop: "20px", color: "#4285F4", fontSize: 12 }}>Switch to Creator Account</div>
+        <div style={{ marginTop: "20px", color: "#4285F4", fontSize: 12 }}>
+          Switch to Creator Account
+        </div>
       </div>
       <Modals openModal={openExperience} setOpenModal={setOpenExperience}>
         <div style={{ width: "95%" }}>
@@ -103,8 +106,8 @@ function ProfileDetails() {
           </div>
         </div>
         <div className={styles.no_experience_text}>
-          Please complete your contact info, education, work experience, resume, links, and equal employment info to
-          finish your profile.
+          Please complete your contact info, education, work experience, resume,
+          links, and equal employment info to finish your profile.
         </div>
       </div>
       <Modals openModal={openEducation} setOpenModal={setOpenEducation}>
@@ -120,7 +123,14 @@ function ProfileDetails() {
               setOpenResume(true);
             }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 64 64">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="24"
+              height="24"
+              viewBox="0 0 64 64"
+            >
               <path
                 fill="#ed7899"
                 d="M46.2,7.92h9.63a4,4,0,0,1,4,4V17.1a0,0,0,0,1,0,0H42.2a0,0,0,0,1,0,0V11.92a4,4,0,0,1,4-4Z"
@@ -141,7 +151,10 @@ function ProfileDetails() {
                 d="M27.38 21.7H33.74V62.17999999999999H27.38z"
                 transform="rotate(45 30.567 41.941)"
               ></path>
-              <path fill="#faefde" d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"></path>
+              <path
+                fill="#faefde"
+                d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"
+              ></path>
               <path
                 fill="#faefde"
                 d="M18.88 13.2H25.24V53.67999999999999H18.88z"
@@ -161,7 +174,14 @@ function ProfileDetails() {
 
         <div className={styles.no_experience_text}>Add Skills Here</div>
         <div style={{ display: "flex", margin: "20px 0px" }}>
-          {["Actors", "Musician", "Creator", "Plumber", "Astronaut", "Artist"].map((index) => (
+          {[
+            "Actors",
+            "Musician",
+            "Creator",
+            "Plumber",
+            "Astronaut",
+            "Artist",
+          ].map((index) => (
             <span class="inline-flex items-center mr-2 gap-x-1.5 py-1.5 ps-3 pe-2 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">
               {index}
               <button
@@ -191,7 +211,13 @@ function ProfileDetails() {
         <form class="pr-20">
           <div class="relative">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 25 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M11.439 19C13.2139 18.9996 14.9378 18.4054 16.336 17.312L20.732 21.708L22.146 20.294L17.75 15.898C18.844 14.4997 19.4385 12.7754 19.439 11C19.439 6.589 15.85 3 11.439 3C7.02797 3 3.43896 6.589 3.43896 11C3.43896 15.411 7.02797 19 11.439 19ZM11.439 5C14.748 5 17.439 7.691 17.439 11C17.439 14.309 14.748 17 11.439 17C8.12996 17 5.43896 14.309 5.43896 11C5.43896 7.691 8.12996 5 11.439 5Z"
                   fill="#4285F4"
@@ -224,7 +250,14 @@ function ProfileDetails() {
           <div>Social Profiles</div>
 
           <div style={{ width: "14px", height: "14px", marginRight: "24px" }}>
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 64 64">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="24"
+              height="24"
+              viewBox="0 0 64 64"
+            >
               <path
                 fill="#ed7899"
                 d="M46.2,7.92h9.63a4,4,0,0,1,4,4V17.1a0,0,0,0,1,0,0H42.2a0,0,0,0,1,0,0V11.92a4,4,0,0,1,4-4Z"
@@ -245,7 +278,10 @@ function ProfileDetails() {
                 d="M27.38 21.7H33.74V62.17999999999999H27.38z"
                 transform="rotate(45 30.567 41.941)"
               ></path>
-              <path fill="#faefde" d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"></path>
+              <path
+                fill="#faefde"
+                d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"
+              ></path>
               <path
                 fill="#faefde"
                 d="M18.88 13.2H25.24V53.67999999999999H18.88z"
@@ -262,7 +298,9 @@ function ProfileDetails() {
             </svg>
           </div>
         </div>
-        <div className={styles.no_experience_text}>Add your social media accounts here</div>
+        <div className={styles.no_experience_text}>
+          Add your social media accounts here
+        </div>
         <div>
           <div class="flex mt-4">
             <div class="flex justify-center gap-2 align-end block mr-6 shadow w-36 p-3 ps-5 text-sm text-gray-900 border border-gray-100 rounded-lg bg-[#FFF] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#F3F9FB] dark:border-gray-100 dark:placeholder-gray-400 dark:text-white dark:focus:gray-500 dark:focus:gray-500 ">
@@ -316,7 +354,14 @@ function ProfileDetails() {
               setOpenProductAndServices(!openProductAndServices);
             }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 64 64">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="24"
+              height="24"
+              viewBox="0 0 64 64"
+            >
               <path
                 fill="#ed7899"
                 d="M46.2,7.92h9.63a4,4,0,0,1,4,4V17.1a0,0,0,0,1,0,0H42.2a0,0,0,0,1,0,0V11.92a4,4,0,0,1,4-4Z"
@@ -337,7 +382,10 @@ function ProfileDetails() {
                 d="M27.38 21.7H33.74V62.17999999999999H27.38z"
                 transform="rotate(45 30.567 41.941)"
               ></path>
-              <path fill="#faefde" d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"></path>
+              <path
+                fill="#faefde"
+                d="M5 57L6 46 13 47 14 50 16.92 51.5 19 59 7 59 5 57z"
+              ></path>
               <path
                 fill="#faefde"
                 d="M18.88 13.2H25.24V53.67999999999999H18.88z"
@@ -354,13 +402,22 @@ function ProfileDetails() {
             </svg>
           </div>
         </div>
-        <div className={styles.no_experience_text}>Add your Product and Services</div>
-        <div className="flex mx-12 mt-4 gap-4 flex-wrap">
-          <ContentVideos links={links} setLinks={setLinks}/>
+        <div className={styles.no_experience_text}>
+          Add your Product and Services
+        </div>
+        <div className="flex mt-4 gap-4 flex-wrap">
+          <ContentVideos links={links} setLinks={setLinks} />
         </div>
       </div>
-      <Modals openModal={openProductAndServices} setOpenModal={setOpenProductAndServices}>
-        <ProductAndServicesLinks setOpenProductAndServices={setOpenProductAndServices} links={links} setLinks={setLinks}/>
+      <Modals
+        openModal={openProductAndServices}
+        setOpenModal={setOpenProductAndServices}
+      >
+        <ProductAndServicesLinks
+          setOpenProductAndServices={setOpenProductAndServices}
+          links={links}
+          setLinks={setLinks}
+        />
       </Modals>
     </div>
   );
