@@ -9,10 +9,18 @@ import NavbarMobileView from "./NavbarMobileView";
 import { FaCoins } from "react-icons/fa";
 import Coins from "../../commons/icons/coin.png";
 import Image from "next/image";
+import { FaBell } from "react-icons/fa";
 
 function NavBar({ isTabletOrMobile, currentColor }) {
   const router = useRouter();
   const [openPricingModal, setOpenPricingModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to toggle the dialog
+  const toggleDialog = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       {!isTabletOrMobile ? (
@@ -752,7 +760,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                     <a
                       className={styles.Header_client__RyL2j}
                       class="ml-12"
-                      href="/signin"
+                      href="/sign-in"
                       target=""
                       rel="noreferrer"
                     >
@@ -784,7 +792,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                     </a>
                   </div>
 
-                  <div className={styles.Header_loginWrapper__9_1kE}>
+                  <div className={styles.Header_loginWrapper__9_1kE1}>
                     <a href="/user-profile">
                       <Button
                         style={{
@@ -823,7 +831,29 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                         Edit Profile
                       </Button>
                     </a>
+                    <button
+                      onClick={() => toggleDialog()}
+                      class="text-xl cursor-pointer mx-5 "
+                    >
+                      <FaBell />
+                    </button>
+                    {isOpen && (
+                      <div className="absolute top-8 right-0 w-64 bg-[#f8f9fe] opacity-90 border border-gray-300 rounded-md shadow-lg p-4 z-10">
+                        <h3 className="font-bold text-lg">Notifications</h3>
+                        <ul>
+                          <li className="p-2 border-b">
+                            You have a new message
+                          </li>
+                          <li className="p-2 border-b">
+                            Meeting scheduled at 4 PM
+                          </li>
+                          <li className="p-2">Reminder: Submit your report</li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
+
+                  {/* Tooltip/Dialog box */}
                 </div>
               </div>
             </header>

@@ -33,6 +33,7 @@ import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
 import Overview from "./Overview";
 import ReelsInspiration from "./ReelsInspiration";
+import Following_Brands from "./FollowingBrands";
 
 const InfluencerDashboard = () => {
   const router = useRouter();
@@ -40,6 +41,7 @@ const InfluencerDashboard = () => {
   const [selectedContent, setSelectedContent] = useState("Brand_Search");
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const DASHBOARD_CONTENT = {
+    Following_Brands: <Following_Brands isTabletOrMobile={isTabletOrMobile} />,
     Brand_Search: <BrandSearch isTabletOrMobile={isTabletOrMobile} />,
     Analytics: <Analytics />,
     Your_Content: <YourContent isTabletOrMobile={isTabletOrMobile} />,

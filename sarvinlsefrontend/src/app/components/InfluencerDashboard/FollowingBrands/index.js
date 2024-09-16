@@ -6,7 +6,7 @@ import LocationSearch from "../../commons/LocationSearch";
 import Collapse from "../../commons/Collapse";
 import Select from "react-select";
 import Dropdown from "../../commons/Dropdown";
-import BrandsSearchCards from "../commons/BrandSearchCards";
+import BrandsSearchCards from "../commons/FollowingBrandCards";
 import BrandSearchFilters from "./BrandSearchFilters";
 import Modal from "../../commons/modal";
 import Filters from "../../commons/Filters";
@@ -312,7 +312,7 @@ const FILTERS = [
     ],
   },
 ];
-const BrandSearch = ({ isTabletOrMobile = false }) => {
+const FollowingBrands = ({ isTabletOrMobile = false }) => {
   return (
     <div class="mx-4">
       {" "}
@@ -368,4 +368,4 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
     </div>
   );
 };
-export default BrandSearch;
+export default FollowingBrands;

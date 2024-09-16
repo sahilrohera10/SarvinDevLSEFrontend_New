@@ -10,7 +10,7 @@ import axios from "axios";
 import Lottie from "react-lottie-player";
 import NotFound from "../../../commons/icons/404Notfound.json";
 
-const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
+const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
   const [brands, setBrands] = useState([]);
@@ -120,7 +120,7 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
             alignItems: "center",
           }}
         >
-          <div>Brand Search </div>
+          <div>Following Brands</div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
         {!isTabletOrMobile && (
@@ -215,4 +215,4 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
   );
 };
 
-export default BrandsDealCards;
+export default FollowingBrandCards;
