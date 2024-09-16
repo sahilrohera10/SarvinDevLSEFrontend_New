@@ -20,7 +20,6 @@ const index = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
         setLinks(res.data.data);
       })
       .catch((error) => {
@@ -30,15 +29,15 @@ const index = () => {
 
   const renderEmbed = (link) => {
     if (link.includes("instagram")) {
-      return <InstagramEmbed url={link} width={328} height={500} className="mb-5"/>;
+      return <InstagramEmbed url={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("youtube")) {
-      return <YouTubeEmbed url={link} width={328} height={500} className="mb-5"/>;
+      return <YouTubeEmbed url={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("facebook")) {
-      return <FacebookEmbed url={link} width={328} height={500} className="mb-5"/>;
+      return <FacebookEmbed url={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("linkedin")) {
-      return <LinkedInEmbed url={link} postUrl={link} width={328} height={500} className="mb-5"/>;
+      return <LinkedInEmbed url={link} postUrl={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("twitter") || link.includes("x.com")) {
-      return <XEmbed url={link} width={328} height={500} className="mb-5"/>;
+      return <XEmbed url={link} width={328} height={500} className="mb-5" />;
     } else {
       return <div>Unsupported link type: {link}</div>;
     }
@@ -49,6 +48,7 @@ const index = () => {
       {links.map((link, index) => (
         <div key={index}>{renderEmbed(link)}</div>
       ))}
+
       {/* <InstagramEmbed
           url="https://www.instagram.com/p/CUbHfhpswxt/"
           width={328}
