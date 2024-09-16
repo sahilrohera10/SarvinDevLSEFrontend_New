@@ -35,11 +35,11 @@ const Index = ({ links, setLinks }) => {
     } else if (link.includes("youtube")) {
       return <YouTubeEmbed url={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("facebook")) {
-      return <FacebookEmbed url={link} width={328} height={500} className="mb-5" />;
+      return <FacebookEmbed url={link} width={328} height={"100%"} className="mb-5" />;
     } else if (link.includes("linkedin")) {
       return <LinkedInEmbed url={link} postUrl={link} width={328} height={500} className="mb-5" />;
     } else if (link.includes("twitter") || link.includes("x.com")) {
-      return <XEmbed url={link} width={328} height={500} className="mb-5" />;
+      return <XEmbed url={link} width={328} height={"100%"} className="mb-5" />;
     } else {
       return <div>Unsupported link type: {link}</div>;
     }
