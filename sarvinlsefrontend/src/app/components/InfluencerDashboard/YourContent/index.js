@@ -10,7 +10,7 @@ import {
 } from "react-social-media-embed";
 import Podium from "../../commons/icons/Business.png";
 import Image from "next/image";
-import ContentVideos from "../ContentVideos/index"
+import ContentVideos from "../commons/ContentVideos/index";
 
 const YourContent = ({ isTabletOrMobile = false }) => {
   return (
@@ -47,12 +47,10 @@ const YourContent = ({ isTabletOrMobile = false }) => {
         class={
           isTabletOrMobile
             ? "flex flex-col justify-center align-middle mx-8 mt-4 gap-4 w-fit "
-            : "flex px-12 mt-4 justify-around flex-wrap w-fit"
+            : "flex px-12 mt-4 justify-around flex-wrap w-full"
         }
       >
-
         <ContentVideos />
-        
       </div>
     </div>
   );

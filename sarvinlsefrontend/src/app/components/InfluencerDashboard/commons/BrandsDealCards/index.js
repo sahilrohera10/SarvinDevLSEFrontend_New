@@ -8,32 +8,15 @@ import ViewSwitcher from "../../../commons/GridListToggle";
 import BrandListCard from "../BrandListCards";
 import axios from "axios";
 
-const BrandsDealCards = ({ text = null, children }) => {
+const BrandsDealCards = ({
+  branddeals = {},
+  setBranddeals = () => {},
+  loading = true,
+  setLoading = () => {},
+  type = 1,
+}) => {
   const [isListView, setIsListView] = useState(false);
-  const [branddeals, setBranddeals] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    axios
-      .get(
-        "https://sarvindevbackend.onrender.com/api/brand/deal?lat=28.744612404406674&lon=77.19278941328129&radius=5",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((response) => {
-        setBranddeals(response.data?.data);
 
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-        // Set loading to false in case of error
-      });
-  }, []);
   return (
     <div style={{ margin: "0px 20px" }}>
       <div
@@ -48,7 +31,7 @@ const BrandsDealCards = ({ text = null, children }) => {
         }}
       >
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <div>Brand Deals </div>
+          <div>{type == 2 ? "Saved Deals" : "Brand Deals"} </div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
         <div>
@@ -160,6 +143,7 @@ const BrandsDealCards = ({ text = null, children }) => {
                   img={brand.image_link} // Ensure this field matches your API response
                   cardType="Deals"
                   fixed_price={brand.fixed_price}
+                  type={type}
                 />
               ))}
             </div>

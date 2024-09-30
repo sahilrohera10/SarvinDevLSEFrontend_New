@@ -34,6 +34,7 @@ import { useRouter } from "next/router";
 import Overview from "./Overview";
 import ReelsInspiration from "./ReelsInspiration";
 import Following_Brands from "./FollowingBrands";
+import { stringify } from "querystring";
 
 const InfluencerDashboard = () => {
   const router = useRouter();
@@ -60,16 +61,13 @@ const InfluencerDashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        `https://sarvindevbackend.onrender.com/api/brand/view_creator_info`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`https://sarvindevbackend.onrender.com/api/user/get_user_details`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
-        setBranddeals(response.data?.data);
+        setBranddeals(response.data);
 
         setLoading(false);
       })
@@ -97,7 +95,7 @@ const InfluencerDashboard = () => {
               className={styles.complete_your_profile_text}
               style={{ display: "flex" }}
             >
-              Hi! {branddeals.full_name}{" "}
+              Hi! {branddeals?.full_name}{" "}
               <Lottie
                 loop
                 animationData={Handwave}
@@ -112,7 +110,7 @@ const InfluencerDashboard = () => {
               />
             </div>
             <div className={styles.contact_info}>
-              Software Engineer,Akamai Technologies
+              Username: {branddeals?.user_name}
             </div>
           </div>
           <div style={{ flex: 5 }}>
@@ -151,7 +149,7 @@ const InfluencerDashboard = () => {
                 {brandView ? (
                   <MetricCards
                     valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                    value={"27.5%"}
+                    value={branddeals?.engagement_matric}
                     title="Engagement Rate"
                     icon={
                       <Image
@@ -169,7 +167,7 @@ const InfluencerDashboard = () => {
                   />
                 ) : (
                   <MetricCards
-                    value={"87"}
+                    value={branddeals?.coins}
                     valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                     title="Sarvin Credits"
                     icon={

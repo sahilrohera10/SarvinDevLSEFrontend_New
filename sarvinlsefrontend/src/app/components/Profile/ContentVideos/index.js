@@ -10,25 +10,10 @@ import {
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
 
-const Index = ({ links, setLinks }) => {
+const Index = ({ links, setLinks, content = [] }) => {
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    axios
-      .get("https://sarvindevbackend.onrender.com/api/user/get_all_reels", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setLinks(res.data.data);
-      })
-      .catch((error) => {
-        console.log("Error in fetching reel/shorts links : ", error);
-      });
-  }, [setLinks]);
-
+  console.log(links);
   const renderEmbed = (link) => {
     if (link.includes("instagram")) {
       return (
@@ -83,7 +68,7 @@ const Index = ({ links, setLinks }) => {
 
   return (
     <>
-      {links.map((link, index) => (
+      {(links || []).map((link, index) => (
         <div key={index} className="relative group">
           <div className="relative">
             <div className="relative">

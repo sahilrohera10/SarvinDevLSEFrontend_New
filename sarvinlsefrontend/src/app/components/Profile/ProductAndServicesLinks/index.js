@@ -71,27 +71,53 @@ function ProductAndServicesLinks({ setOpenProductAndServices, setLinks }) {
 
   return (
     <>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <Lottie loop animationData={ProfilePic} play style={{ width: "40%", height: "40%", marginRight: 20 }} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Lottie
+          loop
+          animationData={ProfilePic}
+          play
+          style={{ width: "40%", height: "40%", marginRight: 20 }}
+        />
 
-        <form style={{ maxHeight: "400px", overflowY: "auto" }} onSubmit={handleSubmit}>
+        <form
+          style={{ maxHeight: "400px", overflowY: "auto" }}
+          onSubmit={handleSubmit}
+        >
           <div className="space-y-2">
             <div className="border-b border-gray-900/10 pb-2 mt-8">
               <div style={{ display: "flex" }}>
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
+                <svg
+                  width="24"
+                  height="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                >
                   <path d="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z" />
                 </svg>
-                <h2 className="text-base font-semibold leading-7 text-gray-900 ml-4">Add your content links</h2>
+                <h2 className="text-base font-semibold leading-7 text-gray-900 ml-4">
+                  Add your content links
+                </h2>
               </div>
               <p className="mt-1 text-sm leading-6 text-gray-600">
-                This content will be displayed publicly, so be careful what you share.
+                This content will be displayed publicly, so be careful what you
+                share.
               </p>
             </div>
 
             <div className="border-b border-gray-900/10 pb-12">
               <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
                 <div className="sm:col-span-12">
-                  <label htmlFor="links" className="block text-md font-semibold leading-6 text-gray-900 text-start">
+                  <label
+                    htmlFor="links"
+                    className="block text-md font-semibold leading-6 text-gray-900 text-start"
+                  >
                     Add Links:
                   </label>
                   {content.map((link, index) => (
@@ -117,7 +143,11 @@ function ProductAndServicesLinks({ setOpenProductAndServices, setLinks }) {
             </div>
           </div>
           <div className="mt-6 flex items-center justify-end gap-x-6">
-            <button type="button" className="text-sm font-semibold leading-6 text-gray-900" onClick={handleCancel}>
+            <button
+              type="button"
+              className="text-sm font-semibold leading-6 text-gray-900"
+              onClick={handleCancel}
+            >
               Cancel
             </button>
             <button
@@ -148,7 +178,14 @@ function ProductAndServicesLinks({ setOpenProductAndServices, setLinks }) {
           </div>
         </form>
       </div>
-      {showToast && <Toast showToast={showToast} setShowToast={setShowToast} type={2} text={"First enter your link"} />}
+      {showToast && (
+        <Toast
+          showToast={showToast}
+          setShowToast={setShowToast}
+          type={2}
+          text={"First enter your link"}
+        />
+      )}
     </>
   );
 }

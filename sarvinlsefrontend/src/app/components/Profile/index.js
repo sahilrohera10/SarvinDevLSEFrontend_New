@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./styles.module.css";
 import User from "../Profile/User";
 import ProfileDetails from "./ProfileDetails";
@@ -11,6 +12,31 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 function Profile() {
+  const [branddeals, setBranddeals] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`https://sarvindevbackend.onrender.com/api/user/get_user_details`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setBranddeals(response.data);
+        setLinks(response?.data?.content_links);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+        // Set loading to false in case of error
+      });
+  }, []);
+  console.log(branddeals, "das");
   return (
     <div style={{ backgroundColor: "#eff2f6" }}>
       <NavBar />
@@ -21,7 +47,7 @@ function Profile() {
               className={styles.complete_your_profile_text}
               style={{ display: "flex" }}
             >
-              Hi! Naman Agarwal{" "}
+              Hi! {branddeals?.full_name}{" "}
               <Lottie
                 loop
                 animationData={Handwave}
@@ -55,10 +81,14 @@ function Profile() {
       </div>
       <div className={styles.user_details_container}>
         <div className={styles.user_container}>
-          <User />
+          <User branddeals={branddeals} />
         </div>
         <div className={styles.profile_details_container}>
-          <ProfileDetails />
+          <ProfileDetails
+            branddeals={branddeals}
+            links={links}
+            setLinks={setLinks}
+          />
         </div>
       </div>
     </div>

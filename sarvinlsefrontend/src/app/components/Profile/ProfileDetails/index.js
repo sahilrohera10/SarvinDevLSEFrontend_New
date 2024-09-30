@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -19,12 +19,11 @@ import ContentVideos from "../ContentVideos/index";
 
 // import SearchBar from "../../commons/SearchBar";
 
-function ProfileDetails() {
+function ProfileDetails({ branddeals = {}, links = [], setLinks = () => {} }) {
   const [openExperience, setOpenExperience] = useState(false);
   const [openEducation, setOpenEducation] = useState(false);
   const [openResume, setOpenResume] = useState(false);
   const [openProductAndServices, setOpenProductAndServices] = useState(false);
-  const [links, setLinks] = useState([]);
 
   return (
     <div style={{ margin: "0px 20px" }} className="pb-10">
@@ -61,7 +60,7 @@ function ProfileDetails() {
           </div>
           <div style={{ flex: 2 }}>
             <MetricCards
-              value={"27.5%"}
+              value={branddeals?.engagement_matric}
               title="Engagement Rate"
               icon={<Image src={Engagement} width={48} height={0} alt="Icon" />}
               trend={{
@@ -174,14 +173,7 @@ function ProfileDetails() {
 
         <div className={styles.no_experience_text}>Add Skills Here</div>
         <div style={{ display: "flex", margin: "20px 0px" }}>
-          {[
-            "Actors",
-            "Musician",
-            "Creator",
-            "Plumber",
-            "Astronaut",
-            "Artist",
-          ].map((index) => (
+          {(branddeals?.preferred_category || []).map((index) => (
             <span class="inline-flex items-center mr-2 gap-x-1.5 py-1.5 ps-3 pe-2 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">
               {index}
               <button

@@ -8,7 +8,7 @@ import SuccessModal from "../../SuccessModal";
 import Coins from "../../commons/icons/coin.png";
 import Image from "next/image";
 
-function User() {
+function User({ branddeals = {} }) {
   const [openProfileModal, setOpenProfileModal] = useState(false);
   const [openContactModal, setOpenContactModal] = useState(false);
 
@@ -92,12 +92,12 @@ function User() {
           <div className={styles.image}>
             <img
               class="w-36 h-36  rounded-full"
-              src="https://play-lh.googleusercontent.com/DBlW7854rRNk-LPRu8jD25HRYaA0AFEvNLJvGtAUMSC-kJu1IfH7Wg4an_kMRA6VcPZ2=w526-h296-rw"
+              src={branddeals?.profile_photo}
               alt="Rounded avatar"
             ></img>
           </div>
-          <div className={styles.user_name}>Your Name</div>
-          <div className={styles.university_name}>@Username</div>
+          <div className={styles.user_name}>{branddeals?.full_name}</div>
+          <div className={styles.university_name}>{branddeals?.user_name}</div>
         </div>
       </div>
       {openProfileModal ? (
@@ -176,7 +176,7 @@ function User() {
           <div style={{ height: "14px", width: "14px" }}>
             <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" />
           </div>
-          <div style={{ marginLeft: "6px" }}>agarwalnaman35@gmai....</div>
+          <div style={{ marginLeft: "6px" }}>{branddeals?.user_email}</div>
         </div>
         <div
           style={{
@@ -189,7 +189,7 @@ function User() {
           <div style={{ height: "12px", width: "12px" }}>
             <img src="https://static-00.iconduck.com/assets.00/phone-icon-2048x2048-04xa1owp.png" />
           </div>
-          <div style={{ marginLeft: "6px" }}>9084494999</div>
+          <div style={{ marginLeft: "6px" }}>{branddeals?.phone}</div>
         </div>
         <div
           style={{
@@ -202,7 +202,7 @@ function User() {
           <div style={{ height: "12px", width: "12px" }}>
             <img src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png" />
           </div>
-          <div style={{ marginLeft: "6px" }}>Pithoragarh</div>
+          <div style={{ marginLeft: "6px" }}>{branddeals?.location}</div>
         </div>
       </div>
       {openContactModal ? (
@@ -282,7 +282,7 @@ function User() {
             justifyContent: "center",
           }}
         >
-          <div style={{ margin: "0 6px" }}>23</div>
+          <div style={{ margin: "0 6px" }}>{branddeals?.coins}</div>
           <div style={{ height: "32px", width: "32px" }}>
             <Image src={Coins} alt="coins" />
           </div>
