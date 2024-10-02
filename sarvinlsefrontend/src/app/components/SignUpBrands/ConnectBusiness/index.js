@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import BrandLocationModal from "../BrandLocationModal/index";
+import Toast from "../../commons/toast/index";
 import { useRouter } from "next/navigation";
 
 const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, setLong, signUp }) => {
@@ -10,6 +11,8 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
   const [progressWidth, setProgressWidth] = useState("70%");
   const [progressText, setProgressText] = useState("Just a few more steps");
   const [openModal, setOpenModal] = useState(false);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [successToastMessage, setSuccessToastMessage] = useState("");
   const [errorText, setErrorText] = useState("You encountered some error while registering the brand. Try Again!.");
 
   const handleContinue = (e) => {
@@ -19,12 +22,14 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
     setOpenModal(true);
   };
 
-  const handleSubmit = (flag,response) => {
+  const handleSubmit = (flag, response) => {
     if (flag) {
       setVerifyBusiness(true);
+      setShowSuccessToast(true);
+      setSuccessToastMessage(response.message);
     } else {
       setVerifyBusinessError(true);
-      setErrorText(response.error[0].message || response.error)
+      setErrorText(response.error[0].message || response.error);
     }
   };
 
@@ -173,9 +178,7 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
                   </div>
                 </div>
                 <div>
-                  <p className="text-center tracking-tighter">
-                    {errorText}
-                  </p>
+                  <p className="text-center tracking-tighter">{errorText}</p>
                 </div>
               </div>
               <div className="px-10">
@@ -190,15 +193,20 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
           )}
 
           {/* Modal Section */}
-            <BrandLocationModal
-              openModal={openModal}
-              setOpenModal={setOpenModal}
-              handleSubmit={handleSubmit}
-              setCategory={setCategory}
-              setLat={setLat}
-              setLong={setLong}
-              signUp={signUp}
-            />
+          <BrandLocationModal
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            handleSubmit={handleSubmit}
+            setCategory={setCategory}
+            setLat={setLat}
+            setLong={setLong}
+            signUp={signUp}
+          />
+          {showSuccessToast && (
+            <div className="fixed bottom-10 right-10">
+              <Toast text={successToastMessage} type={1} setShowToast={setShowSuccessToast} />
+            </div>
+          )}
         </div>
       </div>
       <style jsx>{`
