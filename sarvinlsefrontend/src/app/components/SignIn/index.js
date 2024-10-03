@@ -15,9 +15,11 @@ const SignIn = () => {
   const router = useRouter();
   const [show, setShow] = useState(true);
   const [showToast, setShowToast] = useState(false);
+  const [role, setRole] = useState("creator");
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
+    role: "",
   });
 
   // State to store login status and error message
@@ -43,7 +45,7 @@ const SignIn = () => {
     try {
       // Make API request to login
       const response = await fetch(
-        "https://sarvindevbackend.onrender.com/api/auth/login",
+        "https://aggregator-tool-production.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -60,7 +62,7 @@ const SignIn = () => {
       }
 
       // If login is successful, reset form and update login status
-      setCredentials({ email: "", password: "" });
+      setCredentials({ email: "", password: "", role: "" });
       setLoginStatus({ loading: false, error: "" });
       // router.push("/dashboard/[]");
       const responseData = await response.json();
@@ -308,7 +310,35 @@ const SignIn = () => {
                     </div>
                     <br />
                   </div>
-
+                  <div>
+                    <label
+                      for="role"
+                      class="block text-md font-medium leading-6 text-gray-900"
+                    >
+                      Role{" "}
+                      <span class="text-xs text-gray-500">
+                        Are you a Creator or Business?
+                      </span>
+                    </label>
+                    <div>
+                      <select
+                        id="role"
+                        name="role"
+                        value={credentials.role}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Are you Creator or Brand"
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-md ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                      >
+                        <option className="text-black" value="creator">
+                          Creator/Influencer
+                        </option>
+                        <option className="text-black" value="brand">
+                          Brand/Business
+                        </option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="gap-2">
                     <button
                       type="submit"
