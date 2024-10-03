@@ -15,11 +15,10 @@ const SignIn = () => {
   const router = useRouter();
   const [show, setShow] = useState(true);
   const [showToast, setShowToast] = useState(false);
-  const [role, setRole] = useState("creator");
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
-    role: "",
+    role: "creator",
   });
 
   // State to store login status and error message
