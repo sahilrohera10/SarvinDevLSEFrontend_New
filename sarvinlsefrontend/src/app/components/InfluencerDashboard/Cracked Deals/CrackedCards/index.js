@@ -15,7 +15,7 @@ const CrackedCards = ({ text = null, children }) => {
 
     axios
       .get(
-        `https://sarvindevbackend.onrender.com/api/response/fetch/cracked_deals`,
+        `https://aggregator-tool-production.onrender.com/api/response/fetch/cracked_deals`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -16,7 +16,7 @@ const CrackedDeals = ({ id = "0" }) => {
   useEffect(() => {
     axios
       .get(
-        `https://sarvindevbackend.onrender.com/api/brand/get_closed_deals/${id}`
+        `https://aggregator-tool-production.onrender.com/api/brand/get_closed_deals/${id}`
       )
       .then((response) => {
         setBranddeals(response.data?.data);

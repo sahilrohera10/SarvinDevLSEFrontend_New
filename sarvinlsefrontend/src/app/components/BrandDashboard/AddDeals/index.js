@@ -76,7 +76,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
 
     try {
       const response = await axios.post(
-        "https://sarvindevbackend.onrender.com/api/brand/deal",
+        "https://aggregator-tool-production.onrender.com/api/brand/deal",
         addDealContent,
         {
           headers: {

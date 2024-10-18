@@ -65,10 +65,22 @@ const SignIn = () => {
       setLoginStatus({ loading: false, error: "" });
       // router.push("/dashboard/[]");
       const responseData = await response.json();
-      if (!responseData?.user?.is_insta_verify) {
+      if (
+        !responseData?.user?.is_insta_verify &&
+        responseData?.role == "creator"
+      ) {
         router.push("/account-verification");
       }
-      if (responseData?.user?.is_insta_verify) {
+      if (
+        !responseData?.user?.is_insta_verify &&
+        responseData?.role == "brand"
+      ) {
+        router.push("/brand-dashboard?influencerView=false");
+      }
+      if (
+        responseData?.user?.is_insta_verify &&
+        responseData?.role == "creator"
+      ) {
         router.push("/influencer-dashboard");
       }
 

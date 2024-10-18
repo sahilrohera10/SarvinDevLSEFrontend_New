@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Chips from "../../commons/Chips";
 import GlobalSearch from "../../commons/GlobalSearch";
 import LocationSearch from "../../commons/LocationSearch";
@@ -313,6 +313,20 @@ const FILTERS = [
   },
 ];
 const BrandSearch = ({ isTabletOrMobile = false }) => {
+  const [selectedOptionBrandCategory, setSelectedOptionBrandCategory] =
+    useState([]);
+  const [selectedOptionAudienceAge, setSelectedOptionAudienceAge] = useState(
+    []
+  );
+  const [selectedOptionSocialMedia, setSelectedOptionSocialMedia] = useState(
+    []
+  );
+  const [selectedOptionAudienceGender, setSelectedOptionAudienceGender] =
+    useState([]);
+  const [selectedOptionPromotionType, setSelectedOptionPromotionType] =
+    useState([]);
+  const [selectedOptionInfluencerGender, setSelectedOptionInfluencerGender] =
+    useState([]);
   return (
     <div class="mx-4">
       {" "}
@@ -359,12 +373,44 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
             }
           >
             <Dropdown text="All Filters" modalView>
-              <Filters filters={FILTERS} />
+              <Filters
+                filters={FILTERS}
+                selectedOptionAudienceAge={selectedOptionAudienceAge}
+                setSelectedOptionAudienceAge={setSelectedOptionAudienceAge}
+                selectedOptionAudienceGender={selectedOptionAudienceGender}
+                setSelectedOptionAudienceGender={
+                  setSelectedOptionAudienceGender
+                }
+                selectedOptionBrandCategory={selectedOptionBrandCategory}
+                setSelectedOptionBrandCategory={setSelectedOptionBrandCategory}
+                selectedOptionSocialMedia={selectedOptionSocialMedia}
+                setSelectedOptionSocialMedia={setSelectedOptionSocialMedia}
+                selectedOptionPromotionType={selectedOptionPromotionType}
+                setSelectedOptionPromotionType={setSelectedOptionPromotionType}
+                selectedOptionInfluencerGender={selectedOptionInfluencerGender}
+                setSelectedOptionInfluencerGender={
+                  setSelectedOptionInfluencerGender
+                }
+              />
             </Dropdown>
           </div>
         )}
       </div>
-      <BrandsSearchCards isTabletOrMobile={isTabletOrMobile} />
+      <BrandsSearchCards
+        isTabletOrMobile={isTabletOrMobile}
+        selectedOptionAudienceAge={selectedOptionAudienceAge}
+        setSelectedOptionAudienceAge={setSelectedOptionAudienceAge}
+        selectedOptionAudienceGender={selectedOptionAudienceGender}
+        setSelectedOptionAudienceGender={setSelectedOptionAudienceGender}
+        selectedOptionBrandCategory={selectedOptionBrandCategory}
+        setSelectedOptionBrandCategory={setSelectedOptionBrandCategory}
+        selectedOptionSocialMedia={selectedOptionSocialMedia}
+        setSelectedOptionSocialMedia={setSelectedOptionSocialMedia}
+        selectedOptionPromotionType={selectedOptionPromotionType}
+        setSelectedOptionPromotionType={setSelectedOptionPromotionType}
+        selectedOptionInfluencerGender={selectedOptionInfluencerGender}
+        setSelectedOptionInfluencerGender={setSelectedOptionInfluencerGender}
+      />
     </div>
   );
 };

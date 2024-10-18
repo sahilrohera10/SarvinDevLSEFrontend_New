@@ -19,7 +19,7 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
     const token = localStorage.getItem("token");
     axios
       .get(
-        "https://sarvindevbackend.onrender.com/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5",
+        "https://aggregator-tool-production.onrender.com/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5",
         {
           headers: {
             Authorization: `Bearer ${token}`,

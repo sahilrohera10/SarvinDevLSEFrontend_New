@@ -41,7 +41,8 @@ function ProductAndServicesLinks({ setOpenProductAndServices, setLinks }) {
     }
     setLoading(true);
 
-    const url = "https://sarvindevbackend.onrender.com/api/user/add_reel";
+    const url =
+      "https://aggregator-tool-production.onrender.com/api/user/add_reel";
     const payload = {
       links: content,
     };

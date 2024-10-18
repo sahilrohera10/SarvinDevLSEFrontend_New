@@ -6,22 +6,38 @@ import Image from "next/image";
 import Podium from "../../commons/icons/score.png";
 import Select from "react-select";
 
-const FilterComponent = ({ setOpenModal, openModal, filters }) => {
+const FilterComponent = ({
+  setOpenModal,
+  openModal,
+  filters,
+  selectedOptionAudienceAge = [],
+  setSelectedOptionAudienceAge = () => {},
+  selectedOptionAudienceGender = [],
+  setSelectedOptionAudienceGender = () => {},
+  selectedOptionBrandCategory = [],
+  setSelectedOptionBrandCategory = () => {},
+  selectedOptionSocialMedia = [],
+  setSelectedOptionSocialMedia = () => {},
+  selectedOptionPromotionType = [],
+  setSelectedOptionPromotionType = () => {},
+  selectedOptionInfluencerGender = [],
+  setSelectedOptionInfluencerGender = () => {},
+}) => {
   const [selectedOption, setSelectedOption] = useState(filters[0]);
-  const [selectedOptionBrandCategory, setSelectedOptionBrandCategory] =
-    useState([]);
-  const [selectedOptionAudienceAge, setSelectedOptionAudienceAge] = useState(
-    []
-  );
-  const [selectedOptionSocialMedia, setSelectedOptionSocialMedia] = useState(
-    []
-  );
-  const [selectedOptionAudienceGender, setSelectedOptionAudienceGender] =
-    useState([]);
-  const [selectedOptionPromotionType, setSelectedOptionPromotionType] =
-    useState([]);
-  const [selectedOptionInfluencerGender, setSelectedOptionInfluencerGender] =
-    useState([]);
+  // const [selectedOptionBrandCategory, setSelectedOptionBrandCategory] =
+  //   useState([]);
+  // const [selectedOptionAudienceAge, setSelectedOptionAudienceAge] = useState(
+  //   []
+  // );
+  // const [selectedOptionSocialMedia, setSelectedOptionSocialMedia] = useState(
+  //   []
+  // );
+  // const [selectedOptionAudienceGender, setSelectedOptionAudienceGender] =
+  //   useState([]);
+  // const [selectedOptionPromotionType, setSelectedOptionPromotionType] =
+  //   useState([]);
+  // const [selectedOptionInfluencerGender, setSelectedOptionInfluencerGender] =
+  //   useState([]);
   const [minValue, setMinValue] = useState(10); // Initial minimum value
   const [maxValue, setMaxValue] = useState(90); // Initial maximum value
   const minLimit = 0; // Minimum possible value for range

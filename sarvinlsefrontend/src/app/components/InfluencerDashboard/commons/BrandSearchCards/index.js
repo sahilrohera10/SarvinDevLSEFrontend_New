@@ -10,7 +10,22 @@ import axios from "axios";
 import Lottie from "react-lottie-player";
 import NotFound from "../../../commons/icons/404Notfound.json";
 
-const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
+const BrandsDealCards = ({
+  text = null,
+  isTabletOrMobile = false,
+  selectedOptionAudienceAge = [],
+  setSelectedOptionAudienceAge = () => {},
+  selectedOptionAudienceGender = [],
+  setSelectedOptionAudienceGender = () => {},
+  selectedOptionBrandCategory = [],
+  setSelectedOptionBrandCategory = () => {},
+  selectedOptionSocialMedia = [],
+  setSelectedOptionSocialMedia = () => {},
+  selectedOptionPromotionType = [],
+  setSelectedOptionPromotionType = () => {},
+  selectedOptionInfluencerGender = [],
+  setSelectedOptionInfluencerGender = () => {},
+}) => {
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
   const [brands, setBrands] = useState([]);
@@ -23,6 +38,9 @@ const BrandsDealCards = ({ text = null, isTabletOrMobile = false }) => {
         {
           headers: {
             Authorization: `Bearer ${token}`,
+          },
+          params: {
+            influencer_gender: "female",
           },
         }
       )

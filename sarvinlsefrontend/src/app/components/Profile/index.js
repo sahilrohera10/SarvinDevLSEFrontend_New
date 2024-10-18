@@ -19,11 +19,14 @@ function Profile() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`https://sarvindevbackend.onrender.com/api/user/get_user_details`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `https://aggregator-tool-production.onrender.com/api/user/get_user_details`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         setBranddeals(response.data);
         setLinks(response?.data?.content_links);
