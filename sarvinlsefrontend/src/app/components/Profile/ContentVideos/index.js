@@ -48,17 +48,14 @@ const Index = ({ links, setLinks, content = [] }) => {
     setLoading(true);
     const token = localStorage.getItem("token");
     axios
-      .delete(
-        "https://aggregator-tool-production.onrender.com/api/user/delete_reel",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          data: {
-            reel_link: reel_link,
-          },
-        }
-      )
+      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/delete_reel`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: {
+          reel_link: reel_link,
+        },
+      })
       .then((response) => {
         setLinks(response.data.data);
         setLoading(false);

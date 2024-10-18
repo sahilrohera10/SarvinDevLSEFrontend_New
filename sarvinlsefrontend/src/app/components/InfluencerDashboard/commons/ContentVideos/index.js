@@ -15,14 +15,11 @@ const index = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        "https://aggregator-tool-production.onrender.com/api/user/get_all_reels",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_all_reels`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         setLinks(res.data.data);
         setLoading(false);
