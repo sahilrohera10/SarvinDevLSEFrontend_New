@@ -10,6 +10,7 @@ import Modal from "../../../commons/modal";
 import { useState, useEffect } from "react";
 import DealDetailModal from "../DealDetailModal";
 import Link from "next/link";
+import axios from "axios";
 
 const Tags = {
   1: FirstPlace,
@@ -31,11 +32,38 @@ export default function BrandCard({
   cost_avg = 0,
 
   type = 1,
+  isSaved = false,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSave, setIsSave] = useState(isSaved);
   const SaveDealFunction = () => {
-    console.log("naman");
+    const token = localStorage.getItem("token");
+    console.log(token);
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/save_deal`,
+        { deal_id: dealId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => {
+        alert("Deal saved successfully!");
+        setIsSave(true);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error("Error response from server:", error.response.data);
+          console.error("Status:", error.response.status);
+        } else if (error.request) {
+          console.error("No response received:", error.request);
+        } else {
+          console.error("Axios request error:", error.message);
+        }
+      });
   };
 
   // useEffect(() => {
@@ -116,8 +144,9 @@ export default function BrandCard({
                 type="submit"
                 class="flex w-full justify-center rounded-md bg-gray-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={SaveDealFunction}
+                disabled={isSave}
               >
-                Save Deal
+                {isSave ? "Deal Saved" : "Save Deal"}
               </button>
             </div>
           )}
