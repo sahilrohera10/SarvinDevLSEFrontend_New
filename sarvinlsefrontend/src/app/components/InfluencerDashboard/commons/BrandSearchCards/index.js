@@ -220,12 +220,14 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandCard
-              brandId={brand._id} // Ensure the key is unique, adjust according to your data
+              brandId={brand._id}
               heading={brand.brand_name}
               subheading={brand.description}
-              img={brand.image_link} // Ensure this field matches your API response
+              img={brand.image_link}
               cardType="Brands"
               deal_count={brand.deal_count}
+              category={brand.category}
+              cost_avg={brand.cost_avg}
             />
           ))}
         </div>

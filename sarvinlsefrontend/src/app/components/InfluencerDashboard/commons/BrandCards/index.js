@@ -21,12 +21,15 @@ export default function BrandCard({
   brandId = 0,
   dealId = 0,
   heading = "Naman Agarwal",
-  subheading = "CEO and Founder",
+  subheading = "No Description Available",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
   cardType = "Deals",
   deal_count = 0,
   fixed_price = 0,
+  category = "Food",
+  cost_avg = 0,
+
   type = 1,
 }) {
   const [openModal, setOpenModal] = useState(false);
@@ -185,13 +188,13 @@ export default function BrandCard({
           <div class="flex justify-between">
             <div className="text-black text-xl font-medium">{heading}</div>
             <span class="bg-blue-100 text-blue-800 text-xs pt-1.5 font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-              Food
+              {category}
             </span>
           </div>
           <div className="text-gray-400 text-sm">{subheading}</div>
           <div class="flex my-2">
             <span class=" bg-[#ccdfff] text-[#3858f9] text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-              Average Cost- TBD
+              Average Cost- {cost_avg}
             </span>
             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
               No.Of Deals = {deal_count}
