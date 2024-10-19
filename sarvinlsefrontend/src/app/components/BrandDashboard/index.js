@@ -28,6 +28,8 @@ import BrandContent from "./BrandContent";
 import ClosedDeals from "./Closed Deals";
 
 const BrandDashboard = () => {
+  const [loading, setLoading] = useState(true);
+  const [brands, setBrands] = useState([]);
   const router = useRouter();
   const { influencerView = "", id = "" } = router.query;
   const [selectedContent, setSelectedContent] = useState(
@@ -40,6 +42,24 @@ const BrandDashboard = () => {
         setSelectedContent("Overview");
       }
     }
+  }, [influencerView]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?brand_id=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setBrands(response?.data?.data); // Adjust according to your API response structure
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
   }, [influencerView]);
 
   const DASHBOARD_CONTENT = {

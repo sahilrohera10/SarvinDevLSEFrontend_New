@@ -29,7 +29,6 @@ const BrandsDealCards = ({
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
   const [brands, setBrands] = useState([]);
-  console.log(brands);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -201,11 +200,15 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandListCard
-              key={brand._id} // Ensure the key is unique, adjust according to your data
+              brandId={brand.brand_id} // Ensure the key is unique, adjust according to your data
               heading={brand.brand_name}
               subheading={brand.description}
               img={brand.image_link} // Ensure this field matches your API response
               cardType="Brands"
+              deal_count={brand.deal_count}
+              category={brand.category}
+              cost_avg={brand.cost_avg}
+              followers={brand.followers}
             />
           ))}
         </div>
@@ -220,7 +223,7 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandCard
-              brandId={brand._id}
+              brandId={brand.brand_id}
               heading={brand.brand_name}
               subheading={brand.description}
               img={brand.image_link}
