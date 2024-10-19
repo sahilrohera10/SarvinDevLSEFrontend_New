@@ -10,6 +10,7 @@ import Modal from "../../../commons/modal";
 import { useState, useEffect } from "react";
 import DealDetailModal from "../DealDetailModal";
 import Link from "next/link";
+import axios from "axios";
 
 const Tags = {
   1: FirstPlace,
@@ -28,11 +29,38 @@ export default function BrandCard({
   deal_count = 0,
   fixed_price = 0,
   type = 1,
+  isSaved = false,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSave, setIsSave] = useState(isSaved);
   const SaveDealFunction = () => {
-    console.log("naman");
+    const token = localStorage.getItem("token");
+    console.log(token);
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/save_deal`,
+        { deal_id: dealId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => {
+        alert("Deal saved successfully!");
+        setIsSave(true)
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error("Error response from server:", error.response.data);
+          console.error("Status:", error.response.status);
+        } else if (error.request) {
+          console.error("No response received:", error.request);
+        } else {
+          console.error("Axios request error:", error.message);
+        }
+      });
   };
 
   // useEffect(() => {
@@ -46,10 +74,7 @@ export default function BrandCard({
   if (cardType == "Deals") {
     return (
       <div className="max-w-sm bg-black relative group border shadow-lg rounded-lg mb-10">
-        <a
-          href="#"
-          className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300"
-        >
+        <a href="#" className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300">
           <div className="relative overflow-hidden">
             {tags > 0 && tags < 4 && (
               <div
@@ -76,9 +101,7 @@ export default function BrandCard({
 
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-90 transition-opacity duration-300">
             <div className="flex items-center space-x-3">
-              <div class="text-white text-xl text-semibold opacity-100 group-hover:opacity-100">
-                View Deal
-              </div>
+              <div class="text-white text-xl text-semibold opacity-100 group-hover:opacity-100">View Deal</div>
             </div>
           </div>
         </a>
@@ -113,16 +136,13 @@ export default function BrandCard({
                 type="submit"
                 class="flex w-full justify-center rounded-md bg-gray-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={SaveDealFunction}
+                disabled={isSave}
               >
-                Save Deal
+                {isSave ? "Deal Saved" : "Save Deal"}
               </button>
             </div>
           )}
-          <Modal
-            openModal={openModal}
-            setOpenModal={setOpenModal}
-            closeOutside={false}
-          >
+          <Modal openModal={openModal} setOpenModal={setOpenModal} closeOutside={false}>
             <DealDetailModal
               id={dealId}
               heading={heading}
@@ -139,10 +159,7 @@ export default function BrandCard({
   } else if (cardType == "Brands") {
     return (
       <div className="max-w-md bg-black relative group border shadow-lg rounded-lg mb-10">
-        <a
-          href="#"
-          className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300"
-        >
+        <a href="#" className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300">
           <div className="relative overflow-hidden">
             {tags > 0 && tags < 4 && (
               <div
@@ -197,10 +214,7 @@ export default function BrandCard({
               No.Of Deals = {deal_count}
             </span>
           </div>
-          <Link
-            className="text-gray-400 text-md mt-2 mr-2"
-            href={`/brand-dashboard?influencerView=True&id=${brandId}`}
-          >
+          <Link className="text-gray-400 text-md mt-2 mr-2" href={`/brand-dashboard?influencerView=True&id=${brandId}`}>
             <button
               type="submit"
               class="flex w-full justify-center rounded-md bg-[#F27430] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -214,10 +228,7 @@ export default function BrandCard({
   } else if (cardType == "Bid") {
     return (
       <div className="max-w-md bg-black relative group border shadow-lg rounded-lg mb-10">
-        <a
-          href="#"
-          className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300"
-        >
+        <a href="#" className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300">
           <div className="relative overflow-hidden">
             {tags > 0 && tags < 4 && (
               <div
@@ -312,21 +323,13 @@ export default function BrandCard({
           </button>
         </div>
         <Modal openModal={openModal} setOpenModal={setOpenModal}>
-          <DealDetailModal
-            heading={heading}
-            subheading={subheading}
-            img={img}
-            cardType="Bid"
-          />
+          <DealDetailModal heading={heading} subheading={subheading} img={img} cardType="Bid" />
         </Modal>
       </div>
     );
   } else {
     <div className="max-w-md bg-black relative group border shadow-lg rounded-lg mb-10">
-      <a
-        href="#"
-        className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300"
-      >
+      <a href="#" className="relative block rounded-md  group-hover:opacity-70 transition-opacity duration-300">
         <div className="relative overflow-hidden">
           {tags > 0 && tags < 4 && (
             <div
@@ -381,10 +384,7 @@ export default function BrandCard({
             No.Of Deals = deal_count
           </span>
         </div>
-        <Link
-          className="text-gray-400 text-md mt-2 mr-2"
-          href="/brand-dashboard"
-        >
+        <Link className="text-gray-400 text-md mt-2 mr-2" href="/brand-dashboard">
           <button
             type="submit"
             class="flex w-full justify-center rounded-md bg-[#F27430] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

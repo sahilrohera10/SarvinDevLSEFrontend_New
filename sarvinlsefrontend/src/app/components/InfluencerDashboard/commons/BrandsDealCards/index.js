@@ -144,6 +144,7 @@ const BrandsDealCards = ({
                   cardType="Deals"
                   fixed_price={brand.fixed_price}
                   type={type}
+                  isSaved={brand.isSaved}
                 />
               ))}
             </div>
