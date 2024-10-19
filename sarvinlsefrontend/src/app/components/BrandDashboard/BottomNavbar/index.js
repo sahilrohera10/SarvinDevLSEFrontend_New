@@ -12,13 +12,15 @@ import {
 } from "react-icons/fa";
 
 const BottomNavbar = ({
-  selectedContent = "",
+  selectedContent = "Overview",
   setSelectedContent = () => {},
-  influencerView = false,
+  influencerView = "false",
 }) => {
+  console.log(influencerView, "if");
+
   return (
     <nav class="bg-white mx-10 mt-2 z-40 border-2 rounded shadow-sm ">
-      {influencerView ? (
+      {influencerView == "true" ? (
         <div>
           <div class="mx-0 max-w-full  px-1 sm:px-1   lg:px-1">
             <div class="relative flex flex-col h-12 justify-center ">

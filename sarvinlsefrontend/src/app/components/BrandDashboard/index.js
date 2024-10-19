@@ -29,12 +29,19 @@ import ClosedDeals from "./Closed Deals";
 
 const BrandDashboard = () => {
   const router = useRouter();
-  const { influencerView: isinfluencerView, id = "" } = router.query;
-  const influencerView = isinfluencerView === "True";
-
+  const { influencerView = "", id = "" } = router.query;
   const [selectedContent, setSelectedContent] = useState(
-    !influencerView ? "Search_Influencers" : "Overview"
+    influencerView === "false" ? "Search_Influencers" : "Overview"
   );
+  useEffect(() => {
+    if (influencerView == "false") {
+      setSelectedContent("Search_Influencers");
+      if (influencerView == "true") {
+        setSelectedContent("Overview");
+      }
+    }
+  }, [influencerView]);
+
   const DASHBOARD_CONTENT = {
     // Analytics: <Analytics />,
     Overview: <Overview />,

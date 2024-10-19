@@ -29,6 +29,7 @@ const BrandsDealCards = ({
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
   const [brands, setBrands] = useState([]);
+  console.log(brands);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
