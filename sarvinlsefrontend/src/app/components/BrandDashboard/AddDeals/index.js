@@ -69,8 +69,6 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
       //   : {  }),
     };
 
-    console.log(addDealContent);
-
     setProgressBarWidth("100%");
     setLoginStatus({ loading: true, error: "" });
 

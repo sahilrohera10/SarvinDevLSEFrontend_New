@@ -25,6 +25,8 @@ const BrandsDealCards = ({
   setSelectedOptionPromotionType = () => {},
   selectedOptionInfluencerGender = [],
   setSelectedOptionInfluencerGender = () => {},
+  searchValue = "",
+  setSearchValue = () => {},
 }) => {
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -40,7 +42,7 @@ const BrandsDealCards = ({
             Authorization: `Bearer ${token}`,
           },
           params: {
-            influencer_gender: "female",
+            search_query: searchValue,
           },
         }
       )
@@ -52,7 +54,7 @@ const BrandsDealCards = ({
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, []);
+  }, [searchValue]);
   if (Array.isArray(brands) && brands.length === 0) {
     return (
       <div class="flex w-full justify-center m-6">
