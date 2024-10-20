@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Podium from "../../../commons/icons/podium.png";
 import BrandListCard from "../../commons/BrandListCards";
@@ -45,7 +46,7 @@ const CrackedCards = ({ text = null, children }) => {
         }}
       >
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <div>Cracked Deals </div>
+          <div>Matched Deals </div>
           <Image src={Podium} alt="podium" width={34} height={34} />
         </div>
       </div>

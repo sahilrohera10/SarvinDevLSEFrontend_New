@@ -315,6 +315,7 @@ const FILTERS = [
 const BrandSearch = ({ isTabletOrMobile = false }) => {
   const [selectedOptionBrandCategory, setSelectedOptionBrandCategory] =
     useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const [selectedOptionAudienceAge, setSelectedOptionAudienceAge] = useState(
     []
   );
@@ -347,7 +348,11 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
                 marginBottom: isTabletOrMobile ? 10 : 30,
               }}
             >
-              <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
+              <GlobalSearch
+                placeholder="Search for Brands,Business and Services for Marketing"
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
             </div>
 
             <div
@@ -410,6 +415,8 @@ const BrandSearch = ({ isTabletOrMobile = false }) => {
         setSelectedOptionPromotionType={setSelectedOptionPromotionType}
         selectedOptionInfluencerGender={selectedOptionInfluencerGender}
         setSelectedOptionInfluencerGender={setSelectedOptionInfluencerGender}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
     </div>
   );
