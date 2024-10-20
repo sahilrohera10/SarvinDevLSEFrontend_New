@@ -630,6 +630,11 @@ function NavBar({ currentColor, id = "" }) {
                   href="/sign-in"
                   target=""
                   rel="noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    localStorage.removeItem("token");
+                    router.push("/sign-in");
+                  }}
                 >
                   <svg
                     width="16"
