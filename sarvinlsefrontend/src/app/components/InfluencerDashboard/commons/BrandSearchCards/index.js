@@ -34,7 +34,7 @@ const BrandsDealCards = ({
     const token = localStorage.getItem("token");
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -219,12 +219,13 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandCard
-              brandId={brand._id} // Ensure the key is unique, adjust according to your data
+              brandId={brand.brand_id} // Ensure the key is unique, adjust according to your data
               heading={brand.brand_name}
               subheading={brand.description}
               img={brand.image_link} // Ensure this field matches your API response
               cardType="Brands"
               deal_count={brand.deal_count}
+              is_followed={brand.is_followed}
             />
           ))}
         </div>

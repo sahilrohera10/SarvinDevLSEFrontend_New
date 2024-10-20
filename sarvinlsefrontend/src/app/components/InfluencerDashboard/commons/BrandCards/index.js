@@ -30,11 +30,12 @@ export default function BrandCard({
   fixed_price = 0,
   type = 1,
   isSaved = false,
+  is_followed = false,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isSave, setIsSave] = useState(isSaved);
-  const [isFollowed, setIsFollowed] = useState(false);
+  const [isFollowed, setIsFollowed] = useState(is_followed);
   const SaveDealFunction = () => {
     const token = localStorage.getItem("token");
     console.log(token);
@@ -66,7 +67,6 @@ export default function BrandCard({
 
   const FollowBrand = () => {
     const token = localStorage.getItem("token");
-    console.log(brandId)
     axios
       .post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/follow_brand`,
@@ -94,15 +94,14 @@ export default function BrandCard({
   const UnfollowBrand = () => {
     const token = localStorage.getItem("token");
     axios
-      .post(
+      .delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/unfollow_brand`,
-        { brand_id: brandId }, 
         {
+          data: { brand_id: brandId },
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
-      )
+        })
       .then(() => {
         setIsFollowed(false);
       })
