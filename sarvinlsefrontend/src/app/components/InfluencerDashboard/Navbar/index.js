@@ -679,11 +679,14 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                   </ul>
                   <div className={styles.Header_loginWrapper__9_1kE}>
                     <a
-                      className={styles.Header_client__RyL2j}
-                      class="ml-12"
+                      className={`${styles.Header_client__RyL2j} ml-12`}
                       href="/sign-in"
-                      target=""
-                      rel="noreferrer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        localStorage.removeItem("token");
+                        // Use router.push instead of window.location.href
+                        router.push("/sign-in");
+                      }}
                     >
                       <svg
                         width="16"
