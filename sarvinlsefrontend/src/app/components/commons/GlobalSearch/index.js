@@ -6,11 +6,17 @@ import SearchBar from "../SearchBar";
 
 const GlobalSearch = ({
   placeholder = "Search for products, services and creators nearby",
+  searchValue = "",
+  setSearchValue = () => {},
 }) => {
   return (
     <div>
       {" "}
-      <SearchBar text={placeholder} />
+      <SearchBar
+        text={placeholder}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
     </div>
   );
 };

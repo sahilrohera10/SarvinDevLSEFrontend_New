@@ -28,13 +28,40 @@ import BrandContent from "./BrandContent";
 import ClosedDeals from "./Closed Deals";
 
 const BrandDashboard = () => {
+  const [loading, setLoading] = useState(true);
+  const [brands, setBrands] = useState([]);
   const router = useRouter();
-  const { influencerView: isinfluencerView, id = "" } = router.query;
-  const influencerView = isinfluencerView === "True";
-
+  const { influencerView = "", id = "" } = router.query;
   const [selectedContent, setSelectedContent] = useState(
-    !influencerView ? "Search_Influencers" : "Overview"
+    influencerView === "false" ? "Search_Influencers" : "Overview"
   );
+  useEffect(() => {
+    if (influencerView == "false") {
+      setSelectedContent("Search_Influencers");
+      if (influencerView == "true") {
+        setSelectedContent("Overview");
+      }
+    }
+  }, [influencerView]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?brand_id=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setBrands(response?.data?.data); // Adjust according to your API response structure
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, [influencerView]);
+
   const DASHBOARD_CONTENT = {
     // Analytics: <Analytics />,
     Overview: <Overview />,

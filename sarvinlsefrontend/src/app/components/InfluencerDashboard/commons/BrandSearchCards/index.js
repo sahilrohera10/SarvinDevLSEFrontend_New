@@ -25,6 +25,8 @@ const BrandsDealCards = ({
   setSelectedOptionPromotionType = () => {},
   selectedOptionInfluencerGender = [],
   setSelectedOptionInfluencerGender = () => {},
+  searchValue = "",
+  setSearchValue = () => {},
 }) => {
   const [isListView, setIsListView] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -40,7 +42,7 @@ const BrandsDealCards = ({
             Authorization: `Bearer ${token}`,
           },
           params: {
-            influencer_gender: "female",
+            search_query: searchValue,
           },
         }
       )
@@ -52,7 +54,7 @@ const BrandsDealCards = ({
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, []);
+  }, [searchValue]);
   if (Array.isArray(brands) && brands.length === 0) {
     return (
       <div class="flex w-full justify-center m-6">
@@ -200,11 +202,15 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandListCard
-              key={brand._id} // Ensure the key is unique, adjust according to your data
+              brandId={brand.brand_id} // Ensure the key is unique, adjust according to your data
               heading={brand.brand_name}
               subheading={brand.description}
               img={brand.image_link} // Ensure this field matches your API response
               cardType="Brands"
+              deal_count={brand.deal_count}
+              category={brand.category}
+              cost_avg={brand.cost_avg}
+              followers={brand.followers}
             />
           ))}
         </div>
@@ -219,13 +225,15 @@ const BrandsDealCards = ({
         >
           {brands.map((brand) => (
             <BrandCard
-              brandId={brand.brand_id} // Ensure the key is unique, adjust according to your data
+              brandId={brand.brand_id}
               heading={brand.brand_name}
               subheading={brand.description}
-              img={brand.image_link} // Ensure this field matches your API response
+              img={brand.image_link}
               cardType="Brands"
               deal_count={brand.deal_count}
               is_followed={brand.is_followed}
+              category={brand.category}
+              cost_avg={brand.cost_avg}
             />
           ))}
         </div>

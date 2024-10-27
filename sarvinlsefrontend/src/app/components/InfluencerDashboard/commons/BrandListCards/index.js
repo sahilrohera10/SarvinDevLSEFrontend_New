@@ -11,6 +11,7 @@ import Chips from "../../../commons/Chips";
 import { useState } from "react";
 import { FaHandPeace } from "react-icons/fa6";
 import ButtonStatement from "../../ButtonStatement";
+import Link from "next/link";
 
 const Tags = {
   1: FirstPlace,
@@ -24,6 +25,7 @@ const BUTTONSTATEMENT = [
   "Congratulations! Get Your Prize here...",
 ];
 export default function BrandListCard({
+  brandId = "",
   heading = "Naman Agarwal",
   subheading = "CEO and Founder",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
@@ -31,6 +33,10 @@ export default function BrandListCard({
   cardType = "Deals",
   crackedSteps = 0,
   isTabletOrMobile = false,
+  followers = 0,
+  deal_count = 0,
+  category = "Food",
+  cost_avg = 0,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [openButtonStatementModal, setOpenButtonStatementModal] =
@@ -575,10 +581,10 @@ export default function BrandListCard({
 
             <div class="flex mx-4 my-2">
               <span class=" bg-[#ccdfff] text-[#3858f9] text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                Average Cost- TBD
+                Average Cost- {cost_avg}
               </span>
               <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-                No.Of Deals = 1432
+                No.Of Deals = {deal_count}
               </span>
             </div>
             <div class="flex gap-4">
@@ -588,7 +594,7 @@ export default function BrandListCard({
               </div>
               <div>
                 <div class="mx-4 mt-4 font-600">Followers</div>
-                <div className="text-gray-400 text-sm mx-4">123</div>
+                <div className="text-gray-400 text-sm mx-4">{followers}</div>
               </div>
               <div>
                 <div class="mx-4 mt-4 font-600">Engagement Rate</div>
@@ -599,7 +605,7 @@ export default function BrandListCard({
           <div class="m-4 flex flex-col justify-between">
             <div class="flex justify-end">
               <span class="bg-blue-100  text-blue-800 text-xs pt-1.5 font-medium px-2.5 h-7 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                Food
+                {category}
               </span>
             </div>
             <div className="flex items-center space-x-3 align-middle">
@@ -620,12 +626,12 @@ export default function BrandListCard({
               </div>
             </div>
             <div className="text-gray-400 text-md mt-2 mr-2">
-              <button
-                type="submit"
+              <Link
                 class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0 px-3 py-1.5 text-sm font-medium leading-6 text-gray-900 shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                href={`/brand-dashboard?influencerView=true&id=${brandId}`}
               >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         </div>

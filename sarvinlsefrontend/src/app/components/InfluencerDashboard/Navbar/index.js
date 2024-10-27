@@ -97,10 +97,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                             }
                           >
                             <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/features/find-influencers"
-                              >
+                              <a className={styles.LinkItem_link__MszSS}>
                                 <div
                                   className={styles.LinkItem_hasNavImage__fxeae}
                                 >
@@ -126,11 +123,14 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                                         right: 0,
                                       }}
                                     >
-                                      {" "}
                                       <img
                                         src="https://images-platform.99static.com//ZM2mGMLeyu4D7uyuTAweSj-ykqw=/0x0:1360x1360/fit-in/500x500/99designs-contests-attachments/43/43393/attachment_43393137"
                                         alt="Find Influencers"
+                                        className="w-full h-full transition duration-300 ease-in-out transform hover:blur-md"
                                       />
+                                      <span className="absolute inset-0 flex items-center justify-center text-white text-md font-bold opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+                                        You are here
+                                      </span>
                                     </span>
                                   </div>
                                   <div
@@ -140,76 +140,20 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                                   >
                                     <div
                                       className={styles.LinkItem_btmInfo__WKcpe}
+                                      style={{ fontSize: 12 }}
                                     >
                                       <img
                                         src="https://media.graphassets.com/fOJkAw8AQXGeAmKphQYH"
                                         alt="Find Influencers"
                                       />
-                                      Brand Aggreagator
+                                      <b>Collabz</b>- Brand Aggreagator
                                     </div>
                                   </div>
                                 </div>
                               </a>
                             </li>
                             <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/features/find-influencers"
-                              >
-                                <div
-                                  className={styles.LinkItem_hasNavImage__fxeae}
-                                >
-                                  <div
-                                    className={styles.LinkItem_topImg__Jn7FY}
-                                  >
-                                    <span
-                                      style={{
-                                        boxSizing: "border-box",
-                                        display: "block",
-                                        overflow: "hidden",
-                                        width: 184,
-                                        height: 120,
-                                        background: "none",
-                                        opacity: 1,
-                                        border: 0,
-                                        margin: 0,
-                                        padding: 0,
-                                        position: "absolute",
-                                        top: 0,
-                                        left: 0,
-                                        bottom: 0,
-                                        right: 0,
-                                      }}
-                                    >
-                                      <img
-                                        src="https://images-platform.99static.com//Pbim3yI0JmavXkPAFQa2ADpeSgg=/0x0:1690x1690/fit-in/500x500/99designs-contests-attachments/87/87215/attachment_87215454"
-                                        alt="Find Influencers"
-                                      />
-                                    </span>
-                                  </div>
-                                  <div
-                                    className={
-                                      styles.LinkItem_hoverContainer__wX9bI
-                                    }
-                                  >
-                                    <div
-                                      className={styles.LinkItem_btmInfo__WKcpe}
-                                    >
-                                      <img
-                                        src="https://media.graphassets.com/fOJkAw8AQXGeAmKphQYH"
-                                        alt="Find Influencers"
-                                      />
-                                      E-Commerce Platform
-                                    </div>
-                                  </div>
-                                </div>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/features/find-influencers"
-                              >
+                              <a className={styles.LinkItem_link__MszSS}>
                                 <div
                                   className={styles.LinkItem_hasNavImage__fxeae}
                                 >
@@ -238,7 +182,11 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                                       <img
                                         src="https://i.pinimg.com/originals/9a/42/e1/9a42e1c6d8c95e00df8ae9400e0c713d.png"
                                         alt="Find Influencers"
+                                        className="w-full h-full transition duration-300 ease-in-out transform hover:blur-md"
                                       />
+                                      <span className="absolute inset-0 flex items-center justify-center text-white text-md font-bold opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+                                        Click To Go There
+                                      </span>
                                     </span>
                                   </div>
                                   <div
@@ -248,17 +196,78 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                                   >
                                     <div
                                       className={styles.LinkItem_btmInfo__WKcpe}
+                                      style={{ fontSize: 12 }}
                                     >
                                       <img
                                         src="https://media.graphassets.com/fOJkAw8AQXGeAmKphQYH"
                                         alt="Find Influencers"
                                       />
-                                      Influencers Analytics
+                                      <b>Flanzo</b>- Local Search Engine
                                     </div>
                                   </div>
                                 </div>
                               </a>
                             </li>
+                            <li>
+                              <a
+                                className={styles.LinkItem_link__MszSS}
+                                href="/features/find-influencers"
+                              >
+                                <div
+                                  className={styles.LinkItem_hasNavImage__fxeae}
+                                >
+                                  <div
+                                    className={styles.LinkItem_topImg__Jn7FY}
+                                  >
+                                    <span
+                                      style={{
+                                        boxSizing: "border-box",
+                                        display: "block",
+                                        overflow: "hidden",
+                                        width: 172,
+                                        height: 120,
+                                        background: "none",
+                                        opacity: 1,
+                                        border: 0,
+                                        margin: 0,
+                                        padding: 0,
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        bottom: 0,
+                                        right: 0,
+                                      }}
+                                    >
+                                      <img
+                                        src="https://images-platform.99static.com//Pbim3yI0JmavXkPAFQa2ADpeSgg=/0x0:1690x1690/fit-in/500x500/99designs-contests-attachments/87/87215/attachment_87215454"
+                                        alt="Find Influencers"
+                                        className="w-full h-full transition duration-300 ease-in-out transform hover:blur-md"
+                                      />
+                                    </span>
+                                    <span className="absolute w-full h-full inset-0 flex items-center justify-center text-white text-md font-bold opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+                                      Coming Soon
+                                    </span>
+                                  </div>
+                                  <div
+                                    className={
+                                      styles.LinkItem_hoverContainer__wX9bI
+                                    }
+                                  >
+                                    <div
+                                      className={styles.LinkItem_btmInfo__WKcpe}
+                                      style={{ fontSize: 12 }}
+                                    >
+                                      <img
+                                        src="https://i.pinimg.com/originals/9a/42/e1/9a42e1c6d8c95e00df8ae9400e0c713d.png"
+                                        alt="Find Influencers"
+                                      />
+                                      <b>InfluenZmart</b>-Business Platform
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+
                             {/* <li>
                           <a
                             className={styles.LinkItem_link__MszSS}
@@ -357,7 +366,7 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                             className={styles.LinkItem_hoverContainer__wX9bI}
                           >
                             <span className={styles.LinkItem_text__v5efp}>
-                              Features
+                              Network
                             </span>
                           </div>
                         </div>
@@ -612,99 +621,11 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                             className={styles.LinkItem_hoverContainer__wX9bI}
                           >
                             <span className={styles.LinkItem_text__v5efp}>
-                              Our Team
+                              About Us
                             </span>
                           </div>
                         </div>
                       </div>
-
-                      <span>
-                        <span>
-                          {/* SubNavItems_subNavItems__rYvPL */}
-                          <ul className={styles.SubNavItems_subNavItems__rYvPL}>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/events"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/iZ4bXKu0SUC3Q6cjojJm"
-                                      alt="Events"
-                                    />
-                                    Events
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/case-studies"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/EEtyMpmTDqBQWILkY4MQ"
-                                      alt="Case Studies"
-                                    />
-                                    Case Studies
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/resources"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/i5ByYWdgR1CujiyMSaxK"
-                                      alt="Reports &amp; Guides"
-                                    />
-                                    Reports &amp; Guides
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className={styles.LinkItem_link__MszSS}
-                                href="/blog"
-                              >
-                                <div
-                                  className={
-                                    styles.LinkItem_hoverContainer__wX9bI
-                                  }
-                                >
-                                  <span className={styles.LinkItem_text__v5efp}>
-                                    <img
-                                      src="https://media.graphassets.com/MR91t4PQjiDwoHMh5tt4"
-                                      alt="Blog"
-                                    />
-                                    Blog
-                                  </span>
-                                </div>
-                              </a>
-                            </li>
-                          </ul>
-                        </span>
-                      </span>
                     </li>
                     <li>
                       <div class="flex w-52">
@@ -758,11 +679,14 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                   </ul>
                   <div className={styles.Header_loginWrapper__9_1kE}>
                     <a
-                      className={styles.Header_client__RyL2j}
-                      class="ml-12"
+                      className={`${styles.Header_client__RyL2j} ml-12`}
                       href="/sign-in"
-                      target=""
-                      rel="noreferrer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        localStorage.removeItem("token");
+                        // Use router.push instead of window.location.href
+                        router.push("/sign-in");
+                      }}
                     >
                       <svg
                         width="16"
@@ -838,11 +762,61 @@ function NavBar({ isTabletOrMobile, currentColor }) {
                       <FaBell />
                     </button>
                     {isOpen && (
-                      <div className="absolute top-8 right-0 w-64 bg-[#f8f9fe] opacity-90 border border-gray-300 rounded-md shadow-lg p-4 z-10">
+                      <div className="absolute top-8 right-0 w-96 bg-[#f8f9fe] opacity-100 border border-gray-300 rounded-md shadow-lg p-4 z-10">
                         <h3 className="font-bold text-lg">Notifications</h3>
                         <ul>
-                          <li className="p-2 border-b">
-                            You have a new message
+                          <li className="border-b">
+                            <div
+                              id="toast-default"
+                              class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                              role="alert"
+                            >
+                              <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
+                                <svg
+                                  class="w-4 h-4"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 18 20"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15.147 15.085a7.159 7.159 0 0 1-6.189 3.307A6.713 6.713 0 0 1 3.1 15.444c-2.679-4.513.287-8.737.888-9.548A4.373 4.373 0 0 0 5 1.608c1.287.953 6.445 3.218 5.537 10.5 1.5-1.122 2.706-3.01 2.853-6.14 1.433 1.049 3.993 5.395 1.757 9.117Z"
+                                  />
+                                </svg>
+                                <span class="sr-only">Fire icon</span>
+                              </div>
+                              <div class="ms-3 text-sm font-normal">
+                                You Have One Step Update in Deal Which You
+                                Cracked
+                              </div>
+                              <button
+                                type="button"
+                                class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                data-dismiss-target="#toast-default"
+                                aria-label="Close"
+                              >
+                                <span class="sr-only">Close</span>
+                                <svg
+                                  class="w-3 h-3"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 14 14"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
                           </li>
                           <li className="p-2 border-b">
                             Meeting scheduled at 4 PM

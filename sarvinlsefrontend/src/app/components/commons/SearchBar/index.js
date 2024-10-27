@@ -4,7 +4,13 @@ import React from "react";
 
 const SearchBar = ({
   text = "Search for products, services and creators nearby",
+  searchValue = "",
+  setSearchValue = () => {},
 }) => {
+  // Handle input change and update the state
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+  };
   return (
     <div>
       <form>
@@ -28,6 +34,8 @@ const SearchBar = ({
             id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#F3F9FB] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#F3F9FB] dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:gray-500 dark:focus:gray-500"
             placeholder={text}
+            value={searchValue}
+            onChange={handleInputChange}
             required
           />
         </div>
