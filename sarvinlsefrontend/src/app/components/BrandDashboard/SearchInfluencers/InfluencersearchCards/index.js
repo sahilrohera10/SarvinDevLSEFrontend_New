@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
 import CreaterCard from "../CreaterCard";
 import Podium from "../../../commons/icons/actor.png";
@@ -9,6 +10,29 @@ import BrandListCard from "../../commons/BrandListCards";
 
 const BrandsDealCards = ({ text = null, children }) => {
   const [isListView, setIsListView] = useState(false);
+  const [influencers, setInfluencers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/get_all_influencers_list`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        setInfluencers(response?.data || []); // Update if API response structure differs
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div style={{ margin: "0px 20px" }}>
@@ -33,67 +57,13 @@ const BrandsDealCards = ({ text = null, children }) => {
       </div>
 
       <div style={{ fontSize: 14, fontWeight: 200, margin: "0px 20px" }}>
-        Lets Start Earning By Cracking The Best Suitable Deals For You{" "}
+        Let's Start Earning By Cracking The Best Suitable Deals For You
       </div>
 
-      {isListView ? (
-        <div
-          style={{
-            display: "flex",
-            marginTop: 20,
-            justifyContent: "space-around",
-            flexWrap: "wrap",
-          }}
-        >
-          <BrandListCard
-            heading="Webneel.com"
-            subheading="Food Court and Cuisines"
-            img="https://webneel.com/daily/sites/default/files/images/daily/07-2014/5-best-ads-agasalho-hamburguer.jpg"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Juicy Juice"
-            subheading="Herbal Juice with ayurveda"
-            img="https://i.pinimg.com/736x/82/e6/0d/82e60d46a8bfb3917b32ab7caa8cab4d.jpg"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Fortis Hospital"
-            subheading="WHO Drive in clinic"
-            img="https://image.adsoftheworld.com/qbb857lhl8438y7np5x4ws4nos3e"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Pepsico Pvt.Ltd"
-            subheading="ColdDrink and Beverages"
-            img="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/651bcacd14d630b76b96cc73_8ucqCdESTiu3lL3oK2V5.jpeg"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Webneel.com"
-            subheading="Food Court and Cuisines"
-            img="https://webneel.com/daily/sites/default/files/images/daily/07-2014/5-best-ads-agasalho-hamburguer.jpg"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Juicy Juice"
-            subheading="Herbal Juice with ayurveda"
-            img="https://i.pinimg.com/736x/82/e6/0d/82e60d46a8bfb3917b32ab7caa8cab4d.jpg"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Fortis Hospital"
-            subheading="WHO Drive in clinic"
-            img="https://image.adsoftheworld.com/qbb857lhl8438y7np5x4ws4nos3e"
-            cardType="Deals"
-          />
-          <BrandListCard
-            heading="Pepsico Pvt.Ltd"
-            subheading="ColdDrink and Beverages"
-            img="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/651bcacd14d630b76b96cc73_8ucqCdESTiu3lL3oK2V5.jpeg"
-            cardType="Deals"
-          />
-        </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : influencers.length == 0 ? (
+        <p>No influencers found.</p>
       ) : (
         <div
           style={{
@@ -103,22 +73,34 @@ const BrandsDealCards = ({ text = null, children }) => {
             flexWrap: "wrap",
           }}
         >
-          <CreaterCard
-            name="Naman Agarwal"
-            img="https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg"
-          />
-          <CreaterCard
-            name="Mayank Gupta"
-            img="https://media.istockphoto.com/id/1296158947/photo/portrait-of-creative-trendy-black-african-male-designer-laughing.jpg?s=612x612&w=0&k=20&c=1Ws_LSzWjYvegGxHYQkkgVytdpDcnmK0upJyGOzEPcg="
-          />
-          <CreaterCard
-            name="Sahil Rohera"
-            img="https://img.freepik.com/free-photo/close-up-portrait-curly-haired-young-woman-isolated_273609-48309.jpg"
-          />
-          <CreaterCard
-            name="Sahil Arora"
-            img="https://media.istockphoto.com/id/1126844596/photo/young-male-with-a-smartphone.jpg?s=612x612&w=is&k=20&c=WlOq3mLDXOl_C3SJcnUKBy-VMmFvLfR2VK0OZZWFJyo="
-          />
+          {influencers.map((influencer) =>
+            isListView ? (
+              <BrandListCard
+                key={influencer.user_id}
+                heading={influencer.full_name || influencer.user_name}
+                subheading={influencer.bio_description || "Influencer"}
+                img={influencer.profile_photo}
+                cardType="Deals"
+              />
+            ) : (
+              <CreaterCard
+                key={influencer.user_id}
+                name={influencer.full_name || influencer.user_name}
+                img={influencer.profile_photo}
+                description={influencer.bio_description}
+                content={influencer.content_links}
+                dob={influencer.date_of_birth}
+                engagement={influencer.engagement_matric}
+                gender={influencer.gender}
+                location={influencer.location}
+                phone={influencer.phone}
+                category={influencer.preferred_category}
+                qualityScore={influencer.quality_score}
+                socialmedia={influencer.social_media_handles}
+                email={influencer.user_email}
+              />
+            )
+          )}
         </div>
       )}
     </div>

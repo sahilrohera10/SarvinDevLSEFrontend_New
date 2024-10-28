@@ -24,6 +24,8 @@ const nextConfig = {
       "cdn.icon-icons.com",
       "upload.wikimedia.org",
       "example.com",
+      "images.ctfassets.net",
+      "instagram.fdel73-1.fna.fbcdn.net",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {

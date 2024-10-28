@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import {
   FaMapMarkerAlt,
   FaTwitter,
@@ -9,6 +10,8 @@ import { FaFacebookF } from "react-icons/fa6";
 import FirstPlace from "../../../commons/icons/FirstPlace.png";
 import SecondPlace from "../../../commons/icons/SecondPlace.png";
 import ThirdPlace from "../../../commons/icons/ThirdPlace.png";
+import Modal from "../../../commons/modal";
+import DealDetailModal from "../DealDetailModal";
 
 const Tags = {
   1: FirstPlace,
@@ -17,10 +20,21 @@ const Tags = {
 };
 export default function CreaterCard({
   name = "Naman Agarwal",
-  profession = "Bareilly,India",
-  img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
+  img = "https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg",
   tags = 0,
+  description = "",
+  content = [],
+  dob = "1-1-1990",
+  engagement = 0,
+  gender = "",
+  location = "",
+  phone = "",
+  category = ["Any"],
+  qualityScore = 0,
+  socialmedia = [],
+  email = "",
 }) {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className="max-w-sm bg-black relative group border shadow-lg rounded-lg mb-10">
       <a
@@ -68,38 +82,40 @@ export default function CreaterCard({
       <div className="p-5 bg-white">
         <div className="flex justify-between text-black text-xl font-semibold">
           <div>{name} </div>
-          <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
-            <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              Food
+          {category.length > 0 && (
+            <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
+              <div class="text-xs font-normal leading-none max-w-full flex-initial">
+                {category[0]}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="flex mb-1 gap-1 align-middle text-gray-700 text-sm">
           <FaMapMarkerAlt class="pt-1" />
-          {profession}
+          {location},India
         </div>
         <div class="flex gap-2">
           <div class="flex justify-center items-center font-medium my-1 py-1 px-2 bg-white rounded-full text-pink-700 bg-pink-100 border border-pink-300 ">
             <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              Followers : 2098
+              Followers : 0
             </div>
           </div>
 
           <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-purple-700 bg-purple-100 border border-purple-300 ">
             <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              Deal Cracked : 13
+              Deal Cracked : 0
             </div>
           </div>
         </div>
         <div class="flex gap-2">
           <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-orange-700 bg-orange-100 border border-orange-300 ">
             <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              ER : 20%
+              EM : {engagement}
             </div>
           </div>
           <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-green-700 bg-green-100 border border-green-300 ">
             <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              Audience Avg : 1023/Post
+              Quality Score : {qualityScore}
             </div>
           </div>
         </div>
@@ -110,6 +126,29 @@ export default function CreaterCard({
         >
           View Details
         </button>
+        <Modal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          closeOutside={false}
+        >
+          <DealDetailModal
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            name={name}
+            img={img}
+            description={description}
+            content={content}
+            dob={dob}
+            engagement={engagement}
+            gender={gender}
+            location={location}
+            phone={phone}
+            category={category}
+            qualityScore={qualityScore}
+            socialmedia={socialmedia}
+            email={email}
+          />
+        </Modal>
       </div>
     </div>
   );

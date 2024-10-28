@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        "41rem": "41rem", // This adds the custom width
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

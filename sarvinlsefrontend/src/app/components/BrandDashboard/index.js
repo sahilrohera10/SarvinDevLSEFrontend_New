@@ -46,20 +46,37 @@ const BrandDashboard = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?brand_id=${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setBrands(response?.data?.data); // Adjust according to your API response structure
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+    if (influencerView == "false") {
+      axios
+        .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/info`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setBrands(response?.data?.data); // Adjust according to your API response structure
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        });
+    } else {
+      axios
+        .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?brand_id=${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setBrands(response?.data?.data); // Adjust according to your API response structure
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        });
+    }
   }, [influencerView]);
 
   const DASHBOARD_CONTENT = {
@@ -74,6 +91,7 @@ const BrandDashboard = () => {
     Brand_Content: <BrandContent />,
     Closed_Deals: <ClosedDeals id={id} />,
   };
+  console.log(brands);
 
   return (
     <div>
@@ -91,7 +109,7 @@ const BrandDashboard = () => {
             className={styles.complete_your_profile_text}
             style={{ display: "flex" }}
           >
-            Instagram{" "}
+            Hi! {brands?.brand_name}{" "}
             <Lottie
               loop
               animationData={Handwave}
@@ -106,14 +124,16 @@ const BrandDashboard = () => {
             />
           </div>
           <div className={styles.contact_info}>
-            Software Engineer,Akamai Technologies
+            <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+              Category: {brands?.category}
+            </span>
           </div>
         </div>
         <div style={{ flex: 5 }}>
           <div class="flex gap-3">
             <div style={{ flex: 2 }}>
               <MetricCards
-                value={216}
+                value={brands?.followers}
                 valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                 title="Followers"
                 icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
@@ -141,9 +161,13 @@ const BrandDashboard = () => {
             </div>
             <div style={{ flex: 2 }}>
               <MetricCards
-                value={"87"}
+                value={
+                  influencerView == "false" ? brands?.coins : "Location Rank"
+                }
                 valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
-                title="Location Rank"
+                title={
+                  influencerView == "false" ? "Sarvin Coins" : "Location Rank"
+                }
                 icon={<Image src={Score} width={48} height={0} alt="Icon" />}
                 trend={{
                   slope: -1,

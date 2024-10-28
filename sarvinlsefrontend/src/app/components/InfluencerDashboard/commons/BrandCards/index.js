@@ -23,7 +23,7 @@ export default function BrandCard({
   dealId = 0,
   heading = "Naman Agarwal",
   subheading = "No Description Available",
-  img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
+  img = "https://images.ctfassets.net/trvmqu12jq2l/1v5PXxoGdoHdO1LOyk6ClR/81f9ff431d0bc22c2b15ef2245ab0750/1x1_DD-SB-KV-FINAL-color-6_012624.jpg",
   tags = 0,
   cardType = "Deals",
   deal_count = 0,
