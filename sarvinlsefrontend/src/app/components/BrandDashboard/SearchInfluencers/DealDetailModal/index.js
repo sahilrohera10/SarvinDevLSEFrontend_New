@@ -14,7 +14,7 @@ const BrandDetail = ({
   name = "Naman Agarwal",
   img = "https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg",
   defaultimg = "https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg",
-  description = "",
+  description = "Not Available",
   content = [],
   dob = "1-1-1990",
   engagement = 0,
@@ -64,7 +64,14 @@ const BrandDetail = ({
                 </div>
               ))
             ) : (
-              <div>Not Defined</div>
+              <div>
+                {" "}
+                <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
+                  <div class="text-xs font-normal leading-none max-w-full flex-initial">
+                    Any Category
+                  </div>
+                </div>
+              </div>
             )}
 
             {/* <div>
@@ -195,7 +202,7 @@ const BrandDetail = ({
       <div className="flex gap-2 text-gray-400 text-md mr-2">
         <button
           type="submit"
-          class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={() => setOpenModal(!openModal)}
         >
           Close

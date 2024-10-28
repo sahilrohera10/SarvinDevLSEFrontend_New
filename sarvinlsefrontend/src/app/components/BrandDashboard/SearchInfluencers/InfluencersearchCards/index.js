@@ -6,7 +6,7 @@ import Image from "next/image";
 import CreaterCard from "../CreaterCard";
 import Podium from "../../../commons/icons/actor.png";
 import ViewSwitcher from "../../../commons/GridListToggle";
-import BrandListCard from "../../commons/BrandListCards";
+import BrandListCard from "../BrandListCards";
 
 const BrandsDealCards = ({ text = null, children }) => {
   const [isListView, setIsListView] = useState(false);
@@ -77,10 +77,19 @@ const BrandsDealCards = ({ text = null, children }) => {
             isListView ? (
               <BrandListCard
                 key={influencer.user_id}
-                heading={influencer.full_name || influencer.user_name}
-                subheading={influencer.bio_description || "Influencer"}
+                name={influencer.full_name || influencer.user_name}
                 img={influencer.profile_photo}
-                cardType="Deals"
+                description={influencer.bio_description}
+                content={influencer.content_links}
+                dob={influencer.date_of_birth}
+                engagement={influencer.engagement_matric}
+                gender={influencer.gender}
+                location={influencer.location}
+                phone={influencer.phone}
+                category={influencer.preferred_category}
+                qualityScore={influencer.quality_score}
+                socialmedia={influencer.social_media_handles}
+                email={influencer.user_email}
               />
             ) : (
               <CreaterCard

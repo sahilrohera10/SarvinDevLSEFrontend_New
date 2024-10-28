@@ -18,6 +18,38 @@ const Tags = {
   2: SecondPlace,
   3: ThirdPlace,
 };
+function truncate(input, limit = 4) {
+  if (typeof input === "string") {
+    // Truncate string and add ellipsis if longer than limit
+    return input.length > limit ? input.substring(0, limit) + "..." : input;
+  }
+
+  if (Array.isArray(input)) {
+    // Truncate array and add ellipsis to signify truncation
+    return input.length > limit ? [...input.slice(0, limit), "..."] : input;
+  }
+  if (typeof input === "number") {
+    // Convert number to string, truncate if it exceeds the digit limit
+    const decimalPlaces = Math.min(limit, 15); // Limit precision to 15 decimal places for safety
+    return parseFloat(input.toFixed(decimalPlaces));
+  }
+
+  if (typeof input === "object" && input !== null) {
+    // For objects, keep the first 'limit' entries as [key, value] pairs
+    const entries = Object.entries(input);
+    if (entries.length > limit) {
+      const truncatedEntries = entries
+        .slice(0, limit)
+        .map(([key, value]) => [key, value]);
+      return Object.fromEntries([...truncatedEntries, ["...", "..."]]);
+    }
+    return input;
+  }
+
+  // If input type is unsupported (e.g., number, boolean), return it as-is
+  return input;
+}
+
 export default function CreaterCard({
   name = "Naman Agarwal",
   img = "https://t4.ftcdn.net/jpg/02/61/52/95/360_F_261529596_YZWJaMnYFSCM0FSCrxs71o6RrZ9MpP4D.jpg",
@@ -35,30 +67,32 @@ export default function CreaterCard({
   email = "",
 }) {
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <div className="max-w-sm bg-black relative group border shadow-lg rounded-lg mb-10">
       <a
         href="#"
         className="relative block  group-hover:opacity-70 transition-opacity duration-300"
       >
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-72 h-48">
+          {" "}
+          {/* Fixed width and height */}
           {tags > 0 && tags < 4 && (
-            <div
-              style={{
-                position: "absolute",
-                display: "flex",
-                flexDirection: "row-reverse",
-                width: "100%",
-              }}
-            >
+            <div className="absolute flex flex-row-reverse w-full">
               {" "}
+              {/* Position the badge */}
               <Image alt="Badge" src={Tags[tags]} width={36} height={36} />
             </div>
           )}
-          <div>
-            <Image alt="alt text." src={img} width={300} height={200} />
+          <div className="w-full h-full">
+            <Image
+              alt="alt text."
+              src={img}
+              layout="fill" // Makes the image cover the container
+              objectFit="cover" // Ensures the image fills the container without distortion
+              className="rounded-md" // Optional: adds rounded corners
+            />
           </div>
-
           <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
         </div>
 
@@ -82,10 +116,16 @@ export default function CreaterCard({
       <div className="p-5 bg-white">
         <div className="flex justify-between text-black text-xl font-semibold">
           <div>{name} </div>
-          {category.length > 0 && (
+          {category.length > 0 ? (
             <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
               <div class="text-xs font-normal leading-none max-w-full flex-initial">
                 {category[0]}
+              </div>
+            </div>
+          ) : (
+            <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
+              <div class="text-xs font-normal leading-none max-w-full flex-initial">
+                {"Any Category"}
               </div>
             </div>
           )}
@@ -115,7 +155,7 @@ export default function CreaterCard({
           </div>
           <div class="flex justify-center items-center font-medium my-1 py-1 px-2  rounded-full text-green-700 bg-green-100 border border-green-300 ">
             <div class="text-xs font-normal leading-none max-w-full flex-initial">
-              Quality Score : {qualityScore}
+              Quality Score : {truncate(qualityScore)}
             </div>
           </div>
         </div>
