@@ -44,8 +44,14 @@ const SignUpBrand = () => {
       console.log("Registration successful:", response.data);
       return { flag: true, response: response.data };
     } catch (error) {
-      console.error("Registration failed:", error.response ? error.response.data : error.message);
-      return { flag: false, response: error.response ? error.response.data : error.message };
+      console.error(
+        "Registration failed:",
+        error.response ? error.response.data : error.message
+      );
+      return {
+        flag: false,
+        response: error.response ? error.response.data : error.message,
+      };
     }
   };
   return (
@@ -58,61 +64,62 @@ const SignUpBrand = () => {
           background: `url(
           "https://thesulfurgroup.com/wp-content/uploads/2017/12/collage-std.png"
         )`,
+
           backgroundColor: "#FFF",
           opacity: 0.1,
           position: "absolute",
-          zIndex: "-1",
         }}
       ></div>
-      <a href="/" className="fixed">
-        <span
-          style={{
-            boxSizing: "border-box",
-            display: "inline-block",
-            overflow: "hidden",
-            width: "initial",
-            height: "initial",
-            background: "none",
-            opacity: 1,
-            border: 0,
-            margin: 0,
-            padding: 0,
-            position: "relative",
-            maxWidth: "100%",
-          }}
-        >
+      <div style={{ position: "relative", opacity: 1, overflow: "hidden" }}>
+        <a href="/">
           <span
             style={{
               boxSizing: "border-box",
-              display: "block",
+              display: "inline-block",
               overflow: "hidden",
               width: "initial",
               height: "initial",
-              background: "transparent",
+              background: "none",
               opacity: 1,
               border: 0,
-              margin: "34px 34px 2px 34px",
+              margin: 0,
               padding: 0,
               position: "relative",
               maxWidth: "100%",
             }}
           >
-            <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-              <div
-                style={{
-                  color: "#E65C55",
+            <span
+              style={{
+                boxSizing: "border-box",
+                display: "block",
+                overflow: "hidden",
+                width: "initial",
+                height: "initial",
+                background: "transparent",
+                opacity: 1,
+                border: 0,
+                margin: "34px 34px 2px 34px",
+                padding: 0,
+                position: "relative",
+                maxWidth: "100%",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                <div
+                  style={{
+                    color: "#E65C55",
 
-                  fontSize: 30,
-                }}
-              >
-                SARVIN
+                    fontSize: 30,
+                  }}
+                >
+                  SARVIN
+                </div>
+                <i style={{ fontSize: 14 }}>For Businesses/Brands</i>
               </div>
-              <i style={{ fontSize: 14 }}>For Businesses/Brands</i>
-            </div>
+            </span>
           </span>
-        </span>
-      </a>
-      <div className="h-screen w-full">
+        </a>
+
         <div className="h-screen w-full flex justify-center items-center">
           <div className="h-full w-full md:h-[70vh] md:w-[50vw] lg:h-[70vh] lg:w-[40vw] xl:w-[32vw]">
             {!goToNext && (

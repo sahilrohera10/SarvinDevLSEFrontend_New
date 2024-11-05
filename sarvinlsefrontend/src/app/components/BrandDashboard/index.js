@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import NavBar from "./Navbar";
+import InfluencerNavbar from "../InfluencerDashboard/Navbar";
 import axios from "axios";
 import Footer from "../commons/Footer";
 
@@ -95,7 +96,7 @@ const BrandDashboard = () => {
 
   return (
     <div>
-      <NavBar id={id} />
+      {influencerView == "true" ? <InfluencerNavbar /> : <NavBar id={id} />}
       <div className={styles.profile_container}>
         <div style={{ flex: 0.5, marginLeft: 10 }}>
           <img

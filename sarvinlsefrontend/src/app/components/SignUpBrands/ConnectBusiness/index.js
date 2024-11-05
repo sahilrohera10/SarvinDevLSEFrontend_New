@@ -4,7 +4,15 @@ import BrandLocationModal from "../BrandLocationModal/index";
 import Toast from "../../commons/toast/index";
 import { useRouter } from "next/navigation";
 
-const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, setLong, signUp }) => {
+const ConnectBusiness = ({
+  setBrandName,
+  setPan,
+  setGSTIN,
+  setCategory,
+  setLat,
+  setLong,
+  signUp,
+}) => {
   const router = useRouter();
   const [verifyBusiness, setVerifyBusiness] = useState(false);
   const [verifyBusinessError, setVerifyBusinessError] = useState(false);
@@ -13,7 +21,9 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
   const [openModal, setOpenModal] = useState(false);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [successToastMessage, setSuccessToastMessage] = useState("");
-  const [errorText, setErrorText] = useState("You encountered some error while registering the brand. Try Again!.");
+  const [errorText, setErrorText] = useState(
+    "You encountered some error while registering the brand. Try Again!."
+  );
 
   const handleContinue = (e) => {
     e.preventDefault();
@@ -37,14 +47,19 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
     <>
       <div className="h-full w-full px-8 sm:px-0 flex flex-col items-center justify-center space-y-6">
         <h1 className="text-[32px] font-[500] text-center">
-          {verifyBusiness ? "Verify your business account" : "Connect your business account"}
+          {verifyBusiness
+            ? "Verify your business account"
+            : "Connect your business account"}
         </h1>
         <div className="w-full max-w-[400px] space-y-14">
           <div className="w-full">
             <p className="w-full text-end text-[#E86C2F] leading-3 pr-4 tracking-tight text-sm font-medium">
               {progressText}
             </p>
-            <div className="w-full bg-[#cacaca] rounded-full dark:bg-[#cacaca]" style={{ marginTop: 10 }}>
+            <div
+              className="w-full bg-[#cacaca] rounded-full dark:bg-[#cacaca]"
+              style={{ marginTop: 10 }}
+            >
               <div
                 className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
                 style={{ width: progressWidth, height: "15px" }}
@@ -57,7 +72,10 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
             <form className="space-y-20" onSubmit={handleContinue}>
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="brandName" className="block text-sm font-semibold text-gray-700">
+                  <label
+                    htmlFor="brandName"
+                    className="block text-sm font-semibold text-gray-700"
+                  >
                     Enter your brand’s name
                   </label>
                   <input
@@ -72,7 +90,10 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
                   />
                 </div>
                 <div>
-                  <label htmlFor="panNumber" className="block text-sm font-semibold text-gray-700">
+                  <label
+                    htmlFor="panNumber"
+                    className="block text-sm font-semibold text-gray-700"
+                  >
                     Enter your PAN account number
                   </label>
                   <input
@@ -87,7 +108,10 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
                   />
                 </div>
                 <div>
-                  <label htmlFor="gstNumber" className="block text-sm font-semibold text-gray-700">
+                  <label
+                    htmlFor="gstNumber"
+                    className="block text-sm font-semibold text-gray-700"
+                  >
                     Enter your GSTIN number
                   </label>
                   <input
@@ -98,7 +122,6 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
                     placeholder="Enter your company’s GSTIN number"
                     autoComplete="off"
                     onChange={(e) => setGSTIN(e.target.value)}
-                    required
                   />
                 </div>
               </div>
@@ -138,8 +161,9 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
                 </div>
                 <div>
                   <p className="text-center tracking-tighter">
-                    Your details are being verified and should be confirmed within 2-3 business days. Once verified,
-                    you’ll gain access to our exclusive brand features.
+                    Your details are being verified and should be confirmed
+                    within 2-3 business days. Once verified, you’ll gain access
+                    to our exclusive brand features.
                   </p>
                 </div>
               </div>
@@ -204,7 +228,11 @@ const ConnectBusiness = ({ setBrandName, setPan, setGSTIN, setCategory, setLat, 
           />
           {showSuccessToast && (
             <div className="fixed bottom-10 right-10">
-              <Toast text={successToastMessage} type={1} setShowToast={setShowSuccessToast} />
+              <Toast
+                text={successToastMessage}
+                type={1}
+                setShowToast={setShowSuccessToast}
+              />
             </div>
           )}
         </div>

@@ -35,6 +35,7 @@ const BrandDetail = ({
         // Set loading to false in case of error
       });
   }, [id]);
+  console.log(influencerView, "influencerviwq");
 
   return (
     <>
@@ -180,7 +181,7 @@ const BrandDetail = ({
               </span>
             </div>
           </div>
-          {influencerView ? (
+          {influencerView == "true" ? (
             <div className="flex items-center space-x-3 mt-4 align-middle justify-end">
               <div className="rounded-full p-3 hover:bg-green-600 transition-all duration-300">
                 <FaFacebookF className="text-gray-300 text-xl opacity-80 group-hover:opacity-100" />

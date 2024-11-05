@@ -61,14 +61,11 @@ const InfluencerDashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_user_details`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_user_details`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setBranddeals(response.data);
 
@@ -80,7 +77,6 @@ const InfluencerDashboard = () => {
         // Set loading to false in case of error
       });
   }, [id]);
-  console.log(branddeals, "das");
   return (
     <div>
       <NavBar isTabletOrMobile={isTabletOrMobile} />
@@ -135,7 +131,7 @@ const InfluencerDashboard = () => {
               </div>
               <div style={{ flex: 2 }}>
                 <MetricCards
-                  value={"27.5"}
+                  value={branddeals?.quality_score}
                   valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                   title="Quality Score"
                   icon={

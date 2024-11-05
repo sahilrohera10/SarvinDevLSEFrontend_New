@@ -1,19 +1,32 @@
-const CreateAccount = ({goToNext, setGoToNext, setEmail, setPassword, setUsername }) => {
+const CreateAccount = ({
+  goToNext,
+  setGoToNext,
+  setEmail,
+  setPassword,
+  setUsername,
+}) => {
   const handleSubmit = () => {
-    setGoToNext(!goToNext)
+    setGoToNext(!goToNext);
   };
   return (
     <>
       <div className="h-full w-full px-8 sm:px-0 flex flex-col items-center justify-center ">
         <div>
-          <h1 className="text-[32px] font-[500] text-center">Enter your details</h1>
-          <h2 className="text-[20px] font-[300] text-center mt-3">More Discoverability, More Opportunities</h2>
+          <h1 className="text-[32px] font-[500] text-center">
+            Enter your details
+          </h1>
+          <h2 className="text-[20px] font-[300] text-center mt-3">
+            More Discoverability, More Opportunities
+          </h2>
         </div>
         <div className="h-full w-full max-w-[400px] mt-16">
           <form className="space-y-24" onSubmit={handleSubmit}>
             <div className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-gray-700"
+                >
                   Email
                 </label>
                 <input
@@ -26,7 +39,10 @@ const CreateAccount = ({goToNext, setGoToNext, setEmail, setPassword, setUsernam
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-semibold text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-gray-700"
+                >
                   Password
                 </label>
                 <input
@@ -39,7 +55,10 @@ const CreateAccount = ({goToNext, setGoToNext, setEmail, setPassword, setUsernam
                 />
               </div>
               <div>
-                <label htmlFor="fullname" className="block text-sm font-semibold text-gray-700">
+                <label
+                  htmlFor="fullname"
+                  className="block text-sm font-semibold text-gray-700"
+                >
                   Full Name
                 </label>
                 <input
@@ -61,7 +80,9 @@ const CreateAccount = ({goToNext, setGoToNext, setEmail, setPassword, setUsernam
               </button>
             </div>
           </form>
-          <div className="mt-6 text-gray-300 flex justify-center">---------------- or ----------------</div>
+          <div className="mt-6 text-gray-300 flex justify-center">
+            ---------------- or ----------------
+          </div>
           <div className="px-4 mt-6">
             <button
               type="button"
