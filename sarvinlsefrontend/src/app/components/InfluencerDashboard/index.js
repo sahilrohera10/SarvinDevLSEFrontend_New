@@ -61,14 +61,11 @@ const InfluencerDashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_user_details`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_user_details`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setBranddeals(response.data);
 
@@ -94,10 +91,7 @@ const InfluencerDashboard = () => {
             ></img>
           </div>
           <div style={{ flex: 2 }}>
-            <div
-              className={styles.complete_your_profile_text}
-              style={{ display: "flex" }}
-            >
+            <div className={styles.complete_your_profile_text} style={{ display: "flex" }}>
               Hi! {branddeals?.full_name}{" "}
               <Lottie
                 loop
@@ -112,9 +106,7 @@ const InfluencerDashboard = () => {
                 }}
               />
             </div>
-            <div className={styles.contact_info}>
-              Username: {branddeals?.user_name}
-            </div>
+            <div className={styles.contact_info}>Username: {branddeals?.user_name}</div>
           </div>
           <div style={{ flex: 5 }}>
             <div class="flex gap-3">
@@ -123,9 +115,7 @@ const InfluencerDashboard = () => {
                   value={216}
                   valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                   title="Followers"
-                  icon={
-                    <Image src={Follower} width={48} height={0} alt="Icon" />
-                  }
+                  icon={<Image src={Follower} width={48} height={0} alt="Icon" />}
                   trend={{
                     slope: -1,
                     description: "Compared to last week",
@@ -138,9 +128,7 @@ const InfluencerDashboard = () => {
                   value={"27.5"}
                   valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                   title="Quality Score"
-                  icon={
-                    <Image src={Engagement} width={48} height={0} alt="Icon" />
-                  }
+                  icon={<Image src={Engagement} width={48} height={0} alt="Icon" />}
                   trend={{
                     slope: 1,
                     description: "Compared to last week",
@@ -154,14 +142,7 @@ const InfluencerDashboard = () => {
                     valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                     value={branddeals?.engagement_matric}
                     title="Engagement Rate"
-                    icon={
-                      <Image
-                        src={Engagement}
-                        width={48}
-                        height={0}
-                        alt="Icon"
-                      />
-                    }
+                    icon={<Image src={Engagement} width={48} height={0} alt="Icon" />}
                     trend={{
                       slope: -1,
                       description: "Compared to last week",
@@ -173,9 +154,7 @@ const InfluencerDashboard = () => {
                     value={branddeals?.coins}
                     valueStyle="font-light mb-2 font-sans text-xl text-gray-700 dark:text-gray-400"
                     title="Sarvin Credits"
-                    icon={
-                      <Image src={Score} width={48} height={0} alt="Icon" />
-                    }
+                    icon={<Image src={Score} width={48} height={0} alt="Icon" />}
                     trend={{
                       slope: -1,
                       description: "Compared to last week",
@@ -221,15 +200,10 @@ const InfluencerDashboard = () => {
                 alignItems: "center",
               }}
             >
-              <div
-                className={styles.complete_your_profile_text}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
+              <div className={styles.complete_your_profile_text} style={{ display: "flex", justifyContent: "center" }}>
                 Hi! Naman Agarwal{" "}
               </div>
-              <div className={styles.contact_info}>
-                Software Engineer,Akamai Technologies
-              </div>
+              <div className={styles.contact_info}>Software Engineer,Akamai Technologies</div>
             </div>
             <div class="flex gap-2 justify-center mx-2">
               <div style={{ flex: 2 }}>
@@ -237,9 +211,7 @@ const InfluencerDashboard = () => {
                   value={216}
                   valueStyle="font-light mb-2 font-sans text-md text-gray-700 dark:text-gray-400"
                   title="Followers"
-                  icon={
-                    <Image src={Follower} width={30} height={0} alt="Icon" />
-                  }
+                  icon={<Image src={Follower} width={30} height={0} alt="Icon" />}
                   isTabletOrMobile={isTabletOrMobile}
                 />
               </div>
@@ -248,9 +220,7 @@ const InfluencerDashboard = () => {
                   value={"27.5"}
                   valueStyle="font-light mb-2 font-sans text-md text-gray-700 dark:text-gray-400"
                   title="Quality Score"
-                  icon={
-                    <Image src={Engagement} width={30} height={0} alt="Icon" />
-                  }
+                  icon={<Image src={Engagement} width={30} height={0} alt="Icon" />}
                   isTabletOrMobile={isTabletOrMobile}
                 />
               </div>

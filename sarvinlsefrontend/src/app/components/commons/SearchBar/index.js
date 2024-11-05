@@ -1,15 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const SearchBar = ({
   text = "Search for products, services and creators nearby",
   searchValue = "",
   setSearchValue = () => {},
 }) => {
-  // Handle input change and update the state
+  const [inputValue, setInputValue] = useState(searchValue);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchValue(inputValue);  
+    }, 500);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [inputValue, setSearchValue]);
+
+  // Handle input change and update the local state
   const handleInputChange = (e) => {
-    setSearchValue(e.target.value);
+    setInputValue(e.target.value);
   };
   return (
     <div>
@@ -34,7 +45,7 @@ const SearchBar = ({
             id="default-search"
             class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#F3F9FB] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#F3F9FB] dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:gray-500 dark:focus:gray-500"
             placeholder={text}
-            value={searchValue}
+            value={inputValue}
             onChange={handleInputChange}
             required
           />
