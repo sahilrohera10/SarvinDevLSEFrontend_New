@@ -18,14 +18,11 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand?lat=28.744612404406674&lon=77.19278941328129&radius=5`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/user/get_following_brand_list`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setBrands(response?.data?.data); // Adjust according to your API response structure
         setLoading(false);
@@ -34,7 +31,8 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, []);
+  }, [brands.length]);
+
   if (Array.isArray(brands) && brands.length === 0) {
     return (
       <div class="flex w-full justify-center m-6">
@@ -58,9 +56,7 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
                 />
               </svg>
             </div>
-            <div class="flex justify-center font-semibold">
-              Loading...Exciting Deals Are Ready to Come
-            </div>
+            <div class="flex justify-center font-semibold">Loading...Exciting Deals Are Ready to Come</div>
           </div>
         ) : (
           <div class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -125,10 +121,7 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
         </div>
         {!isTabletOrMobile && (
           <div>
-            <ViewSwitcher
-              isListView={isListView}
-              setIsListView={setIsListView}
-            />
+            <ViewSwitcher isListView={isListView} setIsListView={setIsListView} />
           </div>
         )}
       </div>
@@ -167,9 +160,7 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
               />
             </svg>
           </div>
-          <div class="flex justify-center font-semibold">
-            Loading...Exciting Deals Are Ready to Come
-          </div>
+          <div class="flex justify-center font-semibold">Loading...Exciting Deals Are Ready to Come</div>
         </div>
       ) : isListView ? (
         <div
@@ -199,14 +190,19 @@ const FollowingBrandCards = ({ text = null, isTabletOrMobile = false }) => {
             flexWrap: "wrap",
           }}
         >
-          {brands.map((brand) => (
+          {brands.map((brand, brandIndex) => (
             <BrandCard
-              brandId={brand._id} // Ensure the key is unique, adjust according to your data
-              heading={brand.brand_name}
+              brandId={brand.brandDetails.brand_id} // Ensure the key is unique, adjust according to your data
+              heading={brand.brandDetails.brand_name}
               subheading={brand.description}
-              img={brand.image_link} // Ensure this field matches your API response
+              img={brand.brandDetails.image_link} // Ensure this field matches your API response
               cardType="Brands"
               deal_count={brand.deal_count}
+              is_followed={true}
+              onUnfollow={() => {
+                // setBrands(brands.filter((_, i) => brandIndex !== i));
+                setBrands(brands.toSpliced(brandIndex, 1));
+              }}
             />
           ))}
         </div>
