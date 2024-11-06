@@ -1,6 +1,10 @@
 import React from "react";
 
-const StatusMessage = ({ isSuccess, message, openAddDealsModal, setOpenAddDealsModal }) => {
+const StatusMessage = ({ isSuccess, message, openAddDealsModal, setOpenAddDealsModal, handleContinue }) => {
+  const onClickContinue = () => {
+    setOpenAddDealsModal(!openAddDealsModal);
+    handleContinue();
+  };
   return (
     <>
       <div className="flex flex-col items-center justify-center h-full w-full text-center bg-gray-100 p-6 rounded-lg shadow-lg space-y-7">
@@ -56,7 +60,7 @@ const StatusMessage = ({ isSuccess, message, openAddDealsModal, setOpenAddDealsM
         </div>
 
         <button
-          onClick={() => setOpenAddDealsModal(!openAddDealsModal)}
+          onClick={() => onClickContinue()}
           type="button"
           className="flex justify-center rounded-md bg-[#F27430] px-7 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
         >

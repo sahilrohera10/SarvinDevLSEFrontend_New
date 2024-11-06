@@ -9,6 +9,7 @@ import TargetAudience from "./TargetAudience/index";
 import TargetPlatform from "./TargetPlatform/index";
 import TaskDescription from "./TaskDescription/index";
 import StatusMessage from "./StatusMessage";
+import jwt from "jsonwebtoken";
 
 export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -40,9 +41,37 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
   const [message, setMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState(false);
 
+  const setInitialState = () => {
+    setLoginStatus({ loading: false, error: "" });
+    setDealTitle("");
+    setBiddingTo("");
+    setBiddingFrom("");
+    setFixedPriceValue("");
+    setCampaignDescription("");
+    setAudienceTargetAge("");
+    setAudienceLocation("");
+    setAudienceReach("");
+    setAudienceGender("");
+    setInfluencerSize("");
+    setInfluencerCategory("");
+    setInfluencerAge("");
+    setInfluencerLocation("");
+    setTaskDescription("");
+    setDeliveryLocation("");
+    setDeliveryType("");
+    setCategory([]);
+    setCurrentStep(0);
+    setProgressBarWidth(steps[0].width);
+    setIsSuccess(false);
+    setMessage("");
+    setStatusMessage(false);
+  };
+
   const handleSubmit = async (e) => {
+    const token = localStorage.getItem("token");
+    const decodedToken = jwt.decode(token);
     const addDealContent = {
-      brand_id: id,
+      brand_id: decodedToken.userId,
       product_name: dealTitle,
       product_description: "burger is good for health you should eat burger",
       product_photo:
@@ -61,60 +90,38 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
       influencer_age: influencerAge,
       influencer_gender: audienceGender,
       sponsored_product: true,
-      fixed_price: fixedPriceValue,
+      // fixed_price: fixedPriceValue,
       // isBidAvailable: false,
-      // isBidAvailable: isBidAvailable,
-      // ...(fixedPriceValue === ""
-      //   ? { bidding_price_from: biddingFrom, bidding_price_to: biddingTo }
-      //   : {  }),
+      isBidAvailable: isBidAvailable,
+      ...(fixedPriceValue === ""
+        ? { bidding_price_from: biddingFrom, bidding_price_to: biddingTo }
+        : { fixed_price: fixedPriceValue }),
     };
 
     setProgressBarWidth("100%");
     setLoginStatus({ loading: true, error: "" });
 
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal`,
-        addDealContent,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal`, addDealContent, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-      console.log(response.data.data.errors);
+      console.log(response);
+      console.log(response.data);
 
-      if (response.data.data.errors) {
+      if (response.data.status != "succuss" ) {
         throw new Error("Upload failed");
       }
 
-      console.log(response.data.data);
+      console.log(response.data);
 
-      setLoginStatus({ loading: false, error: "" });
-      setDealTitle("");
-      setBiddingTo("");
-      setBiddingFrom("");
-      setFixedPriceValue("");
-      setCampaignDescription("");
-      setAudienceTargetAge("");
-      setAudienceLocation("");
-      setAudienceReach("");
-      setAudienceGender("");
-      setInfluencerSize("");
-      setInfluencerCategory("");
-      setInfluencerAge("");
-      setInfluencerLocation("");
-      setTaskDescription("");
-      setDeliveryLocation("");
-      setDeliveryType("");
-      setCategory([]);
-      setCurrentStep(0);
-      setProgressBarWidth(steps[0].width);
-      setIsSuccess(true);
-      setMessage("");
       setStatusMessage(true);
+      setIsSuccess(true);
     } catch (error) {
+      console.log(error);
       setIsSuccess(false);
       setMessage(error.message);
       setStatusMessage(true);
@@ -142,6 +149,10 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
       setCurrentStep(currentStep - 1);
       setProgressBarWidth(steps[currentStep - 1].width);
     }
+  };
+
+  const handleContinue = () => {
+    setInitialState();
   };
 
   const steps = [
@@ -297,10 +308,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
         </button>
       </div>
       {!statusMessage && (
-        <div
-          className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700"
-          style={{ marginTop: 10 }}
-        >
+        <div className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700" style={{ marginTop: 10 }}>
           <div
             className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
             style={{ width: progressBarWidth, height: "15px" }}
@@ -314,6 +322,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
           message={message}
           openAddDealsModal={openAddDealsModal}
           setOpenAddDealsModal={setOpenAddDealsModal}
+          handleContinue={handleContinue}
         />
       )}
     </div>
