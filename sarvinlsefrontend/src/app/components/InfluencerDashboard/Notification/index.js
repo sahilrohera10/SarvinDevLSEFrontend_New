@@ -85,7 +85,9 @@ const Notification = ({ isTabletOrMobile = false }) => {
     return (
       <div className="absolute top-8 right-0 w-96 bg-[#f8f9fe] opacity-100 border border-gray-300 rounded-md shadow-lg p-4 z-10">
         <h3 className="font-bold text-lg">Notifications</h3>
-        <div>Loading...</div>
+        <div class="px-3 py-1 text-xs font-medium leading-none text-center text-blue-800 bg-red-200 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">
+          loading...
+        </div>
       </div>
     );
   }
