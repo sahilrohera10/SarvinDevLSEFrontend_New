@@ -55,6 +55,31 @@ const Notification = ({ isTabletOrMobile = false }) => {
       });
   };
 
+  const onDeleteAllNotification = () => {
+    const token = localStorage.getItem("token");
+
+    // Use DELETE method and send notification_id in the request body
+    axios
+      .delete(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/notification/delete_all_notifications`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json", // Make sure content type is set
+          },
+        }
+      )
+      .then((response) => {
+        setAllNotification([]);
+        // Update the state with new data
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error deleting notification:", error);
+        setLoading(false);
+      });
+  };
+
   // Render a loading state while fetching
   if (loading) {
     return (
@@ -67,7 +92,17 @@ const Notification = ({ isTabletOrMobile = false }) => {
 
   return (
     <div className="absolute top-8 right-0  w-96 bg-[#f8f9fe] opacity-100 border border-gray-300 rounded-md shadow-lg p-4 z-10">
-      <h3 className="font-bold text-lg">Notifications</h3>
+      <div className="flex justify-between ">
+        <div class="font-bold text-lg">Notifications</div>
+        <div>
+          <button
+            class="border font-medium text-xs rounded p-1 hover:bg-slate-400 hover:text-white"
+            onClick={() => onDeleteAllNotification()}
+          >
+            Delete All
+          </button>
+        </div>
+      </div>
       <ul class="h-64 overflow-auto">
         {allNotification.length === 0 ? (
           <li className="p-2">No notifications available</li>
