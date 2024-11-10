@@ -35,7 +35,6 @@ const BrandDetail = ({
         // Set loading to false in case of error
       });
   }, [id]);
-  console.log(influencerView, "influencerviwq");
 
   const deleteDeal = () => {
     setLoading(true);
@@ -44,13 +43,16 @@ const BrandDetail = ({
       console.error("No token found in local storage");
       return;
     }
-    console.log(id)
+    console.log(id);
     axios
-      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/delete/deal/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`, 
-        },
-      })
+      .delete(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/delete/deal/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         alert("Deal deleted successfully");
         window.location.reload();
@@ -83,12 +85,15 @@ const BrandDetail = ({
           <div class="flex gap-4">
             <div>
               <div class="mt-4 text-gray-400 text-left">Category</div>
-              <div className="font-600 text-left">{branddealsdetails.category || "Food"}</div>
+              <div className="font-600 text-left">
+                {branddealsdetails.category || "Food"}
+              </div>
             </div>
             <div>
               <div class="mt-4 text-gray-400 text-left">Platforms</div>
               <div className="font-600 text-left">
-                {branddealsdetails.instagram_show && "Instagram"},{branddealsdetails.youtube_show && "Youtube"},
+                {branddealsdetails.instagram_show && "Instagram"},
+                {branddealsdetails.youtube_show && "Youtube"},
                 {branddealsdetails.facebook_show && "Facebook"}
                 {branddealsdetails.twitter_show && "Twitter/X"}
                 {branddealsdetails.twitch_show && "Twitch"}
@@ -101,7 +106,8 @@ const BrandDetail = ({
             <div class="text-left">
               <div>
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Campaign Type - {branddealsdetails.promotion_type || "ShoutOut"}
+                  Campaign Type -{" "}
+                  {branddealsdetails.promotion_type || "ShoutOut"}
                 </span>
               </div>
               <div class="mt-4 w-70">
@@ -120,16 +126,20 @@ const BrandDetail = ({
             <div class="text-left">
               <div CLASS="FLEX GAP-4">
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Audience Location - {branddealsdetails.audience_location || "India"}
+                  Audience Location -{" "}
+                  {branddealsdetails.audience_location || "India"}
                 </span>
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Audience Age - {branddealsdetails.audience_target_age || "10-50"}
+                  Audience Age -{" "}
+                  {branddealsdetails.audience_target_age || "10-50"}
                 </span>
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Audience Language - {branddealsdetails.audience_target_language || "Hindi"}
+                  Audience Language -{" "}
+                  {branddealsdetails.audience_target_language || "Hindi"}
                 </span>
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Target Audience - {branddealsdetails.audience_target_number || "10k"}
+                  Target Audience -{" "}
+                  {branddealsdetails.audience_target_number || "10k"}
                 </span>
               </div>
             </div>
@@ -146,7 +156,9 @@ const BrandDetail = ({
             </div>
           </div>
           <div>
-            <div class="text-left mt-4 text-gray-400">Influencer Requirement</div>
+            <div class="text-left mt-4 text-gray-400">
+              Influencer Requirement
+            </div>
             <div class="text-left">
               <div CLASS="FLEX GAP-4">
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
@@ -159,7 +171,8 @@ const BrandDetail = ({
                   Influencer Age - {branddealsdetails.influencer_age || "10-50"}
                 </span>
                 <span class=" text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-                  Influencer Gender - {branddealsdetails.influencer_gender || "Any"}
+                  Influencer Gender -{" "}
+                  {branddealsdetails.influencer_gender || "Any"}
                 </span>
               </div>
             </div>
@@ -188,7 +201,8 @@ const BrandDetail = ({
                 Fixed Cost Reward- {branddealsdetails.fixed_price || "TBD"}
               </span>
               <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
-                Sales Commission - {branddealsdetails.sales_compensation || "0"}%
+                Sales Commission - {branddealsdetails.sales_compensation || "0"}
+                %
               </span>
               <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
                 Gift Product - {String(branddealsdetails.gift_product)}
@@ -218,10 +232,18 @@ const BrandDetail = ({
               <div class="font-semibold">Applied Influencers</div>
               <div className="  w-full h-[4vh] px-[10px] py-[6px] mx-2  rounded-md flex border-[1px] border-[#E7E7E7] bg-white ">
                 <div className="w-full flex items-center justify-between">
-                  <div className="text-sm w-1/4 text-[#2D4050] font-semibold dark:text-white ">Profile Pic</div>
-                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">Username</div>
-                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">Followers</div>
-                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">Sarvin Score</div>
+                  <div className="text-sm w-1/4 text-[#2D4050] font-semibold dark:text-white ">
+                    Profile Pic
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Username
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Followers
+                  </div>
+                  <div className="text-sm w-1/4 font-semibold text-gray-800  dark:text-gray-800">
+                    Sarvin Score
+                  </div>
                 </div>
               </div>
               <div class=" w-full h-96 mx-2 overflow-auto">

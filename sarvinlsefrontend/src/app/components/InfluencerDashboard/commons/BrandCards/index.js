@@ -327,9 +327,9 @@ export default function BrandCard({
               View Details
             </button>
           </Link>
-          <div className="text-gray-400 text-md mt-2 mr-2 w-full">
+          <div className="text-gray-400 text-md -mt-3 mr-2 w-full">
             <button
-              class="flex w-full justify-center rounded-md bg-gray-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              class="flex w-full justify-center rounded-md bg-gray-500 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={() => (isFollowed ? UnfollowBrand() : FollowBrand())}
             >
               {isFollowed ? (

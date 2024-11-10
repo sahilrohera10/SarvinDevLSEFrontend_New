@@ -311,12 +311,12 @@ const BrandDetail = ({
         });
     }, [id]);
 
-    const handleRespondClick = () => {
+    const handleRespondClick = (deal_id, brand_id, amount) => {
       setLoading(true);
       const responsePayload = {
-        deal_id: "66479d4921dbbda6d02f7e86",
-        brand_id: "657420767e396baaaa094c13",
-        amount: 1000,
+        deal_id: deal_id,
+        brand_id: brand_id,
+        amount: amount,
       };
 
       const token = localStorage.getItem("token");
@@ -509,7 +509,13 @@ const BrandDetail = ({
           <button
             type="submit"
             class="flex w-full justify-center border-2  border-gray-200 rounded-md bg-gray-0  py-1 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-slate-400"
-            onClick={() => handleRespondClick()}
+            onClick={() =>
+              handleRespondClick(
+                branddealsdetails?.deal_id,
+                branddealsdetails?.brand_id,
+                branddealsdetails?.fixed_price
+              )
+            }
             disabled={loading}
           >
             {loading ? "Application is Sending.." : "Respond to Deal"}
