@@ -14,6 +14,8 @@ const BrandsDealCards = ({
   loading = true,
   setLoading = () => {},
   type = 1,
+  searchValue = "",
+  setSearchValue = () => {},
 }) => {
   const [isListView, setIsListView] = useState(false);
   console.log(branddeals, "branddeals");
@@ -110,6 +112,8 @@ const BrandsDealCards = ({
                   fixed_price={brand.fixed_price}
                   type={type}
                   isSaved={brand.isSaved}
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
                 />
               ))}
             </div>

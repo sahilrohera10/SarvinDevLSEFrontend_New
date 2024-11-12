@@ -21,7 +21,7 @@ const BrandsDealCards = ({
     const token = localStorage.getItem("token");
 
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal?limit=200`, {
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal?isBrand=true`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

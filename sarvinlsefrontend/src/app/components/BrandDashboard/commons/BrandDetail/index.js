@@ -20,6 +20,8 @@ const BrandDetail = ({
   setOpenModal = () => {},
 }) => {
   const [branddealsdetails, setBranddealsdetails] = useState({});
+  const [respondedCreators, setRespondedCreators] = useState([]);
+  const [showDetail, setShowDetail] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     axios
@@ -35,6 +37,26 @@ const BrandDetail = ({
         // Set loading to false in case of error
       });
   }, [id]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/response/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setRespondedCreators(response.data?.data);
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+        // Set loading to false in case of error
+      });
+  }, [id]);
+  console.log(respondedCreators);
 
   const deleteDeal = () => {
     setLoading(true);
@@ -247,66 +269,34 @@ const BrandDetail = ({
                 </div>
               </div>
               <div class=" w-full h-96 mx-2 overflow-auto">
-                {/* <Link href="/influencer-dashboard?brandView=True&id=cjndcdjcndjcndc"> */}
-                <ListCard
-                  img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
-                  username="@its_Sanphire"
-                  followers={342}
-                  sarvinscore={432}
-                />
+                {respondedCreators.map((creator) => {
+                  return (
+                    <ListCard
+                      userId={creator?.User_Id}
+                      responseId={creator?.Response_Id}
+                      img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
+                      username={creator?.username}
+                      followers={creator?.follower_count}
+                      sarvinscore={creator?.quality_score}
+                      isViewed={creator?.isViewed}
+                      showDetail={showDetail}
+                      setShowDetail={setShowDetail}
+                    />
+                  );
+                })}
+
                 {/* </Link> */}
-                <ListCard
-                  img="https://img.freepik.com/free-photo/abstract-glowing-flame-drops-electric-illumination-generative-ai_188544-8092.jpg"
-                  username="@namanaga"
-                  followers={3462}
-                  sarvinscore={492}
-                />
-                <ListCard
-                  img="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg"
-                  username="@dcdcfefce"
-                  followers={7463}
-                  sarvinscore={353}
-                />
-                <ListCard
-                  img="https://img.freepik.com/premium-photo/design-word-cloud-innovation-idea-creativity-design-concept_505353-280.jpg"
-                  username="@its_huilikhe"
-                  followers={39353}
-                  sarvinscore={433}
-                />
-                <ListCard
-                  img="https://img.freepik.com/free-photo/cute-little-girl-autumn-park_1157-22376.jpg"
-                  username="@kitskoml"
-                  followers={34422}
-                  sarvinscore={32}
-                />
-                <ListCard
-                  img="https://img.freepik.com/free-photo/cherful-positive-young-colleagues-using-laptop-computer_171337-753.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722988800&semt=sph"
-                  username="@mynk1907"
-                  followers={34002}
-                  sarvinscore={272}
-                />
-                <ListCard
-                  img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
-                  username="@hasranga"
-                  followers={342}
-                  sarvinscore={432}
-                />
-                <ListCard
-                  img="https://cdn.icon-icons.com/icons2/3951/PNG/512/profile_female_icon_251070.png"
-                  username="@shivamdube"
-                  followers={342}
-                  sarvinscore={432}
-                />
               </div>
               <div class="text-black">
-                Total Influencers Applied For This Deal: <b>10</b>
+                Total Influencers Applied For This Deal:{" "}
+                <b class="font-bold">{respondedCreators.length || 0}</b>
               </div>
             </div>
           )}
         </div>
       </div>
       <div className="flex gap-2 text-gray-400 text-md mt-2 mr-2">
-        {influencerView ? (
+        {influencerView == "true" ? (
           <button
             type="submit"
             class="flex w-full justify-center border-2 border-gray-200 b rounded-md bg-gray-0  py-1.5 text-sm font-medium leading-6 text-gray-200 bg-[#F27430] shadow border-1 hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

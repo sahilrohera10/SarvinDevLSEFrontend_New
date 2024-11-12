@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import axios from "axios";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Lottie from "react-lottie-player";
 import ProfilePic from "../../commons/icons/profilepic.json";
@@ -10,12 +10,46 @@ import MetricCard from "../../commons/MetricCard";
 import Ca from "../../commons/icons/ca.png";
 import Man from "../../commons/icons/actor.png";
 import Image from "next/image";
+import { Axios } from "axios";
 
 function ButtonStatement({
   crackedSteps = 0,
   openModal,
   setOpenModal = () => {},
+  responseId = 0,
 }) {
+  const [Url, setUrl] = useState("");
+  const [successMediaUrl, setSuccessMediaUrl] = useState(false);
+  const MediaUrlInsertion = (responseId, url) => {
+    const token = localStorage.getItem("token");
+    axios
+      .patch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/response/media_posted`,
+        { response_id: responseId, media_url: url },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => {
+        setSuccessMediaUrl(true);
+        console.log("URL SUBMITTED");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error("Error response from server:", error.response.data);
+          console.error("Status:", error.response.status);
+        } else if (error.request) {
+          console.error("No response received:", error.request);
+        } else {
+          console.error("Axios request error:", error.message);
+        }
+      })
+      .finally(() => {
+        console.log("finally");
+      });
+  };
   if (crackedSteps == 0) {
     return (
       <>
@@ -76,56 +110,82 @@ function ButtonStatement({
           {" "}
           SARVIN <i style={{ fontSize: 14, color: "gray" }}>Influencers</i>
         </div>
-        <div class="w-full flex justify-center order-dashed rounded-md p-4 border-[1px] border-gray-500">
-          <div class="font-medium text-xl">
-            {" "}
-            <div class="flex justify-center">
-              <Lottie
-                loop
-                animationData={Activity}
-                play
-                style={{ width: "50%", height: "40%" }}
-              />
-            </div>
-            <br />
-            Congratulations!! You got the deal.
-            <br />
-            Just Post the related brand ads on your social media and paste the
-            related URL here...
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 20,
-                marginTop: 20,
-              }}
-            >
-              <input
-                type="search"
-                id="default-search"
-                class="block w-3/5 p-2 ps-4 text-md text-gray-900 border text-center border-gray-300 rounded-lg bg-[#F3F9FB] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#F3F9FB] dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:gray-500 dark:focus:gray-500"
-                placeholder="Paste your social media URL"
-                required
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 20,
-                marginTop: 20,
-              }}
-            >
-              <Button style={{ backgroundColor: "#E65C55" }}>Submit</Button>
-              <Button
-                style={{ backgroundColor: "gray" }}
-                onClick={() => setOpenModal(!openModal)}
+        {!successMediaUrl ? (
+          <div class="w-full flex justify-center order-dashed rounded-md p-4 border-[1px] border-gray-500">
+            <div class="font-medium text-xl">
+              {" "}
+              <div class="flex justify-center">
+                <Lottie
+                  loop
+                  animationData={Activity}
+                  play
+                  style={{ width: "50%", height: "40%" }}
+                />
+              </div>
+              <br />
+              Congratulations!! You got the deal.
+              <br />
+              Just Post the related brand ads on your social media and paste the
+              related URL here...
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 20,
+                  marginTop: 20,
+                }}
               >
-                Close
-              </Button>
+                <input
+                  type="search"
+                  id="default-search"
+                  class="block w-3/5 p-2 ps-4 text-md text-gray-900 border text-center border-gray-300 rounded-lg bg-[#F3F9FB] focus:ring-blue-500 focus:border-blue-500 dark:bg-[#F3F9FB] dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:gray-500 dark:focus:gray-500"
+                  placeholder="Paste your social media URL"
+                  onChange={(e) => {
+                    setUrl(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 20,
+                  marginTop: 20,
+                }}
+              >
+                <Button
+                  onClick={() => MediaUrlInsertion(responseId, Url)}
+                  style={{ backgroundColor: "#E65C55" }}
+                >
+                  Submit
+                </Button>
+                <Button
+                  style={{ backgroundColor: "gray" }}
+                  onClick={() => setOpenModal(!openModal)}
+                >
+                  Close
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div class="flex justify-center">
+            Congratulations! Your Social Media URL is Submitted! Just Wait for
+            the Target to Complete!
+            <br />
+            <Button
+              style={{
+                backgroundColor: "gray",
+                display: "flex",
+                justifyContent: "center",
+              }}
+              onClick={() => setOpenModal(!openModal)}
+            >
+              Close
+            </Button>
+          </div>
+        )}
       </>
     );
   } else if (crackedSteps == 2) {

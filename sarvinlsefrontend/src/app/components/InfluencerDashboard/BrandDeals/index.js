@@ -314,6 +314,7 @@ const FILTERS = [
   },
 ];
 const BrandDeals = () => {
+  const [searchValue, setSearchValue] = useState("");
   const [branddeals, setBranddeals] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -322,6 +323,9 @@ const BrandDeals = () => {
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal?limit=200`, {
         headers: {
           Authorization: `Bearer ${token}`,
+        },
+        params: {
+          search_query: searchValue,
         },
       })
       .then((response) => {
@@ -334,7 +338,7 @@ const BrandDeals = () => {
         setLoading(false);
         // Set loading to false in case of error
       });
-  }, []);
+  }, [searchValue]);
   return (
     <div class="mx-4">
       {" "}
@@ -382,7 +386,11 @@ const BrandDeals = () => {
         <div>
           <div class="flex justify-center">
             <div style={{ width: "35vw", margin: 30 }}>
-              <GlobalSearch placeholder="Search for Brands,Business and Services for Marketing" />
+              <GlobalSearch
+                placeholder="Search for Brands,Business and Services for Marketing"
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
             </div>
 
             <div style={{ width: "10vw", margin: 30 }}>
@@ -403,6 +411,8 @@ const BrandDeals = () => {
         loading={loading}
         setLoading={setLoading}
         type={1}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
     </div>
   );

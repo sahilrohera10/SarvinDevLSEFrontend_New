@@ -35,6 +35,8 @@ export default function BrandCard({
   isSaved = false,
   is_followed = false,
   onUnfollow = () => {},
+  searchValue = "",
+  setSearchValue = () => {},
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [isVisible, setIsVisible] = useState(false);

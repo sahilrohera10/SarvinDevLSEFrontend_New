@@ -116,6 +116,7 @@ const CrackedCards = ({ text = null, children }) => {
               img={deal.brandDetails?.image_link || ""}
               crackedSteps={getCrackedSteps(deal.Status)} // Pass crackedSteps based on deal status
               cardType="Cracked"
+              responseId={deal?.Response_Id}
             />
           ))
         )}

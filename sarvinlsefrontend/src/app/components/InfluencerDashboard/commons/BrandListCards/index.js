@@ -37,6 +37,7 @@ export default function BrandListCard({
   deal_count = 0,
   category = "Food",
   cost_avg = 0,
+  responseId = 0,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [openButtonStatementModal, setOpenButtonStatementModal] =
@@ -462,6 +463,7 @@ export default function BrandListCard({
             crackedSteps={crackedSteps}
             openModal={openButtonStatementModal}
             setOpenModal={setOpenButtonStatementModal}
+            responseId={responseId}
           />
         </Modal>
       </div>
