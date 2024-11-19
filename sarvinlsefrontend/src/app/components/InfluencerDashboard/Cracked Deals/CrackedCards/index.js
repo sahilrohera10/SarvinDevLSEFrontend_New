@@ -41,7 +41,7 @@ const CrackedCards = ({ text = null, children }) => {
         return 1;
       case "Posted":
         return 2;
-      case "Target_Completed":
+      case "Reward":
         return 3;
       default:
         return 0; // Default step

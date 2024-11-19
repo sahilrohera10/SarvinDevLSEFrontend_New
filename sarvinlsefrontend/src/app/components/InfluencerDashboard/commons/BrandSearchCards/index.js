@@ -35,17 +35,16 @@ const BrandsDealCards = ({
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          params: {
-            search_query: searchValue,
-          },
-        }
-      )
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: {
+          search_query: searchValue,
+          category: selectedOptionBrandCategory,
+          influencer_gender: selectedOptionInfluencerGender,
+        },
+      })
       .then((response) => {
         setBrands(response?.data?.data); // Adjust according to your API response structure
         setLoading(false);
