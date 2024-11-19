@@ -13,14 +13,16 @@ const BrandsDealCards = ({ text = null, children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal?isBrand=true&isBidAvailable=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
-        const filteredDeals = response.data?.data.filter(deal => deal.isBidAvailable === true);
-        setBrandDeals(filteredDeals);
+        setBrandDeals(response.data?.data);
         setLoading(false);
       })
       .catch((error) => {
