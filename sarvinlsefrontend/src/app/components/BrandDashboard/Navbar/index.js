@@ -626,7 +626,7 @@ function NavBar({ currentColor, id = "" }) {
               <div className={styles.Header_loginWrapper__9_1kE}>
                 <a
                   className={styles.Header_client__RyL2j}
-                  class="ml-12"
+                  class="ml-2"
                   href="/sign-in"
                   target=""
                   rel="noreferrer"

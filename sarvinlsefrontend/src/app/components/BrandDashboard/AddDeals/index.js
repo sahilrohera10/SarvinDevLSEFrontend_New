@@ -9,7 +9,6 @@ import TargetAudience from "./TargetAudience/index";
 import TargetPlatform from "./TargetPlatform/index";
 import TaskDescription from "./TaskDescription/index";
 import StatusMessage from "./StatusMessage";
-import jwt from "jsonwebtoken";
 
 export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -69,9 +68,7 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
 
   const handleSubmit = async (e) => {
     const token = localStorage.getItem("token");
-    const decodedToken = jwt.decode(token);
     const addDealContent = {
-      brand_id: decodedToken.userId,
       product_name: dealTitle,
       product_description: "burger is good for health you should eat burger",
       product_photo:
@@ -100,19 +97,24 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
 
     setProgressBarWidth("100%");
     setLoginStatus({ loading: true, error: "" });
+    console.log(addDealContent);
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal`, addDealContent, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/brand/deal`,
+        addDealContent,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       console.log(response);
       console.log(response.data);
 
-      if (response.data.status != "succuss" ) {
+      if (response.data.status != "succuss") {
         throw new Error("Upload failed");
       }
 
@@ -308,7 +310,10 @@ export default function Home({ openAddDealsModal, setOpenAddDealsModal, id }) {
         </button>
       </div>
       {!statusMessage && (
-        <div className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700" style={{ marginTop: 10 }}>
+        <div
+          className="w-full bg-[#cacaca] rounded-full dark:bg-gray-700"
+          style={{ marginTop: 10 }}
+        >
           <div
             className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0 leading-none rounded-full transition-all ease-out duration-500"
             style={{ width: progressBarWidth, height: "15px" }}
