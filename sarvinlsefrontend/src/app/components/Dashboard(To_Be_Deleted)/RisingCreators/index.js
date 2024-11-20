@@ -1,8 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CreaterCard from "../../commons/CreaterCard/CreaterCard";
 const RisingCreators = ({ text = null, children }) => {
+  const [influencers, setInfluencers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/get_all_influencers_list`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        setInfluencers(response?.data || []); // Update if API response structure differs
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
   return (
     <div style={{ margin: "0px 20px" }}>
       <div style={{ fontSize: 30, fontWeight: 600, margin: 20 }}>

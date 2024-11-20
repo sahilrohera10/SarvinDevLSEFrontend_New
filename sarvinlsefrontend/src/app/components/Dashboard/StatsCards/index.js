@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Podium from "../../commons/icons/podium.png";
 
 const StatsCards = ({ isTabletOrMobile }) => {
+  const [stats, setStats] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stats/1`)
+      .then((response) => {
+        setStats(response?.data || []); // Update if API response structure differs
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
       {" "}
@@ -41,7 +57,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-sm font-medium text-gray-500 flex justify-center"
               }
             >
-              Unique views
+              Creators Registered
             </dt>
 
             <dd
@@ -51,7 +67,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-5xl font-light md:text-6xl"
               }
             >
-              192.1k
+              {stats[1]?.count}
             </dd>
 
             <dd
@@ -61,7 +77,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "flex items-center space-x-1 text-sm font-medium text-green-500"
               }
             >
-              <span>32k increase</span>
+              <span>32% increase</span>
 
               <svg
                 class="w-7 h-7"
@@ -97,7 +113,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-sm font-medium text-gray-500 flex justify-center"
               }
             >
-              Bounce rate
+              Brand Registered
             </dt>
 
             <dd
@@ -107,14 +123,14 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-5xl font-light md:text-6xl"
               }
             >
-              21%
+              {stats[0]?.count}
             </dd>
 
             <dd
               class={
                 isTabletOrMobile
-                  ? "flex items-center space-x-1 text-sm font-medium text-red-500 justify-center"
-                  : "flex items-center space-x-1 text-sm font-medium text-red-500"
+                  ? "flex items-center space-x-1 text-sm font-medium text-green-500 justify-center"
+                  : "flex items-center space-x-1 text-sm font-medium text-green-500"
               }
             >
               <span>7% increase</span>
@@ -130,14 +146,14 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="1.5"
-                  d="M17.25 8.75V17.25H8.75"
+                  d="M17.25 15.25V6.75H8.75"
                 ></path>
                 <path
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="1.5"
-                  d="M17 17L6.75 6.75"
+                  d="M17 7L6.75 17.25"
                 ></path>
               </svg>
             </dd>
@@ -169,11 +185,11 @@ const StatsCards = ({ isTabletOrMobile }) => {
             <dd
               class={
                 isTabletOrMobile
-                  ? "flex items-center space-x-1 text-sm font-medium text-green-500 justify-center"
-                  : "flex items-center space-x-1 text-sm font-medium text-green-500"
+                  ? "flex items-center space-x-1 text-sm font-medium text-red-500 justify-center"
+                  : "flex items-center space-x-1 text-sm font-medium text-red-500"
               }
             >
-              <span>3% increase</span>
+              <span>3% decrease</span>
 
               <svg
                 class="w-7 h-7"
@@ -186,14 +202,14 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="1.5"
-                  d="M17.25 15.25V6.75H8.75"
+                  d="M17.25 8.75V17.25H8.75"
                 ></path>
                 <path
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="1.5"
-                  d="M17 7L6.75 17.25"
+                  d="M17 17L6.75 6.75"
                 ></path>
               </svg>
             </dd>

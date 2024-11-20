@@ -1,10 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// import axios from "axios";
 import Image from "next/image";
 import Podium from "../../commons/icons/podium.png";
 import CreaterCard from "../CreaterCard";
 const RisingCreators = ({ isTabletOrMobile }) => {
+  // const [stats, setStats] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stats/1`)
+  //     .then((response) => {
+  //       setStats(response?.data || []); // Update if API response structure differs
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //       setLoading(false);
+  //     });
+  // }, []);
   return (
     <div style={{ margin: "0px 20px" }}>
       <div
