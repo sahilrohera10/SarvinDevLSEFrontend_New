@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Modal from "../commons/modal";
 import PartyEmoji from "../../components/commons/icons/partyEmoji.json";
 import Confetti from "react-confetti";
-import Lottie from "react-lottie-player";
+import  from "react--player";
 
 const SuccessModal = ({
   openModal = false,
@@ -27,7 +27,7 @@ const SuccessModal = ({
               <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto">
                   <div class="flex justify-center">
-                    <Lottie
+                    <
                       loop
                       animationData={PartyEmoji}
                       play

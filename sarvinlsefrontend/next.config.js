@@ -27,6 +27,10 @@ const nextConfig = {
       "images.ctfassets.net",
       "instagram.fdel73-1.fna.fbcdn.net",
       "m.media-amazon.com",
+      "www.influglue.com",
+      "indianinfluencers.in",
+      "storage.googleapis.com",
+      "blog.chtrbox.com",
     ], // regarding Creater Card testing Image
   },
   webpack(config) {

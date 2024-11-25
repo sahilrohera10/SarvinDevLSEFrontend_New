@@ -1,6 +1,6 @@
 import React from "react";
-import Lottie from "react-lottie-player";
-import ProfilePic from "../../commons/icons/profilepic.json";
+// import Lottie from "react-lottie-player";
+// import ProfilePic from "../../commons/icons/profilepic.json";
 import NumberInput from "../../commons/NumberInput";
 function ContactDetailForm() {
   return (
@@ -11,12 +11,12 @@ function ContactDetailForm() {
         justifyContent: "center",
       }}
     >
-      <Lottie
+      {/* <Lottie
         loop
         animationData={ProfilePic}
         play
         style={{ width: "40%", height: "40%", marginRight: 20 }}
-      />
+      /> */}
 
       <form>
         <div class="space-y-2">

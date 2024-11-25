@@ -49,7 +49,7 @@ const MapIntegration = ({ isTabletOrMobile }) => {
     {
       address: (
         <MapCards
-          name="Osama-Bin-Laden"
+          name="Koel Sharma"
           img="https://media.istockphoto.com/id/1188563581/photo/head-shot-portrait-offended-upset-african-american-girl-feeling-bad.jpg?s=612x612&w=0&k=20&c=cY8vMx4MyrcaL0KfmFkHluHzx0ufQfh-XExtbMN1hm8="
         />
       ),

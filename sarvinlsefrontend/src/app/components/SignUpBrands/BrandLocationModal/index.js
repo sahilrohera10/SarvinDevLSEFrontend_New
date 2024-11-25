@@ -5,9 +5,6 @@ import axios from "axios";
 
 import Modal from "../../commons/modal";
 import PartyEmoji from "../../commons/icons/celebrateconfetti.json";
-import Image from "next/image";
-import Confetti from "react-confetti";
-import Lottie from "react-lottie-player";
 import { FooterDivider } from "flowbite-react";
 import Toast from "../../commons/toast/index";
 import Select from "react-select";
@@ -62,7 +59,9 @@ const BrandLocationModal = ({
         .then((response) => {
           setResponseText(JSON.parse(response?.request?.responseText));
           setLoading(false);
-          setLocation(String(responseText?.features?.[0]?.properties?.formatted));
+          setLocation(
+            String(responseText?.features?.[0]?.properties?.formatted)
+          );
           setDisable(true);
         })
         .catch((error) => {
@@ -94,7 +93,7 @@ const BrandLocationModal = ({
     setSubmitLoading(true);
     try {
       const response = await signUp();
-      handleSubmit(response.flag,response.response);
+      handleSubmit(response.flag, response.response);
       setOpenModal(false);
     } catch (error) {
       console.error("Error during sign-up process:", error);
@@ -107,17 +106,27 @@ const BrandLocationModal = ({
       <div style={{ maxWidth: "50%" }}>
         <Modal openModal={openModal} setOpenModal={setOpenModal}>
           <div class="flex align-middle gap-2">
-            <h2 class=" text-2xl font-semibold mt-2  text-gray-900">Your account is confirmed!</h2>
-            <Lottie loop animationData={PartyEmoji} play style={{ width: "5%", height: "5%", marginTop: 0 }} />
+            <h2 class=" text-2xl font-semibold mt-2  text-gray-900">
+              Your account is confirmed!
+            </h2>
+            <loop
+              animationData={PartyEmoji}
+              play
+              style={{ width: "5%", height: "5%", marginTop: 0 }}
+            />
           </div>
           <div class="mt-4 text-gray-900 flex justify-start">
-            We need just a few more details so we can deliver a more personalized experience for you.
+            We need just a few more details so we can deliver a more
+            personalized experience for you.
           </div>
           <div class="mt-4">
             <FooterDivider />
           </div>
           <form class="max-w-full mx-auto mt-4" onSubmit={(e) => onSubmit(e)}>
-            <label for="Location" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+            <label
+              for="Location"
+              class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white"
+            >
               Locations
             </label>{" "}
             <div className="w-full flex justify-center gap-2">
@@ -189,9 +198,14 @@ const BrandLocationModal = ({
               >
                 Click Me For Getting Your Location
               </button>
-              <div class="font-thin">(If the location is incorrect, click on it again.)</div>
+              <div class="font-thin">
+                (If the location is incorrect, click on it again.)
+              </div>
             </div>
-            <label for="countries" class="block mb-2 mt-5 text-sm font-semibold text-gray-900 dark:text-white">
+            <label
+              for="countries"
+              class="block mb-2 mt-5 text-sm font-semibold text-gray-900 dark:text-white"
+            >
               Category
             </label>{" "}
             <div className="w-full flex justify-center gap-2">
@@ -200,10 +214,12 @@ const BrandLocationModal = ({
                 placeholder="Which Type of Influencer You Are?"
                 onChange={(selectedOptions) => {
                   if (selectedOptions && selectedOptions.length > 0) {
-                    const selectedValues = selectedOptions.map(option => option.value); // Extract the values
-                    setCategory(selectedValues.join(',')); 
+                    const selectedValues = selectedOptions.map(
+                      (option) => option.value
+                    ); // Extract the values
+                    setCategory(selectedValues.join(","));
                   } else {
-                    setCategory(""); 
+                    setCategory("");
                   }
                 }}
                 isClearable={true}
@@ -262,7 +278,11 @@ const BrandLocationModal = ({
             {showToast && (
               <div className="w-full flex justify-end mt-4">
                 <div className="w-1/2">
-                  <Toast text="Enter your location." type={2} setShowToast={setShowToast} />
+                  <Toast
+                    text="Enter your location."
+                    type={2}
+                    setShowToast={setShowToast}
+                  />
                 </div>
               </div>
             )}

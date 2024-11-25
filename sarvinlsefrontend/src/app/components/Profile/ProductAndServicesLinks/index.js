@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Lottie from "react-lottie-player";
-import ProfilePic from "../../commons/icons/profilepic.json";
+// import Lottie from "react-lottie-player";
+// import ProfilePic from "../../commons/icons/profilepic.json";
 import Toast from "../../commons/toast";
 import jwt from "jsonwebtoken";
 import axios from "axios";
@@ -78,12 +78,12 @@ function ProductAndServicesLinks({ setOpenProductAndServices, setLinks }) {
           justifyContent: "center",
         }}
       >
-        <Lottie
+        {/* <Lottie
           loop
           animationData={ProfilePic}
           play
           style={{ width: "40%", height: "40%", marginRight: 20 }}
-        />
+        /> */}
 
         <form
           style={{ maxHeight: "400px", overflowY: "auto" }}

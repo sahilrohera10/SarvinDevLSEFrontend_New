@@ -15,6 +15,7 @@ export default function CreaterCard({
   profession = "CEO and Founder",
   img = "https://tse1.mm.bing.net/th?id=OIP.K7lG3005eY-tEHwlxf61qgHaFx&pid=Api&P=0&w=300&h=300",
   tags = 0,
+  deal_cracked = 20,
 }) {
   return (
     <div className="max-w-sm bg-white relative group border shadow-lg rounded-lg mb-10">
@@ -32,12 +33,25 @@ export default function CreaterCard({
                 width: "100%",
               }}
             >
-              {" "}
-              <Image alt="Badge" src={Tags[tags]} width={36} height={36} />
+              <div className="w-9 h-9">
+                <Image
+                  alt="Badge"
+                  src={Tags[tags]}
+                  layout="responsive"
+                  width={36}
+                  height={36}
+                />
+              </div>
             </div>
           )}
-          <div>
-            <Image alt="alt text." src={img} width={300} height={200} />
+          <div className="w-full h-48">
+            <Image
+              alt="Profile"
+              src={img}
+              width={300}
+              height={200}
+              className="object-cover"
+            />
           </div>
 
           <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
@@ -63,7 +77,9 @@ export default function CreaterCard({
       <div className="p-5 bg-white">
         <div className="text-black text-xl font-semibold">{name}</div>
         <div className="text-gray-400 text-md">{profession}</div>
-        <div className="text-gray-400 text-md">Deal Cracked Count: 20</div>
+        <div className="text-gray-400 text-md">
+          Deal Cracked Count: {deal_cracked}
+        </div>
       </div>
     </div>
   );
