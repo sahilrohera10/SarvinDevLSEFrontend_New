@@ -3,7 +3,6 @@ import React from "react";
 import Activity from "../../../commons/icons/activity.json";
 import Lottie from "react-lottie-player";
 import NotFound from "../../../commons/NotFound";
-import NumberInput from "../../../commons/NumberInput";
 import { FaCalendar } from "react-icons/fa";
 
 function ActivityModal() {

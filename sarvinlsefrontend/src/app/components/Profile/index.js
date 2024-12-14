@@ -5,8 +5,7 @@ import styles from "./styles.module.css";
 import User from "../Profile/User";
 import ProfileDetails from "./ProfileDetails";
 import NavBar from "../commons/Navbar";
-import Lottie from "react-lottie-player";
-import Handwave from "../commons/icons/handwave.json";
+
 import { CircularProgressbar } from "react-circular-progressbar";
 
 import "react-circular-progressbar/dist/styles.css";
@@ -48,17 +47,6 @@ function Profile() {
               style={{ display: "flex" }}
             >
               Hi! {branddeals?.full_name}{" "}
-              <Lottie
-                loop
-                animationData={Handwave}
-                play
-                style={{
-                  width: "3.5%",
-                  height: "3.5%",
-                  marginLeft: 10,
-                  transform: "rotate(30deg)",
-                }}
-              />
             </div>
             <div className={styles.contact_info}>
               Please complete your contact info, education, work experience,

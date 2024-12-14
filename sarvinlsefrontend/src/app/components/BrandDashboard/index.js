@@ -7,8 +7,6 @@ import axios from "axios";
 import Footer from "../commons/Footer";
 
 import styles from "./styles.module.css";
-// import Lottie from "react-lottie-player";
-// import Handwave from "../commons/icons/handwave.json";
 
 import MetricCards from "../commons/MetricCard";
 import Follower from "../commons/icons/follower.png";
@@ -16,7 +14,7 @@ import Engagement from "../commons/icons/engagmentrate.png";
 import Score from "../commons/icons/score.png";
 import Image from "next/image";
 import BottomNavbar from "./BottomNavbar";
-// import Analytics from "./Analytics";
+
 import BidDeals from "./BidDeals";
 import BrandDeals from "./BrandDeals";
 import EventDeals from "./EventDeals";
@@ -111,18 +109,6 @@ const BrandDashboard = () => {
             style={{ display: "flex" }}
           >
             Hi! {brands?.brand_name}{" "}
-            {/* <Lottie
-              loop
-              animationData={Handwave}
-              play
-              style={{
-                width: "7%",
-                height: "7%",
-                marginLeft: 4,
-                marginTop: 4,
-                transform: "rotate(30deg)",
-              }}
-            /> */}
           </div>
           <div className={styles.contact_info}>
             <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">

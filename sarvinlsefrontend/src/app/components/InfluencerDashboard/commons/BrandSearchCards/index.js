@@ -7,8 +7,6 @@ import BrandListCard from "../BrandListCards";
 import ViewSwitcher from "../../../commons/GridListToggle";
 import Podium from "../../../commons/icons/Business.png";
 import axios from "axios";
-import Lottie from "react-lottie-player";
-import NotFound from "../../../commons/icons/404Notfound.json";
 
 const BrandsDealCards = ({
   text = null,
@@ -83,17 +81,7 @@ const BrandsDealCards = ({
           </div>
         ) : (
           <div class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-5 bg-slate-200 rounded-md">
-              <Lottie
-                loop
-                animationData={NotFound}
-                play
-                style={{
-                  marginLeft: 4,
-                  marginTop: 4,
-                }}
-              />
-            </div>
+            <div class="p-5 bg-slate-200 rounded-md">Not Found</div>
             <div class="px-5 pb-5  ">
               <div class="text-2xl flex justify-center my-2 font-normal tracking-tight text-gray-700 dark:text-white">
                 Nothing is Here For Now...

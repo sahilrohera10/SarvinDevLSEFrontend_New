@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import Modal from "../commons/modal";
 import PartyEmoji from "../../components/commons/icons/partyEmoji.json";
+import InfluencerCelebration from "../../components/commons/icons/influencerCelebration.png";
 import Confetti from "react-confetti";
 import Lottie from "react-lottie-player";
+import Image from "next/image";
 
 const SuccessModal = ({
   openModal = false,
@@ -22,16 +24,21 @@ const SuccessModal = ({
       </div>
       <div style={{ maxWidth: "50%" }}>
         <Modal openModal={openModal} setOpenModal={setOpenModal}>
-          <>
+          <div>
             <div>
               <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto">
                   <div class="flex justify-center">
+                    <Image
+                      src={InfluencerCelebration}
+                      width={150}
+                      height={150}
+                    />{" "}
                     <Lottie
                       loop
                       animationData={PartyEmoji}
                       play
-                      style={{ width: "10%", height: "10%" }}
+                      style={{ width: "0%", height: "0%" }}
                     />
                   </div>
                   {role == "Deals" ? (
@@ -74,7 +81,7 @@ const SuccessModal = ({
                 </div>
               </div>
             </div>
-          </>
+          </div>
         </Modal>
       </div>
     </>

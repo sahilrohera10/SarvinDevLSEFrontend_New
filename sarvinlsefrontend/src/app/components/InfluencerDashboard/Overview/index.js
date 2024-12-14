@@ -3,9 +3,6 @@ import React from "react";
 import styles from "./styles.module.css";
 import User from "./User";
 import ProfileDetails from "./ProfileDetails";
-// import Lottie from "react-lottie-player";
-// import Handwave from "../../commons/icons/handwave.json";
-// import { CircularProgressbar } from "react-circular-progressbar";
 
 import "react-circular-progressbar/dist/styles.css";
 

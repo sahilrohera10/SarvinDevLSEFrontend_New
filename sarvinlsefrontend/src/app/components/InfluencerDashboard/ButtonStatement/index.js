@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Lottie from "react-lottie-player";
 import sarvinBrand from "../../commons/icons/sarvinBrandOK.png";
 import HappyInfluencer from "../../commons/icons/happyInfluencer.png";
-import Activity from "../../commons/icons/activity.json";
 
 import { Button } from "../../commons/button";
 import MetricCard from "../../commons/MetricCard";
