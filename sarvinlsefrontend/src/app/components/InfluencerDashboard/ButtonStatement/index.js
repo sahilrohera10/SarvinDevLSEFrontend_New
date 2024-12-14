@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Lottie from "react-lottie-player";
-import ProfilePic from "../../commons/icons/profilepic.json";
+import sarvinBrand from "../../commons/icons/sarvinBrandOK.png";
+import HappyInfluencer from "../../commons/icons/happyInfluencer.png";
 import Activity from "../../commons/icons/activity.json";
 
 import { Button } from "../../commons/button";
@@ -10,7 +11,6 @@ import MetricCard from "../../commons/MetricCard";
 import Ca from "../../commons/icons/ca.png";
 import Man from "../../commons/icons/actor.png";
 import Image from "next/image";
-import { Axios } from "axios";
 
 function ButtonStatement({
   crackedSteps = 0,
@@ -67,11 +67,11 @@ function ButtonStatement({
           <div class="w-full font-semibold text-xl">
             {" "}
             <div class="flex justify-center">
-              <Lottie
-                loop
-                animationData={ProfilePic}
-                play
-                style={{ width: "50%", height: "50%" }}
+              <Image
+                src={sarvinBrand}
+                alt="Successful Pic"
+                width={150}
+                height={150}
               />
             </div>
             <br />
@@ -115,11 +115,11 @@ function ButtonStatement({
             <div class="font-medium text-xl">
               {" "}
               <div class="flex justify-center">
-                <Lottie
-                  loop
-                  animationData={Activity}
-                  play
-                  style={{ width: "50%", height: "40%" }}
+                <Image
+                  src={HappyInfluencer}
+                  alt="Happy_Influencers"
+                  width={150}
+                  height={150}
                 />
               </div>
               <br />
