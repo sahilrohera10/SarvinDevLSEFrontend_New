@@ -1,20 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import NavBar from "../commons/Navbar";
-import Instagram from "../commons/icons/instagram.png";
-import Image from "next/image";
+
 import { FaCopy } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import ListCard from "../commons/Profilecard/ListCard";
-import SuccessModal from "../SuccessModal";
+
 import LocationInputModal from "../LocationInputModal";
 import { useMediaQuery } from "react-responsive";
 
 const OTPScreens = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const [openModal, setOpenModal] = useState(false);
-  const [openSuccessModal, setOpenSuccessModal] = useState(false);
   return (
     <>
       <div

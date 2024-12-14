@@ -4,7 +4,6 @@ import React from "react";
 import styles from "./styles.module.css";
 import VerticalTimeline from "./VerticalTimeline";
 import Image from "next/image";
-// import { useSpring, animated } from 'react-spring';
 
 function IntroductoryPage() {
   return (
