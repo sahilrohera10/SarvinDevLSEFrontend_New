@@ -86,44 +86,6 @@ const RisingCreators = ({ isTabletOrMobile }) => {
               img="https://blog.chtrbox.com/wp-content/uploads/2022/01/Harshs-profile-pic.jpg"
               deal_cracked={11}
             />
-            <CreaterCard
-              name="Sunny Singh"
-              profession="Model and Influencer"
-              img="https://www.influglue.com/files/medialibrary/7c0b1940a26348eaf948bf2162314580.jpg"
-              tags={1}
-              deal_cracked={10}
-            />
-            <CreaterCard
-              name="Eisha Singh"
-              profession="Financial Advisor"
-              img="https://indianinfluencers.in/wp-content/uploads/2023/01/Esha-IF.png"
-              tags={2}
-              deal_cracked={19}
-            />
-            <CreaterCard
-              name="Shefali Sharma"
-              profession="Nutritionist"
-              img="https://storage.googleapis.com/ares-profile-pictures/hd/asheemavardaan-1b528fc75ca8e85d0746bc5eb05b8ba3_hd.jpg"
-              tags={3}
-              deal_cracked={43}
-            />
-            <CreaterCard
-              name="Sandeep Sharma"
-              profession="Charted Accountant"
-              img="https://blog.chtrbox.com/wp-content/uploads/2022/01/Harshs-profile-pic.jpg"
-              deal_cracked={11}
-            />
-
-            <style jsx>{`
-              @keyframes scroll {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(-100%);
-                }
-              }
-            `}</style>
           </div>
         </div>
       ) : (

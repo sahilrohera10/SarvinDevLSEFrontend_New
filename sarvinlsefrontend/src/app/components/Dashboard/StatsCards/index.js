@@ -67,7 +67,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-5xl font-light md:text-6xl"
               }
             >
-              {stats[1]?.count}
+              {stats[1]?.count || 99}
             </dd>
 
             <dd
@@ -123,7 +123,7 @@ const StatsCards = ({ isTabletOrMobile }) => {
                   : "text-5xl font-light md:text-6xl"
               }
             >
-              {stats[0]?.count}
+              {stats[0]?.count || 56}
             </dd>
 
             <dd
