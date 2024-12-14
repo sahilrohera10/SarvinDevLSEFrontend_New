@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Activity from "../../../commons/icons/activity.json";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player";
 import NotFound from "../../../commons/NotFound";
 import { FaCalendar } from "react-icons/fa";
 
@@ -14,12 +14,12 @@ function ActivityModal() {
         justifyContent: "center",
       }}
     >
-      <Lottie
+      {/* <Lottie
         loop
         animationData={Activity}
         play
         style={{ width: "40%", height: "40%", marginRight: 20 }}
-      />
+      /> */}
 
       <form>
         <div class="space-y-2">

@@ -5,9 +5,8 @@ import axios from "axios";
 
 import Modal from "../commons/modal";
 import PartyEmoji from "../../components/commons/icons/celebrateconfetti.json";
-import Image from "next/image";
-import Confetti from "react-confetti";
-import Lottie from "react-lottie-player";
+
+// import Lottie from "react-lottie-player";
 import { FooterDivider } from "flowbite-react";
 import Select from "react-select";
 
@@ -74,12 +73,12 @@ const LocationInputModal = ({ openModal = False, setOpenModal = () => {} }) => {
             <h2 class=" text-2xl font-semibold mt-2  text-gray-900">
               Your account is confirmed!
             </h2>
-            <Lottie
+            {/* <Lottie
               loop
               animationData={PartyEmoji}
               play
               style={{ width: "5%", height: "5%", marginTop: 0 }}
-            />
+            /> */}
           </div>
           <div class="mt-4 text-gray-900 flex justify-start">
             We need just a few more details so we can deliver a more

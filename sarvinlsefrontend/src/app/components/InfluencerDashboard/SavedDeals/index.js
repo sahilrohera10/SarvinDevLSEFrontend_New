@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BrandsDealCards from "../commons/BrandsDealCards";
-import Lottie from "react-lottie-player";
-import Handwave from "../../commons/icons/404Notfound.json";
+// import Lottie from "react-lottie-player";
+// import Handwave from "../../commons/icons/404Notfound.json";
 const SavedDeals = () => {
   const [branddeals, setBranddeals] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,7 +51,7 @@ const SavedDeals = () => {
         <div class="flex w-full justify-center m-6">
           <div class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="p-5 bg-slate-200 rounded-md">
-              <Lottie
+              {/* <Lottie
                 loop
                 animationData={Handwave}
                 play
@@ -59,7 +59,7 @@ const SavedDeals = () => {
                   marginLeft: 4,
                   marginTop: 4,
                 }}
-              />
+              /> */}
             </div>
             <div class="px-5 pb-5  ">
               <div class="text-2xl flex justify-center my-2 font-normal tracking-tight text-gray-700 dark:text-white">

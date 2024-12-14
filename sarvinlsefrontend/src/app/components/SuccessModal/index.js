@@ -5,7 +5,7 @@ import Modal from "../commons/modal";
 import PartyEmoji from "../../components/commons/icons/partyEmoji.json";
 import InfluencerCelebration from "../../components/commons/icons/influencerCelebration.png";
 import Confetti from "react-confetti";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player";
 import Image from "next/image";
 
 const SuccessModal = ({
@@ -34,12 +34,12 @@ const SuccessModal = ({
                       width={150}
                       height={150}
                     />{" "}
-                    <Lottie
+                    {/* <Lottie
                       loop
                       animationData={PartyEmoji}
                       play
                       style={{ width: "0%", height: "0%" }}
-                    />
+                    /> */}
                   </div>
                   {role == "Deals" ? (
                     <div>
